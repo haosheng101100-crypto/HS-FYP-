@@ -1,0 +1,31 @@
+[
+  {
+    "path": "work/constant79_control.jsonl",
+    "original_sha256": "1511efa6273755ecf156331ed104ec31b8289921cacb506599132908637c915e",
+    "selected_times_s": [
+      45.4
+    ],
+    "verbatim_json_rows": true,
+    "scope": "Regression fixture excerpt, not complete physical evidence"
+  },
+  {
+    "path": "work/noisy71_control.jsonl",
+    "original_sha256": "c76ec7af0ac4aad01a6b4ebb561e741948003df6e07604d85ef2b58bb14dfe8a",
+    "selected_times_s": [
+      46.74,
+      46.86
+    ],
+    "verbatim_json_rows": true,
+    "scope": "Regression fixture excerpt, not complete physical evidence"
+  },
+  {
+    "path": "outputs/uncertainty_landing_20261024/batch_081/cycle_002/results/receding_control.jsonl",
+    "original_sha256": "d31343b6593cc70412b7cfe9802415217d94fcc8ce280695fbaf3d5b188bceba",
+    "selected_times_s": [
+      42.28,
+      42.8
+    ],
+    "verbatim_json_rows": true,
+    "scope": "Regression fixture excerpt, not complete physical evidence"
+  }
+]

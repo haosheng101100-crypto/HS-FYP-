@@ -1,0 +1,3 @@
+-r requirements.txt
+pymavlink
+# Gazebo Harmonic Python bindings and GTK come from the Ubuntu/system installation.

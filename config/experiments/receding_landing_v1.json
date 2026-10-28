@@ -1,0 +1,31 @@
+{
+  "schema": "bezier_landing_simulation_design_v1",
+  "simulation_only": true,
+  "actuation_enabled": false,
+  "geometry_profile": "config/airframes/iris_fixed_gimbal_sim.json",
+  "footprint_definition": "0.55m radius disk is a declared full-body design envelope; mesh coverage not independently verified. Area-ratio example uses the area of this disk, not measured aircraft silhouette or landing-gear rectangle.",
+  "limits": {
+    "speed": 6.0,
+    "acceleration": 3.0,
+    "jerk": 8.0,
+    "tilt_rad": 0.3141592653589793,
+    "upward_speed": 1.0,
+    "downward_speed": 1.0,
+    "vertical_acceleration": 1.5,
+    "contact_speed": 0.1,
+    "footprint_radius": 0.55,
+    "margin": 0.02,
+    "position_reserve": 0.01,
+    "corridor_slope": 1.0,
+    "minimum_vertical_specific_force": 5.0,
+    "maximum_specific_force": 13.0,
+    "max_age": 0.06,
+    "max_platform_acceleration": 2.6,
+    "max_platform_yaw_rate": 1.0,
+    "segments": 3,
+    "audit_samples": 301,
+    "tolerance": 0.00002
+  },
+  "limits_origin": "Software design envelope for the new offline planner, not a change to legacy controller settings or identified aircraft thrust/response capability.",
+  "dependencies_tested_windows": {"cvxpy": "1.9.3", "clarabel": "0.11.1", "numpy": "2.5.4", "scipy": "1.18.1"}
+}

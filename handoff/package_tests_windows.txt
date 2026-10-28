@@ -1,0 +1,8 @@
+C:\Users\new\Documents\ChatGPT\HS毕设\work\github_algorithm_upload_20261028\landing\receding_landing.py:436: UserWarning: The problem includes expressions that don't support CPP backend. Defaulting to the SCIPY backend for canonicalization.
+  problem.solve(solver='CLARABEL', max_iter=100, tol_gap_abs=1e-8, tol_feas=1e-8, enforce_dpp=True)
+C:\Users\new\Documents\ChatGPT\HS毕设\work\github_algorithm_upload_20261028\landing\receding_landing.py:436: UserWarning: Solution may be inaccurate. Try another solver, adjusting the solver settings, or solve with verbose=True for more information.
+  problem.solve(solver='CLARABEL', max_iter=100, tol_gap_abs=1e-8, tol_feas=1e-8, enforce_dpp=True)
+----------------------------------------------------------------------
+Ran 130 tests in 18.154s
+
+OK

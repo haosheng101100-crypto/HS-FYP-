@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "simulation_only": true,
+  "new_flight_performed": false,
+  "tests_run": 41,
+  "primary_contact_angle_deg": 2.0,
+  "primary_duration_s": 6.4,
+  "primary_terminal_checks": {
+    "terminal_position_matches_boundary": true,
+    "terminal_velocity_matches_boundary": true,
+    "terminal_attitude_matches_boundary": true,
+    "terminal_pitch_rate_matches_boundary": true,
+    "minimum_terminal_leg_gap_zero": true,
+    "precontact_sampled_leg_gaps_nonnegative": true,
+    "detected_height_band_entries_pass": true
+  },
+  "samples_per_final_candidate": 2001,
+  "duration_step_s": 0.05,
+  "reference_family": "degree-nine COM polynomial matching p/v/a/jerk/snap at both ends",
+  "terminal_com_snap_world_m_s4": [
+    0.0,
+    0.0,
+    3.0
+  ],
+  "all_limits_are_reference_design_conditions": true,
+  "actual_thrust_or_torque_capability_checked": false,
+  "flight_controller_tracking_checked": false,
+  "post_contact_stability_checked": false,
+  "input_sha256": {
+    "config\\experiments\\snap_approach_v2.json": "31ef25d2583584035a5fe3d73998b8d2aacd951457133c0b6b0e0d92073631fd",
+    "config\\experiments\\touchdown_boundary_v1.json": "d60ced63572ced8f561231f90986c7ef726355787845c6a86d6005ff7a0796bd",
+    "config\\airframes\\iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86",
+    "landing\\septic_approach.py": "10376d115895f2fdf7e660cb75e4b7536fd5c07f2421c172fb1b1e71489df15c",
+    "landing\\touchdown_boundary.py": "f7c0708a6ff716e2927443b1413ddf15e75a116a763bd82a301cbdf54e7d10c7",
+    "landing\\contact_geometry.py": "8c04890192b7899ac9d9ffd554529366954bbd95f03abf2309ee3376cc81cec5",
+    "tests\\test_septic_approach.py": "02a3161ec6202dc00ec7fb30e28bdf71b8e71961ea47f71e8081f225e42bfcb3",
+    "tools\\verify_contact_approach.py": "da986c17e4c2fac44dbaa3820de3ae8d3827ef5092da2ea326026361fb018e2a",
+    "tools\\plan_contact_approach.py": "585b734f7c7232defc549979dbb90cc4b8421ab04f94a8fefcbc0fcd666a172a"
+  }
+}

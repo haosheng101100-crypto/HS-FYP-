@@ -1,0 +1,42 @@
+{
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "initial_vehicle_speed_m_s": 3.0,
+  "vehicle_acceleration_m_s2": -0.5,
+  "lead_s": 0.0,
+  "duration_grid_s": [
+    4.5,
+    5.0,
+    5.25,
+    5.5,
+    5.75
+  ],
+  "target_closing_speed_m_s": 0.45,
+  "horizontal_feedback": {
+    "position_gain": 1.5,
+    "velocity_gain": 2.4,
+    "acceleration_lead_s": 0.25,
+    "maximum_acceleration_m_s2": 3.2
+  },
+  "supported_land_maximum_position_control_tilt_deg": 5.0,
+  "design_limits": {
+    "max_horizontal_speed_m_s": 6.0,
+    "max_vertical_speed_m_s": 1.2,
+    "max_horizontal_acceleration_m_s2": 2.5,
+    "max_vertical_acceleration_m_s2": 2.0,
+    "max_jerk_m_s3": 8.0,
+    "max_snap_m_s4": 15.0,
+    "max_tilt_deg": 15.0,
+    "max_pitch_rate_deg_s": 20.0,
+    "max_pitch_acceleration_deg_s2": 90.0,
+    "minimum_upward_specific_force_m_s2": 3.0,
+    "edge_height_margin_m": 0.15,
+    "footprint_margin_m": 0.02,
+    "near_contact_height_m": 0.08,
+    "near_contact_tangential_speed_m_s": 0.28,
+    "near_contact_closing_speed_m_s": 0.7,
+    "near_contact_tilt_deg": 5.0,
+    "max_low_horizontal_speed_lead_s": 0.7
+  },
+  "interpretation": "Physical wheel braking from measured 3 m/s to zero; hover entry and touchdown before stop. Initial brake intent is declared, then corrected using causal measured acceleration. Simulation only."
+}

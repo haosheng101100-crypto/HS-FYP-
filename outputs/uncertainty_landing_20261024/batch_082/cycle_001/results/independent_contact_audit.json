@@ -1,0 +1,179 @@
+{
+  "passed": true,
+  "checks": {
+    "no_unexpected_collision": true,
+    "raw_precontact_fresh": true,
+    "tangential_speed": true,
+    "closing_speed": true,
+    "active_foot_clearance": true,
+    "footprint": true,
+    "world_level_attitude": true,
+    "angular_speed": true,
+    "whole_aircraft_contact_margin": true,
+    "deck_area_ratio_1p5": true,
+    "physical_deck_matches_planning_config": true,
+    "every_planner_request_has_actual_deck_dimensions": true,
+    "measured_envelope_matches_physical_assets": true,
+    "normal_land_and_disarm_observed": true,
+    "three_seconds_postdisarm": true,
+    "raw_postdisarm_support": true,
+    "whole_aircraft_all_postcontact_margin": true,
+    "live_contract_passed": true,
+    "sampled_physical_speed_bound": true,
+    "sampled_physical_acceleration_bound": true,
+    "original_contact_limits": true
+  },
+  "incomplete_final_raw_record": null,
+  "raw_contact_s": 46.718,
+  "raw_precontact_s": 46.7,
+  "raw_disarm_hint_s": 49.06,
+  "sampled_flight_peaks": {
+    "speed_m_s": 1.6248206889527055,
+    "acceleration_m_s2": 1.4161510044937689
+  },
+  "minimum_postcontact_whole_aircraft_margin_m": 0.054976414115832095,
+  "precontact_aircraft": {
+    "pose": {
+      "position_world_m": [
+        5.225858445130292,
+        0.16039848930788936,
+        0.9967222642173074
+      ],
+      "orientation_xyzw": [
+        9.054421863872213e-06,
+        0.001970823323689591,
+        -0.0003602538965320974,
+        0.9999979929932731
+      ]
+    },
+    "velocity_at_origin_world_m_s": [
+      0.34362860448605037,
+      0.015700011054313172,
+      -0.07656222289364134
+    ],
+    "angular_velocity_world_rad_s": [
+      0.0038745234038760888,
+      -0.018200663768620395,
+      0.006849859290161083
+    ]
+  },
+  "precontact_deck": {
+    "motion": {
+      "pose": {
+        "position_world_m": [
+          5.223008262101878,
+          0.15099635667022376,
+          0.7999999944660836
+        ],
+        "orientation_xyzw": [
+          -2.1821170702668147e-12,
+          -3.831358306732851e-11,
+          0.021822081642564013,
+          0.9997618700234497
+        ]
+      },
+      "velocity_at_origin_world_m_s": [
+        0.3340313343759908,
+        0.014598388017784954,
+        8.711518904207209e-14
+      ],
+      "angular_velocity_world_rad_s": [
+        2.7302677652085906e-12,
+        -7.96985087124409e-11,
+        -0.026580232075038814
+      ]
+    },
+    "half_extents_m": [
+      0.34,
+      0.4081766061261277
+    ]
+  },
+  "active_feet": [
+    {
+      "name": "front_right_leg_collision",
+      "point_body_m": [
+        0.1279999551843028,
+        -0.2200211696708413,
+        -0.195
+      ],
+      "point_world_m": [
+        5.352930219966425,
+        -0.05971103531262703,
+        0.8012155767566628
+      ],
+      "projection_on_deck_world_m": [
+        5.3529302199665185,
+        -0.0597110353126303,
+        0.7999999944766162
+      ],
+      "clearance_m": 0.0012155822800465905,
+      "velocity_world_m_s": [
+        0.3486946752411131,
+        0.01732793006787227,
+        -0.07510225174992528
+      ],
+      "relative_velocity_deck_m_s": [
+        0.020514475824615998,
+        0.005292814827202253,
+        -0.0751022517613294
+      ],
+      "closing_speed_m_s": 0.0751022517613294,
+      "tangential_speed_m_s": 0.021186259867041334,
+      "support_set_kind": "unique_rim_point",
+      "support_set_radius_m": 0.0,
+      "closing_speed_upper_bound_m_s": 0.0751022517613294,
+      "tangential_speed_upper_bound_m_s": 0.021186259867041334,
+      "projected_point_inside_deck": true,
+      "whole_cylinder_footprint_margins_m": [
+        0.2187205398611214,
+        0.18721126658731937
+      ]
+    },
+    {
+      "name": "front_left_leg_collision",
+      "point_body_m": [
+        0.1279999551843028,
+        0.21997883032915871,
+        -0.195
+      ],
+      "point_world_m": [
+        5.353247258462411,
+        0.3802888504063028,
+        0.8012229198347434
+      ],
+      "projection_on_deck_world_m": [
+        5.353247258462505,
+        0.3802888504062995,
+        0.7999999944754564
+      ],
+      "clearance_m": 0.0012229253592869161,
+      "velocity_world_m_s": [
+        0.3456806042873563,
+        0.017330073286031457,
+        -0.07339169158393734
+      ],
+      "relative_velocity_deck_m_s": [
+        0.005819576311721378,
+        0.005945200208180581,
+        -0.07339169159543973
+      ],
+      "closing_speed_m_s": 0.07339169159543973,
+      "tangential_speed_m_s": 0.00831942750213613,
+      "support_set_kind": "unique_rim_point",
+      "support_set_radius_m": 0.0,
+      "closing_speed_upper_bound_m_s": 0.07339169159543973,
+      "tangential_speed_upper_bound_m_s": 0.00831942750213613,
+      "projected_point_inside_deck": true,
+      "whole_cylinder_footprint_margins_m": [
+        0.19920494936848931,
+        0.1795423977210071
+      ]
+    }
+  ],
+  "scope": "Actual raw Gazebo contact/pose reconstruction; causal fit and sampled support. FCU mode/armed flags from synchronized live heartbeat, not an independent DataFlash disarm-method audit.",
+  "source_sha256": {
+    "model_states.jsonl": "eab6956f0ab01db70ed7f1917f5aed0188b4c50922404e425a20cafd1a6cb0cc",
+    "receding_control.jsonl": "8d0cd76cc6f7c738b74fa0a89eca7805135a84543a7b393df0d000d910190cec",
+    "execution_status.json": "c7b15382186b8a3e2f1ae866dfead29370d4a59dca346a24b5629c9f56f0462a"
+  }
+}

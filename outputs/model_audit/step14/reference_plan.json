@@ -1,0 +1,372 @@
+{
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "duration_s": 5.0,
+  "terminal_snap_z_m_s4": 0.0,
+  "experiment_configuration": {
+    "simulation_only": true,
+    "hardware_deployment_allowed": false,
+    "scene": "stationary deck at (5,0,0.8); same physical airframe and approach initial state as static step12",
+    "objective": "Shortest feasible sampled degree-nine approach; retain finite downward velocity until contact, without terminal hover",
+    "target_closing_speed_m_s": 0.45,
+    "contact_closing_speed_interval_m_s": [
+      0.25,
+      0.65
+    ],
+    "target_nose_up_deg": 2.0,
+    "initial_com_position_x_z_m": [
+      0.0,
+      3.65
+    ],
+    "initial_com_velocity_world_m_s": [
+      0.0,
+      0.0,
+      -0.4
+    ],
+    "duration_search_s": [
+      3.5,
+      8.0,
+      0.05
+    ],
+    "terminal_snap_z_grid_m_s4": [
+      0.0,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "new_design_limits": {
+      "max_horizontal_speed_m_s": 3.0,
+      "max_vertical_speed_m_s": 1.2,
+      "max_horizontal_acceleration_m_s2": 2.5,
+      "max_vertical_acceleration_m_s2": 2.0,
+      "max_jerk_m_s3": 8.0,
+      "max_snap_m_s4": 15.0,
+      "max_tilt_deg": 15.0,
+      "max_pitch_rate_deg_s": 20.0,
+      "max_pitch_acceleration_deg_s2": 90.0,
+      "near_contact_closing_speed_m_s": 0.7
+    },
+    "interpretation": "User requested a faster contact regime. These replace earlier soft-contact design bounds only in this separate experiment, and are NOT identified hardware capabilities or structural safety limits.",
+    "rapid_motion_checks": {
+      "maximum_time_last_0_5m_s": 1.5,
+      "maximum_near_deck_low_vertical_speed_duration_s": 0.1,
+      "low_vertical_speed_threshold_m_s": 0.15,
+      "near_deck_height_m": 0.5
+    },
+    "postcontact_gross_motion_checks": {
+      "maximum_sampled_tilt_deg": 10.0,
+      "maximum_lowest_foot_rebound_clearance_m": 0.1,
+      "minimum_footprint_margin_m": 0.02
+    }
+  },
+  "effective_reference_limits": {
+    "max_horizontal_speed_m_s": 3.0,
+    "max_vertical_speed_m_s": 1.2,
+    "max_horizontal_acceleration_m_s2": 2.5,
+    "max_vertical_acceleration_m_s2": 2.0,
+    "max_jerk_m_s3": 8.0,
+    "max_snap_m_s4": 15.0,
+    "max_tilt_deg": 15.0,
+    "max_pitch_rate_deg_s": 20.0,
+    "max_pitch_acceleration_deg_s2": 90.0,
+    "minimum_upward_specific_force_m_s2": 3.0,
+    "edge_height_margin_m": 0.15,
+    "footprint_margin_m": 0.02,
+    "near_contact_height_m": 0.08,
+    "near_contact_tangential_speed_m_s": 0.28,
+    "near_contact_closing_speed_m_s": 0.7,
+    "near_contact_tilt_deg": 5.0,
+    "max_low_horizontal_speed_lead_s": 0.7
+  },
+  "reference_checks": {
+    "passed": true,
+    "failures": [],
+    "sample_count": 4001,
+    "extrema": {
+      "horizontal_speed_m_s": 2.379360114136507,
+      "vertical_speed_m_s": 0.6906987839713551,
+      "horizontal_acceleration_m_s2": 1.7601976209150934,
+      "vertical_acceleration_m_s2": 0.2158091750354023,
+      "jerk_m_s3": 2.81666052912808,
+      "snap_m_s4": 4.439770905071944,
+      "tilt_deg": 10.399682151685317,
+      "pitch_rate_deg_s": 16.372748636649618,
+      "pitch_acceleration_deg_s2": 26.05485161260803
+    },
+    "relative_low_speed_lead_s": 0.33000000000000007
+  },
+  "rapid_motion_checks": {
+    "time_last_0_5m_s": 1.1,
+    "near_deck_low_vertical_speed_duration_s": 0.0,
+    "minimum_downward_body_speed_last_0_5m_m_s": 0.4499995785897918,
+    "passed": true
+  },
+  "terminal_boundary": {
+    "aircraft": {
+      "pose": {
+        "position_world_m": [
+          5.138106268060781,
+          0.0,
+          0.9999416382905864
+        ],
+        "orientation_xyzw": [
+          0.0,
+          -0.01745240643728351,
+          0.0,
+          0.9998476951563913
+        ]
+      },
+      "velocity_at_origin_world_m_s": [
+        0.0,
+        0.0,
+        -0.45
+      ],
+      "angular_velocity_world_rad_s": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "active_leg_names": [
+      "rear_left_leg_collision",
+      "rear_right_leg_collision"
+    ],
+    "contact_centroid_world_m": [
+      5.0,
+      0.0,
+      0.8
+    ],
+    "contact_centroid_deck_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contact_centroid_relative_velocity_deck_m_s": [
+      0.0,
+      0.0,
+      -0.45
+    ],
+    "feet": [
+      {
+        "name": "rear_left_leg_collision",
+        "point_body_m": [
+          -0.14500000000000002,
+          0.21,
+          -0.195
+        ],
+        "point_world_m": [
+          5.0,
+          0.21,
+          0.8
+        ],
+        "projection_on_deck_world_m": [
+          5.0,
+          0.21,
+          0.8
+        ],
+        "clearance_m": 0.0,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "closing_speed_m_s": 0.45,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.45,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.9900060917298089,
+          0.485
+        ]
+      },
+      {
+        "name": "rear_right_leg_collision",
+        "point_body_m": [
+          -0.14500000000000002,
+          -0.21,
+          -0.195
+        ],
+        "point_world_m": [
+          5.0,
+          -0.21,
+          0.8
+        ],
+        "projection_on_deck_world_m": [
+          5.0,
+          -0.21,
+          0.8
+        ],
+        "clearance_m": 0.0,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "closing_speed_m_s": 0.45,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.45,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.9900060917298089,
+          0.485
+        ]
+      },
+      {
+        "name": "front_left_leg_collision",
+        "point_body_m": [
+          0.118,
+          0.22,
+          -0.195
+        ],
+        "point_world_m": [
+          5.262839787506022,
+          0.22,
+          0.8091785676327579
+        ],
+        "projection_on_deck_world_m": [
+          5.262839787506022,
+          0.22,
+          0.8
+        ],
+        "clearance_m": 0.009178567632757817,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "closing_speed_m_s": 0.45,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.45,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.7271663042237871,
+          0.475
+        ]
+      },
+      {
+        "name": "front_right_leg_collision",
+        "point_body_m": [
+          0.118,
+          -0.22,
+          -0.195
+        ],
+        "point_world_m": [
+          5.262839787506022,
+          -0.22,
+          0.8091785676327579
+        ],
+        "projection_on_deck_world_m": [
+          5.262839787506022,
+          -0.22,
+          0.8
+        ],
+        "clearance_m": 0.009178567632757817,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.45
+        ],
+        "closing_speed_m_s": 0.45,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.45,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.7271663042237871,
+          0.475
+        ]
+      }
+    ],
+    "relative_tilt_rad": 0.03490658503988567,
+    "residuals": {
+      "contact_centroid_position_error_m": 0.0,
+      "contact_centroid_relative_velocity_error_m_s": 0.0,
+      "maximum_active_absolute_plane_gap_m": 0.0,
+      "minimum_all_leg_plane_gap_m": 0.0
+    },
+    "minimum_footprint_margin_m": 0.475,
+    "maximum_active_tangential_speed_upper_bound_m_s": 0.0,
+    "active_closing_speed_bounds_m_s": [
+      0.45,
+      0.45
+    ]
+  },
+  "normalized_polynomial_coefficients": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      557.5654545564744,
+      -1828.586635826326,
+      2321.075080986212,
+      -1340.4049232448974,
+      295.4895956923644
+    ],
+    [
+      -0.0011616161616161613,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      3.65,
+      -2.0,
+      0.0,
+      0.0,
+      0.0,
+      -69.5883837312203,
+      229.62794577073439,
+      -293.2359302766585,
+      170.2209593280508,
+      -37.68799096178907
+    ]
+  ],
+  "duration_candidates": [
+    {
+      "duration_s": 5.0,
+      "snap_z_m_s4": 0.0,
+      "failures": []
+    }
+  ],
+  "optimality_scope": "First passing finite-grid candidate in this reference family; not globally optimal.",
+  "selection_note": "5.0 s, kp=.4, kd=1., acceleration lead=.25 s: selected from exploratory single-run ARX response and in-sample bias correction; requires a new physics flight, not a certified model or global optimum."
+}

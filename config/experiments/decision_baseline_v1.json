@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "scope": "Offline candidate selection at the main approach entry of the current stationary, level, planar deck scene",
+  "canonical_controller_run": "outputs/model_audit/step14/run_003",
+  "source_runs": [
+    "outputs/model_audit/step14/run_001",
+    "outputs/model_audit/step14/run_002",
+    "outputs/model_audit/step14/run_003"
+  ],
+  "candidate_target_closing_speeds_m_s": [0.10, 0.25, 0.45],
+  "candidate_durations_s": [5.0, 5.5, 6.0],
+  "common_terminal_nose_up_deg": 2.0,
+  "common_terminal_snap_z_m_s4": 0.0,
+  "reference_check_samples": 1001,
+  "final_candidate_check_samples": 4001,
+  "context_match": {
+    "position_error_m": 0.05,
+    "velocity_error_m_s": 0.05,
+    "attitude_error_rad": 0.017453292519943295,
+    "angular_velocity_error_rad_s": 0.05235987755982989,
+    "com_acceleration_error_m_s2": 0.20,
+    "maximum_deck_speed_m_s": 0.005,
+    "maximum_deck_angular_speed_rad_s": 0.001,
+    "maximum_observation_age_s": 0.06
+  },
+  "label_policy": {
+    "one_record_per_flight": true,
+    "features_from_causal_approach_entry_only": true,
+    "keep_controller_context_separate": true,
+    "keep_infrastructure_failures_separate": true,
+    "split_by_nominal_scenario_not_frames": true,
+    "reference_feasibility_is_not_physics_success": true,
+    "missing_outcomes_remain_null": true,
+    "structural_safety_label": null
+  },
+  "deployment_policy": "Every output is an offline research proposal, never a motor/flight command or approval for a new flight. A matching archived success is evidence for that run, not validation of a surrounding state region."
+}

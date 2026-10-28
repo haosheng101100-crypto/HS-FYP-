@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "checks": {
+    "abort_after_trigger": true,
+    "no_physical_deck_contact": true,
+    "positive_raw_clearance_through_return": true,
+    "platform_motion_matches_declared_event": true,
+    "return_confirmed": true,
+    "home_position_reached": true,
+    "home_speed_settled": true,
+    "original_rejection_reported": true,
+    "deck_landing_not_claimed": true,
+    "normal_ground_land_finished": true,
+    "no_unexpected_execution_error": true,
+    "raw_final_pose_on_ground": true,
+    "rejected_during_low_measured_descent": true
+  },
+  "trigger": {
+    "event": "BOUNDED_SWITCHING",
+    "sim_t_s": 36.1,
+    "measured_leg_gap_m": 0.7412707094610247,
+    "interpretation": "Actual acceleration and deceleration are verified from raw displacement, without a scripted future event input."
+  },
+  "abort_s": 42.26,
+  "minimum_exit_leg_clearance_m": 0.45099887414571,
+  "rejection": [
+    {
+      "attempt": 1,
+      "success": false,
+      "reason": "CONTACT_YAW_ACCELERATION_RESERVE",
+      "events": [
+        {
+          "time": 36.1,
+          "event": "PREPARATION_POLICY",
+          "observation_stress": null,
+          "moving_alignment_required": false
+        },
+        {
+          "time": 36.22,
+          "event": "PLAN_PENDING",
+          "sequence": 1,
+          "arrival": 44.5
+        },
+        {
+          "time": 36.5,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 44.5
+        },
+        {
+          "time": 36.74,
+          "event": "PLAN_PENDING",
+          "sequence": 2,
+          "arrival": 45.0
+        },
+        {
+          "time": 36.94,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 45.0
+        },
+        {
+          "time": 37.02,
+          "event": "PLAN_PENDING",
+          "sequence": 3,
+          "arrival": 45.5
+        },
+        {
+          "time": 37.38,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 45.5
+        },
+        {
+          "time": 37.46,
+          "event": "PLAN_PENDING",
+          "sequence": 4,
+          "arrival": 45.4
+        },
+        {
+          "time": 37.78,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 45.4
+        },
+        {
+          "time": 37.98,
+          "event": "PLAN_PENDING",
+          "sequence": 5,
+          "arrival": 45.3
+        },
+        {
+          "time": 38.22,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 45.3
+        },
+        {
+          "time": 38.42,
+          "event": "PLAN_PENDING",
+          "sequence": 6,
+          "arrival": 45.199999999999996
+        },
+        {
+          "time": 38.66,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 45.199999999999996
+        },
+        {
+          "time": 38.74,
+          "event": "RESULT_REJECTED",
+          "reason": "NO_VALIDATED_CANDIDATE"
+        },
+        {
+          "time": 39.22,
+          "event": "RESULT_REJECTED",
+          "reason": "NO_VALIDATED_CANDIDATE"
+        },
+        {
+          "time": 39.62,
+          "event": "RESULT_REJECTED",
+          "reason": "NO_VALIDATED_CANDIDATE"
+        },
+        {
+          "time": 40.02,
+          "event": "CAPTURE_TIME_WINDOW_OPENED",
+          "remaining_s": 4.779999999999994,
+          "future_start": 40.42
+        },
+        {
+          "time": 40.14,
+          "event": "RESULT_REJECTED",
+          "reason": "NO_VALIDATED_CANDIDATE"
+        },
+        {
+          "time": 40.54,
+          "event": "RESULT_REJECTED",
+          "reason": "NO_VALIDATED_CANDIDATE"
+        },
+        {
+          "time": 40.94,
+          "event": "RESULT_REJECTED",
+          "reason": "NO_VALIDATED_CANDIDATE"
+        },
+        {
+          "time": 41.42,
+          "event": "RESULT_REJECTED",
+          "reason": "NO_VALIDATED_CANDIDATE"
+        },
+        {
+          "time": 41.94,
+          "event": "PLAN_PENDING",
+          "sequence": 14,
+          "arrival": 45.699999999999996
+        },
+        {
+          "time": 42.18,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 45.699999999999996
+        }
+      ]
+    }
+  ],
+  "platform_physical_acceleration_limit_m_s2": 0.3,
+  "raw_speed_at_abort_m_s": 0.4427477119212166,
+  "raw_speed_half_second_later_m_s": 0.38282679385175294,
+  "physical_model_sha256": "5c564cf0a06598d8514fdcccec417282426654e03a48f4a69f9864706b36e691",
+  "interpretation": "The actual DiffDrive acceleration limit and raw platform displacement are used, rather than treating command acceleration as measured acceleration. Brake-to-zero and accelerating-away scenes have separate signed checks.",
+  "raw_source_sha256": "9455e634679cf091a28c6ddd7f810087f19c3932f2e92bfccbbd2cbc0ba81d7f",
+  "scope": "One fixed-height level-deck physical simulation; sampled raw clearance, no general invariant escape guarantee. Native disarm audited separately."
+}

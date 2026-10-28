@@ -1,0 +1,58 @@
+{
+  "verified": true,
+  "cases": [
+    {
+      "scenario": "maneuvering",
+      "outcome": "landing",
+      "path": "batch_082\\cycle_001\\results"
+    },
+    {
+      "scenario": "turning",
+      "outcome": "landing",
+      "path": "batch_082\\cycle_002\\results"
+    },
+    {
+      "scenario": "noisy_maneuvering",
+      "outcome": "landing",
+      "path": "batch_082\\cycle_003\\results"
+    },
+    {
+      "scenario": "constant",
+      "outcome": "landing",
+      "path": "batch_083\\cycle_001\\results"
+    },
+    {
+      "scenario": "switchback",
+      "outcome": "safe_exit",
+      "path": "batch_083\\cycle_002\\results"
+    },
+    {
+      "scenario": "fast_maneuvering",
+      "outcome": "landing",
+      "path": "batch_083\\cycle_003\\results"
+    },
+    {
+      "scenario": "varying",
+      "outcome": "landing",
+      "path": "batch_083\\cycle_004\\results"
+    },
+    {
+      "scenario": "surge",
+      "outcome": "safe_exit",
+      "path": "batch_083\\cycle_005\\results"
+    },
+    {
+      "scenario": "braking",
+      "outcome": "safe_exit",
+      "path": "batch_083\\cycle_006\\results"
+    }
+  ],
+  "files_sha256": {
+    "\u65b0\u7b97\u6cd5\u4e0e\u4eff\u771f\u9a8c\u6536.md": "acf2e4d25a43f33c9a1bc9f94f72365a17770c2c1026f579db4653199f3f8bb0",
+    "outputs\\uncertainty_landing_20261024\\verification_v30.json": "3c994b7e43f9c7b8639c3b1f2c69020426e24f624e5a4bc1d33ceb8b7de5ee7a",
+    "outputs\\uncertainty_landing_20261024\\validation_protocol_v30.json": "db2dd9fa58917b624ebebd68b92dba54dfad1c69b2bcfa689e4bd12dbee663ba",
+    "outputs\\uncertainty_landing_20261024\\frozen_source_v82\\source_manifest.json": "a4919bcfdaf6d0a9d76336e5b1f315f25038f8c3b2e527bc3be643baf8d0fae6",
+    "outputs\\uncertainty_landing_20261024\\\u6210\u679c\u56de\u653e.html": "1618a55a434fa10c1ef36ce716bb59f72184307c10bf44d862858cd4b225e0a3",
+    "tools\\run_receding_simulation.py": "0d520cb3a607946717d5928c216ed7c9a408ab969f94554dc894d3b4e41614c5"
+  }
+}

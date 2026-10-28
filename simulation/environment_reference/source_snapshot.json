@@ -1,0 +1,14 @@
+{
+  "plugin_repository": "https://github.com/ArduPilot/ardupilot_gazebo",
+  "plugin_commit": "082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5",
+  "upstream_working_tree": "",
+  "firmware_source": "https://firmware.ardupilot.org/Copter/stable/SITL_x86_64_linux_gnu/",
+  "firmware_version_record": "commit dbe792162d06cab66c3475fd5556bf7a120f119e\nAuthor: Randy Mackay <rmackay9@yahoo.com>\nDate:   Mon Aug 31 09:34:50 2026 +0900\n\n    Plane: version to 4.7.1\n\nAPMVERSION: ArduCopter V4.7.1\n",
+  "arducopter_sha256": "011627d41dd95640c3aca02d45283474be48721c8b1bb7a4b234d38b69063482",
+  "files": {
+    "worlds/iris_runway.sdf": "acd62a43f530b03f4d220cf91042e6038323c8f464957decf09104e7304ac766",
+    "models/iris_with_gimbal/model.sdf": "9071f778f924de31f754abc2b701fc66d3e8c98fb8fa2958430083d9c1f160ee",
+    "models/iris_with_standoffs/model.sdf": "2c4e8ccf4385f329af905cce1cbceff96656da4ace9353c0ec6ca09df3c442d0",
+    "src/ArduPilotPlugin.cc": "e00c3fc98e2ef8e37c9fb6a537c4f6fb599b1e8e3f90885d4916eaa04baac868"
+  }
+}

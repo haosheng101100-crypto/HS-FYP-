@@ -1,0 +1,43 @@
+{
+  "complete": true,
+  "review": "All five final PNGs visually inspected for readable labels and correct landing/return views; all GIF frames decoded. Gallery captions explain deck-local view during return.",
+  "media": [
+    {
+      "gif": "\u6700\u7ec8\u724882_\u7a81\u53d8\u9000\u51fa\u8fd4\u822a.gif",
+      "frames": 100,
+      "gif_sha256": "01b4c102cd0974ae6ef731533076e1840f7255a7881f24e0a866ae7a45c5edc0",
+      "png_sha256": "a5b12d1b0986bee254990c756f9b4639d6620ee023e3a34f3c9e6c04e9667332"
+    },
+    {
+      "gif": "\u6700\u7ec8\u724882_\u7ec4\u5408\u673a\u52a8\u843d\u53f0.gif",
+      "frames": 100,
+      "gif_sha256": "7abda9ee99b251d42645ca754e6dc72978521526c0ff40c7356f3c7cc339669c",
+      "png_sha256": "e29cbc68c14f3f4e78882399a55b5be5dc6923d781e0e9758c5f22040b9c2204"
+    },
+    {
+      "gif": "\u6700\u7ec8\u724882_\u89c2\u6d4b\u5ef6\u8fdf\u566a\u58f0\u843d\u53f0.gif",
+      "frames": 100,
+      "gif_sha256": "c6a72ab656f2159db44308fab173bb71f17330a0e9163d30b7bb7089ea0a7a11",
+      "png_sha256": "1d74567459c31ebef02b56df65f8e2c3d5f82df00731c6aa730e896474328c90"
+    },
+    {
+      "gif": "\u6700\u7ec8\u724882_\u8f6c\u5f2f\u843d\u53f0.gif",
+      "frames": 100,
+      "gif_sha256": "66c7943541da4ce1e6c31c77fea471f219288bb2b9ce0dd16c3113ecb3f742c1",
+      "png_sha256": "9e191cfda896e49895bf8b94b4bdae46b73a4ad6a9b659fd2a3f97aeefb0d8aa"
+    },
+    {
+      "gif": "\u6700\u7ec8\u724882_\u8f83\u5feb\u673a\u52a8\u843d\u53f0.gif",
+      "frames": 100,
+      "gif_sha256": "9a3364ceeaa6ab95fa3282fcf3e58daf597f914aff47293ff051cc2fc9fccae6",
+      "png_sha256": "3fb39f577a3d97efac3e3d503fb2363e9ebd201f204da0363620f7f591be696d"
+    }
+  ],
+  "verification_sha256": "3c994b7e43f9c7b8639c3b1f2c69020426e24f624e5a4bc1d33ceb8b7de5ee7a",
+  "gallery_server": {
+    "pid": 24776,
+    "url": "http://127.0.0.1:64186/%E6%88%90%E6%9E%9C%E5%9B%9E%E6%94%BE.html",
+    "read_only": true,
+    "root": "C:\\Users\\new\\Documents\\ChatGPT\\HS\u6bd5\u8bbe\\outputs\\uncertainty_landing_20261024"
+  }
+}

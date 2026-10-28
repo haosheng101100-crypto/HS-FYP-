@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "DEFERRED_UNTIL_USER_PROVIDES_SPECIFIC_HARDWARE_AND_MEASUREMENTS",
+  "confirmed_date": "2026-10-22",
+  "continue_with_existing_simulation_model": true,
+  "hardware_deployment_allowed": false,
+  "airframe_parameter_record": "config/airframes/real_airframe_pending.json",
+  "preserved_simulation_profile": "config/airframes/iris_fixed_gimbal_sim.json",
+  "preserved_executed_model_packages": [
+    "outputs/model_audit/step26",
+    "outputs/model_audit/step27/frozen_source"
+  ],
+  "pending": {
+    "specific_aircraft_and_payload": null,
+    "airframe_and_landing_gear_structure": null,
+    "motors_propellers_and_esc": null,
+    "flight_controller_and_firmware": null,
+    "circuits_power_supply_and_battery": null,
+    "communication_hardware_protocol_and_measured_delays": null,
+    "sensors_mounts_calibration_and_coordinate_frames": null,
+    "vehicle_deck_structure_contact_and_friction": null,
+    "measured_actuation_tracking_and_arrest_response": null
+  },
+  "update_trigger": "User supplies specific equipment and measured data. Review corresponding parameters and interfaces then; never substitute simulation values for missing hardware measurements.",
+  "scope": "Record and preserve hardware questions without blocking current simulation. Existing hardware and communication are not claimed tested."
+}

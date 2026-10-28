@@ -1,0 +1,773 @@
+{
+  "passed": true,
+  "checks": {
+    "terminal_position_matches_boundary": true,
+    "terminal_velocity_matches_boundary": true,
+    "terminal_attitude_matches_boundary": true,
+    "terminal_pitch_rate_matches_boundary": true,
+    "minimum_terminal_leg_gap_zero": true,
+    "precontact_sampled_leg_gaps_nonnegative": true,
+    "detected_height_band_entries_pass": true
+  },
+  "sample_count": 2001,
+  "duration_s": 6.4,
+  "sampled_extrema": {
+    "horizontal_speed_m_s": 1.7919223640388962,
+    "vertical_speed_m_s": 0.6577441726091329,
+    "horizontal_acceleration_m_s2": 1.0119291877779246,
+    "vertical_acceleration_m_s2": 0.4227580628114485,
+    "jerk_m_s3": 1.2090796267798796,
+    "snap_m_s4": 3.0,
+    "tilt_rad": 0.10339152021510323,
+    "pitch_rate_rad_s": 0.12552435449682403,
+    "pitch_acceleration_rad_s2": 0.15034819559083673
+  },
+  "point_mass_thrust_demand_range_N": [
+    19.00411708631853,
+    20.30590155044454
+  ],
+  "near_contact_sampled_extrema": {
+    "tangential_speed_upper_bound_m_s": 0.27791650433046033,
+    "closing_speed_upper_bound_m_s": 0.1791134223120393,
+    "tilt_rad": 0.04889339021232999
+  },
+  "no_reacceleration_after_peak_above_m_s": 0.02,
+  "height_band_entry_checks": {
+    "passed": true,
+    "events": [
+      {
+        "foot": "rear_left_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.359094668703591,
+        "probe_t_s": 5.359094568703591,
+        "clearance_m": 0.1500000292261272,
+        "tangential_speed_upper_bound_m_s": 0.44890447101884,
+        "closing_speed_upper_bound_m_s": 0.29226109337780154,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_left_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.359094668703591,
+        "probe_t_s": 5.359094668703591,
+        "clearance_m": 0.14999999999998548,
+        "tangential_speed_upper_bound_m_s": 0.4489044058610038,
+        "closing_speed_upper_bound_m_s": 0.29226105192907786,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_left_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.359094668703591,
+        "probe_t_s": 5.359094768703591,
+        "clearance_m": 0.14999997077387428,
+        "tangential_speed_upper_bound_m_s": 0.44890434070309376,
+        "closing_speed_upper_bound_m_s": 0.292261010480273,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_right_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.359094668703591,
+        "probe_t_s": 5.359094568703591,
+        "clearance_m": 0.1500000292261272,
+        "tangential_speed_upper_bound_m_s": 0.44890447101884,
+        "closing_speed_upper_bound_m_s": 0.29226109337780154,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_right_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.359094668703591,
+        "probe_t_s": 5.359094668703591,
+        "clearance_m": 0.14999999999998548,
+        "tangential_speed_upper_bound_m_s": 0.4489044058610038,
+        "closing_speed_upper_bound_m_s": 0.29226105192907786,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_right_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.359094668703591,
+        "probe_t_s": 5.359094768703591,
+        "clearance_m": 0.14999997077387428,
+        "tangential_speed_upper_bound_m_s": 0.44890434070309376,
+        "closing_speed_upper_bound_m_s": 0.292261010480273,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_left_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.416006353861647,
+        "probe_t_s": 5.416006253861647,
+        "clearance_m": 0.15000002824494885,
+        "tangential_speed_upper_bound_m_s": 0.4135720266510256,
+        "closing_speed_upper_bound_m_s": 0.2824494515426955,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_left_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.416006353861647,
+        "probe_t_s": 5.416006353861647,
+        "clearance_m": 0.15000000000000746,
+        "tangential_speed_upper_bound_m_s": 0.4135719646749864,
+        "closing_speed_upper_bound_m_s": 0.28244941092468395,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_left_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.416006353861647,
+        "probe_t_s": 5.416006453861647,
+        "clearance_m": 0.14999997175508184,
+        "tangential_speed_upper_bound_m_s": 0.41357190269901245,
+        "closing_speed_upper_bound_m_s": 0.2824493703066503,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_right_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.416006353861647,
+        "probe_t_s": 5.416006253861647,
+        "clearance_m": 0.15000002824494885,
+        "tangential_speed_upper_bound_m_s": 0.4135720266510256,
+        "closing_speed_upper_bound_m_s": 0.2824494515426955,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_right_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.416006353861647,
+        "probe_t_s": 5.416006353861647,
+        "clearance_m": 0.15000000000000746,
+        "tangential_speed_upper_bound_m_s": 0.4135719646749864,
+        "closing_speed_upper_bound_m_s": 0.28244941092468395,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_right_leg_collision",
+        "band_height_m": 0.15,
+        "boundary_t_s": 5.416006353861647,
+        "probe_t_s": 5.416006453861647,
+        "clearance_m": 0.14999997175508184,
+        "tangential_speed_upper_bound_m_s": 0.41357190269901245,
+        "closing_speed_upper_bound_m_s": 0.2824493703066503,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_left_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.658595223359129,
+        "probe_t_s": 5.658595123359128,
+        "clearance_m": 0.08000001798223066,
+        "tangential_speed_upper_bound_m_s": 0.27898926050875095,
+        "closing_speed_upper_bound_m_s": 0.17982213219743068,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_left_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.658595223359129,
+        "probe_t_s": 5.658595223359129,
+        "clearance_m": 0.07999999999996743,
+        "tangential_speed_upper_bound_m_s": 0.2789892118005151,
+        "closing_speed_upper_bound_m_s": 0.17982210000531224,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_left_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.658595223359129,
+        "probe_t_s": 5.658595323359129,
+        "clearance_m": 0.07999998201777991,
+        "tangential_speed_upper_bound_m_s": 0.27898916309233973,
+        "closing_speed_upper_bound_m_s": 0.17982206781321633,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_right_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.658595223359129,
+        "probe_t_s": 5.658595123359128,
+        "clearance_m": 0.08000001798223066,
+        "tangential_speed_upper_bound_m_s": 0.27898926050875095,
+        "closing_speed_upper_bound_m_s": 0.17982213219743068,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_right_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.658595223359129,
+        "probe_t_s": 5.658595223359129,
+        "clearance_m": 0.07999999999996743,
+        "tangential_speed_upper_bound_m_s": 0.2789892118005151,
+        "closing_speed_upper_bound_m_s": 0.17982210000531224,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "rear_right_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.658595223359129,
+        "probe_t_s": 5.658595323359129,
+        "clearance_m": 0.07999998201777991,
+        "tangential_speed_upper_bound_m_s": 0.27898916309233973,
+        "closing_speed_upper_bound_m_s": 0.17982206781321633,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_left_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.730265575990822,
+        "probe_t_s": 5.730265475990822,
+        "clearance_m": 0.08000001684229474,
+        "tangential_speed_upper_bound_m_s": 0.24579447845510263,
+        "closing_speed_upper_bound_m_s": 0.1684229197046762,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_left_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.730265575990822,
+        "probe_t_s": 5.730265575990822,
+        "clearance_m": 0.07999999999999374,
+        "tangential_speed_upper_bound_m_s": 0.24579443301700135,
+        "closing_speed_upper_bound_m_s": 0.16842288930950267,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_left_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.730265575990822,
+        "probe_t_s": 5.730265675990823,
+        "clearance_m": 0.07999998315772605,
+        "tangential_speed_upper_bound_m_s": 0.24579438757910613,
+        "closing_speed_upper_bound_m_s": 0.16842285891429917,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_right_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.730265575990822,
+        "probe_t_s": 5.730265475990822,
+        "clearance_m": 0.08000001684229474,
+        "tangential_speed_upper_bound_m_s": 0.24579447845510263,
+        "closing_speed_upper_bound_m_s": 0.1684229197046762,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_right_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.730265575990822,
+        "probe_t_s": 5.730265575990822,
+        "clearance_m": 0.07999999999999374,
+        "tangential_speed_upper_bound_m_s": 0.24579443301700135,
+        "closing_speed_upper_bound_m_s": 0.16842288930950267,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      },
+      {
+        "foot": "front_right_leg_collision",
+        "band_height_m": 0.08,
+        "boundary_t_s": 5.730265575990822,
+        "probe_t_s": 5.730265675990823,
+        "clearance_m": 0.07999998315772605,
+        "tangential_speed_upper_bound_m_s": 0.24579438757910613,
+        "closing_speed_upper_bound_m_s": 0.16842285891429917,
+        "checks": {
+          "near_tangential_speed": true,
+          "near_closing_speed": true,
+          "near_tilt": true,
+          "low_footprint_margin": true
+        },
+        "passed": true
+      }
+    ],
+    "bracketing_samples": 501
+  },
+  "minimum_upward_specific_force_m_s2": 9.594499669333333,
+  "low_horizontal_speed_lead_s": 0.34560000000000013,
+  "terminal_residuals": {
+    "position_m": 0.0,
+    "velocity_m_s": 0.0,
+    "thrust_axis_vector_error": 0.0,
+    "angular_velocity_rad_s": 0.0
+  },
+  "terminal_active_legs": [
+    "rear_left_leg_collision",
+    "rear_right_leg_collision"
+  ],
+  "minimum_precontact_sample_gap_m": 0.0002560072108999112,
+  "scope": "Sampled planar COM point-mass reference only; rotor/FCU tracking and impact stability unverified",
+  "contact_nose_up_deg": 2.0,
+  "initial_com_position_world_m": [
+    0.0,
+    -0.0011616161616161613,
+    3.65
+  ],
+  "initial_com_velocity_world_m_s": [
+    0.0,
+    0.0,
+    -0.4
+  ],
+  "initial_state_interpretation": "Chosen stationary-platform simulation reference near the previous experiment's approach region; not an exact replay or a measured current flight state.",
+  "com_offset_body_m": [
+    0.0,
+    -0.0011616161616161613,
+    -0.013349641414141416
+  ],
+  "gravity_m_s2": 9.80665,
+  "simulation_mass_kg": 1.98,
+  "boundary": {
+    "aircraft": {
+      "pose": {
+        "position_world_m": [
+          5.138106268060781,
+          0.0,
+          0.9999416382905864
+        ],
+        "orientation_xyzw": [
+          0.0,
+          -0.01745240643728351,
+          0.0,
+          0.9998476951563913
+        ]
+      },
+      "velocity_at_origin_world_m_s": [
+        0.0,
+        0.0,
+        -0.08
+      ],
+      "angular_velocity_world_rad_s": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "active_leg_names": [
+      "rear_left_leg_collision",
+      "rear_right_leg_collision"
+    ],
+    "contact_centroid_world_m": [
+      5.0,
+      0.0,
+      0.8
+    ],
+    "contact_centroid_deck_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contact_centroid_relative_velocity_deck_m_s": [
+      0.0,
+      0.0,
+      -0.08
+    ],
+    "feet": [
+      {
+        "name": "rear_left_leg_collision",
+        "point_body_m": [
+          -0.14500000000000002,
+          0.21,
+          -0.195
+        ],
+        "point_world_m": [
+          5.0,
+          0.21,
+          0.8
+        ],
+        "projection_on_deck_world_m": [
+          5.0,
+          0.21,
+          0.8
+        ],
+        "clearance_m": 0.0,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "closing_speed_m_s": 0.08,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.08,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.9900060917298089,
+          0.485
+        ]
+      },
+      {
+        "name": "rear_right_leg_collision",
+        "point_body_m": [
+          -0.14500000000000002,
+          -0.21,
+          -0.195
+        ],
+        "point_world_m": [
+          5.0,
+          -0.21,
+          0.8
+        ],
+        "projection_on_deck_world_m": [
+          5.0,
+          -0.21,
+          0.8
+        ],
+        "clearance_m": 0.0,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "closing_speed_m_s": 0.08,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.08,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.9900060917298089,
+          0.485
+        ]
+      },
+      {
+        "name": "front_left_leg_collision",
+        "point_body_m": [
+          0.118,
+          0.22,
+          -0.195
+        ],
+        "point_world_m": [
+          5.262839787506022,
+          0.22,
+          0.8091785676327579
+        ],
+        "projection_on_deck_world_m": [
+          5.262839787506022,
+          0.22,
+          0.8
+        ],
+        "clearance_m": 0.009178567632757817,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "closing_speed_m_s": 0.08,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.08,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.7271663042237871,
+          0.475
+        ]
+      },
+      {
+        "name": "front_right_leg_collision",
+        "point_body_m": [
+          0.118,
+          -0.22,
+          -0.195
+        ],
+        "point_world_m": [
+          5.262839787506022,
+          -0.22,
+          0.8091785676327579
+        ],
+        "projection_on_deck_world_m": [
+          5.262839787506022,
+          -0.22,
+          0.8
+        ],
+        "clearance_m": 0.009178567632757817,
+        "velocity_world_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "relative_velocity_deck_m_s": [
+          0.0,
+          0.0,
+          -0.08
+        ],
+        "closing_speed_m_s": 0.08,
+        "tangential_speed_m_s": 0.0,
+        "support_set_kind": "unique_rim_point",
+        "support_set_radius_m": 0.0,
+        "closing_speed_upper_bound_m_s": 0.08,
+        "tangential_speed_upper_bound_m_s": 0.0,
+        "projected_point_inside_deck": true,
+        "whole_cylinder_footprint_margins_m": [
+          0.7271663042237871,
+          0.475
+        ]
+      }
+    ],
+    "relative_tilt_rad": 0.03490658503988567,
+    "residuals": {
+      "contact_centroid_position_error_m": 0.0,
+      "contact_centroid_relative_velocity_error_m_s": 0.0,
+      "maximum_active_absolute_plane_gap_m": 0.0,
+      "minimum_all_leg_plane_gap_m": 0.0
+    },
+    "minimum_footprint_margin_m": 0.475,
+    "maximum_active_tangential_speed_upper_bound_m_s": 0.0,
+    "active_closing_speed_bounds_m_s": [
+      0.08,
+      0.08
+    ],
+    "scope": "Pre-impact rigid kinematic boundary only",
+    "dynamic_reachability_checked": false,
+    "impact_stability_checked": false
+  },
+  "planned_braking_start_s": 3.3696,
+  "planned_peak_body_forward_speed_m_s": 1.7902533359585306,
+  "body_origin_x_at_braking_start_m": 2.4749751115921934,
+  "horizontal_distance_from_body_origin_to_contact_anchor_at_braking_start_m": 2.5250248884078066,
+  "body_origin_height_above_deck_at_braking_start_m": 1.4737510018804707,
+  "polynomial_degree": 9,
+  "initial_com_jet": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      -0.0011616161616161613,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      3.65,
+      -0.4,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "terminal_com_jet": [
+    [
+      5.138572163827294,
+      0.0,
+      -0.34245576413624784,
+      0.0,
+      0.0
+    ],
+    [
+      -0.0011616161616161613,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.9866001291172992,
+      -0.08,
+      0.0,
+      0.0,
+      3.0
+    ]
+  ],
+  "normalized_polynomial_coefficients": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      2.842170943040401e-14,
+      500.176717602522,
+      -1618.1612669951683,
+      2031.3985992186444,
+      -1162.7731183874266,
+      254.4976407252558
+    ],
+    [
+      -0.0011616161616161613,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      3.65,
+      -2.5600000000000005,
+      0.0,
+      0.0,
+      0.0,
+      81.99881626877985,
+      -394.0248542292662,
+      669.9752697233423,
+      -488.8498406719498,
+      130.79720903821107
+    ]
+  ],
+  "statement": "Offline candidate reference only; no new Gazebo run, rotor torque calibration, FCU tracking or post-contact validation."
+}

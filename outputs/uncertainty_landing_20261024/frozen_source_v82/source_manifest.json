@@ -1,0 +1,24 @@
+{
+  "reference": "batch_082\\cycle_001",
+  "source_sha256": {
+    "tools/operator_backend.py": "7c1ea2c1cd4e3577292d9c463c02a38769e3cbf1f0f8c2232d06acca7d969842",
+    "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
+    "landing/platform_filter.py": "fc977801800e21f3d2c1d10f43b45373e81875e3b193779380ace5a895443d07",
+    "landing/receding_live.py": "2bf432117ca0dbc3410e523412ee79bf105e2fa4314b817c70e37c42e7b746a3",
+    "landing/receding_landing.py": "afe37a894810dcfc5e5a258eabf51ae070f4c9e4f0917df85a1132ca81940690",
+    "landing/swept_envelope.py": "1bc4e7f039783a40b895575343e1dafce8108d65a9b3026ac89274b74c5acb15",
+    "landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
+    "tools/receding_planner_worker.py": "58c9abb45c29ec54ea7e61d97373409db4cc84109511af6ece6d5a513997e48b",
+    "landing/horizontal_feedback.py": "64222bf29a0ef9810d716183ae91c1ee23e15f432bec32e89598826e856795c8",
+    "landing/mavlink_reference.py": "3f7408283c50afc90501c6b71156e5b0e0ff8410842693de710609318d76e9e4",
+    "landing/moving_platform.py": "517b1ffa5df96161b01539416ed029da449cc8af2292183bbfc8b819f1e3ebdc",
+    "landing/execution.py": "a2aeaa43876129c75fdd6bc2321653aba81b8736a4a04873118cc8f64f956f7f",
+    "landing/contact_geometry.py": "8c04890192b7899ac9d9ffd554529366954bbd95f03abf2309ee3376cc81cec5",
+    "landing/reference_loader.py": "6ad6066f65f2241a8a86d74414836021f0fd108aa985a891657714937835fa2e",
+    "config/airframes/iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86",
+    "config/airframes/iris_swept_envelope_v1.json": "da3d763cfe3680dda0f039ccbc647db672df3a38a82b6c191b7379966a5d96cf",
+    "config/experiments/execution_v1.json": "1c3fe84c84c7f69f0aa555782e6972650913957ae25b7080461b7b834ed8c794",
+    "config/experiments/receding_live_v1.json": "458ab524bbd07be1c4372473af0c00e1b90715755aa3bc41991d51fc03753c60"
+  },
+  "scope": "Actual archived control/native-interface/geometry sources; final acceptance is determined by verification.json."
+}

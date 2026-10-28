@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="observer_camera">
+    <static>true</static>
+    <link name="camera_link">
+      <sensor name="overview" type="camera">
+        <pose>-4 -7 5 0 0.42 0.82</pose>
+        <always_on>true</always_on>
+        <update_rate>3</update_rate>
+        <topic>/overview/image</topic>
+        <camera>
+          <horizontal_fov>1.15</horizontal_fov>
+          <image><width>1280</width><height>720</height><format>R8G8B8</format></image>
+          <clip><near>0.1</near><far>2000</far></clip>
+        </camera>
+      </sensor>
+    </link>
+  </model>
+</sdf>

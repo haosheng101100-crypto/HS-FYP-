@@ -1,0 +1,20 @@
+{
+  "simulation_only": true,
+  "source_sha256": {
+    "interactive_base.py": "6955867ad9c1fb8771d4b2a95fcb6e78521560ea538074700168f102bc6dc6db",
+    "operator_backend.py": "7c1ea2c1cd4e3577292d9c463c02a38769e3cbf1f0f8c2232d06acca7d969842",
+    "operator_clock.py": "0ce2861393bc239ea6f51cf13fb7dafde556bae13c7787db2269ec89ac9e5ac9",
+    "operator_legacy.py": "385fae1f9e07265ddeaaa051ac0ea2ffbb81c0693b8c32aa3b0d16418872a2bb",
+    "operator_panel.py": "3679d2115eaed4fbf1d80ad0ea498cffd8ad55caac959d5fb01caa4a0a1801a6",
+    "operator_supervisor.py": "715eba36835299c8311567644894d07e0e569fe82285340b97e4e999890abf43",
+    "landing/platform_filter.py": "fc977801800e21f3d2c1d10f43b45373e81875e3b193779380ace5a895443d07",
+    "landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
+    "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
+    "landing/receding_landing.py": "afe37a894810dcfc5e5a258eabf51ae070f4c9e4f0917df85a1132ca81940690",
+    "landing/receding_live.py": "2bf432117ca0dbc3410e523412ee79bf105e2fa4314b817c70e37c42e7b746a3",
+    "landing/swept_envelope.py": "1bc4e7f039783a40b895575343e1dafce8108d65a9b3026ac89274b74c5acb15",
+    "tools/receding_planner_worker.py": "58c9abb45c29ec54ea7e61d97373409db4cc84109511af6ece6d5a513997e48b",
+    "config/airframes/iris_swept_envelope_v1.json": "da3d763cfe3680dda0f039ccbc647db672df3a38a82b6c191b7379966a5d96cf",
+    "config/experiments/receding_live_v1.json": "10cd5c9eed573374219bdfbf439c6357476e2b048fec4fc2c27530346990b83f"
+  }
+}

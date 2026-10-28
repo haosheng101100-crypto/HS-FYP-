@@ -1,0 +1,211 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "session": 82,
+      "cycle": 1,
+      "scenario": "maneuvering",
+      "expected": "landing",
+      "outcome": "landing",
+      "passed": true,
+      "physics_audit": "independent_contact_audit.json",
+      "raw_uncompressed_sha256": "eab6956f0ab01db70ed7f1917f5aed0188b4c50922404e425a20cafd1a6cb0cc",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 52
+    },
+    {
+      "session": 82,
+      "cycle": 2,
+      "scenario": "turning",
+      "expected": "landing",
+      "outcome": "landing",
+      "passed": true,
+      "physics_audit": "independent_contact_audit.json",
+      "raw_uncompressed_sha256": "67343dc5ef2d6860d87d54340ebe08637fdffc677170fb2d7e4e2f9484c7e111",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 62
+    },
+    {
+      "session": 82,
+      "cycle": 3,
+      "scenario": "noisy_maneuvering",
+      "expected": "landing",
+      "outcome": "landing",
+      "passed": true,
+      "physics_audit": "independent_contact_audit.json",
+      "raw_uncompressed_sha256": "08046c2ad358d346859d58a046dd739f3e7147d38faa113fbd0ccbb6c4fbb9ac",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 35
+    },
+    {
+      "session": 83,
+      "cycle": 1,
+      "scenario": "constant",
+      "expected": "landing",
+      "outcome": "landing",
+      "passed": true,
+      "physics_audit": "independent_contact_audit.json",
+      "raw_uncompressed_sha256": "a48c1161ddcee10a8b31f90d1e471e00fcd1c9bdb122455356013fda9dda8fb3",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 35
+    },
+    {
+      "session": 83,
+      "cycle": 2,
+      "scenario": "switchback",
+      "expected": "safe_exit",
+      "outcome": "safe_exit",
+      "passed": true,
+      "physics_audit": "independent_maneuver_exit_audit.json",
+      "raw_uncompressed_sha256": "9455e634679cf091a28c6ddd7f810087f19c3932f2e92bfccbbd2cbc0ba81d7f",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 0
+    },
+    {
+      "session": 83,
+      "cycle": 3,
+      "scenario": "fast_maneuvering",
+      "expected": "landing",
+      "outcome": "landing",
+      "passed": true,
+      "physics_audit": "independent_contact_audit.json",
+      "raw_uncompressed_sha256": "36f005b5972da8801c868b9149e021ba104686e5be9425548a5a428b82fa02aa",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 77
+    },
+    {
+      "session": 83,
+      "cycle": 4,
+      "scenario": "varying",
+      "expected": "landing",
+      "outcome": "landing",
+      "passed": true,
+      "physics_audit": "independent_contact_audit.json",
+      "raw_uncompressed_sha256": "37787783eb4cedf58862e45b07a014750c74d64376d41bed3be190b8f4208f66",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 36
+    },
+    {
+      "session": 83,
+      "cycle": 5,
+      "scenario": "surge",
+      "expected": "safe_exit",
+      "outcome": "safe_exit",
+      "passed": true,
+      "physics_audit": "independent_exit_audit_v3.json",
+      "raw_uncompressed_sha256": "141a87a1f93f3833d4c49c8e4adaa9b13ac928a47c601d2fbb8bc1821ca6bd78",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 0
+    },
+    {
+      "session": 83,
+      "cycle": 6,
+      "scenario": "braking",
+      "expected": "landing_or_safe_exit",
+      "outcome": "safe_exit",
+      "passed": true,
+      "physics_audit": "independent_exit_audit_v3.json",
+      "raw_uncompressed_sha256": "89c2943ed69f354deb5117661af6ce2dc30189a6b696874811d77a531b398474",
+      "guided_motion_audit": "independent_guided_motion_audit.json",
+      "terminal_guard_samples": 0
+    }
+  ],
+  "source_sha256": {
+    "tools/operator_backend.py": "7c1ea2c1cd4e3577292d9c463c02a38769e3cbf1f0f8c2232d06acca7d969842",
+    "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
+    "landing/platform_filter.py": "fc977801800e21f3d2c1d10f43b45373e81875e3b193779380ace5a895443d07",
+    "landing/receding_live.py": "2bf432117ca0dbc3410e523412ee79bf105e2fa4314b817c70e37c42e7b746a3",
+    "landing/receding_landing.py": "afe37a894810dcfc5e5a258eabf51ae070f4c9e4f0917df85a1132ca81940690",
+    "landing/swept_envelope.py": "1bc4e7f039783a40b895575343e1dafce8108d65a9b3026ac89274b74c5acb15",
+    "landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
+    "tools/receding_planner_worker.py": "58c9abb45c29ec54ea7e61d97373409db4cc84109511af6ece6d5a513997e48b"
+  },
+  "preserved_external_simulator_failures": [],
+  "original_native_parameters_and_contact_geometry_preserved": true,
+  "original_contract_sha256": {
+    "config/copter.parm": "5e01345b45d1c6190b28bece5638bbdd4cf1cce35e05bbbf480ab24d2b51aa0e",
+    "config/gazebo-iris.parm": "4aee140cbb29b967e4519e4c84c4b389a2172c30e542f36b4fba4c118b4d4750",
+    "config/stage1.parm": "b84429e81f51761963ecb0fe287d3505345e59148d95b23af5b014737bcb9786",
+    "scripts/run_fcu.sh": "cd9d819464f226b42cecf237528882d7869054bf5259116d49ba11d68b171a5a",
+    "config/experiments/execution_v1.json": "1c3fe84c84c7f69f0aa555782e6972650913957ae25b7080461b7b834ed8c794",
+    "config/airframes/iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86",
+    "config/airframes/iris_swept_envelope_v1.json": "da3d763cfe3680dda0f039ccbc647db672df3a38a82b6c191b7379966a5d96cf",
+    "landing/contact_geometry.py": "8c04890192b7899ac9d9ffd554529366954bbd95f03abf2309ee3376cc81cec5"
+  },
+  "shared_native_interface_and_geometry_sha256": {
+    "landing/horizontal_feedback.py": "64222bf29a0ef9810d716183ae91c1ee23e15f432bec32e89598826e856795c8",
+    "landing/mavlink_reference.py": "3f7408283c50afc90501c6b71156e5b0e0ff8410842693de710609318d76e9e4",
+    "landing/moving_platform.py": "517b1ffa5df96161b01539416ed029da449cc8af2292183bbfc8b819f1e3ebdc",
+    "landing/execution.py": "a2aeaa43876129c75fdd6bc2321653aba81b8736a4a04873118cc8f64f956f7f",
+    "config/airframes/iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86",
+    "config/airframes/iris_swept_envelope_v1.json": "da3d763cfe3680dda0f039ccbc647db672df3a38a82b6c191b7379966a5d96cf",
+    "config/experiments/execution_v1.json": "1c3fe84c84c7f69f0aa555782e6972650913957ae25b7080461b7b834ed8c794"
+  },
+  "same_control_configuration": true,
+  "unit_tests_passed": true,
+  "local_archive_hashes_verified": true,
+  "joint_landing_point_optimization_exercised": true,
+  "largest_landing_point_offset_m": 0.014999999991184705,
+  "early_measured_turning_recovery_exercised": true,
+  "heading_acceleration_rejections": 1,
+  "frame_velocity_reserve_rejections": 0,
+  "preserved_host_interruptions": [
+    {
+      "session": 38,
+      "original_status_preserved": true,
+      "records": [
+        {
+          "cycle": "cycle_001",
+          "last_recorded_armed": true,
+          "counted_as_success": false,
+          "source_hashes_verified": true
+        }
+      ]
+    },
+    {
+      "session": 46,
+      "original_status_preserved": true,
+      "records": [
+        {
+          "cycle": "cycle_001",
+          "last_recorded_armed": false,
+          "counted_as_success": false,
+          "source_hashes_verified": true
+        }
+      ]
+    },
+    {
+      "session": 47,
+      "original_status_preserved": true,
+      "records": [
+        {
+          "cycle": "cycle_001",
+          "last_recorded_armed": true,
+          "counted_as_success": false,
+          "source_hashes_verified": true
+        }
+      ]
+    }
+  ],
+  "preserved_late_exit_failures": [
+    {
+      "session": 48,
+      "cycle": 5,
+      "counted_as_success": false,
+      "raw_hash_verified": true,
+      "minimum_leg_clearance_m": 0.010628425064633963
+    },
+    {
+      "session": 55,
+      "cycle": 1,
+      "counted_as_success": false,
+      "raw_hash_verified": true,
+      "minimum_leg_clearance_m": 0.0044521776654051935
+    }
+  ],
+  "protocol_sha256": "db2dd9fa58917b624ebebd68b92dba54dfad1c69b2bcfa689e4bd12dbee663ba",
+  "scope": "Level fixed-height small deck, bounded declared simulation motions. Declared synthetic noise/delay is applied to platform prediction observations; physical contact gates remain based on simulator observations. Switching stress may be rejected and returned home and is never counted as landing. No general probability, invariant escape, continuous collision or hardware claim.",
+  "statistical_coverage_proved": false,
+  "continuous_collision_guarantee": false,
+  "hardware_validated": false
+}

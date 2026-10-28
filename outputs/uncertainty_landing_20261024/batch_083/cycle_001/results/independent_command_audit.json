@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": {
+    "enabled": true,
+    "speed": true,
+    "acceleration": true,
+    "vertical_acceleration": true,
+    "tilt": true,
+    "jerk": true,
+    "commands_present": true
+  },
+  "scope": "Final sent PVA command bounds; not a guarantee of native physical acceleration or a continuous Bezier certificate for feedback corrections."
+}

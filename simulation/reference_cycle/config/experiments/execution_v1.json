@@ -1,0 +1,51 @@
+{
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "airframe_profile": "config/airframes/iris_fixed_gimbal_sim.json",
+  "reference_directory": "outputs/model_audit/step07",
+  "vertical_lead_in": {
+    "enabled": true,
+    "duration_s": 1.5,
+    "height_above_approach_initial_com_m": 0.30,
+    "interpretation": "Separate 1.5 s preparation reference from near-hover at launch; approach duration remains 6.40 s. Not a new flight or demonstrated tracking result."
+  },
+  "deck_collision": "landing_vehicle::chassis::landing_deck",
+  "uav_model_prefix": "uav::",
+  "leg_collision_prefix": "uav::iris_with_standoffs::base_link::",
+  "limits_interpretation": "Explicit software experiment conditions; not identified hardware capabilities or a post-impact dynamics model.",
+  "entry_limits": {
+    "position_error_m": 0.05,
+    "velocity_error_m_s": 0.05,
+    "attitude_error_rad": 0.017453292519943295,
+    "angular_velocity_error_rad_s": 0.05235987755982989,
+    "com_acceleration_error_m_s2": 0.20,
+    "observation_age_s": 0.06
+  },
+  "handover_limits": {
+    "observation_age_s": 0.06,
+    "contact_age_s": 0.06,
+    "update_gap_s": 0.08,
+    "contact_time_error_s": 0.25,
+    "contact_xy_error_m": 0.20,
+    "contact_clearance_error_m": 0.025,
+    "contact_tangential_speed_m_s": 0.05,
+    "contact_normal_speed_m_s": 0.12,
+    "contact_minimum_closing_speed_m_s": 0.02,
+    "contact_attitude_error_rad": 0.017453292519943295,
+    "contact_tilt_rad": 0.08726646259971647,
+    "contact_angular_speed_rad_s": 0.13962634015954636,
+    "footprint_margin_m": 0.02,
+    "support_minimum_legs": 3,
+    "support_maximum_gap_m": 0.02,
+    "support_penetration_m": 0.01,
+    "support_tilt_rad": 0.05235987755982989,
+    "support_speed_m_s": 0.05,
+    "support_angular_speed_rad_s": 0.08726646259971647,
+    "support_dwell_s": 0.40,
+    "post_disarm_dwell_s": 3.0,
+    "land_request_interval_s": 0.25,
+    "land_ack_timeout_s": 2.0,
+    "settle_timeout_s": 10.0,
+    "disarm_timeout_s": 30.0
+  }
+}
