@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-28",
+  "source_commit": "97f3cb0e7b69d09abffaa51e3a11315328522a18",
+  "algorithm_modified": false,
+  "source_manifest_verified_files": 407,
+  "synchronized_files": 408,
+  "os": "Ubuntu 26.04.1 amd64",
+  "python": "3.12.14",
+  "packages": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "cvxpy": "1.9.3",
+    "clarabel": "0.11.1"
+  },
+  "unittest": {
+    "command": "python -m unittest discover -s tests -v",
+    "count": 130,
+    "seconds": 16.337,
+    "exit_code": 0,
+    "status": "OK",
+    "log_sha256": "1faaa7f4a066a01458fb09ae6028e56fe148a4a8096b44cade9516db393a56b1"
+  },
+  "physical_simulation_started": false,
+  "physical_environment_ready": false,
+  "ros_required_by_current_control_path": false,
+  "sync_method": "GitHub connector file snapshot with Git blob SHA verification",
+  "local_git_cli_authenticated": false,
+  "system_install_blocker": "execution process has no-new-privileges; sudo cannot elevate"
+}
