@@ -543,18 +543,39 @@ class BezierLandingPlanner:
         if L.tracking_error_tightening:result.update(tracking_contact_envelope=tracking,tracking_terminal_corridor_residual_m=float(tracking_residual))
         return result
 
-    def search(self, state, platform, now, durations=(3., 4., 5., 6.), previous_arrival=None, uncertainty=None,tracking_envelope=None):
+    def search(self, state, platform, now, durations=(3., 4., 5., 6.), previous_arrival=None, uncertainty=None,tracking_envelope=None, *, prune_score_dominated=True):
         started = time.perf_counter(); records = []; best = None; best_score = math.inf
+        solved = 0
         for duration in sorted(set(durations)):
-            plan, rec = self.solve(state, platform, now, duration, uncertainty,tracking_envelope); records.append(rec)
+            if not math.isfinite(duration) or not .2 <= duration <= 15:
+                raise ValueError('Duration outside [.2,15] s')
+            # The SOCP objective is a positive weighted sum of squared landing
+            # offset and integrated squared derivatives. Its exact lower bound
+            # is zero. Preserve ascending solve order, original score and tie
+            # preference; prune only STRICTLY dominated candidates with slack.
+            lower_bound = .5*duration
+            if previous_arrival is not None: lower_bound += 2.*(now+duration-previous_arrival)**2
+            slack = 1e-6+1e-8*abs(best_score) if best is not None else math.inf
+            if prune_score_dominated and best is not None and lower_bound > best_score+slack:
+                records.append(dict(status='SCORE_BOUND_PRUNED',duration_s=duration,
+                    score_lower_bound=lower_bound,incumbent_score=best_score,
+                    numerical_slack=slack))
+                continue
+            plan, rec = self.solve(state, platform, now, duration, uncertainty,tracking_envelope)
+            solved += 1
             if plan is not None:
                 score = plan.cost + .5*duration
                 if previous_arrival is not None: score += 2.*(plan.arrival-previous_arrival)**2
-                if score < best_score: best, best_score = plan, score
+                if not math.isfinite(score):
+                    rec=dict(rec,status='NONFINITE_SCORE_REJECTED')
+                elif score < best_score: best, best_score = plan, score
+            records.append(rec)
         return best, {'status': 'PLAN_AVAILABLE' if best else 'NO_VALIDATED_CANDIDATE',
             'candidates': records, 'search_s': time.perf_counter()-started,
             'selected_duration_s': best.duration if best else None,
             'selected_score': best_score if best else None,
+            'solved_candidates': solved,
+            'score_bound_pruned_candidates': len(records)-solved,
             'global_infeasibility_claim': False, 'actuation_enabled': False}
 
 
