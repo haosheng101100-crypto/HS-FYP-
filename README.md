@@ -1,5 +1,7 @@
 # 移动小平台着陆算法
 
+2026-10-29 更新：本机已完成新的九场景物理仿真与独立复核，六场真正落台、三场安全退出，9/9 满足原协议。环境、数据边界和结果见 [本机复现记录](handoff/UBUNTU_PHYSICAL_RUN_20261029.md)。
+
 这是本次对话最终通过九场景仿真验收的算法源码与交接包（2026-10-28 上传整理）。实际验收版本为 batch 082/083、协议 v30；包含六个真实落台、三个安全退出，退出不计落台。
 
 算法用因果平台状态估计、分段七阶 Bézier SOCP、矩形整机包络、末段实测跟踪偏差补偿和原生 LAND 接管，实现移动平台接近、下降与安全退出。详见 [算法与验收](新算法与仿真验收.md)。
@@ -35,7 +37,7 @@ python -m unittest discover -s tests -v
 
 **原监督器是原机器适配版本**，使用 `/home/haosheng/hs_ardupilot_stage1`、`reproduction_20261018/fixed_gimbal_terminal_004`、`paper_experiments/moving_rapid_v1`、独立版本包与 session 目录，并要求 `vendor/`、`gz_prefix/`、`venv/`、Gazebo Python 绑定及图形桌面。`tools/run_receding_simulation.py` 则是原 Windows + VMware 入口，不能直接作为另一台 Ubuntu 的启动命令。
 
-另一台 Ubuntu 需要先安装上述运行时，将 `simulation/reference_cycle/` 作为场景/参考源码，按监督器的 `SOURCE`、`FROZEN`、`BASE`、`PKG` 路径关联部署；新 session 必须独立，不能指向已有验收记录。不要删除前置校验或修改原飞控参数来跳过错误。新机器的完整物理启动尚未验证，需完成环境适配后实际跑新一轮并独立审计；本次上传不声称新机器已经复现成功。
+另一台 Ubuntu 需要先安装上述运行时，将 `simulation/reference_cycle/` 作为场景/参考源码，按监督器的 `SOURCE`、`FROZEN`、`BASE`、`PKG` 路径关联部署；新 session 必须独立，不能指向已有验收记录。不要删除前置校验或修改原飞控参数来跳过错误。初始上传时新机器的完整物理启动尚未验证；2026-10-29 已在 Ubuntu 24.04 隔离环境完成本机新一轮物理运行与独立审计，详见上方复现记录。
 
 ## 当前进度与边界
 

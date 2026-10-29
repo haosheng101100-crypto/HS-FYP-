@@ -22,7 +22,7 @@
     "config/experiments/snap_approach_v2.json": "31ef25d2583584035a5fe3d73998b8d2aacd951457133c0b6b0e0d92073631fd",
     "config/experiments/touchdown_boundary_v1.json": "d60ced63572ced8f561231f90986c7ef726355787845c6a86d6005ff7a0796bd",
     "config/hardware/real_system_pending.json": "a109db7c799ea0ea8f62556ff94789df7c3e1d34d6ddc60be2812419e1119884",
-    "handoff/CURRENT_STATUS.md": "b17d2928da341c1d440e441c484ed1ef42f15352d0448a1052271bce5cd52747",
+    "handoff/CURRENT_STATUS.md": "cad3d0fe873fea8a4b179954632017e24d94a8e1d8eb3ada5a37424593707767",
     "handoff/fixture_excerpts.json": "e5a6d4bfc3193212d825244de8e211d2d38389f5dff26c3fdd77c78a0c2279f0",
     "handoff/package_tests_windows.txt": "3ab4e8e7c00734791b58ed69bcd14bdccfb080356b64d38d1112969925be227a",
     "handoff/promote_receding_trial.py": "8f37cf1743bc2c21cbc364c7b188867a8a267527f1072a03fc29ca7eba1bc7bb",
@@ -162,7 +162,7 @@
     "outputs/uncertainty_landing_20261024/validation_protocol_v30.json": "db2dd9fa58917b624ebebd68b92dba54dfad1c69b2bcfa689e4bd12dbee663ba",
     "outputs/uncertainty_landing_20261024/verification_v30.json": "3c994b7e43f9c7b8639c3b1f2c69020426e24f624e5a4bc1d33ceb8b7de5ee7a",
     "outputs/uncertainty_landing_20261024/visual_review_v30.json": "d4f7e1b015710ca9ed753ff17b5da19f432f1f3211289e349ed509ab90e48e69",
-    "README.md": "6d95be305f8f399ea8a588a1a8e098871833648d640b669df65e7520fa859eb3",
+    "README.md": "bda738c606861b8c5e6706fe21a1c247b13344266ad275d55c8b5e541e024039",
     "requirements-simulation.txt": "2a5a3062fa9075883498fe80f40ac7215e5dd08d3a98385879aba03b376eaeee",
     "requirements-visualization.txt": "31908550c229282f582910ef0aa9b1655c4c341ad87bdd421cbf5d073f4ee32a",
     "requirements.txt": "7575d3a9b9e37cbc067d220b53f419583d6696b6b059a60d02e69aea438abffc",
@@ -409,6 +409,20 @@
     "tools/watch_local_execution_proof.py": "bb0a053df727fca3344a2ec5edddd0a0e566e1e0ce26906719de493d5d58ea02",
     "work/constant79_control.jsonl": "cb4604cee5122a8366e2f923f89358426ea60d06d3b08953fceafc2c41284961",
     "work/noisy71_control.jsonl": "56ff9d94102c1b910500fe0c73d44d245742d6554b0a197d9dbd661e44318aaf",
-    "新算法与仿真验收.md": "acf2e4d25a43f33c9a1bc9f94f72365a17770c2c1026f579db4653199f3f8bb0"
+    "新算法与仿真验收.md": "acf2e4d25a43f33c9a1bc9f94f72365a17770c2c1026f579db4653199f3f8bb0",
+    "handoff/UBUNTU_VALIDATION_20261028.md": "20cbdab637595452382689f0116fc1765584543432dbb3f71286a066b82a8143",
+    "handoff/ubuntu_validation_20261028.json": "aecd06224d058c2853283997ddca16da7584697a20cab9b770b801d3dce685e3",
+    "handoff/UBUNTU_PHYSICAL_RUN_20261029.md": "4e160f5bc1f8f558c701fc08e124141a190c45807d69aef2607d8adf3ed64621",
+    "handoff/ubuntu_physical_run_20261029.json": "b3c5bf2e971282edebba7afdb197f124399838e698631add04f166a437335ffd",
+    "handoff/ubuntu24_environment_20261029.json": "49d14bd6f8c3296658e9fbe92232e7dc3ecc126efbdde9b05acbde5899426e41",
+    "handoff/ubuntu24_supervisor_adapter_20261029.diff": "c3da20e9eed8621c650ee39c8d9b5b9d3816c742b710f26f050071407caac1ad"
+  },
+  "ubuntu_physical_run_20261029": {
+    "session": "session_002",
+    "cases": 9,
+    "landings": 6,
+    "safe_exits": 3,
+    "all_independent_audits_passed": true,
+    "control_sources_modified": false
   }
 }

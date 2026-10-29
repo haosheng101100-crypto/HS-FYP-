@@ -1,0 +1,45 @@
+--- archived_supervisor
++++ ubuntu24_session002_supervisor
+@@ -1,14 +1,14 @@
+ """Own the interactive simulation, native controls and resettable cycles."""
+ from pathlib import Path
+ import os,json,subprocess,time,signal,shutil,hashlib,traceback
+-BASE=Path('/home/haosheng/hs_ardupilot_stage1')
+-SESSION=BASE/'interactive_20261023/receding_session_083'
+-PKG=BASE/'paper_experiments/operator_receding_v83'
+-FROZEN=BASE/'paper_experiments/moving_rapid_v1'
+-SOURCE=BASE/'reproduction_20261018/fixed_gimbal_terminal_004'
++BASE=Path('/workspace/work/simulation_environment/deployment')
++SESSION=Path('/workspace/outputs/仿真复现_20261029/session_002')
++PKG=BASE/'operator'
++FROZEN=BASE/'baseline'
++SOURCE=BASE/'reference'
+ VALIDATION_SCENARIOS=json.loads((PKG/'config/experiments/receding_live_v1.json').read_text()).get('validation_scenarios',[])
+ SESSION.mkdir(exist_ok=False,parents=True);(SESSION/'requests').mkdir();(SESSION/'processed').mkdir()
+-display_env=dict(os.environ,DISPLAY=':0',XAUTHORITY='/run/user/1000/gdm/Xauthority',XDG_RUNTIME_DIR='/run/user/1000',DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus',HS_OPERATOR_SESSION=str(SESSION))
++display_env=dict(os.environ,DISPLAY=os.environ['DISPLAY'],XAUTHORITY=os.environ['XAUTHORITY'],XDG_RUNTIME_DIR=os.environ['XDG_RUNTIME_DIR'],DBUS_SESSION_BUS_ADDRESS=os.environ.get('DBUS_SESSION_BUS_ADDRESS',''),HS_OPERATOR_SESSION=str(SESSION))
+ panel_log=(SESSION/'panel.log').open('x')
+ panel=subprocess.Popen(['python3',str(PKG/'operator_panel.py')],cwd=SESSION,env=display_env,stdout=panel_log,stderr=subprocess.STDOUT,start_new_session=True)
+ all_cycles=[]
+@@ -70,7 +70,7 @@
+                 node=tree.find('.//'+kind+'[@name="landing_deck"]/geometry/box/size')
+                 assert node is not None;node.text=f'{2*hx} {2*hy} 0.12'
+             tree.write(model_path,encoding='unicode',xml_declaration=True)
+-        world=run/'worlds/uav_vehicle_stage1.sdf';s=world.read_text();assert '<pose>5 0 0.002 0 0 0</pose>' in s
++        world=run/'worlds/uav_vehicle_stage1.sdf';s=world.read_text();assert '<pose>3 0 0.002 0 0 0</pose>' in s, 'Archived final vehicle pose required'
+         world.write_text(s.replace('<pose>5 0 0.002 0 0 0</pose>','<pose>3 0 0.002 0 0 0</pose>'))
+         cfg=(BASE/'gz_prefix/usr/share/gz/gz-sim8/gui/gui.config').read_text().replace('show_again="true"','show_again="false"')
+         cfg=cfg.replace('<camera_pose>-6 0 6 0 0.5 0</camera_pose>','<camera_pose>3.5 -8 5 0 0.463647609 1.570796327</camera_pose>').replace('<start_paused>true</start_paused>','<start_paused>false</start_paused>')
+@@ -88,6 +88,12 @@
+             (run/'results/managed_processes.json').write_text(json.dumps(rows,indent=2));return p
+         reset=False
+         try:
++            declaration=json.loads((SESSION.parent/'declared_protocol.json').read_text())
++            for name,digest in declaration['source_sha256'].items():
++                assert hashlib.sha256((run/name).read_bytes()).hexdigest()==digest,name
++            actual_cfg=json.loads((run/'config/experiments/receding_live_v1.json').read_text())
++            actual_cfg.pop('validation_scenarios',None)
++            assert actual_cfg==declaration['control_configuration'],'Control configuration drift'
+             pre=start('preflight',['./venv/bin/python','-c','from pathlib import Path;from landing.reference_loader import load_verified_reference;load_verified_reference(Path.cwd());print("Frozen geometry and runtime verified")'])
+             assert pre.wait(timeout=30)==0
+             gz=start('gazebo',['gz','sim','-s','-r','-v','2','./worlds/uav_vehicle_stage1.sdf'])
