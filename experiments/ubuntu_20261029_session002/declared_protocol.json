@@ -1,0 +1,216 @@
+{
+  "created_utc": "2026-10-27T03:17:00.724957+00:00",
+  "reference_case": {
+    "session": 82,
+    "cycle": 1
+  },
+  "unit_test_report": "unit_tests_v27.json",
+  "cases": [
+    {
+      "session": 82,
+      "cycle": 1,
+      "scenario": "maneuvering",
+      "expected": "landing"
+    },
+    {
+      "session": 82,
+      "cycle": 2,
+      "scenario": "turning",
+      "expected": "landing"
+    },
+    {
+      "session": 82,
+      "cycle": 3,
+      "scenario": "noisy_maneuvering",
+      "expected": "landing"
+    },
+    {
+      "session": 83,
+      "cycle": 1,
+      "scenario": "constant",
+      "expected": "landing"
+    },
+    {
+      "session": 83,
+      "cycle": 2,
+      "scenario": "switchback",
+      "expected": "safe_exit"
+    },
+    {
+      "session": 83,
+      "cycle": 3,
+      "scenario": "fast_maneuvering",
+      "expected": "landing"
+    },
+    {
+      "session": 83,
+      "cycle": 4,
+      "scenario": "varying",
+      "expected": "landing"
+    },
+    {
+      "session": 83,
+      "cycle": 5,
+      "scenario": "surge",
+      "expected": "safe_exit"
+    },
+    {
+      "session": 83,
+      "cycle": 6,
+      "scenario": "braking",
+      "expected": "landing_or_safe_exit"
+    }
+  ],
+  "source_sha256": {
+    "tools/operator_backend.py": "7c1ea2c1cd4e3577292d9c463c02a38769e3cbf1f0f8c2232d06acca7d969842",
+    "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
+    "landing/platform_filter.py": "fc977801800e21f3d2c1d10f43b45373e81875e3b193779380ace5a895443d07",
+    "landing/receding_live.py": "2bf432117ca0dbc3410e523412ee79bf105e2fa4314b817c70e37c42e7b746a3",
+    "landing/receding_landing.py": "afe37a894810dcfc5e5a258eabf51ae070f4c9e4f0917df85a1132ca81940690",
+    "landing/swept_envelope.py": "1bc4e7f039783a40b895575343e1dafce8108d65a9b3026ac89274b74c5acb15",
+    "landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
+    "tools/receding_planner_worker.py": "58c9abb45c29ec54ea7e61d97373409db4cc84109511af6ece6d5a513997e48b"
+  },
+  "control_configuration": {
+    "simulation_only": true,
+    "hardware_deployment_allowed": false,
+    "planner_limits": {
+      "speed": 3.0,
+      "acceleration": 1.5,
+      "jerk": 4.0,
+      "tilt_rad": 0.2617993877991494,
+      "upward_speed": 0.6,
+      "downward_speed": 0.7,
+      "vertical_acceleration": 1.0,
+      "contact_speed": 0.08,
+      "corridor_slope": 2.0,
+      "audit_samples": 101,
+      "segments": 8,
+      "prediction_horizon_s": 2.0,
+      "terminal_coverage_s": 3.0,
+      "directional_corridor": true,
+      "tracking_error_tightening": true
+    },
+    "future_activation_lead_s": 0.4,
+    "task_timeout_s": 40.0,
+    "control_interval_s": 0.04,
+    "default_scenario": "maneuvering",
+    "scenarios": {
+      "constant": "Ramp to 0.3 m/s, then constant speed",
+      "varying": "Smooth acceleration and braking; no schedule passed to planner",
+      "turning": "Slow turn, causal pose/acceleration estimates only",
+      "maneuvering": "Simultaneous bounded speed changes and alternating turn rate; no future commands exposed to planner",
+      "braking": "Ramp to 0.6 m/s, command braking to zero at measured 1 m leg gap; physical acceleration limit 0.3 m/s². No event schedule exposed to planner.",
+      "fast_maneuvering": "Speed target 0.65+0.15 sin(0.4t) m/s, turn target 0.035 sin(0.5t) rad/s; command acceleration cap 0.12 m/s². No schedule exposed to planner."
+    },
+    "scope": "Simulation only. Deck area is 1.5 times the fixed-aircraft swept-rotor occupancy bounding rectangle, measured from existing mesh and collision geometry. No hardware guarantee. Body envelope and tilt allowance supplement unchanged foot/contact/support gates.",
+    "envelope_profile": "config/airframes/iris_swept_envelope_v1.json",
+    "deck_half_extents": [
+      0.34,
+      0.4081766061261277
+    ],
+    "deck_to_aircraft_rectangle_area_ratio": 1.5,
+    "horizontal_feedback": {
+      "position_gain": 6.25,
+      "velocity_gain": 5.0,
+      "acceleration_lead_s": 0.12,
+      "maximum_acceleration_m_s2": 2.5
+    },
+    "short_horizon_cubic_prediction": true,
+    "platform_fit_span_s": 0.65,
+    "arrival_extension_budget_s": 3.0,
+    "measured_frame_terminal_control": true,
+    "validation_expectations": {
+      "braking": "landing_or_safe_exit",
+      "fast_maneuvering": "landing",
+      "constant": "landing",
+      "varying": "landing",
+      "turning": "landing",
+      "maneuvering": "landing",
+      "surge": "safe_exit"
+    },
+    "final_command_limits": true,
+    "prediction_uncertainty": {
+      "issue_interval_s": 0.16,
+      "window_s": 4.0,
+      "quantile": 0.9,
+      "minimum_samples": 12,
+      "reaction_horizon_s": 0.8
+    },
+    "synthetic_platform_observation_stress": {
+      "delay_s": 0.04,
+      "position_sigma_m": 0.0008,
+      "yaw_sigma_rad": 0.0008,
+      "seed": 20261024
+    },
+    "terminal_horizontal_feedback": {
+      "transition_s": 4.0,
+      "position_gain": 1.5,
+      "velocity_gain": 2.4,
+      "acceleration_lead_s": 0.0,
+      "speed_scheduling": {
+        "low_speed_m_s": 0.45,
+        "high_speed_m_s": 0.65,
+        "fast_transition_s": 5.0
+      }
+    },
+    "nominal_acceleration_reserve_m_s2": 0.3,
+    "platform_filter": {
+      "position_noise_m": 0.0008,
+      "yaw_noise_rad": 0.0008,
+      "linear_jerk_spectral_density": 0.01,
+      "angular_jerk_spectral_density": 0.0004,
+      "maximum_measurement_age_s": 0.12
+    },
+    "maximum_contact_yaw_acceleration_rad_s2": 0.04,
+    "arrival_extension_window_s": 5.0,
+    "initial_candidate_durations_s": [
+      8.0,
+      10.0,
+      12.0
+    ],
+    "early_arrival_extension_budget_s": 1.0,
+    "final_command_acceleration_reserve_m_s2": 0.1,
+    "moving_alignment": {
+      "minimum_leg_gap_m": 1.5,
+      "dwell_s": 0.6,
+      "maximum_time_s": 25.0,
+      "only_for_degraded_observations": true,
+      "initial_candidate_durations_s": [
+        4.0,
+        5.0,
+        6.0
+      ]
+    },
+    "stable_non_descent_feedback": true,
+    "maximum_early_native_freeflight_s": 0.05,
+    "tracking_error_feedback": {
+      "window_s": 5.0,
+      "error_horizon_s": 0.35
+    }
+  },
+  "scope": "Level fixed-height small deck, bounded declared simulation motions. Declared synthetic noise/delay is applied to platform prediction observations; physical contact gates remain based on simulator observations. Switching stress may be rejected and returned home and is never counted as landing. No general probability, invariant escape, continuous collision or hardware claim.",
+  "feedback_design": "Measured-frame C2 tracking, staged finite arrival budgets, early speed-scheduled capture transition, explicit final-command acceleration response reserve, last0.8s contact-time commitment. Measured <=1cm native capture may begin inside the ORIGINAL0.25s early-contact window only when every original capture gate and whole-body/preview condition passes. Physical/contact/support/exit gates unchanged.",
+  "supersedes": "Prior declared evidence retained; fresh immutable controller trials 82/83. Earlier failures are not relabelled.",
+  "corridor_design": "Segmentwise signed rectangle support, continuous heading chord and original geometry/uncertainty reserves; old contact gates unchanged.",
+  "new_experiment_date": "2026-10-29",
+  "new_run_order": [
+    "constant",
+    "surge",
+    "maneuvering",
+    "turning",
+    "noisy_maneuvering",
+    "switchback",
+    "fast_maneuvering",
+    "varying",
+    "braking"
+  ],
+  "environment_migration": "Ubuntu 24.04 container on Ubuntu 26.04 host; Harmonic",
+  "original_package_files_modified": false,
+  "control_source_or_thresholds_modified": false,
+  "pilot_cases": [
+    "constant",
+    "surge"
+  ],
+  "note": "New independent evidence; historical success is not assumed."
+}

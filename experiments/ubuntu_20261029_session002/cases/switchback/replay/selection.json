@@ -1,0 +1,15 @@
+{
+  "scope": "Selected original inputs and outputs; not the full control history",
+  "transition": "RECOVERING",
+  "source_control_sha256": "b94eb0b1e7c59ee9f1decbd3c2cb2c767e3ea63e80c206d004496b35edd0ed87",
+  "retained_source_line_numbers_1_based": [
+    250,
+    251,
+    252
+  ],
+  "planner_responses": [
+    "response_000001.json",
+    "response_000014.json",
+    "response_000015.json"
+  ]
+}

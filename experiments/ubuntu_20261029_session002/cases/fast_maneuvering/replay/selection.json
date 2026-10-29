@@ -1,0 +1,14 @@
+{
+  "scope": "Selected original inputs and outputs; not the full control history",
+  "transition": "CONTACT_HANDOVER",
+  "source_control_sha256": "52b1ab74b62f0c44a2d29452ef879cb550fac4d7b3be5d710f8ea3edb8abdcae",
+  "retained_source_line_numbers_1_based": [
+    359,
+    360,
+    361
+  ],
+  "planner_responses": [
+    "response_000001.json",
+    "response_000021.json"
+  ]
+}
