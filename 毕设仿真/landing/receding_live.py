@@ -350,11 +350,13 @@ class DeckAlignmentReference:
     Uses only the current causal platform estimate. These engineering reference
     bounds do not replace the actual-motion, collision or contact audits.
     """
-    def __init__(self,initial,com_offset,minimum_leg_gap_m=1.5,dwell_s=.6):
+    def __init__(self,initial,com_offset,minimum_leg_gap_m=1.5,dwell_s=.6,start_s=None,reserve_vertical=False):
         if minimum_leg_gap_m<1. or dwell_s<=0:raise ValueError('Safe alignment height and positive dwell required')
         self.offset=vec(com_offset);self.p=vec(initial.position_world_m)+self.offset
         self.v=vec(initial.velocity_world_m_s);self.a=vec(initial.acceleration_world_m_s2)
-        self.gap=minimum_leg_gap_m;self.dwell=dwell_s;self.last=None;self.stable_since=None
+        if start_s is not None and not math.isfinite(start_s):raise ValueError('Finite alignment start required')
+        self.gap=minimum_leg_gap_m;self.dwell=dwell_s;self.last=start_s;self.stable_since=None
+        self.reserve_vertical=reserve_vertical
 
     def target(self,platform,center_shift):
         p=vec(platform.position)+vec(center_shift)+self.offset
@@ -363,6 +365,8 @@ class DeckAlignmentReference:
 
     def step(self,now,platform,center_shift):
         dt=.04 if self.last is None else now-self.last
+        if dt==0 and self.last==now:
+            return BodyReference(tuple(self.p-self.offset),tuple(self.v),tuple(self.a),0.)
         if not 0<dt<=.080001:raise ValueError('Alignment reference update gap')
         error=self.target(platform,center_shift)-self.p
         relative=error[:2];relative*=min(1.,1.2/max(np.linalg.norm(relative),1e-12))
@@ -371,8 +375,17 @@ class DeckAlignmentReference:
         # Critically damped reference shaping avoids a coarse-approach overshoot.
         desired=vec(platform.acceleration)+np.array([4.,4.,2.])*(velocity-self.v)
         desired[2]=np.clip(desired[2],-.4,.4)
-        desired*=min(1.,1.1/max(np.linalg.norm(desired),1e-12))
-        delta=desired-self.a;delta*=min(1.,2.*dt/max(np.linalg.norm(delta),1e-12));a=self.a+delta
+        if self.reserve_vertical:
+            # Independent Z authority for the planar reacquisition stop-distance
+            # calculation. XY cannot consume the upward acceleration or jerk.
+            desired[:2]*=min(1.,1./max(np.linalg.norm(desired[:2]),1e-12))
+            delta=desired-self.a
+            delta[:2]*=min(1.,1.6*dt/max(np.linalg.norm(delta[:2]),1e-12))
+            delta[2]=np.clip(delta[2],-1.2*dt,1.2*dt)
+        else:
+            desired*=min(1.,1.1/max(np.linalg.norm(desired),1e-12))
+            delta=desired-self.a;delta*=min(1.,2.*dt/max(np.linalg.norm(delta),1e-12))
+        a=self.a+delta
         self.p+=self.v*dt+(2*self.a+a)*dt*dt/6
         self.v+=.5*(self.a+a)*dt;self.a=a;self.last=now
         return BodyReference(tuple(self.p-self.offset),tuple(self.v),tuple(self.a),0.)

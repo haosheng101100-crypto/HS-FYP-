@@ -12,7 +12,7 @@ from .receding_landing import PlatformState
 class CausalPlatformKalman:
     def __init__(self,position_noise_m=.0008,yaw_noise_rad=.0008,
                  linear_jerk_spectral_density=.01,angular_jerk_spectral_density=.0004,
-                 maximum_measurement_age_s=.12):
+                 maximum_measurement_age_s=.12,innovation_adaptation=None):
         values=(position_noise_m,yaw_noise_rad,linear_jerk_spectral_density,
                 angular_jerk_spectral_density,maximum_measurement_age_s)
         if any(not math.isfinite(v) or v<=0 for v in values):raise ValueError('Positive finite filter design required')
@@ -20,6 +20,13 @@ class CausalPlatformKalman:
         self.q=np.array([linear_jerk_spectral_density,linear_jerk_spectral_density,angular_jerk_spectral_density])
         self.maximum_age=maximum_measurement_age_s
         self.x=None;self.P=None;self.stamp=None;self.count=0;self.height=None
+        self.adaptation=innovation_adaptation
+        if self.adaptation:
+            if set(self.adaptation)!={'sigma_threshold','process_noise_multiplier','hold_s'} or any(not math.isfinite(v) or v<=0 for v in self.adaptation.values()):
+                raise ValueError('Finite positive innovation adaptation design required')
+            if self.adaptation['process_noise_multiplier']<1.:raise ValueError('Adaptation must not reduce process noise')
+        self.boost_until=-math.inf
+        self.innovation_report=dict(process_noise_multiplier=1.,maximum_normalized_xy_innovation=0.)
 
     @staticmethod
     def matrices(dt):
@@ -48,8 +55,13 @@ class CausalPlatformKalman:
                 F,Q=self.matrices(dt)
                 predicted=self.x@F.T
                 measurement[2]=predicted[2,0]+math.remainder(yaw-predicted[2,0],2*math.pi)
+                innovation=max(abs(measurement[axis]-predicted[axis,0])/math.sqrt((F@self.P[axis]@F.T+self.q[axis]*Q)[0,0]+self.R[axis]) for axis in range(2))
+                if self.adaptation and innovation>self.adaptation['sigma_threshold']:
+                    self.boost_until=sample.sim_t_s+self.adaptation['hold_s']
+                multiplier=self.adaptation['process_noise_multiplier'] if self.adaptation and sample.sim_t_s<=self.boost_until else 1.
+                self.innovation_report=dict(process_noise_multiplier=multiplier,maximum_normalized_xy_innovation=float(innovation),measurement_stamp_s=sample.sim_t_s)
                 for axis in range(3):
-                    covariance=F@self.P[axis]@F.T+self.q[axis]*Q
+                    covariance=F@self.P[axis]@F.T+self.q[axis]*Q*(multiplier if axis<2 else 1.)
                     K=covariance[:,0]/(covariance[0,0]+self.R[axis])
                     self.x[axis]=predicted[axis]+K*(measurement[axis]-predicted[axis,0])
                     A=np.eye(3);A[:,0]-=K

@@ -13,6 +13,8 @@ from landing.swept_envelope import SweptEnvelope
 from landing.horizontal_feedback import HorizontalFeedback
 from landing.platform_prediction import estimate_platform,delayed_noisy_platform,synthetic_pose_samples
 from landing.platform_filter import CausalPlatformKalman
+from landing.planar_landing import PlanarLandingSupervisor,inflate_forecast_tube
+from landing.planar_motion import PlanarMotionCommand,desired_planar_velocity
 from landing.prediction_uncertainty import DelayedForecastMonitor
 from landing.receding_landing import FlightState,PlatformState
 from landing.receding_live import moving_alignment_required,initial_plan_durations,native_capture_time_guard,tracking_contact_envelope
@@ -24,6 +26,7 @@ from pymavlink import mavutil
 from gz.msgs10.twist_pb2 import Twist
 from gz.msgs10.world_control_pb2 import WorldControl
 from gz.msgs10.boolean_pb2 import Boolean
+from gz.msgs10.double_pb2 import Double
 
 
 class OperatorApproach(LegacyOperator):
@@ -41,6 +44,11 @@ class OperatorApproach(LegacyOperator):
         # changed the allowed closing speed and must not leak into this runtime.
         self.cfg=json.loads((ROOT/'config/experiments/execution_v1.json').read_text())
         self.live_cfg=json.loads((ROOT/'config/experiments/receding_live_v1.json').read_text())
+        self.planar_design=self.live_cfg.get('planar_landing')
+        self.planar_supervisor=None;self.last_sent_reference=None;self.planar_report=None
+        self.planar_motion=PlanarMotionCommand() if self.planar_design else None
+        if self.planar_design:
+            self.planar_pubs=[self.node.advertise('/vehicle/planar_'+axis+'/cmd_vel',Double) for axis in ('x','y')]
         if self.live_cfg.get('tracking_error_feedback') and not self.live_cfg.get('measured_frame_terminal_control'):
             raise ValueError('Tracking envelope feedback requires the actually corrected platform frame')
         self.forecast_monitor=DelayedForecastMonitor(**self.live_cfg.get('prediction_uncertainty',{})) if self.live_cfg.get('prediction_uncertainty') else None
@@ -87,7 +95,7 @@ class OperatorApproach(LegacyOperator):
         for p in sorted((SESSION/'requests').glob('*.json')):
             req=json.loads(p.read_text())
             if req.get('action')=='scenario':
-                if self.operator_stage in ('READY','HOVER') and req.get('value') in ('constant','varying','turning','maneuvering'):
+                if self.operator_stage in ('READY','HOVER') and req.get('value') in self.live_cfg.get('scenarios',{}):
                     self.scenario=req['value'];self.operator_message='已选择平台运动方式'
                 p.rename(SESSION/'processed'/(ROOT.name+'__'+p.name))
         super().process_actions()
@@ -127,6 +135,7 @@ class OperatorApproach(LegacyOperator):
     def begin_attempt(self,t,obs,deck,platform):
         self.attempt+=1;self.land_requested=False;self.pending_preparation=False
         self.reference_session=self.make_reference_session(self.hold_reference)
+        self.planar_supervisor=PlanarLandingSupervisor(self.planar_design) if self.planar_design else None
         closing=self.live_cfg['planner_limits']['contact_speed']
         req=TouchdownRequest(quaternion_from_rpy(0,0,-platform.yaw),(0,0,-platform.yaw_rate),(0,0),(0,0,-closing))
         boundary=solve_touchdown_boundary(self.geometry,deck,req,ContactDesignLimits(.01,1.01,.05,.5*closing,1.5*closing,.02))
@@ -138,13 +147,14 @@ class OperatorApproach(LegacyOperator):
         self.result['completed']=False;self.disarmed_since=None;self.xy_feedback.last_t=None
         self.result['execution_mode']='user_authorized_autonomous_simulation_trial' if os.environ.get('HS_AUTONOMOUS_TRIAL')=='1' else 'manual_panel'
         quality=self.observation_stress()
-        alignment_required=moving_alignment_required(self.live_cfg.get('moving_alignment'),quality)
+        alignment_required=bool(self.planar_design) or moving_alignment_required(self.live_cfg.get('moving_alignment'),quality)
         self.reference_session.events.append(dict(time=t,event='PREPARATION_POLICY',observation_stress=quality,moving_alignment_required=alignment_required))
         if alignment_required:
             cfg=self.live_cfg['moving_alignment']
             self.alignment_reference=DeckAlignmentReference(self.hold_reference,self.curve.com_offset_body_m,cfg['minimum_leg_gap_m'],cfg['dwell_s'])
             self.alignment_started=t;self.reference_session.phase='ALIGNING';self.operator_stage='ALIGNING'
             self.operator_message='先在安全高度追近并跟稳平台，实测收敛后再下降'
+            if self.planar_design:self.start_planar_follow(t,'PLANAR_INITIAL_FOLLOW')
             self.reference_session.events.append(dict(time=t,event='ALIGNMENT_STARTED',initial_reference=asdict(self.hold_reference)))
         self.event('New async planner activated by explicit user landing request; scenario='+self.scenario)
 
@@ -178,6 +188,14 @@ class OperatorApproach(LegacyOperator):
 
     def update_vehicle(self,t):
         elapsed=0. if self.scenario_start is None else t-self.scenario_start
+        if self.planar_motion is not None:
+            target=(0.,0.) if self.scenario_start is None else desired_planar_velocity(self.scenario,elapsed)
+            velocity,acceleration=self.planar_motion.step(t,target)
+            for publisher,value in zip(self.planar_pubs,velocity):publisher.publish(Double(data=value))
+            self.planar_command=dict(velocity_world_xy_m_s=velocity,acceleration_world_xy_m_s2=acceleration,planner_knows_future_commands=False)
+            self.car_speed=math.hypot(*velocity);self.car_omega=0.;self.last_car_sim=t
+            self.last_car=self.operator_clock.monotonic()
+            return
         acceleration_cap=.12
         if self.scenario_start is None:target=0.;omega=0.
         else:
@@ -218,6 +236,32 @@ class OperatorApproach(LegacyOperator):
         self.planner_message='退出原因：'+reason
         self.result['completed']=False;self.event('Failed landing attempt; brake/climb/return: '+reason)
 
+    def start_planar_follow(self,t,reason):
+        """Invalidate pending descent and continue from the actually sent PVA."""
+        initial=self.last_sent_reference or self.hold_reference
+        old=self.reference_session
+        old.cancel(reason)
+        self.reference_session=self.make_reference_session(initial)
+        self.reference_session.events=old.events+[dict(time=t,event=reason,initial_reference=asdict(initial))]
+        cfg=self.live_cfg['moving_alignment']
+        self.alignment_reference=DeckAlignmentReference(initial,self.curve.com_offset_body_m,cfg['minimum_leg_gap_m'],cfg['dwell_s'],start_s=t,reserve_vertical=True)
+        self.alignment_started=t;self.reference_session.phase='PLANAR_FOLLOW';self.operator_stage='ALIGNING'
+        self.terminal_prediction=None
+
+    def update_planar_policy(self,t,obs,platform,active_contact):
+        if self.planar_supervisor is None or self.recovery is not None:return None
+        state=FlightState.from_observation(obs,self.curve.com_offset_body_m)
+        descending=self.alignment_reference is None
+        report=self.planar_supervisor.update(t,state,platform,self.scene_gap,
+            aligned=descending,descending=descending,
+            contact=bool(active_contact or self.executor.handover.started is not None),braking_reference=self.last_sent_reference)
+        report['inputs']=dict(aligned=descending,descending=descending,gap_m=self.scene_gap,
+            contact=bool(active_contact or self.executor.handover.started is not None),
+            braking_reference=asdict(self.last_sent_reference) if self.last_sent_reference is not None else None)
+        if report['action']=='EXIT':self.start_recovery(t,obs,report['reason'])
+        elif report['action']=='REACQUIRE':self.start_planar_follow(t,'PLANAR_REACQUIRE')
+        return report
+
     def control_step(self):
         cycle_started=time.perf_counter()
         wall=self.operator_clock.monotonic()
@@ -252,6 +296,9 @@ class OperatorApproach(LegacyOperator):
         active_contact=event and event.active or frame and frame.active
         if self.reference_session:
             hand=self.executor.handover
+            self.planar_report=self.update_planar_policy(t,obs,platform,active_contact)
+            if self.planar_report:
+                self.forecast_tube=inflate_forecast_tube(self.forecast_tube,self.planar_report.get('motion'))
             # The near-level contact/support design cannot track sustained deck
             # acceleration requiring more tilt than its original contact gate.
             # Reject early while the brake/climb option still has clearance.
@@ -285,14 +332,15 @@ class OperatorApproach(LegacyOperator):
                 target=dict(motion=RigidMotion(Pose(ref.position_world_m,(0,0,0,1)),ref.velocity_world_m_s,(0,0,0)),com_acceleration_world_m_s2=ref.acceleration_world_m_s2)
                 entry=assess_entry(t,obs,target,self.curve.com_offset_body_m,self.entry,frame)
                 alignment_report['original_entry']=entry
-                if alignment_report['ready'] and entry['ready']:
+                planar_ready=self.planar_report is None or self.planar_report.get('descent_eligible',False)
+                if alignment_report['ready'] and entry['ready'] and planar_ready:
                     prior_events=self.reference_session.events
                     self.reference_session=self.make_reference_session(ref,t)
                     self.reference_session.events=prior_events+[dict(time=t,event='ALIGNMENT_COMPLETE',report=alignment_report,initial_reference=asdict(ref))]
                     self.executor.start_s=t;self.latest_entry=entry;self.executor.approach_entry_report=entry
                     self.alignment_reference=None;self.operator_stage='LANDING'
                     self.operator_message='已跟稳平台，开始优化最后下降轨迹'
-                elif t-self.alignment_started>self.live_cfg['moving_alignment']['maximum_time_s']:
+                elif not self.planar_design and t-self.alignment_started>self.live_cfg['moving_alignment']['maximum_time_s']:
                     self.start_recovery(t,obs,'MOVING_ALIGNMENT_TIMEOUT')
                     ref,_=self.recovery.step(t,obs)
                 decision=ExecutionDecision('ALIGNING' if self.recovery is None else 'FAILED_ATTEMPT_RETURN',False,ref)
@@ -338,6 +386,7 @@ class OperatorApproach(LegacyOperator):
                     if all(checks.values()) and body_margin>=self.limits.footprint_margin_m:
                         if capture_window['ready']:
                             self.reference_session.events.append(dict(time=t,event='MEASURED_TERMINAL_CAPTURE',arrival=hand.expected_contact_s,checks=checks))
+                        if self.planar_design:self.reference_session.events.append(dict(time=t,event='NATIVE_CAPTURE_STARTED'))
                         hand.begin(t);self.reference_session.touch();decision=hand.step(t,obs,frame,event)
                         self.native_contact_deadline=t+self.limits.contact_time_error_s
                     else:self.start_recovery(t,obs,'TERMINAL_CAPTURE_REJECTED')
@@ -389,6 +438,7 @@ class OperatorApproach(LegacyOperator):
         self.xy_feedback.kp=gains['position_gain'];self.xy_feedback.kd=gains['velocity_gain'];self.xy_feedback.lead=gains['acceleration_lead_s']
         sent=self.xy_feedback.update(decision,obs,t)
         sent=self.command_limiter.update(sent,t)
+        if sent.reference is not None:self.last_sent_reference=sent.reference
         dispatch(sent,self.m,self.request_land,self.alignment,t)
         feet=evaluate_airframe(self.geometry,obs.motion,deck)
         row=dict(sim_t_s=t,stage=self.operator_stage,observation=asdict(obs),fit=fit,measured_deck=asdict(deck),platform=asdict(platform),
@@ -398,6 +448,10 @@ class OperatorApproach(LegacyOperator):
                  planner_phase=self.reference_session.phase if self.reference_session else None,
                  support_checks=self.executor.handover.last_support_checks,terminal_capture_window=capture_window,alignment_readiness=alignment_report)
         row['tracking_contact_envelope']=tracking_envelope
+        if self.planar_design:
+            row['planar_supervision']=self.planar_report
+            row['planar_command']=getattr(self,'planar_command',None)
+            row['filter_innovation']=self.platform_filter.innovation_report if self.platform_filter else None
         if self.envelope:row['whole_aircraft_deck_margin_m']=self.envelope.clearance(obs.motion,deck)
         row['terminal_body_prediction']=self.terminal_prediction
         row['horizontal_feedback_schedule']=feedback_schedule

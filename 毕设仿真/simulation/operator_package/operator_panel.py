@@ -16,8 +16,11 @@ class Panel(Gtk.Window):
         self.status=Gtk.Label(label='正在初始化，尚未起飞');self.status.set_line_wrap(True);box.pack_start(self.status,False,False,0)
         self.details=Gtk.Label(label='');box.pack_start(self.details,False,False,0)
         self.scenario=Gtk.ComboBoxText()
-        for key,label in [('constant','匀速平台'),('varying','加速 / 制动平台'),('turning','缓慢转弯平台'),('maneuvering','变速并转弯')]:self.scenario.append(key,label)
-        self.scenario.set_active_id('constant');self.scenario.connect('changed',self.choose_scenario)
+        profile=os.environ.get('HS_LANDING_PROFILE')
+        config=json.loads(Path(profile).read_text()) if profile else {}
+        options=config.get('scenarios',{'constant':'匀速平台','varying':'加速 / 制动平台','turning':'缓慢转弯平台','maneuvering':'变速并转弯'})
+        for key,label in options.items():self.scenario.append(key,label)
+        self.scenario.set_active_id(config.get('default_scenario','constant'));self.scenario.connect('changed',self.choose_scenario)
         box.pack_start(self.scenario,False,False,0)
         self.planner=Gtk.Label(label='新规划器准备中');self.planner.set_line_wrap(True);box.pack_start(self.planner,False,False,0)
         grid=Gtk.Grid(column_spacing=12,row_spacing=12);box.pack_start(grid,True,True,0)

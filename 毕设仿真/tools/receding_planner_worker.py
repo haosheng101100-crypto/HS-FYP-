@@ -42,7 +42,7 @@ def main():
         last=request['sequence'];started=time.monotonic()
         try:
             uncertainty=ForecastTube(**request['uncertainty']) if request.get('uncertainty') else None
-            plan,report=planner.search(FlightState(**request['state']),PlatformState(**request['platform']),request['now'],request['durations'],request['previous_arrival'],uncertainty,tracking_envelope=request.get('tracking_envelope'))
+            plan,report=planner.search(FlightState(**request['state']),PlatformState(**request['platform']),request['now'],request['durations'],request['previous_arrival'],uncertainty,tracking_envelope=request.get('tracking_envelope'),capture_design=cfg.get('planar_landing'))
             result=dict(sequence=last,plan=pack_plan(plan) if plan else None,report=report,wall_compute_s=time.monotonic()-started)
         except Exception as exc:
             result=dict(sequence=last,plan=None,error=str(exc),traceback=traceback.format_exc(),wall_compute_s=time.monotonic()-started)

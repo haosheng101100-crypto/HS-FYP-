@@ -553,12 +553,19 @@ class BezierLandingPlanner:
         if L.tracking_error_tightening:result.update(tracking_contact_envelope=tracking,tracking_terminal_corridor_residual_m=float(tracking_residual))
         return result
 
-    def search(self, state, platform, now, durations=(3., 4., 5., 6.), previous_arrival=None, uncertainty=None,tracking_envelope=None, *, prune_score_dominated=True):
+    def search(self, state, platform, now, durations=(3., 4., 5., 6.), previous_arrival=None, uncertainty=None,tracking_envelope=None, *, prune_score_dominated=True,capture_design=None):
         started = time.perf_counter(); records = []; best = None; best_score = math.inf
         solved = 0
         for duration in sorted(set(durations)):
             if not math.isfinite(duration) or not .2 <= duration <= 15:
                 raise ValueError('Duration outside [.2,15] s')
+            capture=None
+            if capture_design is not None:
+                from .planar_landing import capture_window,precontact_relative_audit
+                capture=capture_window(platform,duration,capture_design)
+                if not capture['passed']:
+                    records.append(dict(status='CAPTURE_WINDOW_REJECTED',duration_s=duration,capture=capture))
+                    continue
             # The SOCP objective is a positive weighted sum of squared landing
             # offset and integrated squared derivatives. Its exact lower bound
             # is zero. Preserve ascending solve order, original score and tie
@@ -573,6 +580,12 @@ class BezierLandingPlanner:
                 continue
             plan, rec = self.solve(state, platform, now, duration, uncertainty,tracking_envelope)
             solved += 1
+            if plan is not None and capture is not None:
+                relative=precontact_relative_audit(plan,PlatformState(**plan.audit['platform_prediction_input']),self.geometry)
+                plan.audit.update(planar_capture=capture,planar_precontact=relative)
+                rec=dict(rec,planar_capture=capture,planar_precontact=relative)
+                if not relative['passed']:
+                    plan=None;rec['status']='PRECONTACT_RELATIVE_MOTION_REJECTED'
             if plan is not None:
                 score = plan.cost + .5*duration
                 if previous_arrival is not None: score += 2.*(plan.arrival-previous_arrival)**2
@@ -585,7 +598,7 @@ class BezierLandingPlanner:
             'selected_duration_s': best.duration if best else None,
             'selected_score': best_score if best else None,
             'solved_candidates': solved,
-            'score_bound_pruned_candidates': len(records)-solved,
+            'score_bound_pruned_candidates': sum(r['status']=='SCORE_BOUND_PRUNED' for r in records),
             'global_infeasibility_claim': False, 'actuation_enabled': False}
 
 

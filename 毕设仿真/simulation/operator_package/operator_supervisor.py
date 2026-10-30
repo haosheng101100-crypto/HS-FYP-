@@ -1,12 +1,13 @@
 """Own the interactive simulation, native controls and resettable cycles."""
 from pathlib import Path
 import os,json,subprocess,time,signal,shutil,hashlib,traceback
-BASE=Path('/home/haosheng/hs_ardupilot_stage1')
-SESSION=BASE/'interactive_20261023/receding_session_083'
-PKG=BASE/'paper_experiments/operator_receding_v83'
-FROZEN=BASE/'paper_experiments/moving_rapid_v1'
-SOURCE=BASE/'reproduction_20261018/fixed_gimbal_terminal_004'
-VALIDATION_SCENARIOS=json.loads((PKG/'config/experiments/receding_live_v1.json').read_text()).get('validation_scenarios',[])
+BASE=Path(os.environ.get('HS_SIM_BASE','/home/haosheng/hs_ardupilot_stage1'))
+SESSION=Path(os.environ.get('HS_OPERATOR_SESSION',str(BASE/'interactive_20261023/receding_session_083')))
+PKG=Path(os.environ.get('HS_OPERATOR_PACKAGE',str(BASE/'paper_experiments/operator_receding_v83')))
+FROZEN=Path(os.environ.get('HS_FROZEN_PACKAGE',str(BASE/'paper_experiments/moving_rapid_v1')))
+SOURCE=Path(os.environ.get('HS_SIM_SOURCE',str(BASE/'reproduction_20261018/fixed_gimbal_terminal_004')))
+PROFILE=Path(os.environ.get('HS_LANDING_PROFILE',str(PKG/'config/experiments/receding_live_v1.json')))
+VALIDATION_SCENARIOS=json.loads(PROFILE.read_text()).get('validation_scenarios',[])
 SESSION.mkdir(exist_ok=False,parents=True);(SESSION/'requests').mkdir();(SESSION/'processed').mkdir()
 display_env=dict(os.environ,DISPLAY=':0',XAUTHORITY='/run/user/1000/gdm/Xauthority',XDG_RUNTIME_DIR='/run/user/1000',DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus',HS_OPERATOR_SESSION=str(SESSION))
 panel_log=(SESSION/'panel.log').open('x')
@@ -54,14 +55,15 @@ try:
         (run/'runtime').mkdir();(run/'results').mkdir();(run/'runtime/gz_config').symlink_to(BASE/'runtime/gz_config',target_is_directory=True)
         for name in ['interactive_base.py','operator_backend.py','operator_clock.py','operator_legacy.py']:
             shutil.copy2(PKG/name,run/'tools'/name)
-        for name in ['landing/receding_landing.py','landing/receding_live.py','landing/swept_envelope.py','landing/platform_prediction.py','landing/platform_filter.py','landing/prediction_uncertainty.py','config/airframes/iris_swept_envelope_v1.json','tools/receding_planner_worker.py','config/experiments/receding_live_v1.json']:
+        for name in ['landing/receding_landing.py','landing/receding_live.py','landing/swept_envelope.py','landing/platform_prediction.py','landing/platform_filter.py','landing/planar_landing.py','landing/planar_motion.py','landing/prediction_uncertainty.py','config/airframes/iris_swept_envelope_v1.json','tools/receding_planner_worker.py','tools/build_planar_profile.py','config/experiments/receding_live_v1.json']:
             shutil.copy2(PKG/name,run/name)
+        shutil.copy2(PROFILE,run/'config/experiments/receding_live_v1.json')
         recorder_path=run/'tools/record_model_states.py'
         recorder_code=recorder_path.read_text()
         recorder_code=recorder_code.replace('node=Node()',"node=Node()\nfrom gz.msgs10.world_stats_pb2 import WorldStatistics\nphysics_paused=False\ndef on_stats(message):\n    global physics_paused\n    physics_paused=bool(message.paused)\nnode.subscribe(WorldStatistics,'/world/uav_vehicle_stage1/stats',on_stats)")
         recorder_code=recorder_code.replace('    def callback(message):','    def callback(message):\n        if physics_paused:return')
         recorder_path.write_text(recorder_code)
-        live_cfg=json.loads((PKG/'config/experiments/receding_live_v1.json').read_text())
+        live_cfg=json.loads(PROFILE.read_text())
         if live_cfg.get('deck_half_extents'):
             import xml.etree.ElementTree as ET
             model_path=run/'models/landing_vehicle/model.sdf';tree=ET.parse(model_path)
@@ -70,6 +72,14 @@ try:
                 node=tree.find('.//'+kind+'[@name="landing_deck"]/geometry/box/size')
                 assert node is not None;node.text=f'{2*hx} {2*hy} 0.12'
             tree.write(model_path,encoding='unicode',xml_declaration=True)
+        if live_cfg.get('platform_motion_model')=='force_driven_planar_guide':
+            import importlib.util
+            spec=importlib.util.spec_from_file_location('planar_fixture_builder',PKG/'tools/build_planar_profile.py')
+            builder=importlib.util.module_from_spec(spec);spec.loader.exec_module(builder)
+            model_path=run/'models/landing_vehicle/model.sdf'
+            original_path=model_path.with_name('original_differential_drive.sdf')
+            shutil.copy2(model_path,original_path)
+            builder.build_planar_model(original_path,model_path)
         world=run/'worlds/uav_vehicle_stage1.sdf';s=world.read_text();assert '<pose>5 0 0.002 0 0 0</pose>' in s
         world.write_text(s.replace('<pose>5 0 0.002 0 0 0</pose>','<pose>3 0 0.002 0 0 0</pose>'))
         cfg=(BASE/'gz_prefix/usr/share/gz/gz-sim8/gui/gui.config').read_text().replace('show_again="true"','show_again="false"')
