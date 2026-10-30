@@ -1,0 +1,16 @@
+{
+  "scope": "Selected original inputs and outputs; not the full control history",
+  "transition": "RECOVERING",
+  "source_control_sha256": "6fd986536d7b51ca8bce6bda449667a63f70da65c57e90e96027aff1e3cbe10a",
+  "retained_source_line_numbers_1_based": [
+    251,
+    252,
+    253
+  ],
+  "planner_response_selection": "first and last solver-validated plan, and first/last response; this is not execution-layer acceptance",
+  "planner_responses": [
+    "response_000001.json",
+    "response_000014.json",
+    "response_000015.json"
+  ]
+}

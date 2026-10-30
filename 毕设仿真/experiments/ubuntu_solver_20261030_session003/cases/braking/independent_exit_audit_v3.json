@@ -1,0 +1,206 @@
+{
+  "passed": true,
+  "checks": {
+    "trigger_during_low_approach": true,
+    "abort_after_trigger": true,
+    "no_physical_deck_contact": true,
+    "positive_raw_clearance_through_return": true,
+    "platform_motion_matches_declared_event": true,
+    "return_confirmed": true,
+    "home_position_reached": true,
+    "home_speed_settled": true,
+    "original_rejection_reported": true,
+    "deck_landing_not_claimed": true,
+    "normal_ground_land_finished": true,
+    "no_unexpected_execution_error": true,
+    "raw_final_pose_on_ground": true
+  },
+  "trigger": {
+    "event": "BRAKE",
+    "sim_t_s": 43.76,
+    "measured_leg_gap_m": 0.9774989957985869,
+    "trigger_gap_m": 1.0,
+    "command_acceleration_cap_m_s2": 0.3,
+    "target_speed_m_s": 0.0,
+    "planner_knows_future_commands": false
+  },
+  "abort_s": 44.04,
+  "minimum_exit_leg_clearance_m": 0.4914884993081771,
+  "rejection": [
+    {
+      "attempt": 1,
+      "success": false,
+      "reason": "CONTACT_ACCELERATION_RESERVE",
+      "events": [
+        {
+          "time": 38.08,
+          "event": "PREPARATION_POLICY",
+          "observation_stress": null,
+          "moving_alignment_required": false
+        },
+        {
+          "time": 38.24,
+          "event": "PLAN_PENDING",
+          "sequence": 1,
+          "arrival": 46.48
+        },
+        {
+          "time": 38.48,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 46.48
+        },
+        {
+          "time": 38.92,
+          "event": "PLAN_PENDING",
+          "sequence": 2,
+          "arrival": 46.98
+        },
+        {
+          "time": 38.92,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 46.98
+        },
+        {
+          "time": 39.32,
+          "event": "PLAN_PENDING",
+          "sequence": 3,
+          "arrival": 47.48
+        },
+        {
+          "time": 39.36,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 47.48
+        },
+        {
+          "time": 39.56,
+          "event": "PLAN_PENDING",
+          "sequence": 4,
+          "arrival": 47.379999999999995
+        },
+        {
+          "time": 39.8,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 47.379999999999995
+        },
+        {
+          "time": 40.12,
+          "event": "PLAN_PENDING",
+          "sequence": 5,
+          "arrival": 47.279999999999994
+        },
+        {
+          "time": 40.24,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 47.279999999999994
+        },
+        {
+          "time": 40.48,
+          "event": "PLAN_PENDING",
+          "sequence": 6,
+          "arrival": 47.17999999999999
+        },
+        {
+          "time": 40.68,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 47.17999999999999
+        },
+        {
+          "time": 41.04,
+          "event": "PLAN_PENDING",
+          "sequence": 7,
+          "arrival": 47.17999999999999
+        },
+        {
+          "time": 41.12,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 47.17999999999999
+        },
+        {
+          "time": 41.44,
+          "event": "PLAN_PENDING",
+          "sequence": 8,
+          "arrival": 47.07999999999999
+        },
+        {
+          "time": 41.56,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 47.07999999999999
+        },
+        {
+          "time": 41.76,
+          "event": "PLAN_PENDING",
+          "sequence": 9,
+          "arrival": 46.97999999999999
+        },
+        {
+          "time": 41.96,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 46.97999999999999
+        },
+        {
+          "time": 42.0,
+          "event": "CAPTURE_TIME_WINDOW_OPENED",
+          "remaining_s": 4.579999999999991,
+          "future_start": 42.4
+        },
+        {
+          "time": 42.32,
+          "event": "PLAN_PENDING",
+          "sequence": 10,
+          "arrival": 47.07999999999999
+        },
+        {
+          "time": 42.4,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 47.07999999999999
+        },
+        {
+          "time": 42.72,
+          "event": "PLAN_PENDING",
+          "sequence": 11,
+          "arrival": 46.97999999999999
+        },
+        {
+          "time": 42.84,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 46.97999999999999
+        },
+        {
+          "time": 43.12,
+          "event": "PLAN_PENDING",
+          "sequence": 12,
+          "arrival": 46.87999999999999
+        },
+        {
+          "time": 43.24,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 46.87999999999999
+        },
+        {
+          "time": 43.52,
+          "event": "PLAN_PENDING",
+          "sequence": 13,
+          "arrival": 46.77999999999999
+        },
+        {
+          "time": 43.68,
+          "event": "PLAN_ACTIVATED",
+          "arrival": 46.77999999999999
+        },
+        {
+          "time": 43.92,
+          "event": "PLAN_PENDING",
+          "sequence": 14,
+          "arrival": 47.77999999999999
+        }
+      ]
+    }
+  ],
+  "platform_physical_acceleration_limit_m_s2": 0.3,
+  "raw_speed_at_abort_m_s": 0.5482298734594726,
+  "raw_speed_half_second_later_m_s": 0.3955500425273777,
+  "physical_model_sha256": "5c564cf0a06598d8514fdcccec417282426654e03a48f4a69f9864706b36e691",
+  "interpretation": "The actual DiffDrive acceleration limit and raw platform displacement are used, rather than treating command acceleration as measured acceleration. Brake-to-zero and accelerating-away scenes have separate signed checks.",
+  "raw_source_sha256": "edfa0c6fb63065b3265a476af4f8f3f334e3b99d1c89de7f6c5f0198ea1938e6",
+  "scope": "One fixed-height level-deck physical simulation; sampled raw clearance, no general invariant escape guarantee. Native disarm audited separately."
+}

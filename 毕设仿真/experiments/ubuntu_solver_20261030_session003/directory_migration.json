@@ -1,0 +1,10 @@
+{
+  "parent": "773994da0a2b72d7b7cf4e437a8846d9a31363fc",
+  "commit": "23f972025e9147a1eed389b4aa075e2b6f2c3035",
+  "directory": "毕设仿真/",
+  "remote_blobs_verified": 667,
+  "source_package_files_verified": 660,
+  "tests_passed": 142,
+  "paper_directory_unchanged": true,
+  "algorithm_bytes_unchanged": true
+}

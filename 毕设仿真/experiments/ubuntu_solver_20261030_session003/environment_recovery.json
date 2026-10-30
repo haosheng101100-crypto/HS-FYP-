@@ -1,0 +1,12 @@
+{
+  "formal_session": "session_003",
+  "excluded_sessions": {
+    "session_001": "Incomplete after host restart; no continued flight processes remain.",
+    "session_002": "GTK panel MIT-SHM BadAccess; supervisor closed attempts. Original failed audits retained."
+  },
+  "environment_fix": "Host IPC namespace for GTK X11 shared memory; pinned image and controller unchanged.",
+  "panel_probe": "panel_probe/result.json",
+  "source_scope": "毕设仿真/",
+  "paper_code_executed": false,
+  "thresholds_changed": false
+}
