@@ -433,11 +433,20 @@ class BezierLandingPlanner:
                 correction=[np.array(f['axis'])@error+f['heading_chord']*np.linalg.norm(error[:2])+attitude for f in facets]
                 P['tracking_facet_rhs'].value=np.array(rhs[-8:])-np.array(correction)
         try:
-            problem.solve(solver='CLARABEL', max_iter=100, tol_gap_abs=1e-8, tol_feas=1e-8, enforce_dpp=True)
+            # Keep the compiled DPP problem, but rebuild Clarabel's numerical
+            # solver for each new set of coefficients. Shortening the segment
+            # duration changes derivative/objective scales by powers up to 7;
+            # cached numerical updates after the long warmup can hit iteration
+            # limits or numerical failure on otherwise classifiable problems.
+            problem.solve(solver='CLARABEL', warm_start=False, max_iter=100,
+                          tol_gap_abs=1e-8, tol_feas=1e-8, enforce_dpp=True)
         except cp.error.SolverError as e:
-            return None, {'status': 'SOLVER_ERROR', 'duration_s':duration, 'detail': str(e)}
+            return None, {'status': 'SOLVER_ERROR', 'duration_s':duration, 'detail': str(e),
+                'elapsed_s': time.perf_counter()-started,
+                'solver_cache_policy': 'fresh_numeric_solver_reused_dpp_template'}
         if problem.status not in ('optimal', 'optimal_inaccurate'):
             return None, {'status': problem.status, 'duration_s': duration,
+                'solver_cache_policy': 'fresh_numeric_solver_reused_dpp_template',
                 'elapsed_s': time.perf_counter()-started}
         delta = np.r_[self._landing_xy.value, 0.]
         target = target+delta
@@ -453,6 +462,7 @@ class BezierLandingPlanner:
         plan.audit['platform_prediction_input']=asdict(platform)
         record = {'status': 'ACCEPTED' if plan.audit['passed'] else 'AUDIT_REJECTED',
             'duration_s': duration, 'cost': plan.cost, 'audit': plan.audit,
+            'solver_cache_policy': 'fresh_numeric_solver_reused_dpp_template',
             'elapsed_s': time.perf_counter()-started}
         record['solver_and_canonicalization_s'] = float((problem.compilation_time or 0.)+(problem.solver_stats.solve_time or 0.))
         return (plan if plan.audit['passed'] else None), record

@@ -1,5 +1,5 @@
 {
-  "final_validation_passed": true,
+  "final_validation_passed": false,
   "declared_cases": 9,
   "source_scope": "source, scene, model, configuration, compact reports and verbatim regression excerpts; excludes bulk raw evidence and runtime installations",
   "files_sha256": {
@@ -60,7 +60,7 @@
     "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
     "landing/rapid_contact.py": "6e90a06544278d76ff82e5cb6743e2ffd5821e28127e00cadecdec8b5febdbb2",
     "landing/README.md": "8f4564a701a549e3b6cf32e921e99812224f633ab6332a38be411d9630217e1a",
-    "landing/receding_landing.py": "4b1bfdfb89f99951fdb17a36901c4978d369d4b38cebe2e713bbe083de631356",
+    "landing/receding_landing.py": "aefdf969ee234635c577225b33ad3f58f69d9fb8a6e0adaa2326e78936d664d0",
     "landing/receding_live.py": "2bf432117ca0dbc3410e523412ee79bf105e2fa4314b817c70e37c42e7b746a3",
     "landing/reference_loader.py": "6ad6066f65f2241a8a86d74414836021f0fd108aa985a891657714937835fa2e",
     "landing/septic_approach.py": "10376d115895f2fdf7e660cb75e4b7536fd5c07f2421c172fb1b1e71489df15c",
@@ -162,7 +162,7 @@
     "outputs/uncertainty_landing_20261024/validation_protocol_v30.json": "db2dd9fa58917b624ebebd68b92dba54dfad1c69b2bcfa689e4bd12dbee663ba",
     "outputs/uncertainty_landing_20261024/verification_v30.json": "3c994b7e43f9c7b8639c3b1f2c69020426e24f624e5a4bc1d33ceb8b7de5ee7a",
     "outputs/uncertainty_landing_20261024/visual_review_v30.json": "d4f7e1b015710ca9ed753ff17b5da19f432f1f3211289e349ed509ab90e48e69",
-    "README.md": "7183993f8bd58ff584a63e934011afd11fa1d53bca29b71df63b0f870450d424",
+    "README.md": "6bb14f2a3cb8e4e77ee9355e1a106fe1130ef3a32cb4837b29d6ed2b9b938151",
     "requirements-simulation.txt": "2a5a3062fa9075883498fe80f40ac7215e5dd08d3a98385879aba03b376eaeee",
     "requirements-visualization.txt": "31908550c229282f582910ef0aa9b1655c4c341ad87bdd421cbf5d073f4ee32a",
     "requirements.txt": "7575d3a9b9e37cbc067d220b53f419583d6696b6b059a60d02e69aea438abffc",
@@ -177,7 +177,7 @@
     "simulation/operator_package/landing/platform_filter.py": "fc977801800e21f3d2c1d10f43b45373e81875e3b193779380ace5a895443d07",
     "simulation/operator_package/landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
     "simulation/operator_package/landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
-    "simulation/operator_package/landing/receding_landing.py": "4b1bfdfb89f99951fdb17a36901c4978d369d4b38cebe2e713bbe083de631356",
+    "simulation/operator_package/landing/receding_landing.py": "aefdf969ee234635c577225b33ad3f58f69d9fb8a6e0adaa2326e78936d664d0",
     "simulation/operator_package/landing/receding_live.py": "2bf432117ca0dbc3410e523412ee79bf105e2fa4314b817c70e37c42e7b746a3",
     "simulation/operator_package/landing/swept_envelope.py": "1bc4e7f039783a40b895575343e1dafce8108d65a9b3026ac89274b74c5acb15",
     "simulation/operator_package/operator_backend.py": "7c1ea2c1cd4e3577292d9c463c02a38769e3cbf1f0f8c2232d06acca7d969842",
@@ -185,7 +185,7 @@
     "simulation/operator_package/operator_legacy.py": "385fae1f9e07265ddeaaa051ac0ea2ffbb81c0693b8c32aa3b0d16418872a2bb",
     "simulation/operator_package/operator_panel.py": "3679d2115eaed4fbf1d80ad0ea498cffd8ad55caac959d5fb01caa4a0a1801a6",
     "simulation/operator_package/operator_supervisor.py": "715eba36835299c8311567644894d07e0e569fe82285340b97e4e999890abf43",
-    "simulation/operator_package/source_manifest.json": "18e3d9c65c40b3d7c270c2078bfb1775f04652fdb93956104369a556c7c5639c",
+    "simulation/operator_package/source_manifest.json": "9c7c71ba5c328c6684164ca67da53f7c740ce540d15b7eb39b8c78163062122a",
     "simulation/operator_package/tools/receding_planner_worker.py": "58c9abb45c29ec54ea7e61d97373409db4cc84109511af6ece6d5a513997e48b",
     "simulation/operator_receding_backend.py": "7c1ea2c1cd4e3577292d9c463c02a38769e3cbf1f0f8c2232d06acca7d969842",
     "simulation/reference_cycle/config/airframes/iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86",
@@ -533,7 +533,7 @@
     "experiments/ubuntu_20261029_session002/cases/varying/replay/selection.json": "dfb6501eef756f242d0684e2eb0bee6288ea98e692d6555b71506940d2b28cb3",
     "experiments/ubuntu_20261029_session002/cases/varying/replay/control_transition.jsonl": "971c3784e4b4c181df4cc90c59ad4846cb8800f579363ce3d8660f342a7da42c",
     "tests/test_receding_search_pruning.py": "cad2d1f0b772e29f77e825006ab8587a9c7575f85e19ec2b593421777f363d4b",
-    "算法调度说明.md": "251aadc0466eaaf75533eeac54f1d21b05ead14bb180cd4a425ae046af5bbebe",
+    "算法调度说明.md": "de1c51c37fba9cd792336d2fc20910321773e4d07bfcaa402eb2e25d2eaf57be",
     "experiments/ubuntu_pruned_20261030_session001/container_python_packages.txt": "2cece49626f7c189b72d96f3ae06947e64068304b2f0b9698275561eae72ae60",
     "experiments/ubuntu_pruned_20261030_session001/planner_revision.diff": "125dcf0b0262a6d327977d488afede8d8ae73482ea2bc30c40f3c189b948c426",
     "experiments/ubuntu_pruned_20261030_session001/SHA256SUMS.json": "526f9ce991b983da2b9ea86bad4d66745e8ca967932878ebea5de67b6f6dd5a1",
@@ -660,7 +660,9 @@
     "experiments/ubuntu_pruned_20261030_session001/cases/varying/replay/selection.json": "3b23cc7a60d9068973f19232334e8750fc3102ccd4c340037b36c77cab031722",
     "experiments/ubuntu_pruned_20261030_session001/cases/varying/replay/control_transition.jsonl": "f0f73193ffd7164e263d56c4159f132d42d3b0a94ce9c0a1c78a588162bdf055",
     "handoff/UBUNTU_PRUNED_RUN_20261030.md": "64f9f485dd1d9a8654360df234f5cb6c0c40cdfaa54c7cf11973114c9c05f9d8",
-    "handoff/ubuntu_pruned_run_20261030.json": "b831580954691697752e025d5028641b17c5b912ca8824e23160d1cd3f6732c0"
+    "handoff/ubuntu_pruned_run_20261030.json": "b831580954691697752e025d5028641b17c5b912ca8824e23160d1cd3f6732c0",
+    "tests/test_receding_solver_stability.py": "a480070ce3c82132871495c1cb5549fda6606e109cffe1c31f9c44674ca4998c",
+    "tests/fixtures/terminal_cache_transition.json": "86c3c0b6a8b473df916b023cdc2fdad9377dbb3d936d3ac30a62305bac93685d"
   },
   "ubuntu_physical_run_20261029": {
     "session": "session_002",
@@ -681,5 +683,6 @@
     "thresholds_relaxed": false,
     "candidate_count": 685,
     "score_bound_pruned_candidates": 245
-  }
+  },
+  "current_code_physical_validation": "pending_new_session; historical physical summaries refer to their pinned revisions"
 }
