@@ -6,7 +6,7 @@ Ubuntu 在已安装仓库依赖的环境运行：
 
 ```bash
 git pull --ff-only
-python -m unittest discover -s tests -p test_paper_search_benchmark.py -v
+python -m unittest discover -s simulation/paper_20261030/tests -p test_paper_search_benchmark.py -v
 python simulation/paper_20261030/search_benchmark.py --help
 sha256sum landing/receding_landing.py
 python simulation/paper_20261030/search_benchmark.py \
