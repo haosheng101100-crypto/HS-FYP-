@@ -1,0 +1,22 @@
+--- previous_runtime_supervisor
++++ pruned_runtime_supervisor
+@@ -1,8 +1,8 @@
+ """Own the interactive simulation, native controls and resettable cycles."""
+ from pathlib import Path
+ import os,json,subprocess,time,signal,shutil,hashlib,traceback
+-BASE=Path('/workspace/work/simulation_environment/deployment')
+-SESSION=Path('/workspace/outputs/仿真复现_20261029/session_002')
++BASE=Path('/workspace/work/pruned_20261030/deployment')
++SESSION=Path('/workspace/outputs/新版九场景_20261030/session_001')
+ PKG=BASE/'operator'
+ FROZEN=BASE/'baseline'
+ SOURCE=BASE/'reference'
+@@ -77,7 +77,7 @@
+         (run/'operator_gui.config').write_text(cfg)
+         raw=subprocess.check_output(['bash','-c','source ./scripts/env.sh;env -0'],cwd=run)
+         env=dict(x.decode().split('=',1) for x in raw.split(b'\0') if b'=' in x)
+-        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION=f'hs_receding_20261023_{number:03d}',LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
++        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION=f'hs_pruned_20261030_{number:03d}',LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+         rows=[];handles=[];files=[]
+         def start(name,args):
+             if name=='gazebo_gui':args=['nice','-n','15',*args]

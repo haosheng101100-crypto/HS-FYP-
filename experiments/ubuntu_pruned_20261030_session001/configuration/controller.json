@@ -1,0 +1,129 @@
+{
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "planner_limits": {
+    "speed": 3.0,
+    "acceleration": 1.5,
+    "jerk": 4.0,
+    "tilt_rad": 0.2617993877991494,
+    "upward_speed": 0.6,
+    "downward_speed": 0.7,
+    "vertical_acceleration": 1.0,
+    "contact_speed": 0.08,
+    "corridor_slope": 2.0,
+    "audit_samples": 101,
+    "segments": 8,
+    "prediction_horizon_s": 2.0,
+    "terminal_coverage_s": 3.0,
+    "directional_corridor": true,
+    "tracking_error_tightening": true
+  },
+  "future_activation_lead_s": 0.4,
+  "task_timeout_s": 40.0,
+  "control_interval_s": 0.04,
+  "default_scenario": "maneuvering",
+  "scenarios": {
+    "constant": "Ramp to 0.3 m/s, then constant speed",
+    "varying": "Smooth acceleration and braking; no schedule passed to planner",
+    "turning": "Slow turn, causal pose/acceleration estimates only",
+    "maneuvering": "Simultaneous bounded speed changes and alternating turn rate; no future commands exposed to planner",
+    "braking": "Ramp to 0.6 m/s, command braking to zero at measured 1 m leg gap; physical acceleration limit 0.3 m/s\u00b2. No event schedule exposed to planner.",
+    "fast_maneuvering": "Speed target 0.65+0.15 sin(0.4t) m/s, turn target 0.035 sin(0.5t) rad/s; command acceleration cap 0.12 m/s\u00b2. No schedule exposed to planner."
+  },
+  "scope": "Simulation only. Deck area is 1.5 times the fixed-aircraft swept-rotor occupancy bounding rectangle, measured from existing mesh and collision geometry. No hardware guarantee. Body envelope and tilt allowance supplement unchanged foot/contact/support gates.",
+  "envelope_profile": "config/airframes/iris_swept_envelope_v1.json",
+  "deck_half_extents": [
+    0.34,
+    0.4081766061261277
+  ],
+  "deck_to_aircraft_rectangle_area_ratio": 1.5,
+  "horizontal_feedback": {
+    "position_gain": 6.25,
+    "velocity_gain": 5.0,
+    "acceleration_lead_s": 0.12,
+    "maximum_acceleration_m_s2": 2.5
+  },
+  "short_horizon_cubic_prediction": true,
+  "platform_fit_span_s": 0.65,
+  "arrival_extension_budget_s": 3.0,
+  "measured_frame_terminal_control": true,
+  "validation_expectations": {
+    "braking": "landing_or_safe_exit",
+    "fast_maneuvering": "landing",
+    "constant": "landing",
+    "varying": "landing",
+    "turning": "landing",
+    "maneuvering": "landing",
+    "surge": "safe_exit"
+  },
+  "final_command_limits": true,
+  "prediction_uncertainty": {
+    "issue_interval_s": 0.16,
+    "window_s": 4.0,
+    "quantile": 0.9,
+    "minimum_samples": 12,
+    "reaction_horizon_s": 0.8
+  },
+  "synthetic_platform_observation_stress": {
+    "delay_s": 0.04,
+    "position_sigma_m": 0.0008,
+    "yaw_sigma_rad": 0.0008,
+    "seed": 20261024
+  },
+  "terminal_horizontal_feedback": {
+    "transition_s": 4.0,
+    "position_gain": 1.5,
+    "velocity_gain": 2.4,
+    "acceleration_lead_s": 0.0,
+    "speed_scheduling": {
+      "low_speed_m_s": 0.45,
+      "high_speed_m_s": 0.65,
+      "fast_transition_s": 5.0
+    }
+  },
+  "nominal_acceleration_reserve_m_s2": 0.3,
+  "platform_filter": {
+    "position_noise_m": 0.0008,
+    "yaw_noise_rad": 0.0008,
+    "linear_jerk_spectral_density": 0.01,
+    "angular_jerk_spectral_density": 0.0004,
+    "maximum_measurement_age_s": 0.12
+  },
+  "maximum_contact_yaw_acceleration_rad_s2": 0.04,
+  "arrival_extension_window_s": 5.0,
+  "initial_candidate_durations_s": [
+    8.0,
+    10.0,
+    12.0
+  ],
+  "early_arrival_extension_budget_s": 1.0,
+  "final_command_acceleration_reserve_m_s2": 0.1,
+  "moving_alignment": {
+    "minimum_leg_gap_m": 1.5,
+    "dwell_s": 0.6,
+    "maximum_time_s": 25.0,
+    "only_for_degraded_observations": true,
+    "initial_candidate_durations_s": [
+      4.0,
+      5.0,
+      6.0
+    ]
+  },
+  "stable_non_descent_feedback": true,
+  "maximum_early_native_freeflight_s": 0.05,
+  "tracking_error_feedback": {
+    "window_s": 5.0,
+    "error_horizon_s": 0.35
+  },
+  "validation_scenarios": [
+    "constant",
+    "surge",
+    "maneuvering",
+    "turning",
+    "noisy_maneuvering",
+    "switchback",
+    "fast_maneuvering",
+    "varying",
+    "braking"
+  ]
+}

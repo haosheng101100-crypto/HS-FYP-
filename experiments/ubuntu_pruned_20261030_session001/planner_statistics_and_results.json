@@ -1,0 +1,711 @@
+{
+  "date": "2026-10-30",
+  "algorithm_commit": "922f9d8478a5727f50f6067bb6ed0e1ad7983bc8",
+  "session": "session_001",
+  "cases": 9,
+  "expectations_met": 9,
+  "landings": 6,
+  "safe_exits": 3,
+  "independent_audits": 36,
+  "all_independent_audits_passed": true,
+  "thresholds_relaxed": false,
+  "control_configuration_unchanged": true,
+  "maximum_sampled_speed_m_s": 1.7165883709262555,
+  "maximum_sampled_acceleration_m_s2": 1.429537119886245,
+  "candidate_count": 685,
+  "score_bound_pruned_candidates": 245,
+  "pruned_fraction": 0.35766423357664234,
+  "solver_counter_note": "solved_candidates counts solve() calls including precheck rejects, not actual cone solver calls.",
+  "performance_note": "Observed request times only; no paired same-input exhaustive runtime benchmark was run.",
+  "results": [
+    {
+      "cycle": "cycle_001",
+      "scenario": "constant",
+      "expected": "landing",
+      "observed_controller_outcome": "landing_claimed",
+      "verified_outcome": "landing",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_physics.py",
+          "exit_code": 0,
+          "log": "audit_receding_physics_new_run.log",
+          "auditor_sha256": "d7aa127d04aa505252100b0c3f93d626e3c1d10e3e669d0679122d626589768c"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_contact_audit.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": true,
+        "failures": [],
+        "external_failures": [],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.5078671328784157,
+      "peak_acceleration_m_s2": 1.0114370117893772
+    },
+    {
+      "cycle": "cycle_002",
+      "scenario": "surge",
+      "expected": "safe_exit",
+      "observed_controller_outcome": "no_landing_claimed",
+      "verified_outcome": "safe_exit",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_exit.py",
+          "exit_code": 0,
+          "log": "audit_receding_exit_new_run.log",
+          "auditor_sha256": "9b296b62b64c289deeb213ea3c0549ee629fcec0360e938b20b50f055079d2a2"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_exit_audit_v3.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": false,
+        "failures": [],
+        "external_failures": [
+          "Automatic trial returned home after failed attempt"
+        ],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.5096944694977361,
+      "peak_acceleration_m_s2": 1.3150113414410902
+    },
+    {
+      "cycle": "cycle_003",
+      "scenario": "maneuvering",
+      "expected": "landing",
+      "observed_controller_outcome": "landing_claimed",
+      "verified_outcome": "landing",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_physics.py",
+          "exit_code": 0,
+          "log": "audit_receding_physics_new_run.log",
+          "auditor_sha256": "d7aa127d04aa505252100b0c3f93d626e3c1d10e3e669d0679122d626589768c"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_contact_audit.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": true,
+        "failures": [],
+        "external_failures": [],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.6122012204286467,
+      "peak_acceleration_m_s2": 1.429537119886245
+    },
+    {
+      "cycle": "cycle_004",
+      "scenario": "turning",
+      "expected": "landing",
+      "observed_controller_outcome": "landing_claimed",
+      "verified_outcome": "landing",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_physics.py",
+          "exit_code": 0,
+          "log": "audit_receding_physics_new_run.log",
+          "auditor_sha256": "d7aa127d04aa505252100b0c3f93d626e3c1d10e3e669d0679122d626589768c"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_contact_audit.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": true,
+        "failures": [],
+        "external_failures": [],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.557872516145247,
+      "peak_acceleration_m_s2": 1.111099535759071
+    },
+    {
+      "cycle": "cycle_005",
+      "scenario": "noisy_maneuvering",
+      "expected": "landing",
+      "observed_controller_outcome": "landing_claimed",
+      "verified_outcome": "landing",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_physics.py",
+          "exit_code": 0,
+          "log": "audit_receding_physics_new_run.log",
+          "auditor_sha256": "d7aa127d04aa505252100b0c3f93d626e3c1d10e3e669d0679122d626589768c"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_contact_audit.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": true,
+        "failures": [],
+        "external_failures": [],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.7165883709262555,
+      "peak_acceleration_m_s2": 1.3781085102285622
+    },
+    {
+      "cycle": "cycle_006",
+      "scenario": "switchback",
+      "expected": "safe_exit",
+      "observed_controller_outcome": "no_landing_claimed",
+      "verified_outcome": "safe_exit",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_exit.py",
+          "exit_code": 0,
+          "log": "audit_receding_exit_new_run.log",
+          "auditor_sha256": "9b296b62b64c289deeb213ea3c0549ee629fcec0360e938b20b50f055079d2a2"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_maneuver_exit_audit.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": false,
+        "failures": [],
+        "external_failures": [
+          "Automatic trial returned home after failed attempt"
+        ],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.5302636865094796,
+      "peak_acceleration_m_s2": 1.2197106612788615
+    },
+    {
+      "cycle": "cycle_007",
+      "scenario": "fast_maneuvering",
+      "expected": "landing",
+      "observed_controller_outcome": "landing_claimed",
+      "verified_outcome": "landing",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_physics.py",
+          "exit_code": 0,
+          "log": "audit_receding_physics_new_run.log",
+          "auditor_sha256": "d7aa127d04aa505252100b0c3f93d626e3c1d10e3e669d0679122d626589768c"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_contact_audit.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": true,
+        "failures": [],
+        "external_failures": [],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.6470404442893911,
+      "peak_acceleration_m_s2": 1.0849597128093318
+    },
+    {
+      "cycle": "cycle_008",
+      "scenario": "varying",
+      "expected": "landing",
+      "observed_controller_outcome": "landing_claimed",
+      "verified_outcome": "landing",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_physics.py",
+          "exit_code": 0,
+          "log": "audit_receding_physics_new_run.log",
+          "auditor_sha256": "d7aa127d04aa505252100b0c3f93d626e3c1d10e3e669d0679122d626589768c"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_contact_audit.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": true,
+        "failures": [],
+        "external_failures": [],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.6387464164377072,
+      "peak_acceleration_m_s2": 1.2584644179021531
+    },
+    {
+      "cycle": "cycle_009",
+      "scenario": "braking",
+      "expected": "landing_or_safe_exit",
+      "observed_controller_outcome": "no_landing_claimed",
+      "verified_outcome": "safe_exit",
+      "expectation_met": true,
+      "source_checks": {
+        "tools/operator_backend.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "landing/platform_filter.py": true,
+        "landing/receding_live.py": true,
+        "landing/receding_landing.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "tools/receding_planner_worker.py": true
+      },
+      "audits": [
+        {
+          "script": "audit_prediction_uncertainty.py",
+          "exit_code": 0,
+          "log": "audit_prediction_uncertainty_new_run.log",
+          "auditor_sha256": "61dc3be665d19a6af79c69b1a55487a1baa0f5006b413ccfbdd6a7f472aafed6"
+        },
+        {
+          "script": "audit_native_landing.py",
+          "exit_code": 0,
+          "log": "audit_native_landing_new_run.log",
+          "auditor_sha256": "20e7e0ca01b7bbcfe9c2c9f7f83740fb97abdf96523834c34ed368cb33338741"
+        },
+        {
+          "script": "audit_receding_exit.py",
+          "exit_code": 0,
+          "log": "audit_receding_exit_new_run.log",
+          "auditor_sha256": "9b296b62b64c289deeb213ea3c0549ee629fcec0360e938b20b50f055079d2a2"
+        },
+        {
+          "script": "audit_guided_motion.py",
+          "exit_code": 0,
+          "log": "audit_guided_motion_new_run.log",
+          "auditor_sha256": "b73d18c5ce13aeafcf8b01e01a45fab58d51718e2606e3e5459113745162fbba"
+        }
+      ],
+      "checks": {
+        "independent_uncertainty_audit_v24.json": true,
+        "native_landing_audit.json": true,
+        "independent_exit_audit_v3.json": true,
+        "independent_guided_motion_audit.json": true
+      },
+      "status": {
+        "completed": false,
+        "failures": [],
+        "external_failures": [
+          "Automatic trial returned home after failed attempt"
+        ],
+        "armed_at_save": false,
+        "final_mode": "LAND"
+      },
+      "peak_speed_m_s": 1.6437520268686379,
+      "peak_acceleration_m_s2": 1.247096134504688
+    }
+  ],
+  "planner_statistics": [
+    {
+      "cycle": "cycle_001",
+      "scenario": "constant",
+      "responses": 18,
+      "total_candidates": 82,
+      "solved_candidates": 41,
+      "score_bound_pruned_candidates": 41,
+      "candidate_status_counts": {
+        "ACCEPTED": 39,
+        "SCORE_BOUND_PRUNED": 41,
+        "AUDIT_REJECTED": 2
+      },
+      "mean_wall_compute_s": 0.27797465216666395,
+      "max_wall_compute_s": 0.5148136909999721,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_002",
+      "scenario": "surge",
+      "responses": 15,
+      "total_candidates": 64,
+      "solved_candidates": 35,
+      "score_bound_pruned_candidates": 29,
+      "candidate_status_counts": {
+        "ACCEPTED": 35,
+        "SCORE_BOUND_PRUNED": 29
+      },
+      "mean_wall_compute_s": 0.28426647406668054,
+      "max_wall_compute_s": 0.518790727999999,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_003",
+      "scenario": "maneuvering",
+      "responses": 19,
+      "total_candidates": 88,
+      "solved_candidates": 75,
+      "score_bound_pruned_candidates": 13,
+      "candidate_status_counts": {
+        "ACCEPTED": 30,
+        "SCORE_BOUND_PRUNED": 13,
+        "infeasible": 41,
+        "infeasible_inaccurate": 1,
+        "user_limit": 1,
+        "SOLVER_ERROR": 2
+      },
+      "mean_wall_compute_s": 0.2780954775263114,
+      "max_wall_compute_s": 0.4956344500000114,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_004",
+      "scenario": "turning",
+      "responses": 20,
+      "total_candidates": 94,
+      "solved_candidates": 57,
+      "score_bound_pruned_candidates": 37,
+      "candidate_status_counts": {
+        "ACCEPTED": 35,
+        "SCORE_BOUND_PRUNED": 37,
+        "infeasible": 17,
+        "AUDIT_REJECTED": 5
+      },
+      "mean_wall_compute_s": 0.2769368805000056,
+      "max_wall_compute_s": 0.5089082440000539,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_005",
+      "scenario": "noisy_maneuvering",
+      "responses": 10,
+      "total_candidates": 57,
+      "solved_candidates": 23,
+      "score_bound_pruned_candidates": 34,
+      "candidate_status_counts": {
+        "ACCEPTED": 19,
+        "SCORE_BOUND_PRUNED": 34,
+        "infeasible": 3,
+        "AUDIT_REJECTED": 1
+      },
+      "mean_wall_compute_s": 0.26174394059997896,
+      "max_wall_compute_s": 0.3915934589999779,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_006",
+      "scenario": "switchback",
+      "responses": 15,
+      "total_candidates": 64,
+      "solved_candidates": 61,
+      "score_bound_pruned_candidates": 3,
+      "candidate_status_counts": {
+        "ACCEPTED": 16,
+        "SCORE_BOUND_PRUNED": 3,
+        "infeasible": 45
+      },
+      "mean_wall_compute_s": 0.21904591519998273,
+      "max_wall_compute_s": 0.4740039929999966,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_007",
+      "scenario": "fast_maneuvering",
+      "responses": 19,
+      "total_candidates": 88,
+      "solved_candidates": 54,
+      "score_bound_pruned_candidates": 34,
+      "candidate_status_counts": {
+        "ACCEPTED": 37,
+        "SCORE_BOUND_PRUNED": 34,
+        "infeasible": 16,
+        "AUDIT_REJECTED": 1
+      },
+      "mean_wall_compute_s": 0.27090758900000145,
+      "max_wall_compute_s": 0.47487787500017475,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_008",
+      "scenario": "varying",
+      "responses": 19,
+      "total_candidates": 89,
+      "solved_candidates": 52,
+      "score_bound_pruned_candidates": 37,
+      "candidate_status_counts": {
+        "ACCEPTED": 38,
+        "SCORE_BOUND_PRUNED": 37,
+        "infeasible": 9,
+        "AUDIT_REJECTED": 5
+      },
+      "mean_wall_compute_s": 0.2896740895263113,
+      "max_wall_compute_s": 0.4875773050000589,
+      "worker_source_verified": true
+    },
+    {
+      "cycle": "cycle_009",
+      "scenario": "braking",
+      "responses": 14,
+      "total_candidates": 59,
+      "solved_candidates": 42,
+      "score_bound_pruned_candidates": 17,
+      "candidate_status_counts": {
+        "ACCEPTED": 38,
+        "SCORE_BOUND_PRUNED": 17,
+        "infeasible": 4
+      },
+      "mean_wall_compute_s": 0.34772712571428394,
+      "max_wall_compute_s": 0.4931455050000295,
+      "worker_source_verified": true
+    }
+  ]
+}
