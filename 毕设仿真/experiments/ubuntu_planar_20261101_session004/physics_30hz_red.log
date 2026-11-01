@@ -1,0 +1,25 @@
+test_actual_lateral_motion_is_required (test_physics_auditor.RawPlanarEvidenceTests.test_actual_lateral_motion_is_required) ... ok
+test_declared_30hz_platform_samples_are_valid (test_physics_auditor.RawPlanarEvidenceTests.test_declared_30hz_platform_samples_are_valid) ... ERROR
+test_motion_on_one_axis_does_not_prove_two_axis_fixture (test_physics_auditor.RawPlanarEvidenceTests.test_motion_on_one_axis_does_not_prove_two_axis_fixture) ... ok
+test_pose_gaps_are_rejected (test_physics_auditor.RawPlanarEvidenceTests.test_pose_gaps_are_rejected) ... ok
+test_two_axis_speed_uses_vector_norm (test_physics_auditor.RawPlanarEvidenceTests.test_two_axis_speed_uses_vector_norm) ... ok
+
+======================================================================
+ERROR: test_declared_30hz_platform_samples_are_valid (test_physics_auditor.RawPlanarEvidenceTests.test_declared_30hz_platform_samples_are_valid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/planar_20261101/test_physics_auditor.py", line 18, in test_declared_30hz_platform_samples_are_valid
+    report,_,exercised=axis_evidence(t,p,'planar_lateral',.8)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/planar_20261101/audit_planar_physics.py", line 15, in axis_evidence
+    peaks=motion_peaks(times,points,speed_limit,float('inf'))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/planar_20261101/repository/毕设仿真/tools/audit_guided_motion.py", line 16, in motion_peaks
+    if (dt<=0).any() or dt.max()>.02500001:raise ValueError('Raw pose gap or non-increasing timestamp')
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Raw pose gap or non-increasing timestamp
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+FAILED (errors=1)

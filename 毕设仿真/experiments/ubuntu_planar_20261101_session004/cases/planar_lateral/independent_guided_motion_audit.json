@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "checks": {
+    "actual_speed": true,
+    "actual_acceleration": true
+  },
+  "samples": 1290,
+  "start_s": 38.37,
+  "end_s": 51.26,
+  "max_raw_gap_s": 0.010000000000005116,
+  "peak_speed_m_s": 1.545212991326496,
+  "peak_acceleration_m_s2": 1.3746549233023226,
+  "acceleration_peak_t_s": 39.51,
+  "speed_limit_m_s": 3.0,
+  "acceleration_limit_m_s2": 1.5,
+  "scenario": "planar_lateral",
+  "guided_recovery_included": false,
+  "declared_interval_s": [
+    38.37,
+    51.261
+  ],
+  "scope": "Sampled raw COM velocity/acceleration, from first PLANAR_FOLLOW/ALIGNING/TRACKING through contact or guided return end. Native takeoff, impact and native ground LAND excluded; no continuous bound guarantee.",
+  "raw_uncompressed_sha256": "d333305181a6b2e814e1dbb6ec433349ad6820fa5d3dc475d560d0f2a8a00cad",
+  "source_sha256": {
+    "results/receding_control.jsonl": "cd94e89fbd967c76ee162b15481be008e4755140d9274ec7d54d86271f9982f4",
+    "config/experiments/receding_live_v1.json": "5b4cf58bb90daa2d6e213f290a36404b4ec50c91dadb0e4d0e61380355eeb9e2",
+    "config/airframes/iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86"
+  },
+  "auditor_sha256": "d38881cbce8270d6815e701c06968cd5b2f170050d6f35ac07162f837e96ed81"
+}

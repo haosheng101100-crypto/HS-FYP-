@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "checks": {
+    "raw_hash_matches_lossless_record": true,
+    "actual_platform_speed": true,
+    "declared_axes_exercised": true,
+    "original_chassis_and_deck_preserved": true,
+    "two_force_controllers": true,
+    "two_prismatic_joints": true,
+    "no_physical_deck_contact": true,
+    "positive_raw_clearance_through_return": true,
+    "return_confirmed": true,
+    "home_position_reached": true,
+    "home_speed_settled": true,
+    "original_rejection_reported": true,
+    "normal_ground_land_finished": true,
+    "no_unexpected_execution_error": true,
+    "raw_final_pose_on_ground": true
+  },
+  "scenario": "planar_reversal",
+  "actual_platform_motion": {
+    "checks": {
+      "actual_speed": true
+    },
+    "samples": 366,
+    "start_s": 47.022,
+    "end_s": 59.432,
+    "max_raw_gap_s": 0.034000000000006025,
+    "platform_pose_freshness_s": 0.06,
+    "peak_speed_m_s": 0.33120250603185325,
+    "peak_acceleration_m_s2": 0.12682714740638634,
+    "speed_limit_m_s": 0.8
+  },
+  "actual_axis_displacement_ranges_m": [
+    1.058863103077237,
+    1.1767048744721482,
+    0.0
+  ],
+  "raw_velocity_axis_min_m_s": [
+    -0.2763393836521136,
+    -0.14991740343084356,
+    0.0
+  ],
+  "raw_velocity_axis_max_m_s": [
+    0.29540605812087506,
+    0.12857323528471848,
+    0.0
+  ],
+  "axis_exercise_threshold_m": 0.01,
+  "note": "1 cm is an evidence/excitation threshold, not a flight/contact safety tolerance. No platform physical acceleration hard limit is inferred from command bounds.",
+  "raw_sha256": "725fbb2abc17b77475303aad0184a8bec83bc6866e92c0c2be29f744f92e74a5",
+  "physical_model_sha256": "dee66057f708c23b5ffd1998f31eeb38a10b2e93d945caf7a7be2198ce9885fc",
+  "minimum_exit_leg_clearance_m": 1.5024751686434819,
+  "scope": "Same 5 cm clearance, 8 cm return position/speed and 3 cm ground-pose gates as original exit auditor; no DiffDrive-specific event claim."
+}

@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "profile_id": "iris_fixed_gimbal_gazebo_sim_only",
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "integration_status": "Loaded by landing.contact_geometry and offline trajectory audit; existing baseline flight controller does not load this profile yet.",
+  "body_frame": {
+    "x": "forward",
+    "y": "left",
+    "z": "up",
+    "planar_positive_theta": "nose-up; negative body-y rotation"
+  },
+  "mass_kg": 1.98,
+  "nominal_com_in_body_m": [
+    0.0,
+    -0.0011616161616161613,
+    -0.013349641414141416
+  ],
+  "inertia": {
+    "zero_phase_frozen_tensor_about_com_body_axes_kg_m2": [
+      [
+        0.015908690553243687,
+        2.168404344971009e-19,
+        1.3083243736368102e-37
+      ],
+      [
+        2.168404344971009e-19,
+        0.0207961782704154,
+        -0.00025661872474747494
+      ],
+      [
+        0.0,
+        -0.00025661872474747494,
+        0.02395074428282828
+      ]
+    ],
+    "zero_phase_rigid_initial_y_response_scalar_kg_m2": 0.020793428745427226,
+    "zero_phase_rigid_response_validated_in_gazebo": true,
+    "identified_spinning_flight_effective_pitch_inertia_kg_m2": null,
+    "validation_scope": "No gravity/airloads, gimbal and rotors held at zero; not motor/gyro/flight identification."
+  },
+  "landing_legs": [
+    {
+      "name": "front_left_leg_collision",
+      "cylinder_center_body_m": [
+        0.123,
+        0.22,
+        -0.11
+      ],
+      "radius_m": 0.005,
+      "length_m": 0.17,
+      "bottom_cap_center_body_m": [
+        0.123,
+        0.22,
+        -0.195
+      ],
+      "declared_ode_mu": 100000.0
+    },
+    {
+      "name": "front_right_leg_collision",
+      "cylinder_center_body_m": [
+        0.123,
+        -0.22,
+        -0.11
+      ],
+      "radius_m": 0.005,
+      "length_m": 0.17,
+      "bottom_cap_center_body_m": [
+        0.123,
+        -0.22,
+        -0.195
+      ],
+      "declared_ode_mu": 100000.0
+    },
+    {
+      "name": "rear_left_leg_collision",
+      "cylinder_center_body_m": [
+        -0.14,
+        0.21,
+        -0.11
+      ],
+      "radius_m": 0.005,
+      "length_m": 0.17,
+      "bottom_cap_center_body_m": [
+        -0.14,
+        0.21,
+        -0.195
+      ],
+      "declared_ode_mu": 100000.0
+    },
+    {
+      "name": "rear_right_leg_collision",
+      "cylinder_center_body_m": [
+        -0.14,
+        -0.21,
+        -0.11
+      ],
+      "radius_m": 0.005,
+      "length_m": 0.17,
+      "bottom_cap_center_body_m": [
+        -0.14,
+        -0.21,
+        -0.195
+      ],
+      "declared_ode_mu": 100000.0
+    }
+  ],
+  "actuator_parameters": {
+    "max_total_thrust_N": null,
+    "max_pitch_moment_Nm": null,
+    "thrust_command_map": null,
+    "response_time_s": null
+  },
+  "contact_parameters": {
+    "identified_effective_friction": null,
+    "identified_restitution": null
+  },
+  "sources": {
+    "geometry_audit": "outputs/model_audit/step01/model_parameters.json",
+    "rigid_bench_validation": "outputs/model_audit/step03/verification.json",
+    "fixed_model_package": "work/model_step04_v4",
+    "fixed_model_sha256": {
+      "models\\gimbal_small_3d_fixed\\model.sdf": "9ac3c432d060a4f1e79136415d070db215b705911436ec0d49c536f4a658deac",
+      "models\\iris_with_standoffs_logged\\model.sdf": "19e916235ece9f0a50b74480e5d0126867b62ee0f2813f2e06b9c9f899f2a9bb",
+      "models\\stage1_iris_fixed_gimbal\\model.sdf": "a92a62d27bd90a850ffc6616ecf6f7f5a241ff14326dfffb8b0a83f793008b1f"
+    }
+  },
+  "fixed_configuration_flight_validation": {
+    "passed": true,
+    "report": "outputs/model_audit/step04/flight_verification.json",
+    "scope": "One truth-observation static-platform landing; not inertia/motor identification or hardware validation."
+  }
+}

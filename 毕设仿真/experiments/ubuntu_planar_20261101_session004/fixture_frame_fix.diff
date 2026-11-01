@@ -1,0 +1,11 @@
+--- upstream_builder
++++ fixed_builder
+@@ -37,7 +37,7 @@
+     for axis,parent,child,vector in (('x','world','xy_carriage','1 0 0'),('y','xy_carriage','chassis','0 1 0')):
+         joint=ET.SubElement(replacement,'joint',{'name':'planar_'+axis,'type':'prismatic'})
+         ET.SubElement(joint,'parent').text=parent;ET.SubElement(joint,'child').text=child
+-        spec=ET.SubElement(joint,'axis');ET.SubElement(spec,'xyz',{'expressed_in':'world'}).text=vector
++        spec=ET.SubElement(joint,'axis');ET.SubElement(spec,'xyz',{'expressed_in':'__model__'}).text=vector
+         limit=ET.SubElement(spec,'limit')
+         for key,value in dict(lower=-100,upper=100,effort=60,velocity=1.).items():ET.SubElement(limit,key).text=str(value)
+         plugin=ET.SubElement(replacement,'plugin',{'filename':'gz-sim-joint-controller-system','name':'gz::sim::systems::JointController'})

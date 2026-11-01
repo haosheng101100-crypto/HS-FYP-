@@ -1,0 +1,139 @@
+{
+  "passed": true,
+  "checks": {
+    "no_unexpected_collision": true,
+    "raw_precontact_fresh": true,
+    "tangential_speed": true,
+    "closing_speed": true,
+    "active_foot_clearance": true,
+    "footprint": true,
+    "world_level_attitude": true,
+    "angular_speed": true,
+    "whole_aircraft_contact_margin": true,
+    "deck_area_ratio_1p5": true,
+    "physical_deck_matches_planning_config": true,
+    "every_planner_request_has_actual_deck_dimensions": true,
+    "measured_envelope_matches_physical_assets": true,
+    "normal_land_and_disarm_observed": true,
+    "three_seconds_postdisarm": true,
+    "raw_postdisarm_support": true,
+    "whole_aircraft_all_postcontact_margin": true,
+    "live_contract_passed": true,
+    "sampled_physical_speed_bound": true,
+    "sampled_physical_acceleration_bound": true,
+    "original_contact_limits": true
+  },
+  "incomplete_final_raw_record": null,
+  "raw_contact_s": 50.989,
+  "raw_precontact_s": 50.97,
+  "raw_disarm_hint_s": 53.68,
+  "sampled_flight_peaks": {
+    "speed_m_s": 0.6318404045150626,
+    "acceleration_m_s2": 0.40575223171777475
+  },
+  "minimum_postcontact_whole_aircraft_margin_m": 0.04581927340261588,
+  "precontact_aircraft": {
+    "pose": {
+      "position_world_m": [
+        5.637657926951984,
+        1.8505036842114002,
+        1.0002758329628423
+      ],
+      "orientation_xyzw": [
+        0.0037131129564429172,
+        -0.0016209008060683707,
+        5.948574525212313e-05,
+        0.9999917909334034
+      ]
+    },
+    "velocity_at_origin_world_m_s": [
+      0.2361433792636622,
+      -0.08235284974351192,
+      -0.07279925807767489
+    ],
+    "angular_velocity_world_rad_s": [
+      -0.014787409747434886,
+      0.0014950015647415924,
+      -0.002430727472132468
+    ]
+  },
+  "precontact_deck": {
+    "motion": {
+      "pose": {
+        "position_world_m": [
+          5.638242310474015,
+          1.851693139363,
+          0.802
+        ],
+        "orientation_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "velocity_at_origin_world_m_s": [
+        0.24080379871984833,
+        -0.06800979233277427,
+        -2.4078977360020975e-17
+      ],
+      "angular_velocity_world_rad_s": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "half_extents_m": [
+      0.34,
+      0.4081766061261277
+    ]
+  },
+  "active_feet": [
+    {
+      "name": "rear_right_leg_collision",
+      "point_body_m": [
+        -0.1420006514313956,
+        -0.21458229133186169,
+        -0.195
+      ],
+      "point_world_m": [
+        5.496318194600712,
+        1.6373602665450968,
+        0.8032283556266147
+      ],
+      "projection_on_deck_world_m": [
+        5.496318194600712,
+        1.6373602665450968,
+        0.802
+      ],
+      "clearance_m": 0.0012283556266146078,
+      "velocity_world_m_s": [
+        0.23533069941589047,
+        -0.08492311316025103,
+        -0.06943611590464929
+      ],
+      "relative_velocity_deck_m_s": [
+        -0.005473099303957868,
+        -0.016913320827476763,
+        -0.06943611590464926
+      ],
+      "closing_speed_m_s": 0.06943611590464926,
+      "tangential_speed_m_s": 0.017776817414940825,
+      "support_set_kind": "unique_rim_point",
+      "support_set_radius_m": 0.0,
+      "closing_speed_upper_bound_m_s": 0.06943611590464926,
+      "tangential_speed_upper_bound_m_s": 0.017776817414940825,
+      "projected_point_inside_deck": true,
+      "whole_cylinder_footprint_margins_m": [
+        0.19452492432978932,
+        0.19216376924431056
+      ]
+    }
+  ],
+  "scope": "Actual raw Gazebo contact/pose reconstruction; causal fit and sampled support. FCU mode/armed flags from synchronized live heartbeat, not an independent DataFlash disarm-method audit.",
+  "source_sha256": {
+    "model_states.jsonl": "39f533c2f86cd573da17ecf2146a4093ea031a1734f4fb4c489be90601a58776",
+    "receding_control.jsonl": "52992e94a1df7b5fe5030f7d024bfde61b6116a996e8bdb503281d77ef77d259",
+    "execution_status.json": "f2dcab9d19900a6055d6ded6c20e7b681e452c334e64ffe36e60040fb18cc3d3"
+  }
+}

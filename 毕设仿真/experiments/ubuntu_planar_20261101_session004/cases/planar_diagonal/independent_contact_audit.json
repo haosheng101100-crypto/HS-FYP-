@@ -1,0 +1,139 @@
+{
+  "passed": true,
+  "checks": {
+    "no_unexpected_collision": true,
+    "raw_precontact_fresh": true,
+    "tangential_speed": true,
+    "closing_speed": true,
+    "active_foot_clearance": true,
+    "footprint": true,
+    "world_level_attitude": true,
+    "angular_speed": true,
+    "whole_aircraft_contact_margin": true,
+    "deck_area_ratio_1p5": true,
+    "physical_deck_matches_planning_config": true,
+    "every_planner_request_has_actual_deck_dimensions": true,
+    "measured_envelope_matches_physical_assets": true,
+    "normal_land_and_disarm_observed": true,
+    "three_seconds_postdisarm": true,
+    "raw_postdisarm_support": true,
+    "whole_aircraft_all_postcontact_margin": true,
+    "live_contract_passed": true,
+    "sampled_physical_speed_bound": true,
+    "sampled_physical_acceleration_bound": true,
+    "original_contact_limits": true
+  },
+  "incomplete_final_raw_record": null,
+  "raw_contact_s": 51.288,
+  "raw_precontact_s": 51.27,
+  "raw_disarm_hint_s": 53.76,
+  "sampled_flight_peaks": {
+    "speed_m_s": 0.6330507092112027,
+    "acceleration_m_s2": 0.38369699978651184
+  },
+  "minimum_postcontact_whole_aircraft_margin_m": 0.05183326185817311,
+  "precontact_aircraft": {
+    "pose": {
+      "position_world_m": [
+        4.9498523417511,
+        1.9519038027227975,
+        0.9989448951821032
+      ],
+      "orientation_xyzw": [
+        0.001091320456350134,
+        -0.0011646455790242304,
+        4.9869425548282234e-05,
+        0.9999987250658758
+      ]
+    },
+    "velocity_at_origin_world_m_s": [
+      0.17355240279170928,
+      0.1734008257487749,
+      -0.07092243110490742
+    ],
+    "angular_velocity_world_rad_s": [
+      -0.0014222416951378913,
+      0.00153028273359271,
+      0.001793177572928181
+    ]
+  },
+  "precontact_deck": {
+    "motion": {
+      "pose": {
+        "position_world_m": [
+          4.94991508558567,
+          1.9506282511662894,
+          0.802
+        ],
+        "orientation_xyzw": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "velocity_at_origin_world_m_s": [
+        0.1767476875774722,
+        0.1766533013636692,
+        -1.8630336839730825e-17
+      ],
+      "angular_velocity_world_rad_s": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "half_extents_m": [
+      0.34,
+      0.4081766061261277
+    ]
+  },
+  "active_feet": [
+    {
+      "name": "rear_right_leg_collision",
+      "point_body_m": [
+        -0.14364869231184932,
+        -0.2134186319505691,
+        -0.195
+      ],
+      "point_world_m": [
+        4.806680058428118,
+        1.7388973550933238,
+        0.8031454829692143
+      ],
+      "projection_on_deck_world_m": [
+        4.806680058428118,
+        1.7388973550933238,
+        0.802
+      ],
+      "clearance_m": 0.0011454829692142399,
+      "velocity_world_m_s": [
+        0.17363473271673058,
+        0.17286561833332256,
+        -0.07040039038065737
+      ],
+      "relative_velocity_deck_m_s": [
+        -0.003112954860741618,
+        -0.003787683030346628,
+        -0.07040039038065736
+      ],
+      "closing_speed_m_s": 0.07040039038065736,
+      "tangential_speed_m_s": 0.004902757459164249,
+      "support_set_kind": "unique_rim_point",
+      "support_set_radius_m": 0.0,
+      "closing_speed_upper_bound_m_s": 0.07040039038065736,
+      "tangential_speed_upper_bound_m_s": 0.004902757459164249,
+      "projected_point_inside_deck": true,
+      "whole_cylinder_footprint_margins_m": [
+        0.19501735865250727,
+        0.1944936321662972
+      ]
+    }
+  ],
+  "scope": "Actual raw Gazebo contact/pose reconstruction; causal fit and sampled support. FCU mode/armed flags from synchronized live heartbeat, not an independent DataFlash disarm-method audit.",
+  "source_sha256": {
+    "model_states.jsonl": "5c5bd4cda303bed0405aebaa1d02ac2e22c2b5e40121e7606bbb9dd9dc78fe15",
+    "receding_control.jsonl": "89a25dcf6b5195eca0302402cb0165af3a472a7b5a922ba7aabf8a3a79e45ca9",
+    "execution_status.json": "e89daa9c9c1467c8972e131efc6bcf0af263759e56a7af98c3db8077a6158206"
+  }
+}

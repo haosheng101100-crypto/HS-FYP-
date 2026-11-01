@@ -1,0 +1,44 @@
+--- 
++++ 
+@@ -9,10 +9,12 @@
+ PROFILE=Path(os.environ.get('HS_LANDING_PROFILE',str(PKG/'config/experiments/receding_live_v1.json')))
+ VALIDATION_SCENARIOS=json.loads(PROFILE.read_text()).get('validation_scenarios',[])
+ SESSION.mkdir(exist_ok=False,parents=True);(SESSION/'requests').mkdir();(SESSION/'processed').mkdir()
+-display_env=dict(os.environ,DISPLAY=':0',XAUTHORITY='/run/user/1000/gdm/Xauthority',XDG_RUNTIME_DIR='/run/user/1000',DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus',HS_OPERATOR_SESSION=str(SESSION))
++display_env=dict(os.environ,DBUS_SESSION_BUS_ADDRESS=os.environ.get('DBUS_SESSION_BUS_ADDRESS',''),HS_OPERATOR_SESSION=str(SESSION))
+ panel_log=(SESSION/'panel.log').open('x')
+ panel=subprocess.Popen(['python3',str(PKG/'operator_panel.py')],cwd=SESSION,env=display_env,stdout=panel_log,stderr=subprocess.STDOUT,start_new_session=True)
+ all_cycles=[]
++time.sleep(1)
++if panel.poll() is not None: raise RuntimeError("Native panel initialization failed")
+ 
+ def atomic_status(value):
+     p=SESSION/'supervisor_status.tmp';p.write_text(json.dumps(value,ensure_ascii=False));p.replace(SESSION/'status.json')
+@@ -80,14 +82,14 @@
+             original_path=model_path.with_name('original_differential_drive.sdf')
+             shutil.copy2(model_path,original_path)
+             builder.build_planar_model(original_path,model_path)
+-        world=run/'worlds/uav_vehicle_stage1.sdf';s=world.read_text();assert '<pose>5 0 0.002 0 0 0</pose>' in s
++        world=run/'worlds/uav_vehicle_stage1.sdf';s=world.read_text();assert '<pose>3 0 0.002 0 0 0</pose>' in s, 'Archived final pose required'
+         world.write_text(s.replace('<pose>5 0 0.002 0 0 0</pose>','<pose>3 0 0.002 0 0 0</pose>'))
+         cfg=(BASE/'gz_prefix/usr/share/gz/gz-sim8/gui/gui.config').read_text().replace('show_again="true"','show_again="false"')
+         cfg=cfg.replace('<camera_pose>-6 0 6 0 0.5 0</camera_pose>','<camera_pose>3.5 -8 5 0 0.463647609 1.570796327</camera_pose>').replace('<start_paused>true</start_paused>','<start_paused>false</start_paused>')
+         (run/'operator_gui.config').write_text(cfg)
+         raw=subprocess.check_output(['bash','-c','source ./scripts/env.sh;env -0'],cwd=run)
+         env=dict(x.decode().split('=',1) for x in raw.split(b'\0') if b'=' in x)
+-        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION=f'hs_receding_20261023_{number:03d}',LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
++        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION=f'hs_planar_20261101_{number:03d}',LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+         rows=[];handles=[];files=[]
+         def start(name,args):
+             if name=='gazebo_gui':args=['nice','-n','15',*args]
+@@ -98,6 +100,10 @@
+             (run/'results/managed_processes.json').write_text(json.dumps(rows,indent=2));return p
+         reset=False
+         try:
++            declaration=json.loads((SESSION.parent/'declared_protocol.json').read_text())
++            for name,digest in declaration['source_sha256'].items():
++                assert hashlib.sha256((run/name).read_bytes()).hexdigest()==digest,name
++            assert json.loads((run/'config/experiments/receding_live_v1.json').read_text())==declaration['control_configuration']
+             pre=start('preflight',['./venv/bin/python','-c','from pathlib import Path;from landing.reference_loader import load_verified_reference;load_verified_reference(Path.cwd());print("Frozen geometry and runtime verified")'])
+             assert pre.wait(timeout=30)==0
+             gz=start('gazebo',['gz','sim','-s','-r','-v','2','./worlds/uav_vehicle_stage1.sdf'])

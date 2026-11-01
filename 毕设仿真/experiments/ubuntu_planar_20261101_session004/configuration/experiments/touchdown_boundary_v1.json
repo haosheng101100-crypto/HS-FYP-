@@ -1,0 +1,29 @@
+{
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "airframe_profile": "config/airframes/iris_fixed_gimbal_sim.json",
+  "design_limits_interpretation": "Simulation experiment design choices; not measured airframe capability or validated impact limits.",
+  "deck_top_center_world_m": [5.0, 0.0, 0.8],
+  "deck_orientation_xyzw": [0.0, 0.0, 0.0, 1.0],
+  "deck_half_extents_m": [1.0, 0.7],
+  "platform_geometry_source": "Preserved run_004 landing_deck collision box, nominal stationary level scene",
+  "contact_anchor_definition": "Centroid of representative minimum-support points of all active landing legs; not body origin or centre of mass",
+  "target_support_centroid_deck_xy_m": [0.0, 0.0],
+  "target_support_centroid_relative_velocity_deck_m_s": [0.0, 0.0, -0.08],
+  "nose_up_angles_deg": [0.0, 1.0, 2.0, 3.0, 5.0],
+  "nose_up_rates_deg_s": [-3.0, 0.0, 3.0],
+  "design_limits": {
+    "max_relative_tilt_deg": 5.0,
+    "max_relative_angular_speed_deg_s": 5.0,
+    "max_tangential_speed_m_s": 0.05,
+    "min_closing_speed_m_s": 0.02,
+    "max_closing_speed_m_s": 0.12,
+    "footprint_margin_m": 0.02
+  },
+  "local_zero_rate_example": {
+    "duration_s": 0.2,
+    "sample_count": 101,
+    "reference_gravity_m_s2": 9.80665,
+    "interpretation": "Only a near-touch, zero-angular-rate point-mass reference example with zero vertical acceleration. No motor response, airload, impact or full-approach validation."
+  }
+}

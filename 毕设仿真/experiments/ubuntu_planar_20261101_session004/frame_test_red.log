@@ -1,0 +1,19 @@
+test_generated_joint_frames_resolve_and_chassis_is_unchanged (test_planar_sdf_runtime.PlanarSdfRuntimeTests.test_generated_joint_frames_resolve_and_chassis_is_unchanged) ... FAIL
+
+======================================================================
+FAIL: test_generated_joint_frames_resolve_and_chassis_is_unchanged (test_planar_sdf_runtime.PlanarSdfRuntimeTests.test_generated_joint_frames_resolve_and_chassis_is_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/planar_20261101/repository/毕设仿真/tests/test_planar_sdf_runtime.py", line 14, in test_generated_joint_frames_resolve_and_chassis_is_unchanged
+    self.assertEqual(p.returncode,0,p.stderr)
+AssertionError: 255 != 0 : Error Code 38: Msg: axis xyz expressed-in frame with name[world] specified by joint with name[planar_x] not found in model with name[landing_vehicle].
+Error Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [world] in graph.
+Error Code 38: Msg: axis xyz expressed-in frame with name[world] specified by joint with name[planar_y] not found in model with name[landing_vehicle].
+Error Code 26: Msg: PoseRelativeToGraph unable to find unique frame with name [world] in graph.
+
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.191s
+
+FAILED (failures=1)
