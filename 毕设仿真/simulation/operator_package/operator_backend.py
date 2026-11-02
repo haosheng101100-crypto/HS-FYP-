@@ -14,7 +14,7 @@ from landing.horizontal_feedback import HorizontalFeedback
 from landing.platform_prediction import estimate_platform,delayed_noisy_platform,synthetic_pose_samples
 from landing.platform_filter import CausalPlatformKalman
 from landing.planar_landing import PlanarLandingSupervisor,inflate_forecast_tube
-from landing.planar_motion import PlanarMotionCommand,desired_planar_velocity
+from landing.planar_motion import PlanarMotionCommand,desired_planar_velocity,ReacquisitionManeuver
 from landing.prediction_uncertainty import DelayedForecastMonitor
 from landing.receding_landing import FlightState,PlatformState
 from landing.receding_live import moving_alignment_required,initial_plan_durations,native_capture_time_guard,tracking_contact_envelope
@@ -46,6 +46,7 @@ class OperatorApproach(LegacyOperator):
         self.live_cfg=json.loads((ROOT/'config/experiments/receding_live_v1.json').read_text())
         self.planar_design=self.live_cfg.get('planar_landing')
         self.planar_supervisor=None;self.last_sent_reference=None;self.planar_report=None
+        self.planar_maneuver=None;self.scene_maneuvers=[]
         self.planar_motion=PlanarMotionCommand() if self.planar_design else None
         if self.planar_design:
             self.planar_pubs=[self.node.advertise('/vehicle/planar_'+axis+'/cmd_vel',Double) for axis in ('x','y')]
@@ -136,6 +137,9 @@ class OperatorApproach(LegacyOperator):
         self.attempt+=1;self.land_requested=False;self.pending_preparation=False
         self.reference_session=self.make_reference_session(self.hold_reference)
         self.planar_supervisor=PlanarLandingSupervisor(self.planar_design) if self.planar_design else None
+        trial=self.live_cfg.get('reacquisition_trial')
+        self.planar_maneuver=ReacquisitionManeuver(self.scenario,**trial) if trial else None
+        self.scene_maneuvers=[]
         closing=self.live_cfg['planner_limits']['contact_speed']
         req=TouchdownRequest(quaternion_from_rpy(0,0,-platform.yaw),(0,0,-platform.yaw_rate),(0,0),(0,0,-closing))
         boundary=solve_touchdown_boundary(self.geometry,deck,req,ContactDesignLimits(.01,1.01,.05,.5*closing,1.5*closing,.02))
@@ -186,10 +190,18 @@ class OperatorApproach(LegacyOperator):
             return estimate_platform(samples,t,deck.half_extents_m,span=self.live_cfg.get('platform_fit_span_s',.35))
         return PlatformState(t,deck.motion.pose.position_world_m,tuple(velocity),tuple(acc),yaw,deck.motion.angular_velocity_world_rad_s[2],deck.half_extents_m)
 
-    def update_vehicle(self,t):
+    def update_vehicle(self,t,observation=None):
         elapsed=0. if self.scenario_start is None else t-self.scenario_start
         if self.planar_motion is not None:
-            target=(0.,0.) if self.scenario_start is None else desired_planar_velocity(self.scenario,elapsed)
+            if self.scenario_start is None:target=(0.,0.)
+            elif self.planar_maneuver is not None:
+                if observation is None:raise ValueError('Measured aircraft observation required for scene trigger')
+                phase=self.reference_session.phase if self.reference_session and self.recovery is None else 'RECOVERY'
+                target,scene_event=self.planar_maneuver.step(t,self.scene_gap,observation.motion.velocity_at_origin_world_m_s[2],phase)
+                if scene_event:
+                    self.scene_maneuvers.append(scene_event)
+                    atomic_json(ROOT/'results/scene_maneuvers.json',self.scene_maneuvers)
+            else:target=desired_planar_velocity(self.scenario,elapsed)
             velocity,acceleration=self.planar_motion.step(t,target)
             for publisher,value in zip(self.planar_pubs,velocity):publisher.publish(Double(data=value))
             self.planar_command=dict(velocity_world_xy_m_s=velocity,acceleration_world_xy_m_s2=acceleration,planner_knows_future_commands=False)
@@ -428,7 +440,7 @@ class OperatorApproach(LegacyOperator):
         contact_owns_disarm=self.reference_session is not None and self.executor.handover.started is not None
         if not obs.armed and self.operator_stage not in ('COMPLETE','ERROR') and not contact_owns_disarm:
             raise RuntimeError('Unexpected disarm during flight')
-        self.update_vehicle(t)
+        self.update_vehicle(t,obs)
         remaining=None
         if self.reference_session and self.reference_session.plan and self.recovery is None:
             remaining=self.reference_session.plan.arrival-t

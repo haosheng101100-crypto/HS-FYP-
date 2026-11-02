@@ -1,6 +1,7 @@
 """Own the interactive simulation, native controls and resettable cycles."""
 from pathlib import Path
 import os,json,subprocess,time,signal,shutil,hashlib,traceback
+from planar_runtime_setup import desktop_environment,prepare_world_start
 BASE=Path(os.environ.get('HS_SIM_BASE','/home/haosheng/hs_ardupilot_stage1'))
 SESSION=Path(os.environ.get('HS_OPERATOR_SESSION',str(BASE/'interactive_20261023/receding_session_083')))
 PKG=Path(os.environ.get('HS_OPERATOR_PACKAGE',str(BASE/'paper_experiments/operator_receding_v83')))
@@ -9,7 +10,7 @@ SOURCE=Path(os.environ.get('HS_SIM_SOURCE',str(BASE/'reproduction_20261018/fixed
 PROFILE=Path(os.environ.get('HS_LANDING_PROFILE',str(PKG/'config/experiments/receding_live_v1.json')))
 VALIDATION_SCENARIOS=json.loads(PROFILE.read_text()).get('validation_scenarios',[])
 SESSION.mkdir(exist_ok=False,parents=True);(SESSION/'requests').mkdir();(SESSION/'processed').mkdir()
-display_env=dict(os.environ,DISPLAY=':0',XAUTHORITY='/run/user/1000/gdm/Xauthority',XDG_RUNTIME_DIR='/run/user/1000',DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus',HS_OPERATOR_SESSION=str(SESSION))
+display_env=dict(os.environ,**desktop_environment(os.environ),HS_OPERATOR_SESSION=str(SESSION))
 panel_log=(SESSION/'panel.log').open('x')
 panel=subprocess.Popen(['python3',str(PKG/'operator_panel.py')],cwd=SESSION,env=display_env,stdout=panel_log,stderr=subprocess.STDOUT,start_new_session=True)
 all_cycles=[]
@@ -80,8 +81,7 @@ try:
             original_path=model_path.with_name('original_differential_drive.sdf')
             shutil.copy2(model_path,original_path)
             builder.build_planar_model(original_path,model_path)
-        world=run/'worlds/uav_vehicle_stage1.sdf';s=world.read_text();assert '<pose>5 0 0.002 0 0 0</pose>' in s
-        world.write_text(s.replace('<pose>5 0 0.002 0 0 0</pose>','<pose>3 0 0.002 0 0 0</pose>'))
+        world=run/'worlds/uav_vehicle_stage1.sdf';world.write_text(prepare_world_start(world.read_text()))
         cfg=(BASE/'gz_prefix/usr/share/gz/gz-sim8/gui/gui.config').read_text().replace('show_again="true"','show_again="false"')
         cfg=cfg.replace('<camera_pose>-6 0 6 0 0.5 0</camera_pose>','<camera_pose>3.5 -8 5 0 0.463647609 1.570796327</camera_pose>').replace('<start_paused>true</start_paused>','<start_paused>false</start_paused>')
         (run/'operator_gui.config').write_text(cfg)

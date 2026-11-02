@@ -5,6 +5,36 @@ import numpy as np
 
 SCENARIOS=('planar_forward_backward','planar_lateral','planar_diagonal','planar_reversal','planar_xy')
 
+REACQUISITION_SCENARIOS=('planar_reacquire_x','planar_reacquire_y','planar_reacquire_xy')
+
+
+class ReacquisitionManeuver:
+    """World-side maneuver, triggered by measured high-clearance descent.
+
+    This object must never be passed to an estimator or landing policy. It
+    changes only the physical platform's velocity target, once per attempt.
+    """
+    def __init__(self,scenario,trigger_gap_m=2.35,minimum_trigger_gap_m=2.,minimum_descent_speed_m_s=.02):
+        if scenario not in REACQUISITION_SCENARIOS:raise ValueError('Unknown reacquisition scenario')
+        if not all(math.isfinite(v) and v>0 for v in (trigger_gap_m,minimum_trigger_gap_m,minimum_descent_speed_m_s)) or minimum_trigger_gap_m>=trigger_gap_m:
+            raise ValueError('Ordered finite positive scene trigger required')
+        self.scenario=scenario;self.high=trigger_gap_m;self.low=minimum_trigger_gap_m;self.closing=minimum_descent_speed_m_s
+        self.initial={'planar_reacquire_x':(.25,0.),'planar_reacquire_y':(0.,.25),'planar_reacquire_xy':(.18,.18)}[scenario]
+        self.fired=False;self.last=None
+
+    def step(self,now,gap_m,vertical_speed_m_s,phase):
+        if not all(math.isfinite(v) for v in (now,gap_m,vertical_speed_m_s)) or (self.last is not None and now<=self.last):
+            raise ValueError('Finite increasing measured scene clock required')
+        self.last=now;event=None
+        if not self.fired and phase=='TRACKING' and self.low<=gap_m<=self.high and vertical_speed_m_s<-self.closing:
+            self.fired=True
+            event=dict(event='PLANAR_MANEUVER_TRIGGERED',time=now,scenario=self.scenario,
+                       measured_leg_gap_m=gap_m,measured_vertical_speed_m_s=vertical_speed_m_s,
+                       planner_phase=phase,trigger_gap_m=self.high,minimum_trigger_gap_m=self.low,
+                       planner_knows_future_commands=False)
+        target=tuple(-v for v in self.initial) if self.fired else self.initial
+        return target,event
+
 
 def desired_planar_velocity(scenario,elapsed):
     if not math.isfinite(elapsed) or elapsed<0:raise ValueError('Finite nonnegative scenario time required')

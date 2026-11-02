@@ -2,11 +2,11 @@
   "simulation_only": true,
   "source_sha256": {
     "interactive_base.py": "6955867ad9c1fb8771d4b2a95fcb6e78521560ea538074700168f102bc6dc6db",
-    "operator_backend.py": "a22c8014f3a433443632f62d14da3d9e18413bcb7819a603b66a0d7facd6caf4",
+    "operator_backend.py": "6321669e205a9b01e0e0d8ea07aaa6399df507b8441922715fef785b74bb7e36",
     "operator_clock.py": "0ce2861393bc239ea6f51cf13fb7dafde556bae13c7787db2269ec89ac9e5ac9",
     "operator_legacy.py": "385fae1f9e07265ddeaaa051ac0ea2ffbb81c0693b8c32aa3b0d16418872a2bb",
     "operator_panel.py": "f7d63ead35a3b76749ac94a582779b1707edb5e39b6541f4af5d44dbe098db6b",
-    "operator_supervisor.py": "799da18739127018f2e2558a15c1d23690dba92636b6914d4c4634c4f0aaac66",
+    "operator_supervisor.py": "428bfe3aa6b0de560eada61ba6f7db1ab5f4b0caa47f1554de5964fc7367191e",
     "landing/platform_filter.py": "64e2a691047308c4511a67c79436e2ca47c63bb804f18a0bb3668df8559f9d3f",
     "landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
     "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
@@ -17,9 +17,12 @@
     "config/airframes/iris_swept_envelope_v1.json": "da3d763cfe3680dda0f039ccbc647db672df3a38a82b6c191b7379966a5d96cf",
     "config/experiments/receding_live_v1.json": "10cd5c9eed573374219bdfbf439c6357476e2b048fec4fc2c27530346990b83f",
     "landing/planar_landing.py": "6ae15e8eab37fe8b75e150b8281f06b4a8f348218fbe8d4cf2384e2eacedf77a",
-    "landing/planar_motion.py": "ced9f93772228d8d7088cdfea506c1b1b140fc23f54a8d4e6fc90ceffd466b1d",
+    "landing/planar_motion.py": "33cab3009fe8ab4d8b8d5f3048b9fa85842ee6d24b306e794064f9b75cc2ee89",
     "tools/build_planar_profile.py": "a910dd85bfcdacd5dad1b069f4859cb26e43c9c0da785856c2eeb9c4f3f984bc",
-    "config/experiments/planar_landing_v1.json": "5b4cf58bb90daa2d6e213f290a36404b4ec50c91dadb0e4d0e61380355eeb9e2"
+    "config/experiments/planar_landing_v1.json": "5b4cf58bb90daa2d6e213f290a36404b4ec50c91dadb0e4d0e61380355eeb9e2",
+    "planar_runtime_setup.py": "c69dc136edc5bceb763b91998891328e7d1801cbaddf18769fa13646e17b57fe",
+    "config/experiments/planar_reacquisition_v1.json": "06023543525a5831c07863a6a0037623045329dac008eb42df71b0d4a3b800a8"
   },
-  "new_planar_physical_validation": "PENDING; historical physical results are for their pinned revisions"
+  "new_planar_physical_validation": "PENDING; historical physical results are for their pinned revisions",
+  "reacquisition_trial_physical_validation": "PENDING: requires new recorded reacquisition -> resumed plan -> physical contact/support"
 }
