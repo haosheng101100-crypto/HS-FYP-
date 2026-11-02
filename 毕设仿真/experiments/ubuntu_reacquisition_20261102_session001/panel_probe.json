@@ -1,0 +1,6 @@
+{
+  "alive_after_12_s": true,
+  "ipc_mode": "host",
+  "flight_commands_sent": false,
+  "exit_code_before_cleanup": null
+}

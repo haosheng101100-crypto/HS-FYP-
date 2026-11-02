@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "checks": {
+    "native_arming_recorded": true,
+    "native_disarming_recorded": true,
+    "all_arm_and_disarm_nonforced": true,
+    "disarm_after_arming": true,
+    "all_disarming_in_native_land": true,
+    "no_native_flight_error": true,
+    "no_crash_message": true
+  },
+  "native_events": [
+    {
+      "mavpackettype": "MODE",
+      "TimeUS": 1933952,
+      "Mode": 0,
+      "ModeNum": 0,
+      "Rsn": 26
+    },
+    {
+      "mavpackettype": "MODE",
+      "TimeUS": 19062126,
+      "Mode": 4,
+      "ModeNum": 4,
+      "Rsn": 2
+    },
+    {
+      "mavpackettype": "ARM",
+      "TimeUS": 28294948,
+      "ArmState": 1,
+      "ArmChecks": 2097150,
+      "Forced": 0,
+      "Method": 1,
+      "mode_at_event": 4
+    },
+    {
+      "mavpackettype": "MODE",
+      "TimeUS": 28294948,
+      "Mode": 4,
+      "ModeNum": 4,
+      "Rsn": 2
+    },
+    {
+      "mavpackettype": "MODE",
+      "TimeUS": 63981626,
+      "Mode": 9,
+      "ModeNum": 9,
+      "Rsn": 2
+    },
+    {
+      "mavpackettype": "ARM",
+      "TimeUS": 66329840,
+      "ArmState": 0,
+      "ArmChecks": 0,
+      "Forced": 0,
+      "Method": 13,
+      "mode_at_event": 9
+    }
+  ],
+  "flight_errors": [],
+  "crash_messages": [],
+  "source_sha256": {
+    "00000001.BIN": "b45a65c2eeaeef59f1beeb9968dd95da1bcc490e5bab26fd6312854f48497084"
+  },
+  "interpretation": "Native mode at each nonforced disarm is checked using installed pymavlink mode mapping. Numeric arming Method values are preserved without guessing their enum labels."
+}

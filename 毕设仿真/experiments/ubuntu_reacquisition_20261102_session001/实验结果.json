@@ -1,0 +1,737 @@
+{
+  "date": "2026-11-02",
+  "source_commit": "ca86ce7cf8c8ee1a392a23867296718b7583d59e",
+  "feature_commit": "58065a94335388d6b698f9463cf30185fc4d3cfa",
+  "session": "session_001",
+  "cases": 3,
+  "passed_cases": 3,
+  "tests_passed": 190,
+  "gazebo_parser_test_skipped": false,
+  "thresholds_relaxed": false,
+  "results": [
+    {
+      "cycle": "cycle_001",
+      "scenario": "planar_reacquire_x",
+      "expected": "landing_after_reacquisition",
+      "passed": true,
+      "audit_exit_code": 0,
+      "source_checks": {
+        "landing/receding_landing.py": true,
+        "landing/receding_live.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "landing/platform_filter.py": true,
+        "landing/planar_landing.py": true,
+        "landing/planar_motion.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "config/airframes/iris_swept_envelope_v1.json": true,
+        "tools/receding_planner_worker.py": true,
+        "tools/build_planar_profile.py": true,
+        "tools/interactive_base.py": true,
+        "tools/operator_backend.py": true,
+        "tools/operator_clock.py": true,
+        "tools/operator_legacy.py": true
+      },
+      "strict_audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_status": {
+        "simulation_only": true,
+        "completed": true,
+        "controller": "asynchronous three-dimensional Bezier SOCP; causal platform acceleration; native LAND contact",
+        "observations": "Gazebo body truth with causal quadratic pose fits; no sensor noise/delay simulation",
+        "reference_approach_duration_s": 5.0,
+        "reference_preparation_duration_s": 1.5,
+        "hardware_deployment_allowed": false,
+        "pose_teleportation_used": false,
+        "force_disarm_used": false,
+        "verified_contact_publisher_topic": "/world/uav_vehicle_stage1/model/landing_vehicle/link/chassis/sensor/deck_contact/contact",
+        "operator_controlled": true,
+        "watchdog_wall_clock": "Active monotonic time excluding confirmed deliberate Gazebo pauses. Simulation-age gates remain unchanged.",
+        "scenario": "planar_reacquire_x",
+        "horizontal_feedback_design": {
+          "position_gain": 6.25,
+          "velocity_gain": 5.0,
+          "acceleration_lead_s": 0.12,
+          "maximum_acceleration_m_s2": 2.5
+        },
+        "flight_validation_status": "NOT_YET_FLIGHT_VALIDATED",
+        "contact_limits": {
+          "observation_age_s": 0.06,
+          "contact_age_s": 0.06,
+          "update_gap_s": 0.08,
+          "contact_time_error_s": 0.25,
+          "contact_xy_error_m": 0.2,
+          "contact_clearance_error_m": 0.025,
+          "contact_tangential_speed_m_s": 0.05,
+          "contact_normal_speed_m_s": 0.12,
+          "contact_minimum_closing_speed_m_s": 0.02,
+          "contact_attitude_error_rad": 0.017453292519943295,
+          "contact_tilt_rad": 0.08726646259971647,
+          "contact_angular_speed_rad_s": 0.13962634015954636,
+          "footprint_margin_m": 0.02,
+          "support_minimum_legs": 3,
+          "support_maximum_gap_m": 0.02,
+          "support_penetration_m": 0.01,
+          "support_tilt_rad": 0.05235987755982989,
+          "support_speed_m_s": 0.05,
+          "support_angular_speed_rad_s": 0.08726646259971647,
+          "support_dwell_s": 0.4,
+          "post_disarm_dwell_s": 3.0,
+          "land_request_interval_s": 0.25,
+          "land_ack_timeout_s": 2.0,
+          "settle_timeout_s": 10.0,
+          "disarm_timeout_s": 30.0
+        },
+        "execution_mode": "user_authorized_autonomous_simulation_trial",
+        "external_failures": [],
+        "events": [
+          {
+            "wall_unix_s": 1793581035.6321406,
+            "stage": "CONNECT",
+            "message": "FCU: GPS 1: probing for u-blox at 230400 baud"
+          },
+          {
+            "wall_unix_s": 1793581035.653643,
+            "stage": "CONNECT",
+            "message": "FCU: GPS 1: detected u-blox"
+          },
+          {
+            "wall_unix_s": 1793581048.1440847,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: Arm: Gyros inconsistent"
+          },
+          {
+            "wall_unix_s": 1793581049.035367,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU1 origin set"
+          },
+          {
+            "wall_unix_s": 1793581049.2817547,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU0 origin set"
+          },
+          {
+            "wall_unix_s": 1793581060.1471555,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: Arming motors"
+          },
+          {
+            "wall_unix_s": 1793581067.3359396,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU0 MAG0 in-flight yaw alignment complete"
+          },
+          {
+            "wall_unix_s": 1793581067.3420918,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU1 MAG0 in-flight yaw alignment complete"
+          },
+          {
+            "wall_unix_s": 1793581073.6778512,
+            "stage": "RECEDING_EXECUTION",
+            "message": "New async planner activated by explicit user landing request; scenario=planar_reacquire_x"
+          },
+          {
+            "wall_unix_s": 1793581094.7348828,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: EKF3 IMU0 is using GPS"
+          },
+          {
+            "wall_unix_s": 1793581094.783121,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: EKF3 IMU1 is using GPS"
+          },
+          {
+            "wall_unix_s": 1793581109.2702897,
+            "stage": "RECEDING_EXECUTION",
+            "message": "Requested normal LAND; no force-disarm"
+          },
+          {
+            "wall_unix_s": 1793581113.062831,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: Disarming motors"
+          }
+        ],
+        "final_mode": "LAND",
+        "armed_at_save": false,
+        "first_contact": {
+          "contact_sim_t_s": 63.372,
+          "decision_sim_t_s": 63.4,
+          "observation_sim_t_s": 63.36,
+          "legs": [
+            "front_left_leg_collision",
+            "rear_left_leg_collision"
+          ],
+          "unexpected_uav_collisions": [],
+          "checks": {
+            "precontact_observation_available": true,
+            "known_legs_only": true,
+            "observation_fresh": true,
+            "target_xy": true,
+            "tilt": true,
+            "attitude_target": true,
+            "angular_speed": true,
+            "leg_clearance": true,
+            "leg_speed": true,
+            "footprint": true,
+            "contact_time": true
+          },
+          "scope": "Latest causal observation strictly before reported contact, not exact instantaneous impact velocity."
+        },
+        "failures": [],
+        "main_approach_start_sim_t_s": 55.04,
+        "main_entry_report": {
+          "ready": true,
+          "checks": {
+            "position_error_m": true,
+            "velocity_error_m_s": true,
+            "attitude_error_rad": true,
+            "angular_velocity_error_rad_s": true,
+            "observation_fresh": true,
+            "armed": true,
+            "guided_mode": true,
+            "com_acceleration_matches": true,
+            "no_recent_deck_contact": true
+          },
+          "residuals": {
+            "position_error_m": 0.003854458122574203,
+            "velocity_error_m_s": 0.0017676520538841502,
+            "attitude_error_rad": 0.0004353435424001224,
+            "angular_velocity_error_rad_s": 0.003968256980577424,
+            "com_acceleration_error_m_s2": 0.00842365001966472
+          },
+          "observation_age_s": 0.0,
+          "actual_com_position_world_m": [
+            3.5371139325700667,
+            0.002132727396732372,
+            4.951882066716893
+          ],
+          "scope": "Bounded initial residual gate; does not prepare the aircraft or guarantee derivative continuity."
+        }
+      },
+      "peak_speed_m_s": 1.6935370492130837,
+      "peak_acceleration_m_s2": 1.3996649339574445
+    },
+    {
+      "cycle": "cycle_002",
+      "scenario": "planar_reacquire_y",
+      "expected": "landing_after_reacquisition",
+      "passed": true,
+      "audit_exit_code": 0,
+      "source_checks": {
+        "landing/receding_landing.py": true,
+        "landing/receding_live.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "landing/platform_filter.py": true,
+        "landing/planar_landing.py": true,
+        "landing/planar_motion.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "config/airframes/iris_swept_envelope_v1.json": true,
+        "tools/receding_planner_worker.py": true,
+        "tools/build_planar_profile.py": true,
+        "tools/interactive_base.py": true,
+        "tools/operator_backend.py": true,
+        "tools/operator_clock.py": true,
+        "tools/operator_legacy.py": true
+      },
+      "strict_audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_status": {
+        "simulation_only": true,
+        "completed": true,
+        "controller": "asynchronous three-dimensional Bezier SOCP; causal platform acceleration; native LAND contact",
+        "observations": "Gazebo body truth with causal quadratic pose fits; no sensor noise/delay simulation",
+        "reference_approach_duration_s": 5.0,
+        "reference_preparation_duration_s": 1.5,
+        "hardware_deployment_allowed": false,
+        "pose_teleportation_used": false,
+        "force_disarm_used": false,
+        "verified_contact_publisher_topic": "/world/uav_vehicle_stage1/model/landing_vehicle/link/chassis/sensor/deck_contact/contact",
+        "operator_controlled": true,
+        "watchdog_wall_clock": "Active monotonic time excluding confirmed deliberate Gazebo pauses. Simulation-age gates remain unchanged.",
+        "scenario": "planar_reacquire_y",
+        "horizontal_feedback_design": {
+          "position_gain": 6.25,
+          "velocity_gain": 5.0,
+          "acceleration_lead_s": 0.12,
+          "maximum_acceleration_m_s2": 2.5
+        },
+        "flight_validation_status": "NOT_YET_FLIGHT_VALIDATED",
+        "contact_limits": {
+          "observation_age_s": 0.06,
+          "contact_age_s": 0.06,
+          "update_gap_s": 0.08,
+          "contact_time_error_s": 0.25,
+          "contact_xy_error_m": 0.2,
+          "contact_clearance_error_m": 0.025,
+          "contact_tangential_speed_m_s": 0.05,
+          "contact_normal_speed_m_s": 0.12,
+          "contact_minimum_closing_speed_m_s": 0.02,
+          "contact_attitude_error_rad": 0.017453292519943295,
+          "contact_tilt_rad": 0.08726646259971647,
+          "contact_angular_speed_rad_s": 0.13962634015954636,
+          "footprint_margin_m": 0.02,
+          "support_minimum_legs": 3,
+          "support_maximum_gap_m": 0.02,
+          "support_penetration_m": 0.01,
+          "support_tilt_rad": 0.05235987755982989,
+          "support_speed_m_s": 0.05,
+          "support_angular_speed_rad_s": 0.08726646259971647,
+          "support_dwell_s": 0.4,
+          "post_disarm_dwell_s": 3.0,
+          "land_request_interval_s": 0.25,
+          "land_ack_timeout_s": 2.0,
+          "settle_timeout_s": 10.0,
+          "disarm_timeout_s": 30.0
+        },
+        "execution_mode": "user_authorized_autonomous_simulation_trial",
+        "external_failures": [],
+        "events": [
+          {
+            "wall_unix_s": 1793581137.9382238,
+            "stage": "CONNECT",
+            "message": "FCU: GPS 1: probing for u-blox at 230400 baud"
+          },
+          {
+            "wall_unix_s": 1793581137.9597926,
+            "stage": "CONNECT",
+            "message": "FCU: GPS 1: detected u-blox"
+          },
+          {
+            "wall_unix_s": 1793581151.3248384,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: Arm: Gyros inconsistent"
+          },
+          {
+            "wall_unix_s": 1793581152.5274909,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU1 origin set"
+          },
+          {
+            "wall_unix_s": 1793581152.7877057,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU0 origin set"
+          },
+          {
+            "wall_unix_s": 1793581163.327764,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: Arming motors"
+          },
+          {
+            "wall_unix_s": 1793581170.7300992,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU0 MAG0 in-flight yaw alignment complete"
+          },
+          {
+            "wall_unix_s": 1793581170.7355666,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU1 MAG0 in-flight yaw alignment complete"
+          },
+          {
+            "wall_unix_s": 1793581176.9171963,
+            "stage": "RECEDING_EXECUTION",
+            "message": "New async planner activated by explicit user landing request; scenario=planar_reacquire_y"
+          },
+          {
+            "wall_unix_s": 1793581196.4693427,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: EKF3 IMU0 is using GPS"
+          },
+          {
+            "wall_unix_s": 1793581196.511376,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: EKF3 IMU1 is using GPS"
+          },
+          {
+            "wall_unix_s": 1793581211.5505402,
+            "stage": "RECEDING_EXECUTION",
+            "message": "Requested normal LAND; no force-disarm"
+          },
+          {
+            "wall_unix_s": 1793581215.3093302,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: Disarming motors"
+          }
+        ],
+        "final_mode": "LAND",
+        "armed_at_save": false,
+        "first_contact": {
+          "contact_sim_t_s": 63.701,
+          "decision_sim_t_s": 63.72,
+          "observation_sim_t_s": 63.68,
+          "legs": [
+            "front_left_leg_collision",
+            "rear_left_leg_collision"
+          ],
+          "unexpected_uav_collisions": [],
+          "checks": {
+            "precontact_observation_available": true,
+            "known_legs_only": true,
+            "observation_fresh": true,
+            "target_xy": true,
+            "tilt": true,
+            "attitude_target": true,
+            "angular_speed": true,
+            "leg_clearance": true,
+            "leg_speed": true,
+            "footprint": true,
+            "contact_time": true
+          },
+          "scope": "Latest causal observation strictly before reported contact, not exact instantaneous impact velocity."
+        },
+        "failures": [],
+        "main_approach_start_sim_t_s": 55.37,
+        "main_entry_report": {
+          "ready": true,
+          "checks": {
+            "position_error_m": true,
+            "velocity_error_m_s": true,
+            "attitude_error_rad": true,
+            "angular_velocity_error_rad_s": true,
+            "observation_fresh": true,
+            "armed": true,
+            "guided_mode": true,
+            "com_acceleration_matches": true,
+            "no_recent_deck_contact": true
+          },
+          "residuals": {
+            "position_error_m": 0.004105262905051448,
+            "velocity_error_m_s": 0.001858627515899434,
+            "attitude_error_rad": 0.0004682575643780665,
+            "angular_velocity_error_rad_s": 0.0024722371494566393,
+            "com_acceleration_error_m_s2": 0.006334671168816242
+          },
+          "observation_age_s": 0.0,
+          "actual_com_position_world_m": [
+            3.0020033532494956,
+            0.6268755803271799,
+            4.951733371781672
+          ],
+          "scope": "Bounded initial residual gate; does not prepare the aircraft or guarantee derivative continuity."
+        }
+      },
+      "peak_speed_m_s": 1.553031141299981,
+      "peak_acceleration_m_s2": 1.4012528065979977
+    },
+    {
+      "cycle": "cycle_003",
+      "scenario": "planar_reacquire_xy",
+      "expected": "landing_after_reacquisition",
+      "passed": true,
+      "audit_exit_code": 0,
+      "source_checks": {
+        "landing/receding_landing.py": true,
+        "landing/receding_live.py": true,
+        "landing/swept_envelope.py": true,
+        "landing/platform_prediction.py": true,
+        "landing/platform_filter.py": true,
+        "landing/planar_landing.py": true,
+        "landing/planar_motion.py": true,
+        "landing/prediction_uncertainty.py": true,
+        "config/airframes/iris_swept_envelope_v1.json": true,
+        "tools/receding_planner_worker.py": true,
+        "tools/build_planar_profile.py": true,
+        "tools/interactive_base.py": true,
+        "tools/operator_backend.py": true,
+        "tools/operator_clock.py": true,
+        "tools/operator_legacy.py": true
+      },
+      "strict_audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_status": {
+        "simulation_only": true,
+        "completed": true,
+        "controller": "asynchronous three-dimensional Bezier SOCP; causal platform acceleration; native LAND contact",
+        "observations": "Gazebo body truth with causal quadratic pose fits; no sensor noise/delay simulation",
+        "reference_approach_duration_s": 5.0,
+        "reference_preparation_duration_s": 1.5,
+        "hardware_deployment_allowed": false,
+        "pose_teleportation_used": false,
+        "force_disarm_used": false,
+        "verified_contact_publisher_topic": "/world/uav_vehicle_stage1/model/landing_vehicle/link/chassis/sensor/deck_contact/contact",
+        "operator_controlled": true,
+        "watchdog_wall_clock": "Active monotonic time excluding confirmed deliberate Gazebo pauses. Simulation-age gates remain unchanged.",
+        "scenario": "planar_reacquire_xy",
+        "horizontal_feedback_design": {
+          "position_gain": 6.25,
+          "velocity_gain": 5.0,
+          "acceleration_lead_s": 0.12,
+          "maximum_acceleration_m_s2": 2.5
+        },
+        "flight_validation_status": "NOT_YET_FLIGHT_VALIDATED",
+        "contact_limits": {
+          "observation_age_s": 0.06,
+          "contact_age_s": 0.06,
+          "update_gap_s": 0.08,
+          "contact_time_error_s": 0.25,
+          "contact_xy_error_m": 0.2,
+          "contact_clearance_error_m": 0.025,
+          "contact_tangential_speed_m_s": 0.05,
+          "contact_normal_speed_m_s": 0.12,
+          "contact_minimum_closing_speed_m_s": 0.02,
+          "contact_attitude_error_rad": 0.017453292519943295,
+          "contact_tilt_rad": 0.08726646259971647,
+          "contact_angular_speed_rad_s": 0.13962634015954636,
+          "footprint_margin_m": 0.02,
+          "support_minimum_legs": 3,
+          "support_maximum_gap_m": 0.02,
+          "support_penetration_m": 0.01,
+          "support_tilt_rad": 0.05235987755982989,
+          "support_speed_m_s": 0.05,
+          "support_angular_speed_rad_s": 0.08726646259971647,
+          "support_dwell_s": 0.4,
+          "post_disarm_dwell_s": 3.0,
+          "land_request_interval_s": 0.25,
+          "land_ack_timeout_s": 2.0,
+          "settle_timeout_s": 10.0,
+          "disarm_timeout_s": 30.0
+        },
+        "execution_mode": "user_authorized_autonomous_simulation_trial",
+        "external_failures": [],
+        "events": [
+          {
+            "wall_unix_s": 1793581239.3078856,
+            "stage": "CONNECT",
+            "message": "FCU: GPS 1: probing for u-blox at 230400 baud"
+          },
+          {
+            "wall_unix_s": 1793581239.3294728,
+            "stage": "CONNECT",
+            "message": "FCU: GPS 1: detected u-blox"
+          },
+          {
+            "wall_unix_s": 1793581252.1677992,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: Arm: Gyros inconsistent"
+          },
+          {
+            "wall_unix_s": 1793581252.7108402,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU1 origin set"
+          },
+          {
+            "wall_unix_s": 1793581252.9649446,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU0 origin set"
+          },
+          {
+            "wall_unix_s": 1793581264.1757147,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: Arming motors"
+          },
+          {
+            "wall_unix_s": 1793581271.7604692,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU0 MAG0 in-flight yaw alignment complete"
+          },
+          {
+            "wall_unix_s": 1793581271.7659733,
+            "stage": "WAIT_USER_TAKEOFF",
+            "message": "FCU: EKF3 IMU1 MAG0 in-flight yaw alignment complete"
+          },
+          {
+            "wall_unix_s": 1793581278.1153722,
+            "stage": "RECEDING_EXECUTION",
+            "message": "New async planner activated by explicit user landing request; scenario=planar_reacquire_xy"
+          },
+          {
+            "wall_unix_s": 1793581298.0250936,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: EKF3 IMU0 is using GPS"
+          },
+          {
+            "wall_unix_s": 1793581298.083886,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: EKF3 IMU1 is using GPS"
+          },
+          {
+            "wall_unix_s": 1793581313.2551851,
+            "stage": "RECEDING_EXECUTION",
+            "message": "Requested normal LAND; no force-disarm"
+          },
+          {
+            "wall_unix_s": 1793581317.2027144,
+            "stage": "RECEDING_EXECUTION",
+            "message": "FCU: Disarming motors"
+          }
+        ],
+        "final_mode": "LAND",
+        "armed_at_save": false,
+        "first_contact": {
+          "contact_sim_t_s": 64.016,
+          "decision_sim_t_s": 64.05,
+          "observation_sim_t_s": 64.01,
+          "legs": [
+            "rear_left_leg_collision"
+          ],
+          "unexpected_uav_collisions": [],
+          "checks": {
+            "precontact_observation_available": true,
+            "known_legs_only": true,
+            "observation_fresh": true,
+            "target_xy": true,
+            "tilt": true,
+            "attitude_target": true,
+            "angular_speed": true,
+            "leg_clearance": true,
+            "leg_speed": true,
+            "footprint": true,
+            "contact_time": true
+          },
+          "scope": "Latest causal observation strictly before reported contact, not exact instantaneous impact velocity."
+        },
+        "failures": [],
+        "main_approach_start_sim_t_s": 55.68,
+        "main_entry_report": {
+          "ready": true,
+          "checks": {
+            "position_error_m": true,
+            "velocity_error_m_s": true,
+            "attitude_error_rad": true,
+            "angular_velocity_error_rad_s": true,
+            "observation_fresh": true,
+            "armed": true,
+            "guided_mode": true,
+            "com_acceleration_matches": true,
+            "no_recent_deck_contact": true
+          },
+          "residuals": {
+            "position_error_m": 0.004200902154527901,
+            "velocity_error_m_s": 0.0021629442790041926,
+            "attitude_error_rad": 0.0005242429722939985,
+            "angular_velocity_error_rad_s": 0.004987766269788072,
+            "com_acceleration_error_m_s2": 0.007449331073528038
+          },
+          "observation_age_s": 0.0,
+          "actual_com_position_world_m": [
+            3.397569698973226,
+            0.3971235978892172,
+            4.951883575289783
+          ],
+          "scope": "Bounded initial residual gate; does not prepare the aircraft or guarantee derivative continuity."
+        }
+      },
+      "peak_speed_m_s": 1.6444610524757723,
+      "peak_acceleration_m_s2": 1.400395559639537
+    }
+  ],
+  "event_statistics": {
+    "planar_reacquire_x": {
+      "PREPARATION_POLICY": 1,
+      "PLANAR_INITIAL_FOLLOW": 1,
+      "ALIGNMENT_STARTED": 1,
+      "ALIGNMENT_COMPLETE": 2,
+      "PLAN_PENDING": 20,
+      "PLAN_ACTIVATED": 20,
+      "PLANAR_REACQUIRE": 1,
+      "RESULT_REJECTED": 2,
+      "CAPTURE_TIME_WINDOW_OPENED": 1,
+      "TERMINAL_PLAN_COMMITTED": 1,
+      "MEASURED_TERMINAL_CAPTURE": 1,
+      "NATIVE_CAPTURE_STARTED": 1
+    },
+    "planar_reacquire_y": {
+      "PREPARATION_POLICY": 1,
+      "PLANAR_INITIAL_FOLLOW": 1,
+      "ALIGNMENT_STARTED": 1,
+      "ALIGNMENT_COMPLETE": 2,
+      "PLAN_PENDING": 21,
+      "PLAN_ACTIVATED": 21,
+      "PLANAR_REACQUIRE": 1,
+      "RESULT_REJECTED": 1,
+      "CAPTURE_TIME_WINDOW_OPENED": 1,
+      "TERMINAL_PLAN_COMMITTED": 1,
+      "MEASURED_TERMINAL_CAPTURE": 1,
+      "NATIVE_CAPTURE_STARTED": 1
+    },
+    "planar_reacquire_xy": {
+      "PREPARATION_POLICY": 1,
+      "PLANAR_INITIAL_FOLLOW": 1,
+      "ALIGNMENT_STARTED": 1,
+      "ALIGNMENT_COMPLETE": 2,
+      "PLAN_PENDING": 22,
+      "PLAN_ACTIVATED": 22,
+      "PLANAR_REACQUIRE": 1,
+      "RESULT_REJECTED": 1,
+      "CAPTURE_TIME_WINDOW_OPENED": 1,
+      "TERMINAL_PLAN_COMMITTED": 1,
+      "MEASURED_TERMINAL_CAPTURE": 1,
+      "NATIVE_CAPTURE_STARTED": 1
+    }
+  }
+}

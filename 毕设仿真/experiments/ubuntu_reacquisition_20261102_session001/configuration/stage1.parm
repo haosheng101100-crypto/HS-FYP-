@@ -1,0 +1,5 @@
+# First-stage external cooperative controller provides Guided velocity commands.
+# Keep the official Iris dynamics and normal ArduCopter arming checks.
+PLND_ENABLED 0
+LOG_DISARMED 1
+SIM_SPEEDUP 1

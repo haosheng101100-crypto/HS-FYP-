@@ -1,0 +1,11 @@
+{
+  "source_commit": "ca86ce7cf8c8ee1a392a23867296718b7583d59e",
+  "feature_commit": "58065a94335388d6b698f9463cf30185fc4d3cfa",
+  "stage": "AUDITS_ENDED",
+  "started_utc": "2026-11-02T00:56:56.733293+00:00",
+  "scope": "毕设仿真 only",
+  "supervisor_exit_code": 0,
+  "physical_finished_utc": "2026-11-02T01:02:05.264062+00:00",
+  "audit_driver_exit_code": 0,
+  "finished_utc": "2026-11-02T01:02:40.404796+00:00"
+}

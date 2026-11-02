@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "profile_id": "real_airframe_pending",
+  "simulation_only": false,
+  "hardware_deployment_allowed": false,
+  "airframe_model": null,
+  "flight_controller_and_firmware": null,
+  "payload": null,
+  "body_frame": null,
+  "mass_kg": null,
+  "com_in_body_m": null,
+  "inertia_tensor_about_com_kg_m2": null,
+  "rotor_layout": null,
+  "landing_legs": null,
+  "actuator_parameters": {
+    "max_total_thrust_N": null,
+    "max_pitch_moment_Nm": null,
+    "thrust_command_map": null,
+    "response_time_s": null
+  },
+  "usable_control_limits": null,
+  "flight_controller_gains": null,
+  "sensor_extrinsics_and_frames": null,
+  "contact_properties": null,
+  "required_before_use": "Specify real airframe and payload; measure or identify parameters and validate interfaces and flight-controller settings. Do not substitute Iris simulation values."
+}

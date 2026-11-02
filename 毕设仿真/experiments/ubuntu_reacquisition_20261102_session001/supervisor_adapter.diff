@@ -1,0 +1,31 @@
+--- 
++++ 
+@@ -14,6 +14,8 @@
+ panel_log=(SESSION/'panel.log').open('x')
+ panel=subprocess.Popen(['python3',str(PKG/'operator_panel.py')],cwd=SESSION,env=display_env,stdout=panel_log,stderr=subprocess.STDOUT,start_new_session=True)
+ all_cycles=[]
++time.sleep(1)
++if panel.poll() is not None:raise RuntimeError("Panel startup failed before physics")
+ 
+ def atomic_status(value):
+     p=SESSION/'supervisor_status.tmp';p.write_text(json.dumps(value,ensure_ascii=False));p.replace(SESSION/'status.json')
+@@ -87,7 +89,7 @@
+         (run/'operator_gui.config').write_text(cfg)
+         raw=subprocess.check_output(['bash','-c','source ./scripts/env.sh;env -0'],cwd=run)
+         env=dict(x.decode().split('=',1) for x in raw.split(b'\0') if b'=' in x)
+-        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION=f'hs_receding_20261023_{number:03d}',LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
++        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION=f'hs_reacquisition_20261102_{number:03d}',LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+         rows=[];handles=[];files=[]
+         def start(name,args):
+             if name=='gazebo_gui':args=['nice','-n','15',*args]
+@@ -98,6 +100,10 @@
+             (run/'results/managed_processes.json').write_text(json.dumps(rows,indent=2));return p
+         reset=False
+         try:
++            declared=json.loads((SESSION.parent/'declared_protocol.json').read_text())
++            for name,digest in declared['source_sha256'].items():
++                assert hashlib.sha256((run/name).read_bytes()).hexdigest()==digest,name
++            assert json.loads((run/'config/experiments/receding_live_v1.json').read_text())==declared['control_configuration']
+             pre=start('preflight',['./venv/bin/python','-c','from pathlib import Path;from landing.reference_loader import load_verified_reference;load_verified_reference(Path.cwd());print("Frozen geometry and runtime verified")'])
+             assert pre.wait(timeout=30)==0
+             gz=start('gazebo',['gz','sim','-s','-r','-v','2','./worlds/uav_vehicle_stage1.sdf'])
