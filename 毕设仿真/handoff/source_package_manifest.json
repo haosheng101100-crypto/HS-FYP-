@@ -162,7 +162,7 @@
     "outputs/uncertainty_landing_20261024/validation_protocol_v30.json": "db2dd9fa58917b624ebebd68b92dba54dfad1c69b2bcfa689e4bd12dbee663ba",
     "outputs/uncertainty_landing_20261024/verification_v30.json": "3c994b7e43f9c7b8639c3b1f2c69020426e24f624e5a4bc1d33ceb8b7de5ee7a",
     "outputs/uncertainty_landing_20261024/visual_review_v30.json": "d4f7e1b015710ca9ed753ff17b5da19f432f1f3211289e349ed509ab90e48e69",
-    "README.md": "abc6040a40863f7ab7f6e1b0df29b6c195b8696cb0dc936339e4c6b137ddb9b4",
+    "README.md": "5afefaa7b7616ea9d1edb43ed78c1ecc9519ca65a865cd3693b8ec651e52a80d",
     "requirements-simulation.txt": "2a5a3062fa9075883498fe80f40ac7215e5dd08d3a98385879aba03b376eaeee",
     "requirements-visualization.txt": "31908550c229282f582910ef0aa9b1655c4c341ad87bdd421cbf5d073f4ee32a",
     "requirements.txt": "7575d3a9b9e37cbc067d220b53f419583d6696b6b059a60d02e69aea438abffc",
@@ -896,7 +896,8 @@
     "tools/audit_planar_physics.py": "5e22ef276c1ed877ecc987151e1eff6b8c8206d816cc0309f67aff96aa0ae8f1",
     "tools/audit_planar_reacquisition.py": "42b93d5ba812a93a96bd709e896ae0b522ba93489d81b8ba0ff1ff7966e6f2e7",
     "tools/planar_runtime_setup.py": "c69dc136edc5bceb763b91998891328e7d1801cbaddf18769fa13646e17b57fe",
-    "重新跟随专项仿真说明.md": "f4d729b182a215957695dc5b50fd6c4622c2ca5c35c31e9900571eb639f716e8"
+    "重新跟随专项仿真说明.md": "f4d729b182a215957695dc5b50fd6c4622c2ca5c35c31e9900571eb639f716e8",
+    "LINUX接续工作说明.md": "412811e26114f808ce4630e780a5ccae75bac5776b23fa984abaa66096acc1ca"
   },
   "ubuntu_physical_run_20261029": {
     "session": "session_002",
