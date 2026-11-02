@@ -1,0 +1,53 @@
+FFFF
+======================================================================
+FAIL: test_armed_state_cannot_be_counted_as_success (test_repeatability_evidence.EvidenceClassificationTests.test_armed_state_cannot_be_counted_as_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 20, in test_armed_state_cannot_be_counted_as_success
+    self.assertEqual(self.classify(status=s),'algorithm_control_or_physical_failure')
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 13, in classify
+    fn=getattr(batch,'classify',None);self.assertTrue(callable(fn),'Evidence classification missing')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Evidence classification missing
+
+======================================================================
+FAIL: test_audited_safe_exit_is_separate_from_landing (test_repeatability_evidence.EvidenceClassificationTests.test_audited_safe_exit_is_separate_from_landing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 27, in test_audited_safe_exit_is_separate_from_landing
+    self.assertEqual(self.classify(status=s,audit=a),'correct_safe_exit')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 13, in classify
+    fn=getattr(batch,'classify',None);self.assertTrue(callable(fn),'Evidence classification missing')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Evidence classification missing
+
+======================================================================
+FAIL: test_missing_trigger_is_coverage_failure_even_if_landed (test_repeatability_evidence.EvidenceClassificationTests.test_missing_trigger_is_coverage_failure_even_if_landed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 23, in test_missing_trigger_is_coverage_failure_even_if_landed
+    self.assertEqual(self.classify(audit=a),'coverage_failure')
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 13, in classify
+    fn=getattr(batch,'classify',None);self.assertTrue(callable(fn),'Evidence classification missing')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Evidence classification missing
+
+======================================================================
+FAIL: test_real_audited_landing_counts_only_with_request_history (test_repeatability_evidence.EvidenceClassificationTests.test_real_audited_landing_counts_only_with_request_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 16, in test_real_audited_landing_counts_only_with_request_history
+    self.assertEqual(self.classify(),'complete_function_success')
+                     ^^^^^^^^^^^^^^^
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tests/test_repeatability_evidence.py", line 13, in classify
+    fn=getattr(batch,'classify',None);self.assertTrue(callable(fn),'Evidence classification missing')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Evidence classification missing
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+FAILED (failures=4)

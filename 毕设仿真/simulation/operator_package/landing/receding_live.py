@@ -132,6 +132,9 @@ class FilePlannerClient:
         if uncertainty is not None: data['uncertainty'] = asdict(uncertainty)
         if tracking_envelope is not None:data['tracking_envelope']=tracking_envelope
         self.request_data = data
+        # Retain complete input before publishing the worker mailbox. Never replace history.
+        with (self.directory/f'request_{self.sequence:06d}.json').open('x', encoding='utf-8') as archive:
+            json.dump(data, archive, ensure_ascii=False, allow_nan=False)
         atomic_json(self.directory/'request.json', data)
         return data
 
