@@ -1,0 +1,1 @@
+[{"event": "PLANAR_MANEUVER_TRIGGERED", "time": 48.05, "scenario": "planar_reacquire_y", "measured_leg_gap_m": 3.8468988409755718, "measured_vertical_speed_m_s": -0.3353611622291652, "planner_phase": "TRACKING", "trigger_gap_m": 3.85, "minimum_trigger_gap_m": 3.4, "planner_knows_future_commands": false}]

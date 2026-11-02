@@ -1,0 +1,16 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 792
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Noto Sans CJK SC,25,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,1.5,0,2,20,20,10,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,00:00:00.00,00:00:19.05,Default,,0,0,0,,无人机起飞
+Dialogue: 0,00:00:19.05,00:00:23.31,Default,,0,0,0,,稳定悬停，准备跟随
+Dialogue: 0,00:00:23.31,00:00:30.33,Default,,0,0,0,,在安全高度追近并跟稳平台
+Dialogue: 0,00:00:30.33,00:00:32.84,Default,,0,0,0,,跟随收敛：开始下降
+Dialogue: 0,00:00:32.84,00:00:42.87,Default,,0,0,0,,平台换向后：停止下降、重新跟随
+Dialogue: 0,00:00:42.87,00:00:55.41,Default,,0,0,0,,重新规划后继续下降
+Dialogue: 0,00:00:55.41,00:01:00.08,Default,,0,0,0,,已接触平台：正常停转与支撑检查

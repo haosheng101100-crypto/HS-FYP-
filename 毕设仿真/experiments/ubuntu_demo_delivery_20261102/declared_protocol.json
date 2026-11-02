@@ -1,0 +1,203 @@
+{
+  "scope": "毕设仿真 only; actual physical demo, not a repetition batch",
+  "control_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "control_configuration": {
+    "simulation_only": true,
+    "hardware_deployment_allowed": false,
+    "planner_limits": {
+      "speed": 3.0,
+      "acceleration": 1.5,
+      "jerk": 4.0,
+      "tilt_rad": 0.2617993877991494,
+      "upward_speed": 0.6,
+      "downward_speed": 0.7,
+      "vertical_acceleration": 1.0,
+      "contact_speed": 0.08,
+      "corridor_slope": 2.0,
+      "audit_samples": 101,
+      "segments": 8,
+      "prediction_horizon_s": 2.0,
+      "terminal_coverage_s": 3.0,
+      "directional_corridor": true,
+      "tracking_error_tightening": true
+    },
+    "future_activation_lead_s": 0.4,
+    "task_timeout_s": 40.0,
+    "control_interval_s": 0.04,
+    "default_scenario": "planar_reacquire_x",
+    "scenarios": {
+      "planar_reacquire_x": "X reversal during high descent",
+      "planar_reacquire_y": "Y reversal during high descent",
+      "planar_reacquire_xy": "XY reversal during high descent"
+    },
+    "scope": "Independent high-clearance branch coverage trial, not a same-initial-condition performance comparison. Contact/flight/exit limits unchanged; physical validation pending.",
+    "envelope_profile": "config/airframes/iris_swept_envelope_v1.json",
+    "deck_half_extents": [
+      0.34,
+      0.4081766061261277
+    ],
+    "deck_to_aircraft_rectangle_area_ratio": 1.5,
+    "horizontal_feedback": {
+      "position_gain": 6.25,
+      "velocity_gain": 5.0,
+      "acceleration_lead_s": 0.12,
+      "maximum_acceleration_m_s2": 2.5
+    },
+    "short_horizon_cubic_prediction": true,
+    "platform_fit_span_s": 0.65,
+    "arrival_extension_budget_s": 3.0,
+    "measured_frame_terminal_control": true,
+    "validation_scenarios": [
+      "planar_reacquire_x",
+      "planar_reacquire_y",
+      "planar_reacquire_xy"
+    ],
+    "validation_expectations": {
+      "planar_reacquire_x": "landing_after_reacquisition",
+      "planar_reacquire_y": "landing_after_reacquisition",
+      "planar_reacquire_xy": "landing_after_reacquisition"
+    },
+    "final_command_limits": true,
+    "prediction_uncertainty": {
+      "issue_interval_s": 0.16,
+      "window_s": 4.0,
+      "quantile": 0.9,
+      "minimum_samples": 12,
+      "reaction_horizon_s": 0.8
+    },
+    "synthetic_platform_observation_stress": {
+      "delay_s": 0.04,
+      "position_sigma_m": 0.0008,
+      "yaw_sigma_rad": 0.0008,
+      "seed": 20261024
+    },
+    "terminal_horizontal_feedback": {
+      "transition_s": 4.0,
+      "position_gain": 1.5,
+      "velocity_gain": 2.4,
+      "acceleration_lead_s": 0.0,
+      "speed_scheduling": {
+        "low_speed_m_s": 0.45,
+        "high_speed_m_s": 0.65,
+        "fast_transition_s": 5.0
+      }
+    },
+    "nominal_acceleration_reserve_m_s2": 0.3,
+    "platform_filter": {
+      "position_noise_m": 0.0008,
+      "yaw_noise_rad": 0.0008,
+      "linear_jerk_spectral_density": 0.01,
+      "angular_jerk_spectral_density": 0.0004,
+      "maximum_measurement_age_s": 0.12,
+      "innovation_adaptation": {
+        "sigma_threshold": 4.0,
+        "process_noise_multiplier": 25.0,
+        "hold_s": 0.6
+      }
+    },
+    "maximum_contact_yaw_acceleration_rad_s2": 0.04,
+    "arrival_extension_window_s": 5.0,
+    "initial_candidate_durations_s": [
+      8.0,
+      10.0,
+      12.0
+    ],
+    "early_arrival_extension_budget_s": 1.0,
+    "final_command_acceleration_reserve_m_s2": 0.1,
+    "moving_alignment": {
+      "minimum_leg_gap_m": 4.0,
+      "dwell_s": 0.6,
+      "maximum_time_s": 25.0,
+      "only_for_degraded_observations": false,
+      "initial_candidate_durations_s": [
+        6.0,
+        8.0,
+        10.0
+      ]
+    },
+    "stable_non_descent_feedback": true,
+    "maximum_early_native_freeflight_s": 0.05,
+    "tracking_error_feedback": {
+      "window_s": 5.0,
+      "error_horizon_s": 0.35
+    },
+    "planar_landing": {
+      "stable_dwell_s": 0.8,
+      "maximum_wait_s": 25.0,
+      "maximum_task_s": 40.0,
+      "maximum_reacquisitions": 3,
+      "trusted_prediction_s": 1.2,
+      "capture_half_window_s": 0.2,
+      "maximum_platform_speed_m_s": 0.8,
+      "maximum_capture_acceleration_m_s2": 0.11,
+      "maximum_capture_velocity_change_m_s": 0.03,
+      "maximum_yaw_acceleration_rad_s2": 0.04,
+      "maximum_yaw_rate_rad_s": 0.15,
+      "minimum_reacquisition_gap_m": 1.25,
+      "braking_clearance_reserve_m": 0.25
+    },
+    "platform_motion_model": "force_driven_planar_guide",
+    "validation_status": "CODE_AND_OFFLINE_TESTS_ONLY_PHYSICS_PENDING",
+    "reacquisition_trial": {
+      "trigger_gap_m": 3.85,
+      "minimum_trigger_gap_m": 3.4,
+      "minimum_descent_speed_m_s": 0.02
+    }
+  },
+  "source_sha256": {
+    "tools/interactive_base.py": "6955867ad9c1fb8771d4b2a95fcb6e78521560ea538074700168f102bc6dc6db",
+    "tools/operator_backend.py": "6321669e205a9b01e0e0d8ea07aaa6399df507b8441922715fef785b74bb7e36",
+    "tools/operator_clock.py": "0ce2861393bc239ea6f51cf13fb7dafde556bae13c7787db2269ec89ac9e5ac9",
+    "tools/operator_legacy.py": "385fae1f9e07265ddeaaa051ac0ea2ffbb81c0693b8c32aa3b0d16418872a2bb",
+    "landing/platform_filter.py": "64e2a691047308c4511a67c79436e2ca47c63bb804f18a0bb3668df8559f9d3f",
+    "landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
+    "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
+    "landing/receding_landing.py": "0ef3940840ac6056ccca3ad868d71aa3cf0dfb5f126710a7f6c79d8a9bb246d4",
+    "landing/receding_live.py": "caf9dc05d5eaa2d44510aeefb5920b5b901dca017ce96e28e6dd44fb647634bd",
+    "landing/swept_envelope.py": "1bc4e7f039783a40b895575343e1dafce8108d65a9b3026ac89274b74c5acb15",
+    "tools/receding_planner_worker.py": "f03e727bff301b10c069c8e7b2da1a71b9fa8a58d6779cd97904a7f5d2c3a503",
+    "config/airframes/iris_swept_envelope_v1.json": "da3d763cfe3680dda0f039ccbc647db672df3a38a82b6c191b7379966a5d96cf",
+    "landing/planar_landing.py": "6ae15e8eab37fe8b75e150b8281f06b4a8f348218fbe8d4cf2384e2eacedf77a",
+    "landing/planar_motion.py": "33cab3009fe8ab4d8b8d5f3048b9fa85842ee6d24b306e794064f9b75cc2ee89",
+    "tools/build_planar_profile.py": "a910dd85bfcdacd5dad1b069f4859cb26e43c9c0da785856c2eeb9c4f3f984bc"
+  },
+  "package_original_sha256": {
+    "interactive_base.py": "6955867ad9c1fb8771d4b2a95fcb6e78521560ea538074700168f102bc6dc6db",
+    "operator_backend.py": "6321669e205a9b01e0e0d8ea07aaa6399df507b8441922715fef785b74bb7e36",
+    "operator_clock.py": "0ce2861393bc239ea6f51cf13fb7dafde556bae13c7787db2269ec89ac9e5ac9",
+    "operator_legacy.py": "385fae1f9e07265ddeaaa051ac0ea2ffbb81c0693b8c32aa3b0d16418872a2bb",
+    "operator_panel.py": "f7d63ead35a3b76749ac94a582779b1707edb5e39b6541f4af5d44dbe098db6b",
+    "operator_supervisor.py": "428bfe3aa6b0de560eada61ba6f7db1ab5f4b0caa47f1554de5964fc7367191e",
+    "landing/platform_filter.py": "64e2a691047308c4511a67c79436e2ca47c63bb804f18a0bb3668df8559f9d3f",
+    "landing/platform_prediction.py": "3c13b24deeb64398731484ae9f8c445b814093ee2678524cc833c12636c60073",
+    "landing/prediction_uncertainty.py": "7c455cae715e828457a19e5e76df472b11cd65d7c308cd83da1b2c288e2e9714",
+    "landing/receding_landing.py": "0ef3940840ac6056ccca3ad868d71aa3cf0dfb5f126710a7f6c79d8a9bb246d4",
+    "landing/receding_live.py": "caf9dc05d5eaa2d44510aeefb5920b5b901dca017ce96e28e6dd44fb647634bd",
+    "landing/swept_envelope.py": "1bc4e7f039783a40b895575343e1dafce8108d65a9b3026ac89274b74c5acb15",
+    "tools/receding_planner_worker.py": "f03e727bff301b10c069c8e7b2da1a71b9fa8a58d6779cd97904a7f5d2c3a503",
+    "config/airframes/iris_swept_envelope_v1.json": "da3d763cfe3680dda0f039ccbc647db672df3a38a82b6c191b7379966a5d96cf",
+    "config/experiments/receding_live_v1.json": "10cd5c9eed573374219bdfbf439c6357476e2b048fec4fc2c27530346990b83f",
+    "landing/planar_landing.py": "6ae15e8eab37fe8b75e150b8281f06b4a8f348218fbe8d4cf2384e2eacedf77a",
+    "landing/planar_motion.py": "33cab3009fe8ab4d8b8d5f3048b9fa85842ee6d24b306e794064f9b75cc2ee89",
+    "tools/build_planar_profile.py": "a910dd85bfcdacd5dad1b069f4859cb26e43c9c0da785856c2eeb9c4f3f984bc",
+    "config/experiments/planar_landing_v1.json": "5b4cf58bb90daa2d6e213f290a36404b4ec50c91dadb0e4d0e61380355eeb9e2",
+    "planar_runtime_setup.py": "c69dc136edc5bceb763b91998891328e7d1801cbaddf18769fa13646e17b57fe",
+    "config/experiments/planar_reacquisition_v1.json": "06023543525a5831c07863a6a0037623045329dac008eb42df71b0d4a3b800a8"
+  },
+  "cases": [
+    {
+      "scenario": "planar_reacquire_x",
+      "expected": "landing_after_reacquisition"
+    },
+    {
+      "scenario": "planar_reacquire_y",
+      "expected": "landing_after_reacquisition"
+    },
+    {
+      "scenario": "planar_reacquire_xy",
+      "expected": "landing_after_reacquisition"
+    }
+  ],
+  "thresholds_relaxed": false,
+  "initial_leg_gap_m": 4.0
+}

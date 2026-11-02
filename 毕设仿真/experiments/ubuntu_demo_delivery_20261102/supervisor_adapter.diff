@@ -1,0 +1,44 @@
+--- accepted/operator_supervisor.py
++++ demo/operator_supervisor.py
+@@ -14,6 +14,8 @@
+ panel_log=(SESSION/'panel.log').open('x')
+ panel=subprocess.Popen(['python3',str(PKG/'operator_panel.py')],cwd=SESSION,env=display_env,stdout=panel_log,stderr=subprocess.STDOUT,start_new_session=True)
+ all_cycles=[]
++time.sleep(1)
++if panel.poll() is not None:raise RuntimeError("Panel startup failed before physics")
+ 
+ def atomic_status(value):
+     p=SESSION/'supervisor_status.tmp';p.write_text(json.dumps(value,ensure_ascii=False));p.replace(SESSION/'status.json')
+@@ -84,10 +86,11 @@
+         world=run/'worlds/uav_vehicle_stage1.sdf';world.write_text(prepare_world_start(world.read_text()))
+         cfg=(BASE/'gz_prefix/usr/share/gz/gz-sim8/gui/gui.config').read_text().replace('show_again="true"','show_again="false"')
+         cfg=cfg.replace('<camera_pose>-6 0 6 0 0.5 0</camera_pose>','<camera_pose>3.5 -8 5 0 0.463647609 1.570796327</camera_pose>').replace('<start_paused>true</start_paused>','<start_paused>false</start_paused>')
++        cfg=(PKG/'demo_gui.config').read_text()
+         (run/'operator_gui.config').write_text(cfg)
+         raw=subprocess.check_output(['bash','-c','source ./scripts/env.sh;env -0'],cwd=run)
+         env=dict(x.decode().split('=',1) for x in raw.split(b'\0') if b'=' in x)
+-        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION=f'hs_receding_20261023_{number:03d}',LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
++        env.update({k:display_env[k] for k in ['DISPLAY','XAUTHORITY','XDG_RUNTIME_DIR','DBUS_SESSION_BUS_ADDRESS','HS_OPERATOR_SESSION']},GZ_PARTITION='hs_demo_'+os.environ['HS_DEMO_PARTITION'],LP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+         rows=[];handles=[];files=[]
+         def start(name,args):
+             if name=='gazebo_gui':args=['nice','-n','15',*args]
+@@ -98,6 +101,10 @@
+             (run/'results/managed_processes.json').write_text(json.dumps(rows,indent=2));return p
+         reset=False
+         try:
++            declared=json.loads((SESSION.parent/'declared_protocol.json').read_text())
++            for name,digest in declared['source_sha256'].items():
++                assert hashlib.sha256((run/name).read_bytes()).hexdigest()==digest,name
++            assert json.loads((run/'config/experiments/receding_live_v1.json').read_text())==declared['control_configuration']
+             pre=start('preflight',['./venv/bin/python','-c','from pathlib import Path;from landing.reference_loader import load_verified_reference;load_verified_reference(Path.cwd());print("Frozen geometry and runtime verified")'])
+             assert pre.wait(timeout=30)==0
+             gz=start('gazebo',['gz','sim','-s','-r','-v','2','./worlds/uav_vehicle_stage1.sdf'])
+@@ -156,6 +163,8 @@
+             # reports an armed aircraft. Retain the scene for native recovery.
+             while (SESSION/'status.json').exists() and json.loads((SESSION/'status.json').read_text()).get('armed',False):
+                 time.sleep(.5)
++            # Presentation dwell only after the existing armed guard.
++            time.sleep(5)
+             for row in reversed(rows):stop_group(row,run)
+             for p in handles:
+                 try:p.wait(timeout=2)

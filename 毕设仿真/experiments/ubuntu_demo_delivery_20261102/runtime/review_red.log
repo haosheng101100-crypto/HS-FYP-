@@ -1,0 +1,59 @@
+.....FFFFFF
+======================================================================
+FAIL: test_changed_root_profile_is_rejected_before_output_creation (test_functional_demo.DemoReviewRegressionTests.test_changed_root_profile_is_rejected_before_output_creation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/work/demo_delivery_20261102/毕设仿真/tests/test_functional_demo.py", line 52, in test_changed_root_profile_is_rejected_before_output_creation
+    with self.assertRaises(ValueError):self.module().prepare_demo(r,out,['x'])
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_physical_axis_cannot_be_reported_complete (test_functional_demo.DemoReviewRegressionTests.test_missing_physical_axis_cannot_be_reported_complete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/work/demo_delivery_20261102/毕设仿真/tests/test_functional_demo.py", line 70, in test_missing_physical_axis_cannot_be_reported_complete
+    fn=getattr(self.module(),'inspect_completion',None);self.assertTrue(callable(fn),'Physical completion reconciliation missing')
+                                                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Physical completion reconciliation missing
+
+======================================================================
+FAIL: test_no_window_or_recording_exception_cannot_pass_requested_recording (test_functional_demo.DemoReviewRegressionTests.test_no_window_or_recording_exception_cannot_pass_requested_recording)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/work/demo_delivery_20261102/毕设仿真/tests/test_functional_demo.py", line 74, in test_no_window_or_recording_exception_cannot_pass_requested_recording
+    fn=getattr(self.module(),'inspect_completion',None);self.assertTrue(callable(fn),'Recording completion reconciliation missing')
+                                                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Recording completion reconciliation missing
+
+======================================================================
+FAIL: test_runtime_without_a_pinned_loaded_plugin_is_rejected (test_functional_demo.DemoReviewRegressionTests.test_runtime_without_a_pinned_loaded_plugin_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/work/demo_delivery_20261102/毕设仿真/tests/test_functional_demo.py", line 66, in test_runtime_without_a_pinned_loaded_plugin_is_rejected
+    with self.assertRaises(ValueError):self.module().verify_environment(r,base)
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_safe_exit_cannot_count_as_a_demonstrated_landing (test_functional_demo.DemoReviewRegressionTests.test_safe_exit_cannot_count_as_a_demonstrated_landing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/work/demo_delivery_20261102/毕设仿真/tests/test_functional_demo.py", line 79, in test_safe_exit_cannot_count_as_a_demonstrated_landing
+    fn=getattr(self.module(),'inspect_completion',None);self.assertTrue(callable(fn),'Physical completion reconciliation missing')
+                                                        ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Physical completion reconciliation missing
+
+======================================================================
+FAIL: test_simultaneous_start_is_rejected_until_owner_releases_lock (test_functional_demo.DemoReviewRegressionTests.test_simultaneous_start_is_rejected_until_owner_releases_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/work/demo_delivery_20261102/毕设仿真/tests/test_functional_demo.py", line 39, in test_simultaneous_start_is_rejected_until_owner_releases_lock
+    fn=getattr(self.module(),'acquire_lock',None);self.assertTrue(callable(fn),'Shared simulation lock missing')
+                                                  ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Shared simulation lock missing
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.015s
+
+FAILED (failures=6)

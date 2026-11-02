@@ -1,0 +1,202 @@
+{
+  "physics_complete": true,
+  "missing_scenarios": [],
+  "actual_attempts": 3,
+  "trials": [
+    {
+      "run": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/session_001/cycle_001",
+      "scenario": "planar_reacquire_x",
+      "landing_completed": true,
+      "status_present": true,
+      "closed": true
+    },
+    {
+      "run": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/session_001/cycle_002",
+      "scenario": "planar_reacquire_y",
+      "landing_completed": true,
+      "status_present": true,
+      "closed": true
+    },
+    {
+      "run": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/session_001/cycle_003",
+      "scenario": "planar_reacquire_xy",
+      "landing_completed": true,
+      "status_present": true,
+      "closed": true
+    }
+  ],
+  "recording_requested": true,
+  "recording_complete": true,
+  "recorder_still_running": false,
+  "recordings": [
+    {
+      "axis": "x",
+      "usable": true,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 796
+          }
+        ],
+        "format": {
+          "duration": "73.500000"
+        }
+      }
+    },
+    {
+      "axis": "y",
+      "usable": true,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 796
+          }
+        ],
+        "format": {
+          "duration": "73.700000"
+        }
+      }
+    },
+    {
+      "axis": "xy",
+      "usable": true,
+      "probe": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1280,
+            "height": 796
+          }
+        ],
+        "format": {
+          "duration": "74.200000"
+        }
+      }
+    }
+  ],
+  "control_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "strict_audits": [
+    {
+      "run": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/session_001/cycle_001",
+      "scenario": "planar_reacquire_x",
+      "passed": true,
+      "audit_exit_code": 0,
+      "source_integrity": true,
+      "request_history_passed": true,
+      "physical_audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      }
+    },
+    {
+      "run": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/session_001/cycle_002",
+      "scenario": "planar_reacquire_y",
+      "passed": true,
+      "audit_exit_code": 0,
+      "source_integrity": true,
+      "request_history_passed": true,
+      "physical_audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      }
+    },
+    {
+      "run": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/session_001/cycle_003",
+      "scenario": "planar_reacquire_xy",
+      "passed": true,
+      "audit_exit_code": 0,
+      "source_integrity": true,
+      "request_history_passed": true,
+      "physical_audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      }
+    }
+  ],
+  "thresholds_relaxed": false,
+  "scope": "Actual functional demonstrations; no large repetition matrix",
+  "passed": true,
+  "post_run_environment_verification": {
+    "firmware_sha256": "011627d41dd95640c3aca02d45283474be48721c8b1bb7a4b234d38b69063482",
+    "original_assets_verified": 222,
+    "plugin_files_verified": 4,
+    "loaded_plugin_sha256": "1bb777f5ed44566c793e67f6c9624b5237d93fdeaae04632255b1ee4cf06c378"
+  },
+  "interrupted_attempts_preserved": 1
+}

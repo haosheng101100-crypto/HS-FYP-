@@ -1,0 +1,9 @@
+{
+  "control_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "source_snapshot_commit": "f0de63931920a40f1e0fc6d312b72669784fa9bf",
+  "prior_source_hashes_checked": 1415,
+  "original_runtime_assets_checked": 221,
+  "operator_hashes_checked": 21,
+  "root_and_deployed_controller_identical": true,
+  "scope": "\u6bd5\u8bbe\u4eff\u771f only"
+}

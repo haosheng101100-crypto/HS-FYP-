@@ -1,0 +1,94 @@
+[
+  {
+    "axis": "X",
+    "file": "X_landing.mp4",
+    "source": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/videos/X_raw.mp4",
+    "source_wall_trim_s": 14.293997287750244,
+    "playback_wall_speed": 1.0,
+    "caption_source": "Observed native UI status at 0.25s wall sampling; strict timing in raw audit",
+    "bytes": 574416,
+    "sha256": "646d496817fb3494884be664fd9af0e6f8e299ffbe716fa913b0cf4d3e44c8fe",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 792
+        }
+      ],
+      "format": {
+        "duration": "59.200000"
+      }
+    },
+    "full_decode_passed": true
+  },
+  {
+    "axis": "Y",
+    "file": "Y_landing.mp4",
+    "source": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/videos/Y_raw.mp4",
+    "source_wall_trim_s": 14.271426916122437,
+    "playback_wall_speed": 1.0,
+    "caption_source": "Observed native UI status at 0.25s wall sampling; strict timing in raw audit",
+    "bytes": 581193,
+    "sha256": "4ebcdd1c051f09fb2a2a95b3d652d4c71ba2cdbfc46928c1f154dc44fdf3eef5",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 792
+        }
+      ],
+      "format": {
+        "duration": "59.400000"
+      }
+    },
+    "full_decode_passed": true
+  },
+  {
+    "axis": "XY",
+    "file": "XY_landing.mp4",
+    "source": "/workspace/outputs/毕设功能演示_20261102/session_recording_002/videos/XY_raw.mp4",
+    "source_wall_trim_s": 14.291749954223633,
+    "playback_wall_speed": 1.0,
+    "caption_source": "Observed native UI status at 0.25s wall sampling; strict timing in raw audit",
+    "bytes": 597058,
+    "sha256": "33cf48b979e8a49bb1f9ab8892c45df869f1746ae0af450618272bc79179a134",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 792
+        }
+      ],
+      "format": {
+        "duration": "59.900000"
+      }
+    },
+    "full_decode_passed": true
+  },
+  {
+    "file": "XYZ_overview_2x.mp4",
+    "playback_wall_speed": 2.0,
+    "bytes": 1062694,
+    "sha256": "6d57435de01eb5229f7148a4c85e83653848c0c3ca367d1fcb65d3a54136b05b",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1280,
+          "height": 792
+        }
+      ],
+      "format": {
+        "duration": "89.350000"
+      }
+    },
+    "full_decode_passed": true
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "stage": "PHYSICS_ENDED_AUDIT_PENDING",
+  "control_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "started_utc": "2026-11-02T13:55:06.999382+00:00",
+  "axes": [
+    "x",
+    "y",
+    "xy"
+  ],
+  "record_requested": true,
+  "environment_verified": {
+    "firmware_sha256": "011627d41dd95640c3aca02d45283474be48721c8b1bb7a4b234d38b69063482",
+    "original_assets_verified": 221,
+    "plugin_files_verified": 4
+  },
+  "supervisor_exit_code": 0,
+  "finished_utc": "2026-11-02T13:59:49.799234+00:00"
+}
