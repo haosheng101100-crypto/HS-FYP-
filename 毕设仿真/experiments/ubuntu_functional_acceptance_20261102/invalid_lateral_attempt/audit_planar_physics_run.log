@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tools/audit_planar_physics.py", line 64, in <module>
+    report=audit(sys.argv[1]);Path(sys.argv[1],'results/independent_planar_physics_audit.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2));sys.exit(0 if report['passed'] else 1)
+           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/work/repeatability_20261102/repository/毕设仿真/tools/audit_planar_physics.py", line 41, in audit
+    car=sorted(poses['car_pose'].items());ct=[t for t,p in car];start=next(v['sim_t_s'] for v in rows if v['stage']=='LANDING');end=rows[-1]['sim_t_s'];seq=[(t,p.position_world_m) for t,p in car if start<=t<=end]
+                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

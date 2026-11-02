@@ -1,0 +1,241 @@
+{
+  "planned_total": 92,
+  "planned_A": 30,
+  "executed_A": 5,
+  "unexecuted_A": 25,
+  "pending_B_to_F": 62,
+  "stage": "STOPPED_BY_USER_SCOPE_REDUCTION",
+  "results": [
+    {
+      "case_id": "A_X_01",
+      "scenario": "planar_reacquire_x",
+      "repeat": 1,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:43:01.242794+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:44:50.177463+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_01/session_001/cycle_001"
+    },
+    {
+      "case_id": "A_Y_01",
+      "scenario": "planar_reacquire_y",
+      "repeat": 1,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:44:50.177835+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:46:43.224576+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_01/session_001/cycle_001"
+    },
+    {
+      "case_id": "A_XY_01",
+      "scenario": "planar_reacquire_xy",
+      "repeat": 1,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:46:43.224967+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:48:35.512834+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_01/session_001/cycle_001"
+    },
+    {
+      "case_id": "A_X_02",
+      "scenario": "planar_reacquire_x",
+      "repeat": 2,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:48:35.513269+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:50:30.000531+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_02/session_001/cycle_001"
+    },
+    {
+      "case_id": "A_Y_02",
+      "scenario": "planar_reacquire_y",
+      "repeat": 2,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:50:30.001269+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:52:59.239642+00:00",
+      "supervisor_exit_code": null,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_02/session_001/cycle_001",
+      "finalized_after_user_scope_reduction": true,
+      "supervisor_exit_note": "Coordinator suspended on user scope reduction; exact child wait status not collected. Native cycle_closed, disarm and independent audits verified."
+    }
+  ],
+  "counts": {
+    "complete_function_success": 5,
+    "correct_safe_exit": 0,
+    "coverage_failure": 0,
+    "algorithm_control_or_physical_failure": 0,
+    "environment_or_insufficient_evidence": 0
+  },
+  "not_run_by_user_choice": 25,
+  "new_scope": "Completed small repeats plus five original planar baseline regressions; do not execute remaining A/B/C/D/E/old-nine stress matrix without new request"
+}

@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "policy_rows": 464,
+  "failures": [],
+  "physics_validated": false,
+  "scope": "Causal policy and empirical-reserve replay only",
+  "nominal_plans": {
+    "passed": true,
+    "accepted_candidate_plans": 10,
+    "failures": []
+  }
+}

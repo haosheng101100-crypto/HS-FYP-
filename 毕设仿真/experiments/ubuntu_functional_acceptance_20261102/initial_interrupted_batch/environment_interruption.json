@@ -1,0 +1,8 @@
+{
+  "preserved_prior_index": "result_index_before_reboot_audit.json",
+  "previous_boot": "2026-11-02 15:07:28 Asia/Shanghai",
+  "current_boot": "2026-11-02 15:34:50 Asia/Shanghai",
+  "cause": "Not established; no orderly shutdown or explicit failure cause found in the inspected journal interval",
+  "classification": "Environment interruption; not algorithm pass or algorithm failure",
+  "fresh_batch": "固定条件重复实验_20261102_A_r2"
+}

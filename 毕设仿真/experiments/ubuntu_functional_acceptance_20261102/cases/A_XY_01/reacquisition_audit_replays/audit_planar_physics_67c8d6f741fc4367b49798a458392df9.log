@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "checks": {
+    "raw_hash_matches_lossless_record": true,
+    "actual_platform_speed": true,
+    "declared_axes_exercised": true,
+    "original_chassis_and_deck_preserved": true,
+    "two_force_controllers": true,
+    "two_prismatic_joints": true
+  },
+  "scenario": "planar_reacquire_xy",
+  "actual_platform_motion": {
+    "checks": {
+      "actual_speed": true
+    },
+    "samples": 735,
+    "start_s": 44.642,
+    "end_s": 69.598,
+    "max_raw_gap_s": 0.034000000000006025,
+    "platform_pose_freshness_s": 0.06,
+    "peak_speed_m_s": 0.25455844122726273,
+    "peak_acceleration_m_s2": 0.12697623399225866,
+    "speed_limit_m_s": 0.8
+  },
+  "actual_axis_displacement_ranges_m": [
+    3.5668174675996274,
+    3.5675720103993633,
+    0.0
+  ],
+  "raw_velocity_axis_min_m_s": [
+    -0.1800000000000747,
+    -0.1800000000000747,
+    0.0
+  ],
+  "raw_velocity_axis_max_m_s": [
+    0.17999992643258275,
+    0.17999992724338515,
+    0.0
+  ],
+  "axis_exercise_threshold_m": 0.01,
+  "note": "1 cm is an evidence/excitation threshold, not a flight/contact safety tolerance. No platform physical acceleration hard limit is inferred from command bounds.",
+  "raw_sha256": "e317b918f249c282282f285d492c8190775d42db40ef76634ad039f6518eafd3",
+  "physical_model_sha256": "dee66057f708c23b5ffd1998f31eeb38a10b2e93d945caf7a7be2198ce9885fc"
+}

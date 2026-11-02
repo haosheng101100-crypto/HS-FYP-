@@ -1,0 +1,35 @@
+{
+  "os": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "python": "3.12.3",
+  "plugin_commit": "082a0fe231f6e63bc8d1598f1cba461d9e2ea7f5",
+  "plugin_source_checks_passed": true,
+  "arducopter_sha256": "011627d41dd95640c3aca02d45283474be48721c8b1bb7a4b234d38b69063482",
+  "package_versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "cvxpy": "1.9.3",
+    "clarabel": "0.11.1"
+  },
+  "gazebo": "8.15.0",
+  "modules_under_actual_env_sh": {
+    "numpy": {
+      "version": "2.5.4",
+      "file": "/opt/hs-venv/lib/python3.12/site-packages/numpy/__init__.py"
+    },
+    "scipy": {
+      "version": "1.18.1",
+      "file": "/opt/hs-venv/lib/python3.12/site-packages/scipy/__init__.py"
+    },
+    "cvxpy": {
+      "version": "1.9.3",
+      "file": "/opt/hs-venv/lib/python3.12/site-packages/cvxpy/__init__.py"
+    },
+    "clarabel": {
+      "version": "0.11.1",
+      "file": "/opt/hs-venv/lib/python3.12/site-packages/clarabel/__init__.py"
+    }
+  },
+  "display": ":0",
+  "xauthority_present": true,
+  "original_geometry_reference_preflight": true
+}

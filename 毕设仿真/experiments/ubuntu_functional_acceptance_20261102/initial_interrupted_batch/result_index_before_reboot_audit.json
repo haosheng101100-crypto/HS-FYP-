@@ -1,0 +1,18 @@
+{
+  "planned_total": 92,
+  "planned_A": 30,
+  "executed_A": 1,
+  "unexecuted_A": 29,
+  "pending_B_to_F": 62,
+  "stage": "RUNNING",
+  "results": [
+    {
+      "case_id": "A_X_01",
+      "scenario": "planar_reacquire_x",
+      "repeat": 1,
+      "category": "in_progress",
+      "started_utc": "2026-11-02T07:33:05.179213+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25"
+    }
+  ]
+}

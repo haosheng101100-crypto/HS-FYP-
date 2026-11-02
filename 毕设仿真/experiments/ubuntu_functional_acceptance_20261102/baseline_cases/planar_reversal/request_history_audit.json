@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "requests": 1,
+  "responses": 1,
+  "request_sequences": [
+    1
+  ],
+  "response_sequences": [
+    1
+  ],
+  "missing_request_sequences": [],
+  "contiguous_original_requests": true,
+  "archive_filenames_match": true,
+  "latest_mailbox_archived": true,
+  "files_sha256": {
+    "request_000001.json": "6a9836a1b0945351da73c28b1add071fd9b1a37143cac0bf5d8d7f61aa1d11b8",
+    "response_000001.json": "c35c17ca53bb19aa4979bae3f3b964dcaea6a248d0f15ef022ee50d7a4dc598b"
+  }
+}

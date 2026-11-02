@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "checks": {
+    "native_arming_recorded": true,
+    "native_disarming_recorded": true,
+    "all_arm_and_disarm_nonforced": true,
+    "disarm_after_arming": true,
+    "all_disarming_in_native_land": true,
+    "no_native_flight_error": true,
+    "no_crash_message": true
+  }
+}

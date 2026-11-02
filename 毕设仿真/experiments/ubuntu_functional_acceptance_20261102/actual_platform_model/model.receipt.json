@@ -1,0 +1,8 @@
+{
+  "source_sha256": "5c564cf0a06598d8514fdcccec417282426654e03a48f4a69f9864706b36e691",
+  "generated_sha256": "dee66057f708c23b5ffd1998f31eeb38a10b2e93d945caf7a7be2198ce9885fc",
+  "mechanism": "fixed-yaw world-anchored XY prismatic guide; JointController force mode",
+  "physical_validation": "PENDING",
+  "original_chassis_preserved": true,
+  "scope": "Independent planar fixture, not the historical differential-drive vehicle"
+}

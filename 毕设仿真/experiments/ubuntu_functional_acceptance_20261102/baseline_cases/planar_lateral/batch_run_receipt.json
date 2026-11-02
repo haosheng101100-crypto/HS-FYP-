@@ -1,0 +1,8 @@
+{
+  "stage": "ENDED",
+  "source_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "started_utc": "2026-11-02T09:01:01.164927+00:00",
+  "supervisor_exit_code": 0,
+  "audit_driver_exit_code": 0,
+  "finished_utc": "2026-11-02T09:02:33.564381+00:00"
+}

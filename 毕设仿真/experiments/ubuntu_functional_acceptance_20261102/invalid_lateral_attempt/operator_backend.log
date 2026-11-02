@@ -1,0 +1,57 @@
+{"wall_unix_s": 1793606223.0510864, "stage": "CONNECT", "message": "FCU: GPS 1: probing for u-blox at 230400 baud"}
+{"wall_unix_s": 1793606223.0773537, "stage": "CONNECT", "message": "FCU: GPS 1: detected u-blox"}
+{"wall_unix_s": 1793606236.0238068, "stage": "WAIT_USER_TAKEOFF", "message": "FCU: Arm: Gyros inconsistent"}
+{"wall_unix_s": 1793606236.4842696, "stage": "WAIT_USER_TAKEOFF", "message": "FCU: EKF3 IMU1 origin set"}
+{"wall_unix_s": 1793606237.0457003, "stage": "WAIT_USER_TAKEOFF", "message": "FCU: EKF3 IMU0 origin set"}
+{"wall_unix_s": 1793606248.0286853, "stage": "WAIT_USER_TAKEOFF", "message": "FCU: Arming motors"}
+{"wall_unix_s": 1793606259.2103927, "stage": "WAIT_USER_TAKEOFF", "message": "FCU: EKF3 IMU0 MAG0 in-flight yaw alignment complete"}
+{"wall_unix_s": 1793606259.2105439, "stage": "WAIT_USER_TAKEOFF", "message": "FCU: EKF3 IMU1 MAG0 in-flight yaw alignment complete"}
+{"wall_unix_s": 1793606268.5495872, "stage": "RECEDING_EXECUTION", "message": "New async planner activated by explicit user landing request; scenario=planar_lateral"}
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+{"wall_unix_s": 1793606273.8951352, "stage": "RECEDING_EXECUTION", "message": "Stopped external reference: Live simulation clock/body reception stalled"}
+{"wall_unix_s": 1793606273.895334, "stage": "RECOVERY_LAND", "message": "Requested normal LAND; no force-disarm"}
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+Exception sending a multicast message:Network is unreachable
+{"wall_unix_s": 1793606294.8066022, "stage": "RECOVERY_LAND", "message": "FCU: Disarming motors"}

@@ -1,0 +1,582 @@
+{
+  "planned_total": 92,
+  "group": "A",
+  "planned_group": 30,
+  "remaining_B_to_F": 62,
+  "baseline": "0b49cf9b906be13e3d41e3e1f7edd97fab52f662",
+  "control_configuration_source": "config/experiments/planar_reacquisition_v1.json",
+  "baseline_profile_sha256": "06023543525a5831c07863a6a0037623045329dac008eb42df71b0d4a3b800a8",
+  "model_source": "/workspace/work/reacquisition_20261102/deployment/reference",
+  "cases": [
+    {
+      "case_id": "A_X_01",
+      "group": "A",
+      "repeat": 1,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_01/session_001"
+    },
+    {
+      "case_id": "A_Y_01",
+      "group": "A",
+      "repeat": 1,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_01/session_001"
+    },
+    {
+      "case_id": "A_XY_01",
+      "group": "A",
+      "repeat": 1,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_01/session_001"
+    },
+    {
+      "case_id": "A_X_02",
+      "group": "A",
+      "repeat": 2,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_02/session_001"
+    },
+    {
+      "case_id": "A_Y_02",
+      "group": "A",
+      "repeat": 2,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_02/session_001"
+    },
+    {
+      "case_id": "A_XY_02",
+      "group": "A",
+      "repeat": 2,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_02/session_001"
+    },
+    {
+      "case_id": "A_X_03",
+      "group": "A",
+      "repeat": 3,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_03/session_001"
+    },
+    {
+      "case_id": "A_Y_03",
+      "group": "A",
+      "repeat": 3,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_03/session_001"
+    },
+    {
+      "case_id": "A_XY_03",
+      "group": "A",
+      "repeat": 3,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_03/session_001"
+    },
+    {
+      "case_id": "A_X_04",
+      "group": "A",
+      "repeat": 4,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_04/session_001"
+    },
+    {
+      "case_id": "A_Y_04",
+      "group": "A",
+      "repeat": 4,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_04/session_001"
+    },
+    {
+      "case_id": "A_XY_04",
+      "group": "A",
+      "repeat": 4,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_04/session_001"
+    },
+    {
+      "case_id": "A_X_05",
+      "group": "A",
+      "repeat": 5,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_05/session_001"
+    },
+    {
+      "case_id": "A_Y_05",
+      "group": "A",
+      "repeat": 5,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_05/session_001"
+    },
+    {
+      "case_id": "A_XY_05",
+      "group": "A",
+      "repeat": 5,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_05/session_001"
+    },
+    {
+      "case_id": "A_X_06",
+      "group": "A",
+      "repeat": 6,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_06/session_001"
+    },
+    {
+      "case_id": "A_Y_06",
+      "group": "A",
+      "repeat": 6,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_06/session_001"
+    },
+    {
+      "case_id": "A_XY_06",
+      "group": "A",
+      "repeat": 6,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_06/session_001"
+    },
+    {
+      "case_id": "A_X_07",
+      "group": "A",
+      "repeat": 7,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_07/session_001"
+    },
+    {
+      "case_id": "A_Y_07",
+      "group": "A",
+      "repeat": 7,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_07/session_001"
+    },
+    {
+      "case_id": "A_XY_07",
+      "group": "A",
+      "repeat": 7,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_07/session_001"
+    },
+    {
+      "case_id": "A_X_08",
+      "group": "A",
+      "repeat": 8,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_08/session_001"
+    },
+    {
+      "case_id": "A_Y_08",
+      "group": "A",
+      "repeat": 8,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_08/session_001"
+    },
+    {
+      "case_id": "A_XY_08",
+      "group": "A",
+      "repeat": 8,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_08/session_001"
+    },
+    {
+      "case_id": "A_X_09",
+      "group": "A",
+      "repeat": 9,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_09/session_001"
+    },
+    {
+      "case_id": "A_Y_09",
+      "group": "A",
+      "repeat": 9,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_09/session_001"
+    },
+    {
+      "case_id": "A_XY_09",
+      "group": "A",
+      "repeat": 9,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_09/session_001"
+    },
+    {
+      "case_id": "A_X_10",
+      "group": "A",
+      "repeat": 10,
+      "scenario": "planar_reacquire_x",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/x.json",
+      "profile_sha256": "c76af5c0b097f3d454f530cb547a87076e3c3f53a912dce43720fd95d33487ef",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_10/session_001"
+    },
+    {
+      "case_id": "A_Y_10",
+      "group": "A",
+      "repeat": 10,
+      "scenario": "planar_reacquire_y",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/y.json",
+      "profile_sha256": "f6ec9431ef6decc2130287272845e58582fcadb58a3ddc894cad38d60779ea32",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_10/session_001"
+    },
+    {
+      "case_id": "A_XY_10",
+      "group": "A",
+      "repeat": 10,
+      "scenario": "planar_reacquire_xy",
+      "profile": "/workspace/outputs/固定条件重复实验_20261102_A_r2/profiles/xy.json",
+      "profile_sha256": "bcd98332cf892901983624eae5fea44b52e27db452e03891cc2942310263390e",
+      "expected": "landing_after_reacquisition",
+      "initial_leg_gap_m": 4.0,
+      "trigger": {
+        "trigger_gap_m": 3.85,
+        "minimum_trigger_gap_m": 3.4,
+        "minimum_descent_speed_m_s": 0.02
+      },
+      "random_seed": null,
+      "synthetic_observation_stress_enabled": false,
+      "auditor": "tools/audit_planar_reacquisition.py",
+      "session": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_10/session_001"
+    }
+  ]
+}

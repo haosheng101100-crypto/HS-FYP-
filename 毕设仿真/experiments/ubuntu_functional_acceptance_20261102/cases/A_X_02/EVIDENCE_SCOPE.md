@@ -1,0 +1,1 @@
+plot_samples.csv为约25Hz绘图抽样，不替代全频率物理审计。key_control_original_slices.jsonl为五个关键时刻各前后0.04秒的原始控制行，共14行，非完整日志。key_planner_original为首/末及重新跟随前后关键序号的原始请求响应子集，不是全部请求。全部连续请求与保留响应均在Linux保存，逐文件哈希见request_history_audit.json及RAW_LOCAL_FILES.json。

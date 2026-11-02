@@ -1,0 +1,32 @@
+{
+  "planned_total": 92,
+  "planned_A": 30,
+  "executed_A": 1,
+  "unexecuted_A": 29,
+  "pending_B_to_F": 62,
+  "stage": "INTERRUPTED_BY_HOST_REBOOT",
+  "results": [
+    {
+      "case_id": "A_X_01",
+      "scenario": "planar_reacquire_x",
+      "repeat": 1,
+      "category": "environment_or_insufficient_evidence",
+      "started_utc": "2026-11-02T07:33:05.179213+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "environment_event": "Host reboot interrupted simulator and audit driver before final execution/audit evidence",
+      "last_observed_sim_t_s": 28.06,
+      "last_observed_armed": false,
+      "current_host_boot_local": "2026-11-02 15:34:50 Asia/Shanghai",
+      "valid_physical_result": false
+    }
+  ],
+  "counts": {
+    "complete_function_success": 0,
+    "correct_safe_exit": 0,
+    "coverage_failure": 0,
+    "algorithm_control_or_physical_failure": 0,
+    "environment_or_insufficient_evidence": 1
+  },
+  "valid_A": 0,
+  "replacement_required": 1
+}

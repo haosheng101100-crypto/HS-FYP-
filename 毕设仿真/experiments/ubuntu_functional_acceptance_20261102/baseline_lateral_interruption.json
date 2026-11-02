@@ -1,0 +1,12 @@
+{
+  "cycle": "cycle_002",
+  "scenario": "planar_lateral",
+  "classification": "Environment/communication interruption; not counted as valid landing or successful safe exit",
+  "recorded_external_failure": "Live simulation clock/body reception stalled",
+  "simultaneous_transport_log": "Exception sending a multicast message:Network is unreachable",
+  "planner_phase_at_abort": "PLANAR_FOLLOW",
+  "descent_phase_reached": false,
+  "independent_platform_audit": "Cannot evaluate landing interval: no LANDING stage; original StopIteration log retained",
+  "retest": "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/outputs/功能验收左右补跑_20261102",
+  "control_algorithm_and_limits_changed": false
+}

@@ -1,0 +1,16 @@
+{
+  "request": "User explicitly reduced scope to functional acceptance; stop large repetition after current case, then five planar baseline regressions",
+  "requested_utc": "2026-11-02T07:51:10.694338+00:00",
+  "current_case": "A_Y_02",
+  "coordinator_host_pid": 11758,
+  "action": "Coordinator suspended only; native flight/supervisor continue normally. Finish and audit current case before terminating coordinator.",
+  "original_planned_A": 30,
+  "retained_current_attempts": 5,
+  "remaining_A_not_requested": 25,
+  "coordinator_container_pid": 138,
+  "coordinator_suspended": true,
+  "native_flight_left_running": true,
+  "finalized_current_case": true,
+  "coordinator_terminated_after_native_disarm": true,
+  "last_case_category": "complete_function_success"
+}

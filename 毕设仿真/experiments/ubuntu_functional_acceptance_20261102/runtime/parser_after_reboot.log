@@ -1,0 +1,6 @@
+test_generated_joint_frames_resolve_and_chassis_is_unchanged (test_planar_sdf_runtime.PlanarSdfRuntimeTests.test_generated_joint_frames_resolve_and_chassis_is_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.125s
+
+OK

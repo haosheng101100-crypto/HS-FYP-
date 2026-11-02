@@ -1,0 +1,19 @@
+{
+  "trigger": {
+    "event": "PLANAR_MANEUVER_TRIGGERED",
+    "time": 46.34,
+    "scenario": "planar_reacquire_x",
+    "measured_leg_gap_m": 3.845244716689908,
+    "measured_vertical_speed_m_s": -0.3337185538800754,
+    "planner_phase": "TRACKING",
+    "trigger_gap_m": 3.85,
+    "minimum_trigger_gap_m": 3.4,
+    "planner_knows_future_commands": false
+  },
+  "trigger_sim_t_s": 46.34,
+  "reacquire_sim_t_s": 47.1,
+  "realigned_sim_t_s": 55.62,
+  "new_plan_sim_t_s": 56.06,
+  "trigger_to_reacquire_s": 0.759999999999998,
+  "contact_sim_t_s": 63.952
+}

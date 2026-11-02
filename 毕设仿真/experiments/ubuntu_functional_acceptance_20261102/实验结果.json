@@ -1,0 +1,372 @@
+{
+  "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "stage": "STOPPED_BY_USER_SCOPE_REDUCTION",
+  "original_planned_A": 30,
+  "retained_repeat_cases": 5,
+  "complete_current_A": 5,
+  "cancelled_A_by_user": 25,
+  "groups": {
+    "X": {
+      "retained": 2,
+      "attempted": 2,
+      "complete": 2,
+      "categories": {
+        "complete_function_success": 2
+      }
+    },
+    "Y": {
+      "retained": 2,
+      "attempted": 2,
+      "complete": 2,
+      "categories": {
+        "complete_function_success": 2
+      }
+    },
+    "XY": {
+      "retained": 1,
+      "attempted": 1,
+      "complete": 1,
+      "categories": {
+        "complete_function_success": 1
+      }
+    }
+  },
+  "original_and_strict_audits_passed": 30,
+  "request_history_checks_passed": 5,
+  "tests_passed": 200,
+  "tests_skipped": 0,
+  "parser_rechecked_after_reboot": true,
+  "prior_interrupted_attempts": 1,
+  "prior_interrupted_batch": "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/outputs/固定条件重复实验_20261102_A",
+  "new_scope": "Small functional repeats plus five original planar baseline regressions; large matrix cancelled by user",
+  "thresholds_relaxed": false,
+  "records": [
+    {
+      "case_id": "A_X_01",
+      "scenario": "planar_reacquire_x",
+      "repeat": 1,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:43:01.242794+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:44:50.177463+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_01/session_001/cycle_001",
+      "timeline": {
+        "trigger": {
+          "event": "PLANAR_MANEUVER_TRIGGERED",
+          "time": 47.34,
+          "scenario": "planar_reacquire_x",
+          "measured_leg_gap_m": 3.845236060418127,
+          "measured_vertical_speed_m_s": -0.3352722476364375,
+          "planner_phase": "TRACKING",
+          "trigger_gap_m": 3.85,
+          "minimum_trigger_gap_m": 3.4,
+          "planner_knows_future_commands": false
+        },
+        "trigger_sim_t_s": 47.34,
+        "reacquire_sim_t_s": 48.1,
+        "realigned_sim_t_s": 56.62,
+        "new_plan_sim_t_s": 57.06,
+        "trigger_to_reacquire_s": 0.759999999999998,
+        "contact_sim_t_s": 64.948
+      },
+      "peak_speed_m_s": 1.6945950828795247,
+      "peak_acceleration_m_s2": 1.3999227990266983
+    },
+    {
+      "case_id": "A_Y_01",
+      "scenario": "planar_reacquire_y",
+      "repeat": 1,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:44:50.177835+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:46:43.224576+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_01/session_001/cycle_001",
+      "timeline": {
+        "trigger": {
+          "event": "PLANAR_MANEUVER_TRIGGERED",
+          "time": 46.49,
+          "scenario": "planar_reacquire_y",
+          "measured_leg_gap_m": 3.8441503281605667,
+          "measured_vertical_speed_m_s": -0.3396634892922041,
+          "planner_phase": "TRACKING",
+          "trigger_gap_m": 3.85,
+          "minimum_trigger_gap_m": 3.4,
+          "planner_knows_future_commands": false
+        },
+        "trigger_sim_t_s": 46.49,
+        "reacquire_sim_t_s": 47.25,
+        "realigned_sim_t_s": 55.81,
+        "new_plan_sim_t_s": 56.25,
+        "trigger_to_reacquire_s": 0.759999999999998,
+        "contact_sim_t_s": 64.146
+      },
+      "peak_speed_m_s": 1.5512885382132444,
+      "peak_acceleration_m_s2": 1.4000295192091938
+    },
+    {
+      "case_id": "A_XY_01",
+      "scenario": "planar_reacquire_xy",
+      "repeat": 1,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:46:43.224967+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:48:35.512834+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_XY_01/session_001/cycle_001",
+      "timeline": {
+        "trigger": {
+          "event": "PLANAR_MANEUVER_TRIGGERED",
+          "time": 46.26,
+          "scenario": "planar_reacquire_xy",
+          "measured_leg_gap_m": 3.8458771839446864,
+          "measured_vertical_speed_m_s": -0.33415271525190177,
+          "planner_phase": "TRACKING",
+          "trigger_gap_m": 3.85,
+          "minimum_trigger_gap_m": 3.4,
+          "planner_knows_future_commands": false
+        },
+        "trigger_sim_t_s": 46.26,
+        "reacquire_sim_t_s": 47.06,
+        "realigned_sim_t_s": 55.7,
+        "new_plan_sim_t_s": 56.14,
+        "trigger_to_reacquire_s": 0.8000000000000043,
+        "contact_sim_t_s": 64.031
+      },
+      "peak_speed_m_s": 1.644806051780347,
+      "peak_acceleration_m_s2": 1.4005257466498768
+    },
+    {
+      "case_id": "A_X_02",
+      "scenario": "planar_reacquire_x",
+      "repeat": 2,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:48:35.513269+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:50:30.000531+00:00",
+      "supervisor_exit_code": 0,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_X_02/session_001/cycle_001",
+      "timeline": {
+        "trigger": {
+          "event": "PLANAR_MANEUVER_TRIGGERED",
+          "time": 46.34,
+          "scenario": "planar_reacquire_x",
+          "measured_leg_gap_m": 3.845244716689908,
+          "measured_vertical_speed_m_s": -0.3337185538800754,
+          "planner_phase": "TRACKING",
+          "trigger_gap_m": 3.85,
+          "minimum_trigger_gap_m": 3.4,
+          "planner_knows_future_commands": false
+        },
+        "trigger_sim_t_s": 46.34,
+        "reacquire_sim_t_s": 47.1,
+        "realigned_sim_t_s": 55.62,
+        "new_plan_sim_t_s": 56.06,
+        "trigger_to_reacquire_s": 0.759999999999998,
+        "contact_sim_t_s": 63.952
+      },
+      "peak_speed_m_s": 1.6947935265518812,
+      "peak_acceleration_m_s2": 1.4038490384068205
+    },
+    {
+      "case_id": "A_Y_02",
+      "scenario": "planar_reacquire_y",
+      "repeat": 2,
+      "category": "complete_function_success",
+      "started_utc": "2026-11-02T07:50:30.001269+00:00",
+      "run_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "finished_utc": "2026-11-02T07:52:59.239642+00:00",
+      "supervisor_exit_code": null,
+      "audit_exit_code": 0,
+      "source_configuration_integrity": true,
+      "request_history_ok": true,
+      "audit": {
+        "passed": true,
+        "checks": {
+          "one_measured_trigger": true,
+          "reacquisition_present": true,
+          "original_audits_passed": true,
+          "true_landing": true,
+          "actual_platform_reversal": true,
+          "finite_contact_time": true,
+          "trigger_matches_raw_control": true,
+          "reacquisition_after_trigger": true,
+          "real_reacquisition_control": true,
+          "resume_and_new_plan_before_contact": true,
+          "budgets_respected": true,
+          "auditors_reran_successfully": true
+        },
+        "scope": "Reacquisition then landing branch only; requires original physical/native/raw-motion audits",
+        "reacquisitions": 1,
+        "trigger_count": 1,
+        "audit_exit_codes": {
+          "audit_planar_policy.py": 0,
+          "audit_native_landing.py": 0,
+          "audit_receding_physics.py": 0,
+          "audit_planar_guided_motion.py": 0,
+          "audit_planar_physics.py": 0
+        }
+      },
+      "execution_completed": true,
+      "armed_at_save": false,
+      "final_mode": "LAND",
+      "run": "/workspace/outputs/固定条件重复实验_20261102_A_r2/cases/A_Y_02/session_001/cycle_001",
+      "finalized_after_user_scope_reduction": true,
+      "supervisor_exit_note": "Coordinator suspended on user scope reduction; exact child wait status not collected. Native cycle_closed, disarm and independent audits verified.",
+      "timeline": {
+        "trigger": {
+          "event": "PLANAR_MANEUVER_TRIGGERED",
+          "time": 43.37,
+          "scenario": "planar_reacquire_y",
+          "measured_leg_gap_m": 3.8442440520471446,
+          "measured_vertical_speed_m_s": -0.33868132167995924,
+          "planner_phase": "TRACKING",
+          "trigger_gap_m": 3.85,
+          "minimum_trigger_gap_m": 3.4,
+          "planner_knows_future_commands": false
+        },
+        "trigger_sim_t_s": 43.37,
+        "reacquire_sim_t_s": 44.13,
+        "realigned_sim_t_s": 52.69,
+        "new_plan_sim_t_s": 53.13,
+        "trigger_to_reacquire_s": 0.7600000000000051,
+        "contact_sim_t_s": 61.026
+      },
+      "peak_speed_m_s": 1.5523412749008674,
+      "peak_acceleration_m_s2": 1.4016717458147343
+    }
+  ]
+}
