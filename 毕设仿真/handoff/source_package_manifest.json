@@ -3,6 +3,7 @@
   "declared_cases": 9,
   "source_scope": "source, scene, model, configuration, compact reports and verbatim regression excerpts; excludes bulk raw evidence and runtime installations",
   "files_sha256": {
+    "下一轮重复性与边界验证要求.md": "e54a604282b4bc311dd10df243f8f2f6d82c7e0aaba1ef0c590ae0eb3647a99f",
     ".gitattributes": "8b209f6984cc577c2a116f6739d75b2104a97ef5358287eec6eed3150eea2150",
     ".gitignore": "5c8b05c01f962cfd07819c72f7c995010ea62e76ecc026527112d83f349c2dfe",
     "config/airframes/iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86",
@@ -897,7 +898,7 @@
     "tools/audit_planar_reacquisition.py": "42b93d5ba812a93a96bd709e896ae0b522ba93489d81b8ba0ff1ff7966e6f2e7",
     "tools/planar_runtime_setup.py": "c69dc136edc5bceb763b91998891328e7d1801cbaddf18769fa13646e17b57fe",
     "重新跟随专项仿真说明.md": "e1af743d07bf9a60094d81777f93cd9afeaa26077d37f016d50cb193d76729af",
-    "LINUX接续工作说明.md": "e16154d8045f46bc14568825f2fef0a2195f89da2f74c7f84e66b1c0aa6e643f",
+    "LINUX接续工作说明.md": "9d9e1e52e47cd2980e72159bf5a9839d51d2ba10f662edc411fead91c1c98b07",
     "experiments/ubuntu_reacquisition_20261102_session001/RAW_ARCHIVE_SHA256SUMS.txt": "07807ef219cd45377f929e9d0c0d0950c1b5f42f89f01f3dc5766047b35c99ad",
     "experiments/ubuntu_reacquisition_20261102_session001/RAW_DATA_LOCATION.md": "c34bc89181a88637310577f773c4b1d7b70e017e2adc5ffa297f5aa44145358a",
     "experiments/ubuntu_reacquisition_20261102_session001/RAW_LOCAL_FILES.json": "af537424be02304c2a26ac9a1690f1c586db22fe8f1da63996fb866aca98d0be",
