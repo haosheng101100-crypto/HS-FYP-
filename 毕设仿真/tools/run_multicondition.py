@@ -371,10 +371,22 @@ def inspect_cycle(root, output, case, row, checks):
     return row
 
 
-def run(root, output, base, package, source, frozen, resume=False):
+def select_unattempted_cases(cases, attempted, limit=None):
+    if limit is not None and (type(limit) is not int or limit <= 0):
+        raise ValueError('case-limit must be a positive integer')
+    attempted_ids = set(attempted)
+    selected = [case for case in cases if case['case_id'] not in attempted_ids]
+    return selected if limit is None else selected[:limit]
+
+
+def run(root, output, base, package, source, frozen, resume=False, case_limit=None):
     root, output, base, package, source, frozen = map(Path, (root, output, base, package, source, frozen))
     matrix = verify_freeze(output)
     index = read_index(output)
+    selected = select_unattempted_cases(matrix['cases'], {v['case_id'] for v in index['attempts']}, case_limit)
+    no_gui = os.environ.get('HS_NO_GUI', '1')
+    if no_gui not in ('0', '1'):
+        raise ValueError('HS_NO_GUI must be 0 or 1')
     if index['attempts'] and not resume:
         raise FileExistsError('Existing attempts retained; use --resume for only unattempted cases')
     if any(v['category'] == 'in_progress' for v in index['attempts']):
@@ -389,9 +401,8 @@ def run(root, output, base, package, source, frozen, resume=False):
         for location in (source, frozen, base/'venv/bin/python'):
             if not location.exists(): raise FileNotFoundError(str(location))
         checks = deployment_map(manifest)
-        attempted = {v['case_id'] for v in index['attempts']}
-        for case in matrix['cases']:
-            if case['case_id'] in attempted: continue
+        new_rows = []
+        for case in selected:
             # A shared environment mutation blocks expansion before creating an attempt.
             receipt, manifest, environment = verify_receipt(root, output, base, package)
             demo.check_ports()
@@ -401,14 +412,16 @@ def run(root, output, base, package, source, frozen, resume=False):
             save(attempt/'declared_protocol.json', dict(run_commit=receipt['run_commit'], control_commit=CONTROL_COMMIT,
                  source_sha256=checks, environment_verified=environment, code_receipt_sha256=sha(output/'code_receipt.json'),
                  control_configuration=read_json(profile), case=case, thresholds_relaxed=False,
-                 matrix_sha256=sha(output/'matrix.json'), world_only_case=True))
+                 matrix_sha256=sha(output/'matrix.json'), world_only_case=True,
+                 presentation_environment={'HS_NO_GUI': no_gui}, case_limit=case_limit))
             env = dict(os.environ, HS_SIM_BASE=str(base), HS_OPERATOR_SESSION=str(session),
                        HS_OPERATOR_PACKAGE=str(package), HS_LANDING_PROFILE=str(profile),
                        HS_SIM_SOURCE=str(source), HS_FROZEN_PACKAGE=str(frozen),
                        HS_MULTICONDITION_CASE=str(output/'cases'/case['case_id']/'case.json'),
-                       HS_DEMO_PARTITION=uuid.uuid4().hex)
+                       HS_DEMO_PARTITION=uuid.uuid4().hex, HS_NO_GUI=no_gui)
             command = supervisor_command(package)
             row['command'] = command; row['environment_verified'] = environment
+            row['presentation_environment'] = {'HS_NO_GUI': no_gui}
             print(json.dumps(dict(event='CASE_START',case_id=case['case_id'],run_commit=receipt['run_commit'],time=stamp())),flush=True)
             with (attempt/'supervisor.log').open('x') as log:
                 child = subprocess.Popen(command, cwd=package, env=env, stdout=log, stderr=subprocess.STDOUT,
@@ -434,6 +447,7 @@ def run(root, output, base, package, source, frozen, resume=False):
                 row.update(category='environment_or_insufficient_evidence', evidence_error=repr(exc))
                 (attempt/'evidence_error.log').write_text(traceback.format_exc())
             index = finish_attempt(output, row)
+            new_rows.append(row)
             print(json.dumps(dict(event='CASE_END',case_id=case['case_id'],category=row['category'],time=stamp())),flush=True)
             if row.get('native_cycle_closed', {}).get('all_owned_cycle_processes_stopped') is not True:
                 write_index(output, index['attempts'], 'BLOCKED_SHARED_ENVIRONMENT_OR_SAFETY')
@@ -441,8 +455,10 @@ def run(root, output, base, package, source, frozen, resume=False):
             # Algorithm failures and coverage failures retain their outcome while
             # all distinct cases continue. There are no algorithm retries.
         index = read_index(output)
-        write_index(output, index['attempts'], 'COMPLETE')
-        return 0 if all(v['category'] in CATEGORIES[:2] for v in index['attempts']) else 2
+        stage = 'COMPLETE' if index['attempted_cases'] == 20 else 'READY_FOR_REVIEW'
+        write_index(output, index['attempts'], stage)
+        outcomes = new_rows if new_rows else index['attempts']
+        return 0 if all(v['category'] in CATEGORIES[:2] for v in outcomes) else 2
 
 
 def audit_batch(output):
@@ -481,6 +497,7 @@ def main():
     parser.add_argument('--matrix', type=Path)
     for name in ('base','package','source','frozen'): parser.add_argument('--'+name,type=Path)
     parser.add_argument('--resume',action='store_true')
+    parser.add_argument('--case-limit',type=int,help='Run at most this many new cases, then retain READY_FOR_REVIEW')
     args = parser.parse_args(); root = Path(__file__).resolve().parents[1]
     output = args.output.resolve()
     if args.action == 'prepare':
@@ -490,7 +507,7 @@ def main():
         return 0 if audit_batch(output)['complete'] else 2
     if not all(getattr(args,n) for n in ('base','package','source','frozen')):
         parser.error('run requires --base --package --source --frozen')
-    return run(root,output,args.base.resolve(),args.package.resolve(),args.source.resolve(),args.frozen.resolve(),args.resume)
+    return run(root,output,args.base.resolve(),args.package.resolve(),args.source.resolve(),args.frozen.resolve(),args.resume,args.case_limit)
 
 
 if __name__ == '__main__':

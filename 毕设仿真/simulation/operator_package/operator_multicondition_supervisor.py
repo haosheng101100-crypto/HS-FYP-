@@ -2,6 +2,7 @@
 from pathlib import Path
 import os,json,subprocess,time,signal,shutil,hashlib,traceback
 from planar_runtime_setup import desktop_environment,prepare_world_start
+from multicondition_viewer import launch_viewer
 BASE=Path(os.environ.get('HS_SIM_BASE','/home/haosheng/hs_ardupilot_stage1'))
 SESSION=Path(os.environ.get('HS_OPERATOR_SESSION',str(BASE/'interactive_20261023/receding_session_083')))
 PKG=Path(os.environ.get('HS_OPERATOR_PACKAGE',str(BASE/'paper_experiments/operator_receding_v83')))
@@ -12,7 +13,7 @@ VALIDATION_SCENARIOS=json.loads(PROFILE.read_text()).get('validation_scenarios',
 SESSION.mkdir(exist_ok=False,parents=True);(SESSION/'requests').mkdir();(SESSION/'processed').mkdir()
 display_env=dict(os.environ,**desktop_environment(os.environ),HS_OPERATOR_SESSION=str(SESSION))
 panel_log=(SESSION/'panel.log').open('x')
-panel=subprocess.Popen(['python3',str(PKG/'operator_panel.py')],cwd=SESSION,env=display_env,stdout=panel_log,stderr=subprocess.STDOUT,start_new_session=True)
+panel=launch_viewer(['python3',str(PKG/'operator_panel.py')],cwd=SESSION,env=display_env,stdout=panel_log,stderr=subprocess.STDOUT,start_new_session=True)
 all_cycles=[]
 
 def atomic_status(value):
@@ -95,8 +96,10 @@ try:
             if name=='gazebo_gui':args=['nice','-n','15',*args]
             elif name=='model_states':args=['nice','-n','5',*args]
             f=(run/'results'/f'{name}.log').open('x');files.append(f)
-            p=subprocess.Popen(args,cwd=run,env=env,stdout=f,stderr=subprocess.STDOUT,start_new_session=True)
-            rows.append({'name':name,'pid':p.pid});handles.append(p)
+            launcher=launch_viewer if name=='gazebo_gui' else subprocess.Popen
+            p=launcher(args,cwd=run,env=env,stdout=f,stderr=subprocess.STDOUT,start_new_session=True)
+            if p.pid is not None:
+                rows.append({'name':name,'pid':p.pid});handles.append(p)
             (run/'results/managed_processes.json').write_text(json.dumps(rows,indent=2));return p
         reset=False
         try:

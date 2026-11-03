@@ -87,6 +87,15 @@ class BatchTests(unittest.TestCase):
             result=m.safe_history_check(Path(d))
             self.assertFalse(result['passed']);self.assertIn('error',result)
 
+    def test_staged_selection_only_takes_new_cases_in_declared_order(self):
+        m=module();cases=matrix()['cases'];attempted={'M01','M03'}
+        self.assertEqual([c['case_id'] for c in m.select_unattempted_cases(cases,attempted,2)],['M02','M04'])
+        self.assertEqual(len(m.select_unattempted_cases(cases,attempted,None)),18)
+        self.assertEqual(m.select_unattempted_cases(cases,{c['case_id'] for c in cases},3),[])
+        for limit in (0,-1,True,1.5):
+            with self.assertRaises(ValueError):m.select_unattempted_cases(cases,attempted,limit)
+        self.assertEqual(cases,matrix()['cases'])
+
     def test_proven_zero_request_native_exit_uses_auditor_history_rules(self):
         m=module()
         with tempfile.TemporaryDirectory() as d:

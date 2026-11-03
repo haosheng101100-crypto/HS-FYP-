@@ -26,7 +26,8 @@
     "tools/multicondition_bridge.py": "ca85a2238c3b6ed5dadbe42589f2964247ef9a8fd467b69ac9852ad7b97e5d46",
     "demo_gui.config": "75dde2ed537c1b7698144b931700d3329dae982e4ea625f974ea5276dcbce265",
     "operator_multicondition_backend.py": "1b5fa28416615f081b8ac4b7a29b7d11adaf07273db02eb9d7a8ce7f83ea769c",
-    "operator_multicondition_supervisor.py": "f62de7309554a759d73e1f82e748d3deac3e21d1cfe1d3ac41872d22ac808e24"
+    "operator_multicondition_supervisor.py": "5193887785c70c34baab5503cab40d68096237887961ad271d2018e2a8c48f74",
+    "multicondition_viewer.py": "042c0484591e945638cb36ccdfcd202c9bac0da86f0b4bb52ef68c61c410a702"
   },
   "new_planar_physical_validation": "PENDING; historical physical results are for their pinned revisions",
   "reacquisition_trial_physical_validation": "PENDING: requires new recorded reacquisition -> resumed plan -> physical contact/support",

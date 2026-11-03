@@ -1,0 +1,34 @@
+{
+  "attempt": "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/outputs/二维多工况_20261103/batch_001/cases/M01/attempt_001",
+  "last_saved_status": {
+    "stage": "INITIALIZING",
+    "message": "飞控初始化中，尚未起飞",
+    "armed": false,
+    "paused": false,
+    "sim_t_s": 10.81,
+    "body_height_m": 0.1949994274154729,
+    "buttons": {
+      "takeoff": false,
+      "land": false,
+      "pause": true,
+      "resume": false,
+      "reset": false
+    },
+    "cycle": "cycle_001",
+    "run": "/workspace/outputs/二维多工况_20261103/batch_001/cases/M01/attempt_001/session_001/cycle_001",
+    "real_wall_unix_s": 1793676315.4260995,
+    "manual_takeoff_required": false,
+    "manual_landing_required": false,
+    "planner_message": "后台优化器已预热，等待起飞与降落指令",
+    "scenario": "multi_m01",
+    "algorithm": "ASYNC_BEZIER_SOCP",
+    "planner_phase": null
+  },
+  "host_reboot_local": "2026-11-03 11:36:59 Asia/Shanghai",
+  "boot_id_after": "a8bb09eb-2767-4f1c-a3f3-1b9b6b23acaf",
+  "cause": "Not established; pending user clarification/manual vs spontaneous reboot",
+  "valid_result": false,
+  "physical_attempts": 1,
+  "valid_functional_cases": 0,
+  "other_19_not_run": true
+}
