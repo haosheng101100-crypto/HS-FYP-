@@ -1,0 +1,2644 @@
+{
+  "scope": "Same frozen M18 world trigger, geometry and original safety limits. Controllers/profiles differ; terminal planning is tightened. Three independent physical attempts, not bit-identical environmental trajectories. Interrupted batch002 is retained separately and not a functional result.",
+  "original": {
+    "actual_landing_complete": false,
+    "first_contact": {
+      "contact_sim_t_s": 55.317,
+      "decision_sim_t_s": 55.32,
+      "observation_sim_t_s": 55.28,
+      "legs": [
+        "rear_right_leg_collision"
+      ],
+      "unexpected_uav_collisions": [],
+      "checks": {
+        "precontact_observation_available": true,
+        "known_legs_only": true,
+        "observation_fresh": true,
+        "target_xy": true,
+        "tilt": true,
+        "attitude_target": true,
+        "angular_speed": true,
+        "leg_clearance": true,
+        "leg_speed": false,
+        "footprint": true,
+        "contact_time": false
+      },
+      "scope": "Latest causal observation strictly before reported contact, not exact instantaneous impact velocity."
+    },
+    "failures": [
+      "contact_during_failed_attempt_recovery",
+      "first_contact_leg_speed",
+      "first_contact_contact_time"
+    ],
+    "final_armed": false,
+    "audit_classification": "control_physical_audit_failure",
+    "safety_passed": false,
+    "coverage_passed": true,
+    "physics_passed": false,
+    "control_sha256": "caf9dc05d5eaa2d44510aeefb5920b5b901dca017ce96e28e6dd44fb647634bd",
+    "planner_sha256": "0ef3940840ac6056ccca3ad868d71aa3cf0dfb5f126710a7f6c79d8a9bb246d4",
+    "actual_profile_sha256": "f7889862a2c123964e6ac96280281df4cf61ec8e5133532997d97dd6cc02a8aa",
+    "terminal_planning_cap_m_s": null,
+    "run_commit": "caab35f1ab49ff9a21bf3dae49026b43caa440e9",
+    "control_log_sha256": "f25e08f6832a5861112a09681f8fbb700452492aaa886c6a9b761e2638defe10",
+    "recovery": {
+      "exit_sim_t_s": 55.08,
+      "exit_gap_m": 0.032900437026105345,
+      "minimum_gap_first_2s_after_exit_m": -5.2201873777857344e-05,
+      "prior_actually_sent_pva": {
+        "position_world_m": [
+          5.283193535600238,
+          2.297466710336018,
+          1.0572990239702336
+        ],
+        "velocity_world_m_s": [
+          0.130174614449051,
+          0.17668236302557774,
+          -0.1569238724417325
+        ],
+        "acceleration_world_m_s2": [
+          -0.19946116326753552,
+          0.0010055170353312467,
+          0.2725514277738699
+        ]
+      },
+      "first_recovery_reference": {
+        "position_world_m": [
+          5.305797356920575,
+          2.310909609094254,
+          1.0256507646721138
+        ],
+        "velocity_world_m_s": [
+          0.1582629989708079,
+          0.175742556831977,
+          -0.14436347558817708
+        ],
+        "acceleration_world_m_s2": [
+          -0.053534873940212044,
+          -0.0594476010635047,
+          0.08
+        ]
+      },
+      "reference_position_jump_m": [
+        0.022603821320337225,
+        0.013442898758235788,
+        -0.03164825929811976
+      ],
+      "trace_window_scope": "2s from policy exit, measured foot distances to deck plane; actual contact comes from contact sensor separately",
+      "trace": [
+        {
+          "sim_t_s": 55.0,
+          "stage": "LANDING",
+          "min_foot_gap_m": 0.04606902223575016,
+          "measured_vz": -0.1707722589420784,
+          "phase": "TERMINAL_TRACKING",
+          "command_reference": {
+            "position_world_m": [
+              5.278070870517963,
+              2.2903997011821473,
+              1.0637977931624563
+            ],
+            "velocity_world_m_s": [
+              0.1357546074186895,
+              0.17666794265502536,
+              -0.1681067833303938
+            ],
+            "acceleration_world_m_s2": [
+              -0.09443610246699463,
+              0.00037183249063108117,
+              0.2863810163651056
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.04,
+          "stage": "LANDING",
+          "min_foot_gap_m": 0.039246879824599734,
+          "measured_vz": -0.15802156361745912,
+          "phase": "TERMINAL_TRACKING",
+          "command_reference": {
+            "position_world_m": [
+              5.283193535600238,
+              2.297466710336018,
+              1.0572990239702336
+            ],
+            "velocity_world_m_s": [
+              0.130174614449051,
+              0.17668236302557774,
+              -0.1569238724417325
+            ],
+            "acceleration_world_m_s2": [
+              -0.10143399345269058,
+              0.00034903058748994543,
+              0.2725514277738699
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.08,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.032900437026105345,
+          "measured_vz": -0.14596347558817707,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.305797356920575,
+              2.310909609094254,
+              1.0256507646721138
+            ],
+            "velocity_world_m_s": [
+              0.1582629989708079,
+              0.175742556831977,
+              -0.14436347558817708
+            ],
+            "acceleration_world_m_s2": [
+              -0.053534873940212044,
+              -0.0594476010635047,
+              0.08
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.12,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.027031663048400545,
+          "measured_vz": -0.13446730984612984,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.312085048980255,
+              2.317891753286682,
+              1.0199402256485868
+            ],
+            "velocity_world_m_s": [
+              0.15505090653439527,
+              0.17217570076816682,
+              -0.13956347558817722
+            ],
+            "acceleration_world_m_s2": [
+              -0.10706974788042295,
+              -0.11889520212700812,
+              0.1599999999999983
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.16,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.02160937963996612,
+          "measured_vz": -0.12465593665192712,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.318201429443326,
+              2.324683665155707,
+              1.0144856866250598
+            ],
+            "velocity_world_m_s": [
+              0.14969741914037424,
+              0.16623094066181657,
+              -0.1315634755881775
+            ],
+            "acceleration_world_m_s2": [
+              -0.16060462182063387,
+              -0.17834280319051155,
+              0.2399999999999966
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.2,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.016287504962518518,
+          "measured_vz": -0.1203928030293718,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.324060842511486,
+              2.331190228539628,
+              1.0094151476015318
+            ],
+            "velocity_world_m_s": [
+              0.1422025367887433,
+              0.15790827651292452,
+              -0.12036347558817563
+            ],
+            "acceleration_world_m_s2": [
+              -0.21413949576085428,
+              -0.23779040425402553,
+              0.3200000000000091
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.24,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.010819087957536166,
+          "measured_vz": -0.12218845298093944,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.329577632386426,
+              2.3373163272767417,
+              1.0048566085780049
+            ],
+            "velocity_world_m_s": [
+              0.13365367076986412,
+              0.14841522013245648,
+              -0.1059634755881756
+            ],
+            "acceleration_world_m_s2": [
+              -0.21330380518311498,
+              -0.2368624147693868,
+              0.4000000000000074
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.28,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.005096516106414373,
+          "measured_vz": -0.12336933315197042,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.334753136173075,
+              2.343063446150224,
+              1.0009380695544778
+            ],
+            "velocity_world_m_s": [
+              0.12537798454310606,
+              0.13922551523309523,
+              -0.08836347558817573
+            ],
+            "acceleration_world_m_s2": [
+              -0.20048050615479618,
+              -0.22262283019868473,
+              0.4800000000000057
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.32,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -5.2201873777857344e-05,
+          "measured_vz": -0.11498486091905694,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.36,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -8.369330518620544e-06,
+          "measured_vz": -0.0456209016845526,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.4,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.5757359107970714e-05,
+          "measured_vz": -0.021540329085019953,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.44,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -3.654270606112675e-06,
+          "measured_vz": 0.02175178390732813,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.48,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.427150458617078e-06,
+          "measured_vz": 0.0007938650929341785,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.52,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.6121799513157953e-06,
+          "measured_vz": 8.855656060384864e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.56,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.071026798471486e-06,
+          "measured_vz": 5.84842907358122e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.6,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -7.117789649901951e-07,
+          "measured_vz": 3.8596342151546475e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.64,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -4.7334777331098365e-07,
+          "measured_vz": 2.5453213057080273e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.68,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -3.150386915784509e-07,
+          "measured_vz": 1.680532772219711e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.72,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.0990293803091475e-07,
+          "measured_vz": 1.1105604340504112e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.76,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.400610012414205e-07,
+          "measured_vz": 7.337581284063959e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.8,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -9.361621844394818e-08,
+          "measured_vz": 4.86555609172862e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.84,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -6.270513075445905e-08,
+          "measured_vz": 3.2301779377157923e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.88,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -4.2140617106944944e-08,
+          "measured_vz": 2.1378014009948884e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.92,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.8470542479119842e-08,
+          "measured_vz": 1.4108274010055854e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.96,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.939542293438734e-08,
+          "measured_vz": 9.278298703651789e-08,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.0,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.3382904562320164e-08,
+          "measured_vz": 6.071273986755028e-08,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.04,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -9.416040169796247e-09,
+          "measured_vz": 3.9274783007557075e-08,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.08,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -6.816320397007303e-09,
+          "measured_vz": 2.4853931950470083e-08,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.12,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -5.120565305105629e-09,
+          "measured_vz": 1.5461194013615513e-08,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.16,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -4.007239207126645e-09,
+          "measured_vz": 1.0035237272775464e-08,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.2,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -3.2616697120957383e-09,
+          "measured_vz": 7.147747008071888e-09,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.24,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.7614972530898285e-09,
+          "measured_vz": 4.932345222469267e-09,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.28,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.5047657281618285e-09,
+          "measured_vz": 3.28003262023096e-09,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.32,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.3957313910472067e-09,
+          "measured_vz": 2.183197766217589e-09,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.36,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.324047843060839e-09,
+          "measured_vz": 1.4457311634767554e-09,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.4,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.2766095675308406e-09,
+          "measured_vz": 9.72485208897972e-10,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.44,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.245077235230042e-09,
+          "measured_vz": 6.392346272209387e-10,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.48,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.2243749064898566e-09,
+          "measured_vz": 4.177863268911954e-10,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.52,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.2093894491703736e-09,
+          "measured_vz": 2.807183094565545e-10,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.56,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.199437520999936e-09,
+          "measured_vz": 1.622591316087939e-10,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.6,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.191417713959254e-09,
+          "measured_vz": 1.1909035486299426e-10,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.64,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1870529831602425e-09,
+          "measured_vz": 6.592846025050844e-11,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.68,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.184022074303016e-09,
+          "measured_vz": 5.7222570385321513e-11,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.72,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.182769076597424e-09,
+          "measured_vz": 4.2315288614379394e-11,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.76,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1817307960247945e-09,
+          "measured_vz": 4.023831203225706e-11,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.8,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1810951933431966e-09,
+          "measured_vz": 3.679015779636724e-11,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.84,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1811134010008004e-09,
+          "measured_vz": 1.027295004091993e-11,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.88,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.180490121794776e-09,
+          "measured_vz": 1.6712199294777663e-12,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.92,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1804131833391693e-09,
+          "measured_vz": -1.1406270346584849e-11,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.96,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1802833982675907e-09,
+          "measured_vz": -2.7392460611534108e-12,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.0,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.180526204043076e-09,
+          "measured_vz": -6.0474842099244916e-12,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.04,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1805185435042063e-09,
+          "measured_vz": -6.089459036060256e-12,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.08,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1798152172181062e-09,
+          "measured_vz": -7.706267153880857e-12,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        }
+      ]
+    }
+  },
+  "pva_only_fix": {
+    "actual_landing_complete": false,
+    "first_contact": {
+      "contact_sim_t_s": 55.869,
+      "decision_sim_t_s": 55.88,
+      "observation_sim_t_s": 55.84,
+      "legs": [
+        "rear_right_leg_collision"
+      ],
+      "unexpected_uav_collisions": [],
+      "checks": {
+        "precontact_observation_available": true,
+        "known_legs_only": true,
+        "observation_fresh": true,
+        "target_xy": true,
+        "tilt": true,
+        "attitude_target": false,
+        "angular_speed": true,
+        "leg_clearance": true,
+        "leg_speed": true,
+        "footprint": true,
+        "contact_time": true
+      },
+      "scope": "Latest causal observation strictly before reported contact, not exact instantaneous impact velocity."
+    },
+    "failures": [
+      "contact_during_failed_attempt_recovery",
+      "first_contact_attitude_target",
+      "whole_aircraft_outside_deck_margin"
+    ],
+    "final_armed": false,
+    "audit_classification": "control_physical_audit_failure",
+    "safety_passed": false,
+    "coverage_passed": true,
+    "physics_passed": false,
+    "control_sha256": "3f176b61f5994070c01ff1b8e4309cdcfb648944f6f424d1efab1f2c597593e8",
+    "planner_sha256": "0ef3940840ac6056ccca3ad868d71aa3cf0dfb5f126710a7f6c79d8a9bb246d4",
+    "actual_profile_sha256": "f7889862a2c123964e6ac96280281df4cf61ec8e5133532997d97dd6cc02a8aa",
+    "terminal_planning_cap_m_s": null,
+    "run_commit": "97204a1f147d0b1f6d44fe4cb462c53ed24e1743",
+    "control_log_sha256": "057e048cbbb08c9f2675b750a64875e73c6329bfc36369d5b686b063b44bf658",
+    "recovery": {
+      "exit_sim_t_s": 55.56,
+      "exit_gap_m": 0.033283946479557014,
+      "minimum_gap_first_2s_after_exit_m": -0.0001411652736071911,
+      "prior_actually_sent_pva": {
+        "position_world_m": [
+          5.2904340961331915,
+          2.3047578800655852,
+          1.057157059235124
+        ],
+        "velocity_world_m_s": [
+          0.13010362999517552,
+          0.1766828958339589,
+          -0.1562099075996532
+        ],
+        "acceleration_world_m_s2": [
+          -0.20094650950996074,
+          0.004407515065534917,
+          0.2704794063168383
+        ]
+      },
+      "first_recovery_reference": {
+        "position_world_m": [
+          5.2904340961331915,
+          2.3047578800655852,
+          1.057157059235124
+        ],
+        "velocity_world_m_s": [
+          0.13010362999517552,
+          0.1766828958339589,
+          -0.1562099075996532
+        ],
+        "acceleration_world_m_s2": [
+          -0.20094650950996074,
+          0.004407515065534917,
+          0.2704794063168383
+        ]
+      },
+      "reference_position_jump_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "trace_window_scope": "2s from policy exit, measured foot distances to deck plane; actual contact comes from contact sensor separately",
+      "trace": [
+        {
+          "sim_t_s": 55.48,
+          "stage": "LANDING",
+          "min_foot_gap_m": 0.04645288827525862,
+          "measured_vz": -0.1706185459309341,
+          "phase": "TERMINAL_TRACKING",
+          "command_reference": {
+            "position_world_m": [
+              5.285318408951458,
+              2.297690847836317,
+              1.0636256022507318
+            ],
+            "velocity_world_m_s": [
+              0.13566699686374087,
+              0.17666856486831028,
+              -0.1673091969361102
+            ],
+            "acceleration_world_m_s2": [
+              -0.09397445723830473,
+              0.0003695032768110363,
+              0.2842725768152753
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.52,
+          "stage": "LANDING",
+          "min_foot_gap_m": 0.0396331122687098,
+          "measured_vz": -0.1581727637221895,
+          "phase": "TERMINAL_TRACKING",
+          "command_reference": {
+            "position_world_m": [
+              5.2904340961331915,
+              2.3047578800655852,
+              1.057157059235124
+            ],
+            "velocity_world_m_s": [
+              0.13010362999517552,
+              0.1766828958339589,
+              -0.1562099075996532
+            ],
+            "acceleration_world_m_s2": [
+              -0.10087337112468632,
+              0.00034688922560039087,
+              0.2704794063168383
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.56,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.033283946479557014,
+          "measured_vz": -0.14623293425949685,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.2904340961331915,
+              2.3047578800655852,
+              1.057157059235124
+            ],
+            "velocity_world_m_s": [
+              0.13010362999517552,
+              0.1766828958339589,
+              -0.1562099075996532
+            ],
+            "acceleration_world_m_s2": [
+              -0.20094650950996074,
+              0.004407515065534917,
+              0.2704794063168383
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.6,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.027383730148036967,
+          "measured_vz": -0.1346573103917006,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.29547748412539,
+              2.311828721910996,
+              1.0511250464561914
+            ],
+            "velocity_world_m_s": [
+              0.12210015145716852,
+              0.1752595658889495,
+              -0.14379073134697995
+            ],
+            "acceleration_world_m_s2": [
+              -0.19922741739039815,
+              -0.07557401231600604,
+              0.3504794063168366
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.64,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.02193035393672571,
+          "measured_vz": -0.12263069147729719,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.300202108249764,
+              2.318778645336701,
+              1.045653800727366
+            ],
+            "velocity_world_m_s": [
+              0.11426787898690172,
+              0.17064246640257089,
+              -0.12817155509430686
+            ],
+            "acceleration_world_m_s2": [
+              -0.19238620612295013,
+              -0.15528096200293026,
+              0.4304794063168349
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.68,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.016727453765700062,
+          "measured_vz": -0.10934266713127642,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.304618914444342,
+              2.3254801192232013,
+              1.0408713220486472
+            ],
+            "velocity_world_m_s": [
+              0.10689888901402021,
+              0.16286488664526713,
+              -0.1093523788416339
+            ],
+            "acceleration_world_m_s2": [
+              -0.17606329252113265,
+              -0.23359802586226636,
+              0.5104794063168332
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.72,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.011867260028814774,
+          "measured_vz": -0.09379840915217184,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.308754019370886,
+              2.331807836268322,
+              1.0369056104200354
+            ],
+            "velocity_world_m_s": [
+              0.1001706564931771,
+              0.15330697952866398,
+              -0.08733320258896107
+            ],
+            "acceleration_world_m_s2": [
+              -0.1603483335210303,
+              -0.2442973299679007,
+              0.5904794063168315
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.76,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.00750375606509901,
+          "measured_vz": -0.07527906981208086,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.312632566963796,
+              2.337744677585494,
+              1.0338846658415304
+            ],
+            "velocity_world_m_s": [
+              0.09395857012796131,
+              0.14382182354344625,
+              -0.06211402633628839
+            ],
+            "acceleration_world_m_s2": [
+              -0.15025598473976565,
+              -0.22996046929299596,
+              0.6704794063168298
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.8,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.003851140823036059,
+          "measured_vz": -0.054845235055761624,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.316270704981123,
+              2.3433135821517976,
+              1.0319364883131323
+            ],
+            "velocity_world_m_s": [
+              0.08813469332932729,
+              0.13490795945128314,
+              -0.033694850083615835
+            ],
+            "acceleration_world_m_s2": [
+              -0.14093785519194196,
+              -0.21573273531516937,
+              0.7504794063168281
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.84,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.0011699407101573023,
+          "measured_vz": -0.03131213665586609,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.319683342430142,
+              2.3485373143415975,
+              1.0311890778348412
+            ],
+            "velocity_world_m_s": [
+              0.08267189542560778,
+              0.12654606596143997,
+              -0.0020756738309375203
+            ],
+            "acceleration_world_m_s2": [
+              -0.13220203999399094,
+              -0.20236193917692472,
+              0.8304794063168406
+            ]
+          }
+        },
+        {
+          "sim_t_s": 55.88,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 8.872207276078292e-06,
+          "measured_vz": -0.0020147434414908454,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.92,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.0002230457737415481,
+          "measured_vz": 0.03351506225080482,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 55.96,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.0015837670391107839,
+          "measured_vz": 0.05731420347542143,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.0,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.00414175051637522,
+          "measured_vz": 0.08231045917333168,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.04,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.007748967886844982,
+          "measured_vz": 0.10231361597514275,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.08,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.012171216725581857,
+          "measured_vz": 0.11652956339867389,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.12,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.01718051622556782,
+          "measured_vz": 0.12411171608182929,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.16,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.022414610233238985,
+          "measured_vz": 0.12542115673449866,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.2,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.02759528255163657,
+          "measured_vz": 0.1197919810281341,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.24,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.03245733072334689,
+          "measured_vz": 0.10692045031942285,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.28,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.036688727452875214,
+          "measured_vz": 0.08644298369263581,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.32,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.04002341056117498,
+          "measured_vz": 0.0586743123406906,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.36,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.04225941661771082,
+          "measured_vz": 0.026752818631907347,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.4,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.043238133874203166,
+          "measured_vz": -0.00734351774787006,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.44,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.0428336920546466,
+          "measured_vz": -0.043407613155357544,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.48,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.04094530647723482,
+          "measured_vz": -0.08132473631172928,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.52,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.03747228943129022,
+          "measured_vz": -0.12102264858688253,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.56,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.03234470791373423,
+          "measured_vz": -0.16224052962693133,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.6,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.02544656729301975,
+          "measured_vz": -0.20444554618124333,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.64,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.01674245457796475,
+          "measured_vz": -0.24698771819351406,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.68,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.006421669520595863,
+          "measured_vz": -0.2863286566010483,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.72,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -0.0001411652736071911,
+          "measured_vz": -0.17040700005150466,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.77,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -9.000353331889421e-05,
+          "measured_vz": 0.08693083010314959,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.81,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -5.9376299916591435e-05,
+          "measured_vz": 0.0002795162192669731,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.85,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -3.916413062421409e-05,
+          "measured_vz": 0.00017580256134363994,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.89,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.5827781051313004e-05,
+          "measured_vz": 0.0001141531870314915,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.93,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.7029928564893382e-05,
+          "measured_vz": 7.405060490896089e-05,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 56.97,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.1227292749271811e-05,
+          "measured_vz": 4.7986050541333994e-05,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.01,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -7.400976112625912e-06,
+          "measured_vz": 3.1058840247537306e-05,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.05,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -4.878468233604494e-06,
+          "measured_vz": 2.0099194851803565e-05,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.09,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -3.2158232039503076e-06,
+          "measured_vz": 1.3001831727751728e-05,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.13,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.1199217883349775e-06,
+          "measured_vz": 8.27658673113069e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.17,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.3977436744694316e-06,
+          "measured_vz": 5.3765255065894994e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.21,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -9.217966132624156e-07,
+          "measured_vz": 3.505835269318032e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.25,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -6.082095092008188e-07,
+          "measured_vz": 2.2967051505067805e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.29,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -4.0155309799505545e-07,
+          "measured_vz": 1.5166473601740012e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.33,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -2.6531258734419083e-07,
+          "measured_vz": 1.0018315930022557e-06,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.37,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.7549757425072698e-07,
+          "measured_vz": 6.590908435984207e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.41,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -1.1624341478277955e-07,
+          "measured_vz": 4.388296535367274e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.45,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -7.711064731186212e-08,
+          "measured_vz": 2.9217131799472936e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.49,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -5.1222540764506164e-08,
+          "measured_vz": 1.903863988627895e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        },
+        {
+          "sim_t_s": 57.53,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": -3.40566648215912e-08,
+          "measured_vz": 1.2382117117207013e-07,
+          "phase": "CONTACT_HANDOVER",
+          "command_reference": null
+        }
+      ]
+    }
+  },
+  "slow_terminal_fix": {
+    "actual_landing_complete": false,
+    "first_contact": null,
+    "failures": [],
+    "final_armed": false,
+    "audit_classification": "safe_exit",
+    "safety_passed": true,
+    "coverage_passed": true,
+    "physics_passed": true,
+    "control_sha256": "3f176b61f5994070c01ff1b8e4309cdcfb648944f6f424d1efab1f2c597593e8",
+    "planner_sha256": "0736ca347f52bf2867cc0b031eed67d5bef2ffa7ef1d463c12690763ab56a7f8",
+    "actual_profile_sha256": "3dd089c35eed43a8617703b0dd69ae7369ccd0fef76d14361ea45d22820032eb",
+    "terminal_planning_cap_m_s": 0.08,
+    "run_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+    "control_log_sha256": "4d78faf88cb417791463f4259027df9fdfd747bb81b83e7d1012049371948ea6",
+    "recovery": {
+      "exit_sim_t_s": 50.16,
+      "exit_gap_m": 0.15676762503960995,
+      "minimum_gap_first_2s_after_exit_m": 0.14002783704952848,
+      "prior_actually_sent_pva": {
+        "position_world_m": [
+          5.4967711197967715,
+          2.5100501541459406,
+          1.1669946847121464
+        ],
+        "velocity_world_m_s": [
+          0.13739681658568562,
+          0.1760160169546058,
+          -0.07522696283435068
+        ],
+        "acceleration_world_m_s2": [
+          -0.31011384283577165,
+          0.0037859354088401313,
+          0.09274665042331506
+        ]
+      },
+      "first_recovery_reference": {
+        "position_world_m": [
+          5.4967711197967715,
+          2.5100501541459406,
+          1.1669946847121464
+        ],
+        "velocity_world_m_s": [
+          0.13739681658568562,
+          0.1760160169546058,
+          -0.07522696283435068
+        ],
+        "acceleration_world_m_s2": [
+          -0.31011384283577165,
+          0.0037859354088401313,
+          0.09274665042331506
+        ]
+      },
+      "reference_position_jump_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "trace_window_scope": "2s from policy exit, measured foot distances to deck plane; actual contact comes from contact sensor separately",
+      "trace": [
+        {
+          "sim_t_s": 50.08,
+          "stage": "LANDING",
+          "min_foot_gap_m": 0.1628801349405199,
+          "measured_vz": -0.07192640969869286,
+          "phase": "TRACKING",
+          "command_reference": {
+            "position_world_m": [
+              5.491402323048479,
+              2.503009755938614,
+              1.1700792342817297
+            ],
+            "velocity_world_m_s": [
+              0.1443245867880283,
+              0.17600390259380724,
+              -0.07903037333586249
+            ],
+            "acceleration_world_m_s2": [
+              -0.10787516799515527,
+              0.00030176660745648954,
+              0.09743573618166791
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.12,
+          "stage": "LANDING",
+          "min_foot_gap_m": 0.1597556763005794,
+          "measured_vz": -0.06808394823558825,
+          "phase": "TRACKING",
+          "command_reference": {
+            "position_world_m": [
+              5.4967711197967715,
+              2.5100501541459406,
+              1.1669946847121464
+            ],
+            "velocity_world_m_s": [
+              0.13739681658568562,
+              0.1760160169546058,
+              -0.07522696283435068
+            ],
+            "acceleration_world_m_s2": [
+              -0.12497001379504084,
+              0.0003044288594764082,
+              0.09274665042331506
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.16,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.15676762503960995,
+          "measured_vz": -0.06423360877688339,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.4967711197967715,
+              2.5100501541459406,
+              1.1669946847121464
+            ],
+            "velocity_world_m_s": [
+              0.13739681658568562,
+              0.1760160169546058,
+              -0.07522696283435068
+            ],
+            "acceleration_world_m_s2": [
+              -0.31011384283577165,
+              0.0037859354088401313,
+              0.09274665042331506
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.2,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.1539148505798862,
+          "measured_vz": -0.060363455166021235,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.502018901385931,
+              2.517093823572453,
+              1.1640598035191105
+            ],
+            "velocity_world_m_s": [
+              0.12557154941782778,
+              0.17467600303145236,
+              -0.069917096817417
+            ],
+            "acceleration_world_m_s2": [
+              -0.2811495155570279,
+              -0.07078663156650156,
+              0.17274665042332757
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.24,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.15114960329105576,
+          "measured_vz": -0.05653566390998073,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.506816843750198,
+              2.524024234388458,
+              1.1614013169667525
+            ],
+            "velocity_world_m_s": [
+              0.11502406890180024,
+              0.1704050595294418,
+              -0.0614072308004841
+            ],
+            "acceleration_world_m_s2": [
+              -0.24622451024435998,
+              -0.14276054353403217,
+              0.2527466504233259
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.28,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14841956539573875,
+          "measured_vz": -0.0511922404464427,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.511220826898075,
+              2.530726228334808,
+              1.1591472250550718
+            ],
+            "velocity_world_m_s": [
+              0.1060498872921213,
+              0.16335496355180087,
+              -0.04969736478355135
+            ],
+            "acceleration_world_m_s2": [
+              -0.202484570239597,
+              -0.20974425534802066,
+              0.3327466504233242
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.32,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14580280669840906,
+          "measured_vz": -0.04378274957386683,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.515300834733568,
+              2.5370926314726017,
+              1.1574255277840684
+            ],
+            "velocity_world_m_s": [
+              0.09881869926856587,
+              0.15425942953828664,
+              -0.034787498766618734
+            ],
+            "acceleration_world_m_s2": [
+              -0.15907483093818195,
+              -0.2450324453277013,
+              0.4127466504233225
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.36,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.1434494296757045,
+          "measured_vz": -0.03304096329642288,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.51912632283956,
+              2.5430669826978707,
+              1.1563642251537423
+            ],
+            "velocity_world_m_s": [
+              0.0926726416717454,
+              0.14473099774558423,
+              -0.016677632749686255
+            ],
+            "acceleration_world_m_s2": [
+              -0.1482280489028488,
+              -0.23138914430742996,
+              0.4927466504233208
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.4,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14154659502292322,
+          "measured_vz": -0.019570389386523585,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.522714646067308,
+              2.548671111292248,
+              1.1560913171640934
+            ],
+            "velocity_world_m_s": [
+              0.08692790144353618,
+              0.1357612849270683,
+              0.004632233267246086
+            ],
+            "acceleration_world_m_s2": [
+              -0.1390089625076181,
+              -0.21709649661837635,
+              0.5727466504233191
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.44,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14034488313787064,
+          "measured_vz": -0.0031499282019857543,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.526080554955043,
+              2.553927885492036,
+              1.156734803815122
+            ],
+            "velocity_world_m_s": [
+              0.08153988515007785,
+              0.1273465164468889,
+              0.029142099284178293
+            ],
+            "acceleration_world_m_s2": [
+              -0.13039185216530427,
+              -0.20364192739060244,
+              0.6527466504233174
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.48,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14002783704952848,
+          "measured_vz": 0.016856681826417374,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.529237836879314,
+              2.558858832607999,
+              1.1584226851068278
+            ],
+            "velocity_world_m_s": [
+              0.07648585155226953,
+              0.11945328240567035,
+              0.05685196530111036
+            ],
+            "acceleration_world_m_s2": [
+              -0.12230982772511677,
+              -0.19101977467033338,
+              0.7327466504233157
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.52,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14075009862912347,
+          "measured_vz": 0.039938723591670944,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.532199423079224,
+              2.56348414808449,
+              1.1612829610392115
+            ],
+            "velocity_world_m_s": [
+              0.07174507945119837,
+              0.11204928844009242,
+              0.08776183131804807
+            ],
+            "acceleration_world_m_s2": [
+              -0.1147287773284043,
+              -0.17917992360850554,
+              0.8127466504233282
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.56,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14262326013375315,
+          "measured_vz": 0.0655611304040898,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.53497744323541,
+              2.5678227756832066,
+              1.165443631612272
+            ],
+            "velocity_world_m_s": [
+              0.06729815152109443,
+              0.10510421131471968,
+              0.11938390938697252
+            ],
+            "acceleration_world_m_s2": [
+              -0.10761761917679756,
+              -0.16807393266013862,
+              0.7683572530229279
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.6,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.14573666692161358,
+          "measured_vz": 0.09344961590219876,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.537583275200912,
+              2.571892484989667,
+              1.1708336737901692
+            ],
+            "velocity_world_m_s": [
+              0.06312685459192574,
+              0.09858960632207546,
+              0.14916953716582126
+            ],
+            "acceleration_world_m_s2": [
+              -0.10094722728164165,
+              -0.15765631697207952,
+              0.7209241359195412
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.64,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.1501772324839683,
+          "measured_vz": 0.1234220339484079,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.540027591602764,
+              2.5757099441889726,
+              1.1773771945855376
+            ],
+            "velocity_world_m_s": [
+              0.059214104408535216,
+              0.09247879179297173,
+              0.17711293376923687
+            ],
+            "acceleration_world_m_s2": [
+              -0.09469028188788861,
+              -0.14788440948311318,
+              0.676245694251268
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.68,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.1559155397962938,
+          "measured_vz": 0.15357386368122486,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.542320403553595,
+              2.579290788333105,
+              1.1850027084917079
+            ],
+            "velocity_world_m_s": [
+              0.055543875638521464,
+              0.08674673984952044,
+              0.20332445964118456
+            ],
+            "acceleration_world_m_s2": [
+              -0.08882115661280282,
+              -0.1387181876894576,
+              0.6343305993461447
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.72,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.16291176833458243,
+          "measured_vz": 0.18226754643659346,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.544471101653846,
+              2.582649683376934,
+              1.193643151356832
+            ],
+            "velocity_world_m_s": [
+              0.05210113623710984,
+              0.08136997390024579,
+              0.2279113378388714
+            ],
+            "acceleration_world_m_s2": [
+              -0.08331581345778219,
+              -0.13012010977428068,
+              0.5950133105382232
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.76,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.1711048894865399,
+          "measured_vz": 0.2084293109875506,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.546488494452564,
+              2.5858003862451246,
+              1.203235615518817
+            ],
+            "velocity_world_m_s": [
+              0.04887178588084097,
+              0.07632647248775291,
+              0.25097426391446925
+            ],
+            "acceleration_world_m_s2": [
+              -0.07815170435566476,
+              -0.12205496085036868,
+              0.5581329932416929
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.8,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.18043326896800516,
+          "measured_vz": 0.2342495091969829,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.5483808445243135,
+              2.5887558011759544,
+              1.213721092469989
+            ],
+            "velocity_world_m_s": [
+              0.04584259821730251,
+              0.07159557909611305,
+              0.27260769586186856
+            ],
+            "acceleration_world_m_s2": [
+              -0.07330767882126146,
+              -0.11448970873162936,
+              0.5235386041282961
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.84,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.19083171709849345,
+          "measured_vz": 0.2591689258683219,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.550155902309949,
+              2.591528032572814,
+              1.2250442311877683
+            ],
+            "velocity_world_m_s": [
+              0.04300116669435776,
+              0.06715791754859639,
+              0.2929002370685816
+            ],
+            "acceleration_world_m_s2": [
+              -0.06876389732595375,
+              -0.10739336864416958,
+              0.4910884562071971
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.88,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.20225848548531777,
+          "measured_vz": 0.2832733220272063,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.551820937859862,
+              2.5941284345798423,
+              1.237153111435477
+            ],
+            "velocity_world_m_s": [
+              0.04033585374700801,
+              0.06299531264925519,
+              0.3119349990806677
+            ],
+            "acceleration_world_m_s2": [
+              -0.06450175004153663,
+              -0.10073687632289458,
+              0.4606496443971276
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.92,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.2146513672195598,
+          "measured_vz": 0.3064276532622265,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.553382770609709,
+              2.596567657584754,
+              1.249999031114221
+            ],
+            "velocity_world_m_s": [
+              0.037835743133767086,
+              0.05909071574331973,
+              0.32978994199618983
+            ],
+            "acceleration_world_m_s2": [
+              -0.06050378062051201,
+              -0.09449296897388279,
+              0.43209750137899844
+            ]
+          }
+        },
+        {
+          "sim_t_s": 50.96,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.22791797718652806,
+          "measured_vz": 0.32717721611192646,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.554847797310564,
+              2.5988556918393075,
+              1.2635363067951715
+            ],
+            "velocity_world_m_s": [
+              0.03549059522734388,
+              0.05542813489154256,
+              0.34653819376388373
+            ],
+            "acceleration_world_m_s2": [
+              -0.05675361470065063,
+              -0.08863607361497959,
+              0.4053150870057152
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.0,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.2419741360026617,
+          "measured_vz": 0.34690697279407406,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.556222018227897,
+              2.601001908376077,
+              1.2777220866153312
+            ],
+            "velocity_world_m_s": [
+              0.033290805076510596,
+              0.051992569372496765,
+              0.36224834969108116
+            ],
+            "acceleration_world_m_s2": [
+              -0.05323589284101582,
+              -0.08314220233731384,
+              0.3801927093541744
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.04,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.25655624861325377,
+          "measured_vz": 0.36483319986345913,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.557511061716685,
+              2.603015097389107,
+              1.2925161747704574
+            ],
+            "velocity_world_m_s": [
+              0.031227363067395007,
+              0.04876994824457565,
+              0.3769847533874319
+            ],
+            "acceleration_world_m_s2": [
+              -0.049936207614765894,
+              -0.07798885405874514,
+              0.35662747546337825
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.08,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.27181989369260284,
+          "measured_vz": 0.38353857458174345,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.558720207273289,
+              2.604903504235643,
+              1.307880866886325
+            ],
+            "velocity_world_m_s": [
+              0.02929181802307788,
+              0.04574707271606354,
+              0.39080776029507625
+            ],
+            "acceleration_world_m_s2": [
+              -0.04684104460109251,
+              -0.07315492236686348,
+              0.33452286991885205
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.12,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.28782177797267927,
+          "measured_vz": 0.401885617690278,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.559854407158531,
+              2.606674863206392,
+              1.3237807955940628
+            ],
+            "velocity_world_m_s": [
+              0.02747624259036373,
+              0.04291156208724443,
+              0.4037739848846007
+            ],
+            "acceleration_world_m_s2": [
+              -0.04393772703461682,
+              -0.06862060907409531,
+              0.3137883595573856
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.16,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.3044952677842412,
+          "measured_vz": 0.4168471335133179,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.560918306680518,
+              2.6083364292026228,
+              1.3401827856770925
+            ],
+            "velocity_world_m_s": [
+              0.02577320077196052,
+              0.04025180304314525,
+              0.41593653252921015
+            ],
+            "acceleration_world_m_s2": [
+              -0.0412143638855456,
+              -0.06436734313086664,
+              0.2943390226730989
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.2,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.32174688175537747,
+          "measured_vz": 0.4307987524324423,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.561916263220288,
+              2.609895007449844,
+              1.357055718196402
+            ],
+            "velocity_world_m_s": [
+              0.02417571747109054,
+              0.037756902089233164,
+              0.4273452170067976
+            ],
+            "acceleration_world_m_s2": [
+              -0.03865980115794078,
+              -0.060377704564717874,
+              0.27609520120618475
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.24,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.339556244732232,
+          "measured_vz": 0.4449132172514583,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.562852364078205,
+              2.6113569813697617,
+              1.3743704030376385
+            ],
+            "velocity_world_m_s": [
+              0.02267724992379904,
+              0.03541664093526186,
+              0.43804676452071717
+            ],
+            "acceleration_world_m_s2": [
+              -0.03626357620663581,
+              -0.05663535313384975,
+              0.25898217448980354
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.28,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.3579554674820049,
+          "measured_vz": 0.4591574266645555,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.563730443214192,
+              2.612728338724665,
+              1.3920994593580587
+            ],
+            "velocity_world_m_s": [
+              0.021271660901952382,
+              0.03322143464452706,
+              0.4480850050748915
+            ],
+            "acceleration_world_m_s2": [
+              -0.03401587488569856,
+              -0.05312496140289279,
+              0.2429298532189242
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.32,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.376881427206309,
+          "measured_vz": 0.47225001931472926,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.564554096950362,
+              2.6140146961413238,
+              1.410217203443629
+            ],
+            "velocity_world_m_s": [
+              0.019953193577179867,
+              0.031162292377133433,
+              0.45750105198702307
+            ],
+            "acceleration_world_m_s2": [
+              -0.03190749135292857,
+              -0.04983215196679058,
+              0.2278724923876627
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.36,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.39628944374227215,
+          "measured_vz": 0.48380454626704733,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.565326698700367,
+              2.6152213221148357,
+              1.4286995435170198
+            ],
+            "velocity_world_m_s": [
+              0.018716447942805928,
+              0.02923078056648366,
+              0.4663334702751654
+            ],
+            "acceleration_world_m_s2": [
+              -0.0299297903657698,
+              -0.04674343856570015,
+              0.21374842201946537
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.4,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.41611935516562926,
+          "measured_vz": 0.49405610611045486,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.566051412785786,
+              2.6163531585866426,
+              1.4475238810656417
+            ],
+            "velocity_world_m_s": [
+              0.017556358697206377,
+              0.027418988378175187,
+              0.4746184346072996
+            ],
+            "acceleration_world_m_s2": [
+              -0.02807467191420889,
+              -0.04384617084972549,
+              0.20049979458725184
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.44,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.4362995185970804,
+          "measured_vz": 0.5028956919228024,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.566731207396143,
+              2.6174148411850897,
+              1.466669018285603
+            ],
+            "velocity_world_m_s": [
+              0.01646817449800603,
+              0.025719495309835458,
+              0.48238987746082546
+            ],
+            "acceleration_world_m_s2": [
+              -0.026334538045809566,
+              -0.04112848256726278,
+              0.1880723480890506
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.48,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.45674805796577256,
+          "measured_vz": 0.5121221692032711,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.5673688667456265,
+              2.6184107182114293,
+              1.4861150712625069
+            ],
+            "velocity_world_m_s": [
+              0.01544743850214968,
+              0.024125340799195174,
+              0.48967962809878157
+            ],
+            "acceleration_world_m_s2": [
+              -0.024702261747009048,
+              -0.03857924296475319,
+              0.17641518380876178
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.52,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.4772672061311085,
+          "measured_vz": 0.5210517188687775,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.567967002476315,
+              2.6193448684490255,
+              1.5058433885335083
+            ],
+            "velocity_world_m_s": [
+              0.014489970112144859,
+              0.02262999571592402,
+              0.4965175429319944
+            ],
+            "acceleration_world_m_s2": [
+              -0.023171157753224522,
+              -0.03618801119879276,
+              0.1654805578518276
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.56,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.4980964191222865,
+          "measured_vz": 0.5271799952313286,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.568528064354598,
+              2.6202211178687036,
+              1.5258364746970692
+            ],
+            "velocity_world_m_s": [
+              0.013591847853716041,
+              0.021227335620470477,
+              0.502931627801071
+            ],
+            "acceleration_world_m_s2": [
+              -0.021734955168217288,
+              -0.03394499357388603,
+              0.15522368560200836
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.6,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.5192131304277354,
+          "measured_vz": 0.5327131007948287,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.5690543503046115,
+              2.621043055298663,
+              1.5460779187575933
+            ],
+            "velocity_world_m_s": [
+              0.012749393314740232,
+              0.01991161568037867,
+              0.5089481526790789
+            ],
+            "acceleration_world_m_s2": [
+              -0.020387771780574063,
+              -0.031841003430705714,
+              0.14560255829839341
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.64,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.5406276512244665,
+          "measured_vz": 0.5390731384172305,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.569548015819777,
+              2.621814047123134,
+              1.5665523269113948
+            ],
+            "velocity_world_m_s": [
+              0.01195915607968656,
+              0.018677447141353224,
+              0.5145917592646743
+            ],
+            "acceleration_world_m_s2": [
+              -0.019124089972110347,
+              -0.029867423520568006,
+              0.13657777098138163
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.68,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.5623142794949498,
+          "measured_vz": 0.5461130209859621,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.570011082790987,
+              2.6225372510699714,
+              1.5872452594987665
+            ],
+            "velocity_world_m_s": [
+              0.011217899597853772,
+              0.017519775256701293,
+              0.5198855619063616
+            ],
+            "acceleration_world_m_s2": [
+              -0.01793873411952984,
+              -0.028016170712029838,
+              0.12811236110298857
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.72,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.5842563734371837,
+          "measured_vz": 0.5518856274238156,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.570445447787605,
+              2.6232156291436697,
+              1.608143171863903
+            ],
+            "velocity_world_m_s": [
+              0.010522587927527577,
+              0.01643385858475968,
+              0.5248512422712304
+            ],
+            "acceleration_world_m_s2": [
+              -0.01682684939678066,
+              -0.02627966288505194,
+              0.12017165714045758
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.76,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.6063967635478571,
+          "measured_vz": 0.5552933514897376,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.570852889825188,
+              2.623851959756752,
+              1.6292333588804642
+            ],
+            "velocity_world_m_s": [
+              0.00987037330176615,
+              0.015415249569515873,
+              0.5295091381459025
+            ],
+            "acceleration_world_m_s2": [
+              -0.015783881891291367,
+              -0.02465078787713952,
+              0.11272313659315442
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.8,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.6287176625499711,
+          "measured_vz": 0.5588123849691304,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.571235077651746,
+              2.624448849109231,
+              1.6505039029155744
+            ],
+            "velocity_world_m_s": [
+              0.009258584464887351,
+              0.014459776324887626,
+              0.5338783267333884
+            ],
+            "acceleration_world_m_s2": [
+              -0.014805559952649226,
+              -0.02312287435427381,
+              0.10573629278114621
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.84,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.6511777707372497,
+          "measured_vz": 0.5623140127313876,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.571593576582379,
+              2.625008741862743,
+              1.6719436250191382
+            ],
+            "velocity_world_m_s": [
+              0.008684715731887657,
+              0.01356352554805538,
+              0.5379767027870104
+            ],
+            "acceleration_world_m_s2": [
+              -0.013887876697331027,
+              -0.02168966448733144,
+              0.09918250989991734
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.88,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.6738153629874499,
+          "measured_vz": 0.5668293355648139,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.571929854910297,
+              2.6255339311530754,
+              1.693542039138538
+            ],
+            "velocity_world_m_s": [
+              0.008146416725984418,
+              0.012722826491867109,
+              0.5418210519013983
+            ],
+            "acceleration_world_m_s2": [
+              -0.013027073597831486,
+              -0.02034528832208307,
+              0.0930349458194844
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.92,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.6965615898271862,
+          "measured_vz": 0.5713068397142886,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.572245289920458,
+              2.6260265679820924,
+              1.715289309171249
+            ],
+            "velocity_world_m_s": [
+              0.007641482752248267,
+              0.01193423593066945,
+              0.5454271192607459
+            ],
+            "acceleration_world_m_s2": [
+              -0.012219625088976628,
+              -0.019084239737800664,
+              0.08726842214790254
+            ]
+          }
+        },
+        {
+          "sim_t_s": 51.96,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.719457590777032,
+          "measured_vz": 0.5740149534832726,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.572541173530476,
+              2.626488670027529,
+              1.7371762086793967
+            ],
+            "velocity_world_m_s": [
+              0.007167845767901296,
+              0.01119452405799337,
+              0.5488096741258816
+            ],
+            "acceleration_world_m_s2": [
+              -0.0114622241283724,
+              -0.017901353896004175,
+              0.08185932110888106
+            ]
+          }
+        },
+        {
+          "sim_t_s": 52.0,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.7424596874286193,
+          "measured_vz": 0.5753115787144629,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.57281871758189,
+              2.626922129906732,
+              1.7591940831013186
+            ],
+            "velocity_world_m_s": [
+              0.006723565912296819,
+              0.0105006612583335,
+              0.5519825703242827
+            ],
+            "acceleration_world_m_s2": [
+              -0.010751768651851944,
+              -0.016791786086990054,
+              0.07678548881117764
+            ]
+          }
+        },
+        {
+          "sim_t_s": 52.04,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.7655369355687693,
+          "measured_vz": 0.5772982360554508,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.57307905880346,
+              2.627328722928196,
+              1.7813348143053385
+            ],
+            "velocity_world_m_s": [
+              0.006306823561890884,
+              0.009849805698843708,
+              0.5549588029907777
+            ],
+            "acceleration_world_m_s2": [
+              -0.010085348868445228,
+              -0.01575099188750025,
+              0.07202614451357597
+            ]
+          }
+        },
+        {
+          "sim_t_s": 52.08,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.7887381515401697,
+          "measured_vz": 0.580117928535907,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.573323263466841,
+              2.62771011436264,
+              1.8035907873405799
+            ],
+            "velocity_world_m_s": [
+              0.005915911877665261,
+              0.009239291690128404,
+              0.5577505617913259
+            ],
+            "acceleration_world_m_s2": [
+              -0.009460235342836326,
+              -0.014774708548265562,
+              0.0675617955138334
+            ]
+          }
+        },
+        {
+          "sim_t_s": 52.12,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.812034010722491,
+          "measured_vz": 0.5826342708818505,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.573552331753673,
+              2.6280678662634065,
+              1.8259548592486434
+            ],
+            "velocity_world_m_s": [
+              0.0055492298144785845,
+              0.008666618768459254,
+              0.5603692808478627
+            ],
+            "acceleration_world_m_s2": [
+              -0.00887386781649789,
+              -0.013858937535192607,
+              0.06337415731301116
+            ]
+          }
+        },
+        {
+          "sim_t_s": 52.16,
+          "stage": "RECOVERING",
+          "min_foot_gap_m": 0.8353983249482997,
+          "measured_vz": 0.5837547880498937,
+          "phase": "RECOVERY_REQUIRED",
+          "command_reference": {
+            "position_world_m": [
+              5.573767201851998,
+              2.6284034438641166,
+              1.8484203298084079
+            ],
+            "velocity_world_m_s": [
+              0.005205275563714276,
+              0.008129441454701635,
+              0.5628256855686871
+            ],
+            "acceleration_world_m_s2": [
+              -0.008323844721717877,
+              -0.01299992815268888,
+              0.05944607872820584
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

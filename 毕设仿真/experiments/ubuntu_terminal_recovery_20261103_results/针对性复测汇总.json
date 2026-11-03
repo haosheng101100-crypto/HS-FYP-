@@ -1,0 +1,117 @@
+{
+  "authorised_cases": [
+    "M18",
+    "M17",
+    "M01"
+  ],
+  "authorised_subset_completed": true,
+  "prepared_templates": 20,
+  "other_templates_not_authorised_for_this_batch": 17,
+  "actual_new_attempts_this_task": 5,
+  "first_fix_M18_physical_failure_retained": true,
+  "second_fix_initial_attempt_interrupted_and_retained": true,
+  "final_revision_valid_physical_cases": 3,
+  "strict_full_case_passes": 2,
+  "all_three_original_safety_physics_audits_pass": true,
+  "coverage_failures_retained": [
+    "M17"
+  ],
+  "cases": [
+    {
+      "case_id": "M18",
+      "category": "correct_safe_exit",
+      "strict_case_pass": true,
+      "safety_pass": true,
+      "physics_pass": true,
+      "coverage_pass": true,
+      "actually_landed_on_platform": false,
+      "platform_first_contact": null,
+      "failures": [],
+      "control_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+      "run_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+      "raw_archive_sha256": "bdd8b67a4e37eca9f10414141e84f51df7666209241e181a8c03dd6b079136b1",
+      "raw_archive_lossless_verified": true
+    },
+    {
+      "case_id": "M17",
+      "category": "coverage_failure",
+      "strict_case_pass": false,
+      "safety_pass": true,
+      "physics_pass": true,
+      "coverage_pass": false,
+      "actually_landed_on_platform": false,
+      "platform_first_contact": null,
+      "failures": [],
+      "control_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+      "run_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+      "raw_archive_sha256": "f8d9a2ef4a0131a82740e58fc71a0bbccf7be486384f9bd638c3777d525bbc47",
+      "raw_archive_lossless_verified": true
+    },
+    {
+      "case_id": "M01",
+      "category": "complete_function_success",
+      "strict_case_pass": true,
+      "safety_pass": true,
+      "physics_pass": true,
+      "coverage_pass": true,
+      "actually_landed_on_platform": true,
+      "platform_first_contact": {
+        "contact_sim_t_s": 53.294,
+        "decision_sim_t_s": 53.31,
+        "observation_sim_t_s": 53.27,
+        "legs": [
+          "front_right_leg_collision",
+          "rear_right_leg_collision"
+        ],
+        "unexpected_uav_collisions": [],
+        "checks": {
+          "precontact_observation_available": true,
+          "known_legs_only": true,
+          "observation_fresh": true,
+          "target_xy": true,
+          "tilt": true,
+          "attitude_target": true,
+          "angular_speed": true,
+          "leg_clearance": true,
+          "leg_speed": true,
+          "footprint": true,
+          "contact_time": true
+        },
+        "scope": "Latest causal observation strictly before reported contact, not exact instantaneous impact velocity."
+      },
+      "failures": [],
+      "control_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+      "run_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+      "raw_archive_sha256": "2eaaed8aa4d95a614f44db8c98e7d088ceb53739da81a01bf68385bfc8aa1c54",
+      "raw_archive_lossless_verified": true
+    }
+  ],
+  "run_control_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+  "control_baseline_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "tests_passed": 274,
+  "original_case_geometry_environment_contact_gates_and_budgets_unchanged": true,
+  "only_profile_changes": [
+    "planner_limits.terminal_downward_speed_m_s=.08",
+    "moving_alignment.initial_candidate_durations_s=existing8/10/12grid"
+  ],
+  "M18_minimum_foot_gap_first_2s_after_exit_m": 0.14002783704952848,
+  "full_raw_uploaded": false,
+  "same_disk_archive_only": true,
+  "host_interruption_user_confirmed_freeze_or_automatic_reboot": true,
+  "host_failure_root_cause_not_established": true,
+  "scope": "Three cases only; no claim new controller passed all20 or arbitrary future motion. Safe exits are not platform landings.",
+  "archive": {
+    "path": "/workspace/outputs/近地退出修复归档_20261103/ubuntu_terminal_recovery_full_20261103.tar.gz",
+    "host_path": "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/outputs/近地退出修复归档_20261103/ubuntu_terminal_recovery_full_20261103.tar.gz",
+    "bytes": 113690443,
+    "sha256": "4cc77637062d13813081210c92eb9652a0ec108f789d2ddf5a311534f304754e",
+    "ordinary_files": 2249,
+    "readback_verified": true,
+    "actual_attempts_this_task": 5,
+    "same_disk_only": true,
+    "offsite_backup": false,
+    "full_raw_uploaded": false,
+    "raw_original_preceding20cases_archive": "outputs/二维多工况归档_20261103/ubuntu_multicondition_full_20261103.tar.gz; SHA256 a04aac2501925fa93e90d97723f5f46bfb868b78ed110c2f9b69a008a2e9e5b2",
+    "symlinks_recorded_without_dereference": 20
+  }
+}
