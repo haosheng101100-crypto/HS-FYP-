@@ -1,0 +1,41 @@
+FEEE
+======================================================================
+ERROR: test_next_tick_keeps_existing_upward_braking_and_position_continuity (test_recovery_handoff.RecoveryHandoffTests.test_next_tick_keeps_existing_upward_braking_and_position_continuity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_handoff.py", line 21, in test_next_tick_keeps_existing_upward_braking_and_position_continuity
+    obs=self.obs();initial=self.reference();r=RecoveryReference(obs,initial_reference=initial,start_s=55.08);r.step(55.08,obs)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: RecoveryReference.__init__() got an unexpected keyword argument 'initial_reference'
+
+======================================================================
+ERROR: test_recovery_does_not_reseed_from_each_new_measurement (test_recovery_handoff.RecoveryHandoffTests.test_recovery_does_not_reseed_from_each_new_measurement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_handoff.py", line 30, in test_recovery_does_not_reseed_from_each_new_measurement
+    obs=self.obs();r=RecoveryReference(obs,initial_reference=self.reference(),start_s=55.08);r.step(55.08,obs);a,_=r.step(55.12,obs);b,_=r.step(55.16,self.obs());self.assertLess(np.linalg.norm(np.array(b.position_world_m)-a.position_world_m),.04)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: RecoveryReference.__init__() got an unexpected keyword argument 'initial_reference'
+
+======================================================================
+ERROR: test_same_tick_handoff_preserves_actual_sent_pva (test_recovery_handoff.RecoveryHandoffTests.test_same_tick_handoff_preserves_actual_sent_pva)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_handoff.py", line 17, in test_same_tick_handoff_preserves_actual_sent_pva
+    obs=self.obs();initial=self.reference();r=RecoveryReference(obs,initial_reference=initial,start_s=55.08)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: RecoveryReference.__init__() got an unexpected keyword argument 'initial_reference'
+
+======================================================================
+FAIL: test_native_backend_passes_sent_reference_and_tick_to_recovery (test_recovery_handoff.RecoveryHandoffTests.test_native_backend_passes_sent_reference_and_tick_to_recovery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_handoff.py", line 28, in test_native_backend_passes_sent_reference_and_tick_to_recovery
+    ns['start_recovery'](f,55.08,self.obs(),'REGRESSION');ref,_=f.recovery.step(55.08,self.obs());self.assertEqual(ref,self.reference())
+                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: BodyR[22 chars]d_m=(np.float64(5.3121304), np.float64(2.31792[280 chars]=0.0) != BodyR[22 chars]d_m=(5.28319, 2.29747, 1.057299), velocity_wor[108 chars]=0.0)
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.007s
+
+FAILED (failures=1, errors=3)

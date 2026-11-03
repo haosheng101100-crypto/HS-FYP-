@@ -1,3 +1,11 @@
+# 当前：M18近地退出连续性修复，物理验证待进行
+
+已定位恢复参考位置下跳和向上制动加速度归零。最小修复及269项Linux测试通过，尚不能声称M18已修复通过。先原样M18，再根据证据补M17/M01两场；不重跑整个20场矩阵。实际控制版本将记录新发布提交，748b27e仅为基线。
+
+[根因证据、实现和范围](experiments/ubuntu_recovery_handoff_20261103/README.md)
+
+---
+
 # 当前：20工况实际运行与独立复核已结束
 
 {'complete_function_success': 15, 'coverage_failure': 2, 'environment_or_insufficient_evidence': 1, 'algorithm_control_or_physical_failure': 1, 'correct_safe_exit': 1}。重点未解决：M18近地退出仍接触；M07未完成交叉；M17反向覆盖不足；M12后处理被系统关机中断，实际数据审计通过但退出码缺失。原始结论保留。没有改控制与安全门限，没有恢复旧重复计划。

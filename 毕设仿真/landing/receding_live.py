@@ -449,12 +449,24 @@ class RecoveryReference:
     This is an explicit failed-attempt controller, not a robust escape proof.
     It does not land or disarm and is not included as successful deck landing.
     """
-    def __init__(self, observation, home=(0.,0.,4.185)):
-        self.p=vec(observation.motion.pose.position_world_m)
-        self.v=vec(observation.motion.velocity_at_origin_world_m_s)
-        self.a=np.zeros(3);self.home=vec(home);self.last=None;self.stable_since=None
+    def __init__(self, observation, home=(0.,0.,4.185), *, initial_reference=None, start_s=None):
+        # A live transition must continue the PVA that was actually sent. Using
+        # measured position and zero acceleration can step the target downward
+        # and discard existing upward braking close to the deck (M18).
+        self.p=vec(initial_reference.position_world_m if initial_reference else observation.motion.pose.position_world_m).copy()
+        self.v=vec(initial_reference.velocity_world_m_s if initial_reference else observation.motion.velocity_at_origin_world_m_s).copy()
+        self.a=vec(initial_reference.acceleration_world_m_s2).copy() if initial_reference else np.zeros(3)
+        self.yaw=initial_reference.yaw_enu_rad if initial_reference else 0.
+        self.home=vec(home);self.last=start_s;self.stable_since=None
+        self.initial_pending=start_s is not None
+        if start_s is not None and (not math.isfinite(start_s) or abs(start_s-observation.sim_t_s)>1e-8):
+            raise ValueError('Recovery must start at the current measured control tick')
 
     def step(self, now, observation):
+        if self.initial_pending:
+            if now!=self.last:raise ValueError('First recovery output must own its declared start tick')
+            self.initial_pending=False
+            return BodyReference(tuple(self.p),tuple(self.v),tuple(self.a),self.yaw),False
         dt=.04 if self.last is None else now-self.last
         if not 0 < dt <= .080001:raise ValueError('Recovery update gap')
         target=np.array([0.,0.,min(.6,max(0.,self.home[2]-self.p[2]))])
@@ -467,14 +479,16 @@ class RecoveryReference:
         delta[2]=np.clip(delta[2],-2.*dt,2.*dt)
         delta[:2]*=min(1.,2.*dt/max(np.linalg.norm(delta[:2]),1e-12))
         # Separate caps reserve upward authority during simultaneous XY braking:
-        # total |a|<1.2 and |jerk|<3, with z caps 1 m/s² and 2 m/s³.
+        # Desired caps are XY=.65, Z=1 with jerk<3. An admitted initial
+        # command retains its PVA; the live final limiter still enforces the
+        # original global acceleration/speed/jerk bounds during transition.
         next_a=self.a+delta
         self.p+=self.v*dt+.5*self.a*dt*dt
         self.v+=.5*(self.a+next_a)*dt;self.a=next_a;self.last=now
         stable=norm(sub(observation.motion.pose.position_world_m,self.home)) < .08 and norm(observation.motion.velocity_at_origin_world_m_s) < .08
         self.stable_since=(now if self.stable_since is None else self.stable_since) if stable else None
         done=self.stable_since is not None and now-self.stable_since >= 1.
-        return BodyReference(tuple(self.p),tuple(self.v),tuple(self.a),0.),done
+        return BodyReference(tuple(self.p),tuple(self.v),tuple(self.a),self.yaw),done
 
 
 def tracking_contact_envelope(plan,state,observation,platform,now,envelope,window_s=5.,error_horizon_s=.35):

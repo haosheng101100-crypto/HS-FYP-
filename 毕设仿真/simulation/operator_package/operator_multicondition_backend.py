@@ -259,7 +259,8 @@ class OperatorApproach(LegacyOperator):
     def start_recovery(self,t,obs,reason):
         self.alignment_reference=None
         self.recovery_started=t
-        self.reference_session.cancel(reason);self.recovery=RecoveryReference(obs,home=self.hold_reference.position_world_m)
+        self.reference_session.cancel(reason);self.recovery=RecoveryReference(obs,home=self.hold_reference.position_world_m,
+            initial_reference=self.last_sent_reference or self.hold_reference,start_s=t)
         self.operator_stage='RECOVERING';self.operator_message='本次降落退出：正在制止下降、升高并返回起飞点悬停'
         self.planner_message='退出原因：'+reason
         self.result['completed']=False;self.event('Failed landing attempt; brake/climb/return: '+reason)

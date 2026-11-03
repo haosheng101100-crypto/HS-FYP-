@@ -1,0 +1,11 @@
+................../workspace/work/recovery_handoff_20261103/毕设仿真/landing/receding_landing.py:441: UserWarning: The problem includes expressions that don't support CPP backend. Defaulting to the SCIPY backend for canonicalization.
+  problem.solve(solver='CLARABEL', warm_start=False, max_iter=100,
+................................................................................................................................../workspace/work/recovery_handoff_20261103/毕设仿真/landing/receding_landing.py:441: UserWarning: The problem includes expressions that don't support CPP backend. Defaulting to the SCIPY backend for canonicalization.
+  problem.solve(solver='CLARABEL', warm_start=False, max_iter=100,
+............................................................................................{"event": "CASE_START", "case_id": "A_X_01", "time": "2026-11-03T10:54:16.649724+00:00"}
+{"event": "CASE_END", "case_id": "A_X_01", "category": "environment_or_insufficient_evidence", "executed": 1, "planned": 30, "time": "2026-11-03T10:54:17.669059+00:00"}
+.............................
+----------------------------------------------------------------------
+Ran 269 tests in 38.850s
+
+OK

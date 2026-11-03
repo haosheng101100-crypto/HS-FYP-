@@ -1,0 +1,41 @@
+EEEE
+======================================================================
+ERROR: test_actual_attempt_records_new_control_revision (test_recovery_revision.ControlRevisionReceiptTests.test_actual_attempt_records_new_control_revision)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_revision.py", line 22, in test_actual_attempt_records_new_control_revision
+    out=Path(d)/'batch';m.prepare(ROOT,out,json.loads((ROOT/'config/experiments/multicondition_matrix_v1.json').read_text()));row=m.begin_attempt(out,'M18','a'*40,control_commit='a'*40);self.assertEqual(row['control_commit'],'a'*40)
+                                                                                                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: begin_attempt() got an unexpected keyword argument 'control_commit'
+
+======================================================================
+ERROR: test_changed_control_requires_its_published_revision_and_explicit_source_hashes (test_recovery_revision.ControlRevisionReceiptTests.test_changed_control_requires_its_published_revision_and_explicit_source_hashes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_revision.py", line 10, in test_changed_control_requires_its_published_revision_and_explicit_source_hashes
+    r=self.revised();self.assertEqual(m.verify_control_revision(r),'a'*40)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.run_multicondition' has no attribute 'verify_control_revision'
+
+======================================================================
+ERROR: test_historical_baseline_receipt_remains_readable (test_recovery_revision.ControlRevisionReceiptTests.test_historical_baseline_receipt_remains_readable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_revision.py", line 19, in test_historical_baseline_receipt_remains_readable
+    self.assertEqual(m.verify_control_revision({'run_commit':'a'*40,'control_commit':m.CONTROL_COMMIT}),m.CONTROL_COMMIT)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.run_multicondition' has no attribute 'verify_control_revision'
+
+======================================================================
+ERROR: test_only_declared_targeted_cases_are_selected_in_requested_order (test_recovery_revision.ControlRevisionReceiptTests.test_only_declared_targeted_cases_are_selected_in_requested_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/recovery_handoff_20261103/毕设仿真/tests/test_recovery_revision.py", line 25, in test_only_declared_targeted_cases_are_selected_in_requested_order
+    self.assertEqual([c['case_id'] for c in m.select_unattempted_cases(cases,set(),case_ids=['M18','M17','M01'])],['M18','M17','M01'])
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: select_unattempted_cases() got an unexpected keyword argument 'case_ids'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.188s
+
+FAILED (errors=4)

@@ -1,4 +1,4 @@
-"""Frozen, single-attempt twenty-case physical batch; no controller changes.
+"""Frozen, single-attempt physical batch with explicit published control provenance.
 
 prepare writes declarations only. run requires a committed-source receipt and
 verified deployment, and never retries an algorithm failure. audit reconciles
@@ -143,7 +143,7 @@ def read_index(output):
     return index
 
 
-def begin_attempt(output, case_id, run_commit):
+def begin_attempt(output, case_id, run_commit, *, control_commit=CONTROL_COMMIT):
     output = Path(output)
     matrix = verify_freeze(output)
     if case_id not in {c['case_id'] for c in matrix['cases']}:
@@ -157,7 +157,7 @@ def begin_attempt(output, case_id, run_commit):
     directory.mkdir(exist_ok=False)
     row = dict(case_id=case_id, attempt=1, attempt_dir=str(directory.resolve()),
                category='in_progress', started_utc=stamp(), run_commit=run_commit,
-               control_commit=CONTROL_COMMIT)
+               control_commit=control_commit)
     save(directory/'attempt.json', row)
     write_index(output, [*index['attempts'], row], 'RUNNING')
     return row
@@ -283,13 +283,28 @@ def load_package_manifest(package, expected_sha256):
     return manifest
 
 
+def verify_control_revision(receipt):
+    control = receipt.get('control_commit')
+    if control == CONTROL_COMMIT:
+        return control
+    changes = receipt.get('control_changes', {})
+    if (not re.fullmatch('[0-9a-f]{40}', str(control)) or control != receipt.get('run_commit')
+            or receipt.get('control_baseline_commit') != CONTROL_COMMIT or not changes):
+        raise ValueError('Changed control requires its actual published revision and baseline')
+    sources = receipt.get('source_sha256', {})
+    for name, digest in changes.items():
+        if (not (name.startswith('landing/') or name == 'simulation/operator_package/operator_multicondition_backend.py')
+                or not re.fullmatch('[0-9a-f]{64}', str(digest)) or sources.get(name) != digest):
+            raise ValueError('Control change missing committed-source hash: ' + name)
+    return control
+
+
 def verify_receipt(root, output, base, package):
     root, output, base, package = map(Path, (root, output, base, package))
     receipt = read_json(output/'code_receipt.json')
     if not re.fullmatch('[0-9a-f]{40}', receipt.get('run_commit', '')):
         raise ValueError('Require a published implementation commit receipt')
-    if receipt.get('control_commit') != CONTROL_COMMIT:
-        raise ValueError('Control baseline changed')
+    verify_control_revision(receipt)
     sources = receipt.get('source_sha256', {})
     required = ('tools/run_multicondition.py', 'tools/multicondition_scene.py',
                 'tools/audit_multicondition.py', 'tools/multicondition_bridge.py',
@@ -371,19 +386,28 @@ def inspect_cycle(root, output, case, row, checks):
     return row
 
 
-def select_unattempted_cases(cases, attempted, limit=None):
+def select_unattempted_cases(cases, attempted, limit=None, *, case_ids=None):
     if limit is not None and (type(limit) is not int or limit <= 0):
         raise ValueError('case-limit must be a positive integer')
     attempted_ids = set(attempted)
+    declared = {case['case_id']: case for case in cases}
+    if case_ids is not None:
+        if not case_ids or len(set(case_ids)) != len(case_ids) or any(cid not in declared for cid in case_ids):
+            raise ValueError('Targeted cases must be distinct declared IDs')
+        cases = [declared[cid] for cid in case_ids]
     selected = [case for case in cases if case['case_id'] not in attempted_ids]
     return selected if limit is None else selected[:limit]
 
 
-def run(root, output, base, package, source, frozen, resume=False, case_limit=None):
+def run(root, output, base, package, source, frozen, resume=False, case_limit=None, case_ids=None):
     root, output, base, package, source, frozen = map(Path, (root, output, base, package, source, frozen))
     matrix = verify_freeze(output)
     index = read_index(output)
-    selected = select_unattempted_cases(matrix['cases'], {v['case_id'] for v in index['attempts']}, case_limit)
+    authorised = read_json(output/'code_receipt.json').get('authorised_case_ids')
+    if authorised is not None:
+        case_ids = authorised if case_ids is None else case_ids
+        if not set(case_ids) <= set(authorised):raise ValueError('Selection exceeds this authorised regression subset')
+    selected = select_unattempted_cases(matrix['cases'], {v['case_id'] for v in index['attempts']}, case_limit, case_ids=case_ids)
     no_gui = os.environ.get('HS_NO_GUI', '1')
     if no_gui not in ('0', '1'):
         raise ValueError('HS_NO_GUI must be 0 or 1')
@@ -406,10 +430,12 @@ def run(root, output, base, package, source, frozen, resume=False, case_limit=No
             # A shared environment mutation blocks expansion before creating an attempt.
             receipt, manifest, environment = verify_receipt(root, output, base, package)
             demo.check_ports()
-            row = begin_attempt(output, case['case_id'], receipt['run_commit'])
+            row = begin_attempt(output, case['case_id'], receipt['run_commit'], control_commit=receipt['control_commit'])
             attempt = Path(row['attempt_dir']); session = attempt/'session_001'
             profile = output/'profiles'/f"{case['case_id']}.json"
-            save(attempt/'declared_protocol.json', dict(run_commit=receipt['run_commit'], control_commit=CONTROL_COMMIT,
+            save(attempt/'declared_protocol.json', dict(run_commit=receipt['run_commit'], control_commit=receipt['control_commit'],
+                 control_baseline_commit=receipt.get('control_baseline_commit', CONTROL_COMMIT),
+                 control_changes=receipt.get('control_changes', {}), authorised_case_ids=authorised,
                  source_sha256=checks, environment_verified=environment, code_receipt_sha256=sha(output/'code_receipt.json'),
                  control_configuration=read_json(profile), case=case, thresholds_relaxed=False,
                  matrix_sha256=sha(output/'matrix.json'), world_only_case=True,
@@ -497,6 +523,7 @@ def main():
     parser.add_argument('--matrix', type=Path)
     for name in ('base','package','source','frozen'): parser.add_argument('--'+name,type=Path)
     parser.add_argument('--resume',action='store_true')
+    parser.add_argument('--case-id',action='append',help='Select declared targeted cases, in requested order')
     parser.add_argument('--case-limit',type=int,help='Run at most this many new cases, then retain READY_FOR_REVIEW')
     args = parser.parse_args(); root = Path(__file__).resolve().parents[1]
     output = args.output.resolve()
@@ -507,7 +534,7 @@ def main():
         return 0 if audit_batch(output)['complete'] else 2
     if not all(getattr(args,n) for n in ('base','package','source','frozen')):
         parser.error('run requires --base --package --source --frozen')
-    return run(root,output,args.base.resolve(),args.package.resolve(),args.source.resolve(),args.frozen.resolve(),args.resume,args.case_limit)
+    return run(root,output,args.base.resolve(),args.package.resolve(),args.source.resolve(),args.frozen.resolve(),args.resume,args.case_limit,args.case_id)
 
 
 if __name__ == '__main__':
