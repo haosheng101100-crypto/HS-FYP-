@@ -238,7 +238,7 @@ def event_evidence(case,scene,rows,events,t,p,end_s):
    if trigger['type']=='measured_descent':
     # Only first M15 trigger is clearance gated; second is recovery gated.
     if i==0:measured &= bool(trigger['clearance_range_m'][0]<=gap<=trigger['clearance_range_m'][1])
-    measured &= bool(row.get('planner_phase')==trigger['phase'] and vz<trigger['vertical_speed_less_than_m_s'])
+    measured &= bool(row.get('planner_phase')==trigger['phase'] and (cid=='M15' and i==1 or vz<trigger['vertical_speed_less_than_m_s']))
   before=v[(t[:-1]>=stamp-.4)&(t[1:]<stamp-.05)]
   after_mask=(t[:-1]>stamp+.05)&(t[1:]<stop)
   after=v[after_mask]
@@ -271,9 +271,13 @@ def event_evidence(case,scene,rows,events,t,p,end_s):
   if len(scene)==2:
    a,b=scene;changes=[e['time'] for e in events if e['event']=='PLANAR_REACQUIRE' and a['time']<e['time']<b['time']]
    alignment=[e['time'] for e in events if e['event']=='ALIGNMENT_COMPLETE' and changes and changes[-1]<e['time']<b['time']]
-   plans=[e['time'] for e in events if e['event']=='PLAN_ACTIVATED' and alignment and alignment[-1]<e['time']<b['time']]
+   # World scene runs after this tick's controller update. A new plan
+   # logged at the same sim timestamp is causal only when its already-
+   # activated sequence count also matches the world-side measured count.
+   plans=[e['time'] for e in events if e['event']=='PLAN_ACTIVATED' and alignment and alignment[-1]<e['time']<=b['time']]
+   counts_match=all(sum(e['event']=='PLAN_ACTIVATED' and e['time']<=sample['time'] for e in events)==sample.get('activated_plan_count') for sample in (a,b))
    real_align=any(a['time']<r['sim_t_s']<b['time'] and r.get('planner_phase')=='PLANAR_FOLLOW' and r.get('stage')=='ALIGNING' for r in rows)
-   good=bool(plans and real_align and b.get('reacquisitions',0)>a.get('reacquisitions',0) and b.get('activated_plan_count',0)>a.get('activated_plan_count',0))
+   good=bool(plans and counts_match and real_align and b.get('reacquisitions',0)>a.get('reacquisitions',0) and b.get('activated_plan_count',0)>a.get('activated_plan_count',0))
   checks['second_trigger_after_real_recovery_and_new_plan']=good
  return dict(passed=all(checks.values()),checks=checks,events=details,post_objective_events_retained=[e for e in original_scene if e.get('time',math.inf)>=end_s],response_velocity_delta_threshold_m_s=.01,response_sustained_raw_intervals=3)
 

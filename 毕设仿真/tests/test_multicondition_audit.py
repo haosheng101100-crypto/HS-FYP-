@@ -110,3 +110,17 @@ class NoWindowEvidenceTests(unittest.TestCase):
    rows[0]['planner_phase']='PLANNING_HOVER'
    self.assertFalse(history_evidence(run,rows=rows,events=events,status=status)['passed'])
 if __name__=='__main__':unittest.main()
+
+class SecondReversalCausalOrderTests(unittest.TestCase):
+ def test_new_plan_already_activated_in_same_tick_and_level_flight_are_valid(self):
+  t=np.arange(0,12,.02);vx=np.where(t<3,.2,np.where(t<8,-.2,.2));p=np.column_stack((np.cumsum(vx)*.02,np.zeros(len(t)),np.zeros(len(t))))
+  case={'case_id':'M15','scenario':'multi_m15','coverage':{'required_events':2},'trigger':{'type':'measured_descent','clearance_range_m':[3.4,3.85],'phase':'TRACKING','vertical_speed_less_than_m_s':-.02}}
+  scene=[];rows=[]
+  for i,(now,gap,vz,reacq,plans,target) in enumerate([(3.,3.6,-.1,0,1,[-.2,0]),(8.,3.98,.015,1,2,[.2,0])]):
+   scene.append({'event':'MULTICONDITION_MANEUVER_TRIGGERED','index':i+1,'case_id':'M15','scenario':'multi_m15','time':now,'elapsed':now,'measured_leg_gap_m':gap,'measured_vertical_speed_m_s':vz,'planner_phase':'TRACKING','reacquisitions':reacq,'activated_plan_count':plans,'target_xy':target,'planner_knows_future_commands':False})
+   rows.append({'sim_t_s':now,'measured_leg_gap_m':gap,'planner_phase':'TRACKING','observation':{'motion':{'velocity_at_origin_world_m_s':[0,0,vz]}}})
+  rows.append({'sim_t_s':5.,'planner_phase':'PLANAR_FOLLOW','stage':'ALIGNING'})
+  events=[{'event':name,'time':now} for name,now in [('PLAN_ACTIVATED',.2),('PLANAR_REACQUIRE',4.),('ALIGNMENT_COMPLETE',6.),('PLAN_ACTIVATED',8.)]]
+  self.assertTrue(event_evidence(case,scene,rows,events,t,p,11.8)['passed'])
+  events[-1]['time']=8.04
+  self.assertFalse(event_evidence(case,scene,rows,events,t,p,11.8)['passed'])

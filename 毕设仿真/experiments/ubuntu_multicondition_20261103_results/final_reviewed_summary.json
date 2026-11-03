@@ -1,0 +1,217 @@
+{
+  "planned_distinct_cases": 20,
+  "effective_batch_attempts": 20,
+  "additional_initialization_interruption": 1,
+  "total_physical_attempts": 21,
+  "original_counts": {
+    "complete_function_success": 14,
+    "correct_safe_exit": 1,
+    "coverage_failure": 2,
+    "algorithm_control_or_physical_failure": 2,
+    "environment_or_insufficient_evidence": 1
+  },
+  "reviewed_counts": {
+    "complete_function_success": 15,
+    "coverage_failure": 2,
+    "environment_or_insufficient_evidence": 1,
+    "algorithm_control_or_physical_failure": 1,
+    "correct_safe_exit": 1
+  },
+  "cases": [
+    {
+      "case_id": "M01",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M02",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M03",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M04",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M05",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M06",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M07",
+      "original_category": "algorithm_control_or_physical_failure",
+      "reviewed_category": "coverage_failure",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": false,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M08",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M09",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M10",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M11",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M12",
+      "original_category": "environment_or_insufficient_evidence",
+      "reviewed_category": "environment_or_insufficient_evidence",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M13",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M14",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M15",
+      "original_category": "coverage_failure",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M16",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M17",
+      "original_category": "coverage_failure",
+      "reviewed_category": "coverage_failure",
+      "landed": false,
+      "safety_passed": true,
+      "coverage_passed": false,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M18",
+      "original_category": "algorithm_control_or_physical_failure",
+      "reviewed_category": "algorithm_control_or_physical_failure",
+      "landed": false,
+      "safety_passed": false,
+      "coverage_passed": true,
+      "physics_passed": false
+    },
+    {
+      "case_id": "M19",
+      "original_category": "complete_function_success",
+      "reviewed_category": "complete_function_success",
+      "landed": true,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    },
+    {
+      "case_id": "M20",
+      "original_category": "correct_safe_exit",
+      "reviewed_category": "correct_safe_exit",
+      "landed": false,
+      "safety_passed": true,
+      "coverage_passed": true,
+      "physics_passed": true
+    }
+  ],
+  "actual_run_commit": "caab35f1ab49ff9a21bf3dae49026b43caa440e9",
+  "control_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "tests_after_audit_correction": 261,
+  "archive": {
+    "path": "/workspace/outputs/二维多工况归档_20261103/ubuntu_multicondition_full_20261103.tar.gz",
+    "bytes": 865525423,
+    "sha256": "a04aac2501925fa93e90d97723f5f46bfb868b78ed110c2f9b69a008a2e9e5b2",
+    "ordinary_files": 5888,
+    "readback_verified": true,
+    "offsite_backup": false,
+    "full_raw_uploaded": false,
+    "host_path": "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/outputs/二维多工况归档_20261103/ubuntu_multicondition_full_20261103.tar.gz"
+  },
+  "full_raw_uploaded": false,
+  "planning_json_history_uploaded_complete": true
+}

@@ -64,7 +64,18 @@ def audit_rows(rows,cfg,com_offset=(0,0,0),events=None):
             gap=row.get('measured_leg_gap_m')
             if gap is None:gap=min(f['clearance_m'] for f in row['feet'])
             if not equal(inputs['gap_m'],gap):failures.append(dict(time=now,reason='POLICY_CLEARANCE_MISMATCH'))
-            physical_contact=any(bool((row.get(k) or {}).get('active')) for k in ('contact_frame','first_new_contact_event'))
+            # Native ContactFrame serialization has sim_t_s/leg_names rather
+            # than an active flag. Recognize its fresh actual collision names;
+            # an empty/future/stale object must not manufacture contact.
+            def observed_contact(frame):
+                if not isinstance(frame,dict):return False
+                if 'active' in frame:return frame['active'] is True
+                stamp=frame.get('sim_t_s')
+                names=frame.get('leg_names',[])+frame.get('unexpected_uav_collisions',[])
+                return bool(isinstance(stamp,(float,int)) and not isinstance(stamp,bool)
+                            and math.isfinite(stamp) and -1e-8<=now-stamp<=.06000001
+                            and names and all(isinstance(name,str) and name for name in names))
+            physical_contact=any(observed_contact(row.get(k)) for k in ('contact_frame','first_new_contact_event'))
             native_started=bool(events and any(e['event']=='NATIVE_CAPTURE_STARTED' and e['time']<now-1e-8 for e in events))
             contact_latched=contact_latched or physical_contact or native_started
             if inputs['contact']!=contact_latched:

@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif']=['Noto Sans CJK SC','DejaVu Sans'];plt.rcParams['axes.unicode_minus']=False
 out=Path(sys.argv[1]);index=json.loads((out/'result_index.json').read_text());summary=[]
 for attempt in index['attempts']:
+ if attempt['category']=='in_progress':continue
  run=Path(attempt.get('run',Path(attempt['attempt_dir'])/'session_001/cycle_001'));res=run/'results';case=json.loads((out/'cases'/attempt['case_id']/'case.json').read_text());a=attempt.get('multicondition_audit',{})
  row=dict(case_id=attempt['case_id'],kind=case['kind'],category=attempt['category'],run_commit=attempt['run_commit'],landing_objective=a.get('landing_objective'),coverage=a.get('coverage',{}).get('passed'),safety=a.get('safety',{}).get('passed'),failure=a.get('error'))
  summary.append(row)
@@ -31,8 +32,9 @@ for attempt in index['attempts']:
  fig,axs=plt.subplots(2,3,figsize=(16,9));xy=axs[0,0]
  for name,(times,points) in native.items():
   step=max(1,len(times)//2500);xy.plot(points[::step,0],points[::step,1],label='平台原始物理抽样' if name=='landing_vehicle' else '无人机原始物理抽样')
-  axs[0,1].plot(times[::step]-start,points[::step,2],label=name)
+  if name=='uav':axs[0,1].plot(times[::step]-start,points[::step,2],label='无人机机体原点')
   velocity=np.gradient(points,times,axis=0);axs[0,2].plot(times[::step]-start,np.linalg.norm(velocity[::step],axis=1),label=name)
+ axs[0,1].plot(T-start,[r['measured_deck']['motion']['pose']['position_world_m'][2] for r in control],label='实测甲板');axs[0,1].legend(fontsize=8)
  xy.plot(ref[:,0],ref[:,1],'--',alpha=.6,label='世界端目标速度积分参考（非物理位置）');xy.axis('equal');xy.set_title('实际XY与数值参考');xy.legend(fontsize=8)
  gap=np.array([min((v['clearance_m'] for v in r.get('feet',[])),default=np.nan) for r in control]);axs[1,0].plot(T-start,gap);axs[1,0].set_title('实测最低脚底净空/m')
  for axis in range(2):
@@ -41,7 +43,7 @@ for attempt in index['attempts']:
  for r in control:
   u=np.array(r['observation']['motion']['velocity_at_origin_world_m_s']);p=np.array(r['measured_deck']['motion']['velocity_at_origin_world_m_s']);rel.append(np.linalg.norm((u-p)[:2]))
  axs[1,2].plot(T-start,rel);axs[1,2].set_title('实测水平机体/甲板相对速度/m/s（精确脚底接触另见审计）')
- axs[0,1].set_title('实际机体/平台高度/m');axs[0,2].set_title('原始位姿差分实际速度/m/s');axs[1,1].set_title('世界端目标与整形后的命令/m/s');axs[1,1].legend(fontsize=8)
+ axs[0,1].set_title('实际机体原点与甲板高度/m');axs[0,2].set_title('原始位姿差分原点速度/m/s（COM另见审计）');axs[1,1].set_title('世界端目标与整形后的命令/m/s');axs[1,1].legend(fontsize=8)
  events=json.loads((res/'scene_maneuvers.json').read_text()) if (res/'scene_maneuvers.json').exists() else []
  for ax in axs.flat:
   ax.grid(alpha=.25)

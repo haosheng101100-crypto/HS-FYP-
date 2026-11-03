@@ -1,3 +1,11 @@
+# 当前：20工况实际运行与独立复核已结束
+
+{'complete_function_success': 15, 'coverage_failure': 2, 'environment_or_insufficient_evidence': 1, 'algorithm_control_or_physical_failure': 1, 'correct_safe_exit': 1}。重点未解决：M18近地退出仍接触；M07未完成交叉；M17反向覆盖不足；M12后处理被系统关机中断，实际数据审计通过但退出码缺失。原始结论保留。没有改控制与安全门限，没有恢复旧重复计划。
+
+[逐场结果、曲线、原始数据保留位置及下一步](../experiments/ubuntu_multicondition_20261103_results/README.md)
+
+---
+
 # 当前状态：环境中断后分阶段恢复
 
 20工况支持已实现。batch001的M01初始化遇主机硬卡死/重启，未起飞、未形成有效结果；原始证据保留。服务器/飞控无查看器基础检查通过，当前采用不启动三维查看器的同物理模型运行方式，255项测试通过；根因尚未建立。下一步先在独立batch002补跑M01，审计后继续其余19，原门限保持。
