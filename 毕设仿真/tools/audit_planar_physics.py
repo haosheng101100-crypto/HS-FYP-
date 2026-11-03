@@ -20,8 +20,24 @@ def axis_evidence(times,points,scenario,speed_limit):
  speeds=np.linalg.norm(velocity,axis=1);accelerations=np.linalg.norm(acceleration,axis=1)
  peaks=dict(checks={'actual_speed':bool(speeds.max()<=speed_limit)},samples=len(t),start_s=float(t[0]),end_s=float(t[-1]),max_raw_gap_s=float(dt.max()),platform_pose_freshness_s=.06,peak_speed_m_s=float(speeds.max()),peak_acceleration_m_s2=float(accelerations.max()),speed_limit_m_s=speed_limit)
  ranges=np.ptp(np.asarray(points),axis=0)
- axes=(0,) if scenario in ('planar_forward_backward','planar_reacquire_x') else (1,) if scenario in ('planar_lateral','planar_reacquire_y') else (0,1)
+ # Explicit declared mechanism/axis adapter; unknown names fail closed.
+ axis_map={'planar_forward_backward':(0,),'planar_reacquire_x':(0,),
+           'planar_lateral':(1,),'planar_reacquire_y':(1,),
+           'planar_diagonal':(0,1),'planar_reversal':(0,1),'planar_xy':(0,1),'planar_reacquire_xy':(0,1)}
+ axis_map.update({f'multi_m{i:02d}':((0,) if i in (15,16) else (0,1)) for i in range(1,21)})
+ if scenario not in axis_map:raise ValueError('Unknown declared planar scene: '+str(scenario))
+ axes=axis_map[scenario]
  return peaks,ranges,bool(all(ranges[i]>.01 for i in axes))
+
+def planar_interval_start(rows,events,scenario):
+ # Legacy audits keep their original LANDING interval. Known multicondition
+ # worlds can safely exit while still following, before any descent epoch.
+ known={f'multi_m{i:02d}' for i in range(1,21)}
+ follows=[e['time'] for e in events if e.get('event')=='PLANAR_INITIAL_FOLLOW']
+ if scenario in known and len(follows)==1 and any(r.get('planner_phase')=='PLANAR_FOLLOW' and r['sim_t_s']>=follows[0] for r in rows):return follows[0]
+ landing=[r['sim_t_s'] for r in rows if r.get('stage')=='LANDING']
+ if landing:return min(landing)
+ raise ValueError('No declared landing/follow flight interval')
 
 def audit(run):
  run=Path(run);res=run/'results';status=json.loads((res/'execution_status.json').read_text());cfg=json.loads((run/'config/experiments/receding_live_v1.json').read_text());ex=json.loads((run/'config/experiments/execution_v1.json').read_text());rows=[json.loads(s) for s in (res/'receding_control.jsonl').read_text().splitlines()]
@@ -38,7 +54,7 @@ def audit(run):
      if t in poses[k]:assert poses[k][t]==pose,'Conflicting raw platform/body poses'
      poses[k][t]=pose
    elif k=='deck_contact' and parse_deck_contacts(m,ex['deck_collision'],mapping,ex['uav_model_prefix']).active:contacts.append(float(m.get('header',{}).get('stamp',{}).get('sec',0))+float(m.get('header',{}).get('stamp',{}).get('nsec',0))*1e-9)
- car=sorted(poses['car_pose'].items());ct=[t for t,p in car];start=next(v['sim_t_s'] for v in rows if v['stage']=='LANDING');end=rows[-1]['sim_t_s'];seq=[(t,p.position_world_m) for t,p in car if start<=t<=end]
+ car=sorted(poses['car_pose'].items());ct=[t for t,p in car];session=res/'receding_session.json';record=(json.loads(session.read_text()) if session.exists() else json.loads((res/'receding_attempts.json').read_text())[-1]) if status['scenario'].startswith('multi_') else {'events':[]};start=planar_interval_start(rows,record['events'],status['scenario']);end=rows[-1]['sim_t_s'];seq=[(t,p.position_world_m) for t,p in car if start<=t<=end]
  # Acceleration is measured, not compared to an invented platform hard limit.
  peaks,ranges,axes_exercised=axis_evidence([t for t,p in seq],[p for t,p in seq],status['scenario'],cfg['planar_landing']['maximum_platform_speed_m_s'])
  scenario=status['scenario']

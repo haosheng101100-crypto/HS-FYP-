@@ -1,0 +1,262 @@
+{
+  "M01": {
+    "shaped_command_max_abs_xy_m": [
+      8.385529995154075,
+      4.841387999999936
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.0,
+    "shaped_command_curvature_min_max": [
+      -5.558964500081558e-15,
+      5.558307320823257e-15
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M02": {
+    "shaped_command_max_abs_xy_m": [
+      12.065679791223756,
+      12.065679791223756
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000002,
+    "reference_peak_acceleration_m_s2": 0.0,
+    "shaped_command_curvature_min_max": [
+      0.0,
+      0.0
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M03": {
+    "shaped_command_max_abs_xy_m": [
+      4.98232452432074,
+      2.290546069766213
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.024999983333342676,
+    "shaped_command_curvature_min_max": [
+      -0.4004187133845579,
+      -0.39812462452679687
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M04": {
+    "shaped_command_max_abs_xy_m": [
+      5.81364491829267,
+      3.716827465816361
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000002,
+    "reference_peak_acceleration_m_s2": 0.06749989875005914,
+    "shaped_command_curvature_min_max": [
+      0.3340823554722593,
+      0.457785240809059
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M05": {
+    "shaped_command_max_abs_xy_m": [
+      5.991959194069145,
+      1.431251000141268
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.02999997813327714,
+    "shaped_command_curvature_min_max": [
+      0.16684124023973873,
+      1.334727885464012
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M06": {
+    "shaped_command_max_abs_xy_m": [
+      6.202721782422483,
+      0.7409469722757086
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.061439537677690954,
+    "shaped_command_curvature_min_max": [
+      -2.3745359827626493,
+      2.374436963565599
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M07": {
+    "shaped_command_max_abs_xy_m": [
+      1.1893514759828068,
+      0.3602336461017377
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000002,
+    "reference_peak_acceleration_m_s2": 0.0873816662402187,
+    "shaped_command_curvature_min_max": [
+      -7.951857801241587,
+      7.951857801241557
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M08": {
+    "shaped_command_max_abs_xy_m": [
+      14.029202777317145,
+      8.099764000000153
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.0749991836734684,
+    "shaped_command_curvature_min_max": [
+      -8.437682151054987e-15,
+      7.32480001639472e-15
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M09": {
+    "shaped_command_max_abs_xy_m": [
+      11.237398559169408,
+      4.459405766037189
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.03840772104349414,
+    "shaped_command_curvature_min_max": [
+      -0.44598343168337024,
+      0.7191382608546943
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M10": {
+    "shaped_command_max_abs_xy_m": [
+      1.5512385596651461,
+      0.8956079999999988
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.11248500000000033,
+    "shaped_command_curvature_min_max": [
+      -3.5181206573379187e-12,
+      5.018255191902116e-12
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M11": {
+    "shaped_command_max_abs_xy_m": [
+      4.696268175955001,
+      5.642617791087172
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.117163085937503,
+    "shaped_command_curvature_min_max": [
+      -1.6543612251060553e-12,
+      1574.5217370032865
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M12": {
+    "shaped_command_max_abs_xy_m": [
+      3.2634879702832436,
+      9.613476254015316
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.11780153222896914,
+    "shaped_command_curvature_min_max": [
+      0.0,
+      1.2994058081867483
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M13": {
+    "shaped_command_max_abs_xy_m": [
+      1.8447385823151754,
+      7.09982683074386
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.11044149822655065,
+    "shaped_command_curvature_min_max": [
+      0.0,
+      1.7799437658360593
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M14": {
+    "shaped_command_max_abs_xy_m": [
+      4.636926801764548,
+      6.5670817462061155
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 8.838834764831844,
+    "shaped_command_curvature_min_max": [
+      0.0,
+      3.8768940287895934
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M15": {
+    "shaped_command_max_abs_xy_m": [
+      9.682775999999874,
+      0.0
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.0,
+    "shaped_command_curvature_min_max": [
+      0.0,
+      0.0
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M16": {
+    "shaped_command_max_abs_xy_m": [
+      9.682775999999874,
+      0.0
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.0,
+    "shaped_command_curvature_min_max": [
+      0.0,
+      0.0
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M17": {
+    "shaped_command_max_abs_xy_m": [
+      8.385529995154075,
+      4.841387999999937
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000001,
+    "reference_peak_acceleration_m_s2": 0.0,
+    "shaped_command_curvature_min_max": [
+      -5.568364701958014e-15,
+      5.573547016714365e-15
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M18": {
+    "shaped_command_max_abs_xy_m": [
+      6.846756570310242,
+      6.846756570310242
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000002,
+    "reference_peak_acceleration_m_s2": 0.0,
+    "shaped_command_curvature_min_max": [
+      0.0,
+      0.0
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M19": {
+    "shaped_command_max_abs_xy_m": [
+      5.1666540433589745,
+      1.5315227211653282
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000002,
+    "reference_peak_acceleration_m_s2": 10.769984215809277,
+    "shaped_command_curvature_min_max": [
+      -492.8664491437045,
+      4.7948116482958705
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  },
+  "M20": {
+    "shaped_command_max_abs_xy_m": [
+      1.7873314957649227,
+      3.8070828054188444
+    ],
+    "shaped_command_peak_acceleration_m_s2": 0.12000000000000002,
+    "reference_peak_acceleration_m_s2": 12.350556284794994,
+    "shaped_command_curvature_min_max": [
+      -5533.525507022697,
+      130.1588748559158
+    ],
+    "source": "original PlanarMotionCommand dt=.04; not physical validation"
+  }
+}

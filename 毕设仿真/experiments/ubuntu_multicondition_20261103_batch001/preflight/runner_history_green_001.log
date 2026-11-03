@@ -1,0 +1,16 @@
+test_attempt_is_recorded_before_launch_and_cannot_be_overwritten (test_multicondition_runner.BatchTests.test_attempt_is_recorded_before_launch_and_cannot_be_overwritten) ... ok
+test_compression_losslessly_preserves_original_and_no_overwrite (test_multicondition_runner.BatchTests.test_compression_losslessly_preserves_original_and_no_overwrite) ... ok
+test_corrupt_denominator_is_rejected_before_attempt (test_multicondition_runner.BatchTests.test_corrupt_denominator_is_rejected_before_attempt) ... ok
+test_duplicate_case_rejected_before_creating_output (test_multicondition_runner.BatchTests.test_duplicate_case_rejected_before_creating_output) ... ok
+test_isolated_supervisor_and_backend_are_the_actual_launch_and_deployment (test_multicondition_runner.BatchTests.test_isolated_supervisor_and_backend_are_the_actual_launch_and_deployment) ... ok
+test_malformed_history_is_retained_as_failure (test_multicondition_runner.BatchTests.test_malformed_history_is_retained_as_failure) ... ok
+test_missing_or_corrupt_persisted_audit_cannot_pass_reconciliation (test_multicondition_runner.BatchTests.test_missing_or_corrupt_persisted_audit_cannot_pass_reconciliation) ... ok
+test_only_dedicated_multicondition_manifest_is_accepted (test_multicondition_runner.BatchTests.test_only_dedicated_multicondition_manifest_is_accepted) ... ok
+test_prepare_preserves_control_and_freezes_twenty_unique_cases (test_multicondition_runner.BatchTests.test_prepare_preserves_control_and_freezes_twenty_unique_cases) ... ok
+test_proven_zero_request_native_exit_uses_auditor_history_rules (test_multicondition_runner.BatchTests.test_proven_zero_request_native_exit_uses_auditor_history_rules) ... ok
+test_success_claim_requires_closed_disarmed_native_evidence (test_multicondition_runner.BatchTests.test_success_claim_requires_closed_disarmed_native_evidence) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 1.040s
+
+OK

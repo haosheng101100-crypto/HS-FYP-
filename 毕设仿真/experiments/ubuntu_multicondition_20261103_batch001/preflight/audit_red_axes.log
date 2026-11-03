@@ -1,0 +1,32 @@
+test_late_command_without_physical_response_is_not_coverage (test_multicondition_audit.EventCoverageTests.test_late_command_without_physical_response_is_not_coverage) ... ok
+test_unknown_scene_event_fails_closed (test_multicondition_audit.EventCoverageTests.test_unknown_scene_event_fails_closed) ... ok
+test_circle_requires_actual_curvature_through_contact (test_multicondition_audit.MulticonditionAuditTests.test_circle_requires_actual_curvature_through_contact) ... ok
+test_eight_requires_actual_crossing_not_only_heading_change (test_multicondition_audit.MulticonditionAuditTests.test_eight_requires_actual_crossing_not_only_heading_change) ... ok
+test_fixed_deck_pose_and_raw_gaps_fail_closed (test_multicondition_audit.MulticonditionAuditTests.test_fixed_deck_pose_and_raw_gaps_fail_closed) ... ok
+test_multiple_recovery_needs_each_alignment_and_new_plan (test_multicondition_audit.MulticonditionAuditTests.test_multiple_recovery_needs_each_alignment_and_new_plan) ... ok
+test_raw_compressed_conflicts_are_rejected (test_multicondition_audit.MulticonditionAuditTests.test_raw_compressed_conflicts_are_rejected) ... ok
+test_safe_exit_does_not_meet_landing_objective (test_multicondition_audit.MulticonditionAuditTests.test_safe_exit_does_not_meet_landing_objective) ... ok
+test_declared_x_only_multicondition_is_not_required_to_move_y (test_multicondition_audit.OriginalPhysicsAdapterTests.test_declared_x_only_multicondition_is_not_required_to_move_y) ... FAIL
+test_unknown_scene_is_not_implicitly_xy_accepted (test_multicondition_audit.OriginalPhysicsAdapterTests.test_unknown_scene_is_not_implicitly_xy_accepted) ... FAIL
+test_embedded_response_request_must_match_immutable_sequence (test_multicondition_audit.RequestHistoryTests.test_embedded_response_request_must_match_immutable_sequence) ... ok
+
+======================================================================
+FAIL: test_declared_x_only_multicondition_is_not_required_to_move_y (test_multicondition_audit.OriginalPhysicsAdapterTests.test_declared_x_only_multicondition_is_not_required_to_move_y)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/multicondition_20261103/毕设仿真/tests/test_multicondition_audit.py", line 68, in test_declared_x_only_multicondition_is_not_required_to_move_y
+    self.assertTrue(axis_evidence(t,p,scene,.8)[2])
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_unknown_scene_is_not_implicitly_xy_accepted (test_multicondition_audit.OriginalPhysicsAdapterTests.test_unknown_scene_is_not_implicitly_xy_accepted)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/multicondition_20261103/毕设仿真/tests/test_multicondition_audit.py", line 72, in test_unknown_scene_is_not_implicitly_xy_accepted
+    with self.assertRaises(ValueError):axis_evidence(t,p,'multi_m99',.8)
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.019s
+
+FAILED (failures=2)

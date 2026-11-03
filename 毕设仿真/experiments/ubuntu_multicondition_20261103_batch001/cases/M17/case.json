@@ -1,0 +1,63 @@
+{
+  "case_id": "M17",
+  "scenario": "multi_m17",
+  "kind": "height_reversal",
+  "parameters": {
+    "formula": "(.216506350946,.125) then its negation at measured mid descent",
+    "initial_target_xy": [
+      0.21650635094610965,
+      0.125
+    ]
+  },
+  "trigger": {
+    "type": "measured_descent",
+    "clearance_range_m": [
+      1.9,
+      2.1
+    ],
+    "phase": "TRACKING",
+    "vertical_speed_less_than_m_s": -0.02,
+    "native_contact_priority": true
+  },
+  "coverage": {
+    "min_direction_change_rad": 0.1,
+    "required_events": 1,
+    "require_precontact_actual_motion_response": true,
+    "continuous_curve_through_contact": false,
+    "requires_actual_crossing": false,
+    "requires_curvature_sign_change": false,
+    "requires_variable_curvature": false,
+    "native_contact_priority": true
+  },
+  "expected": {
+    "landing_objective": false,
+    "allowed_outcomes": [
+      "landing",
+      "audited_safe_exit"
+    ],
+    "safe_exit_satisfies_landing_objective": false
+  },
+  "seed": 2026110317,
+  "initial": {
+    "clearance_m": 4.0,
+    "platform_xy_m": [
+      3.0,
+      0.0
+    ],
+    "geometry": "original_planar_profile",
+    "deck_yaw_rad": 0.0,
+    "deck_height": "unchanged_original_model",
+    "aircraft_xyz_m": [
+      0.0,
+      0.0,
+      0.195
+    ],
+    "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+  },
+  "budget": {
+    "total_task_s": 40.0,
+    "cumulative_wait_s": 25.0,
+    "max_reacquisitions": 3
+  },
+  "auditor_version": "multicondition_audit_v1"
+}

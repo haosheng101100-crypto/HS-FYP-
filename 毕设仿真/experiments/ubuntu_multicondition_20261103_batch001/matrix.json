@@ -1,0 +1,1351 @@
+{
+  "schema_version": "multicondition_matrix_v1",
+  "controller_future_access": false,
+  "command_limits": {
+    "speed_m_s": 0.8,
+    "acceleration_m_s2": 0.12,
+    "jerk_m_s3": 0.3
+  },
+  "world_reference_only": true,
+  "cases": [
+    {
+      "case_id": "M01",
+      "scenario": "multi_m01",
+      "kind": "constant",
+      "parameters": {
+        "speed_m_s": 0.25,
+        "angle_deg": 30,
+        "formula": "v=.25(cos(pi/6),sin(pi/6))"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110301,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M02",
+      "scenario": "multi_m02",
+      "kind": "constant",
+      "parameters": {
+        "speed_m_s": 0.45,
+        "angle_deg": 135,
+        "formula": "v=.45(cos(3pi/4),sin(3pi/4))"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110302,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M03",
+      "scenario": "multi_m03",
+      "kind": "circle",
+      "parameters": {
+        "radius_m": 2.5,
+        "speed_m_s": 0.25,
+        "angular_speed_rad_s": -0.1,
+        "phase_rad": 0.0,
+        "formula": "q=(2.5(cos(-.1t)-1),2.5sin(-.1t)); v=dq/dt"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": true,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110303,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M04",
+      "scenario": "multi_m04",
+      "kind": "circle",
+      "parameters": {
+        "radius_m": 3.0,
+        "speed_m_s": 0.45,
+        "angular_speed_rad_s": 0.15,
+        "phase_rad": 0.0,
+        "formula": "q=(3(cos(.15t)-1),3sin(.15t)); v=dq/dt"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": true,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110304,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M05",
+      "scenario": "multi_m05",
+      "kind": "ellipse",
+      "parameters": {
+        "semi_axes_m": [
+          3.0,
+          1.5
+        ],
+        "angular_speed_rad_s": 0.1,
+        "phase_rad": 0.0,
+        "formula": "q=(3(cos(.1t)-1),1.5sin(.1t)); v=dq/dt"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": true,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": true,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110305,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M06",
+      "scenario": "multi_m06",
+      "kind": "s_curve",
+      "parameters": {
+        "forward_speed_m_s": 0.16,
+        "lateral_amplitude_m": 0.6,
+        "angular_speed_rad_s": 0.32,
+        "phase_rad": 0.0,
+        "formula": "q=(.16t,.6sin(.32t)); v=(.16,.192cos(.32t))"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": true,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": true,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110306,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M07",
+      "scenario": "multi_m07",
+      "kind": "figure_eight",
+      "parameters": {
+        "amplitudes_m": [
+          0.6,
+          0.3
+        ],
+        "angular_speed_rad_s": 0.2617993877991494,
+        "phase_rad": [
+          -1.5707963267948966,
+          -3.141592653589793
+        ],
+        "formula": "q=(.6sin(wt-pi/2)+.6,.3sin(2wt-pi)); w=pi/12; v=dq/dt"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": true,
+        "requires_actual_crossing": true,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110307,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M08",
+      "scenario": "multi_m08",
+      "kind": "ramp",
+      "parameters": {
+        "angle_deg": 30,
+        "speed_start_m_s": 0.1,
+        "speed_end_m_s": 0.45,
+        "ramp_start_s": 1.0,
+        "ramp_end_s": 8.0,
+        "formula": "v=(.1+.35smoothstep((t-1)/7))*(cos(pi/6),sin(pi/6))"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110308,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M09",
+      "scenario": "multi_m09",
+      "kind": "asynchronous",
+      "parameters": {
+        "formula": "v=(.27+.12sin(.22t),.12+.09sin(.31t+.6)); composite peak<=.4432",
+        "frequencies_rad_s": [
+          0.22,
+          0.31
+        ],
+        "phase_rad": 0.6
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110309,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M10",
+      "scenario": "multi_m10",
+      "kind": "stop",
+      "parameters": {
+        "speed_m_s": 0.3,
+        "angle_deg": 30,
+        "stop_start_s": 5.0,
+        "stop_end_s": 9.0,
+        "formula": "v=.3*(1-smoothstep((t-5)/4))*(cos(pi/6),sin(pi/6))"
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110310,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M11",
+      "scenario": "multi_m11",
+      "kind": "restart",
+      "parameters": {
+        "formula": "v=.25 at30deg until2; smoothstop2..5.2; stationary5.2..8; smoothrestart8..11.2 to .25 at135deg",
+        "stop_start_s": 2.0,
+        "stop_end_s": 5.2,
+        "restart_start_s": 8.0,
+        "restart_end_s": 11.2,
+        "speed_m_s": 0.25,
+        "initial_angle_deg": 30,
+        "final_angle_deg": 135
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 2,
+        "require_precontact_actual_motion_response": true,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110311,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M12",
+      "scenario": "multi_m12",
+      "kind": "turn",
+      "parameters": {
+        "formula": "v=.30*(cos(theta),sin(theta)); theta=pi/6+(pi/2)*smoothstep((t-4)/6)",
+        "speed_m_s": 0.3,
+        "initial_angle_deg": 30,
+        "turn_deg": 90,
+        "turn_start_s": 4.0,
+        "turn_end_s": 10.0
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110312,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M13",
+      "scenario": "multi_m13",
+      "kind": "turn",
+      "parameters": {
+        "formula": "v=.25*(cos(theta),sin(theta)); theta=-pi/6+(3pi/4)*smoothstep((t-4)/8)",
+        "speed_m_s": 0.25,
+        "initial_angle_deg": -30,
+        "turn_deg": 135,
+        "turn_start_s": 4.0,
+        "turn_end_s": 12.0
+      },
+      "trigger": {
+        "type": "continuous_reference"
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": true,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110313,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M14",
+      "scenario": "multi_m14",
+      "kind": "two_turns",
+      "parameters": {
+        "formula": "targets (.25,0) until3; (0,.25)3..8; (-.1767766953,.1767766953) after8; original shaper",
+        "switch_times_s": [
+          3.0,
+          8.0
+        ],
+        "targets_xy": [
+          [
+            0.25,
+            0.0
+          ],
+          [
+            0.0,
+            0.25
+          ],
+          [
+            -0.1767766952966369,
+            0.1767766952966369
+          ]
+        ]
+      },
+      "trigger": {
+        "type": "elapsed",
+        "times_s": [
+          8.0
+        ]
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 2,
+        "require_precontact_actual_motion_response": true,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": false,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110314,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M15",
+      "scenario": "multi_m15",
+      "kind": "double_reversal",
+      "parameters": {
+        "formula": "(.25,0), then(-.25,0) on measured early descent, then(.25,0) ONLY after real reacquire+PLANAR_FOLLOW alignment+TRACKING+new activated plan",
+        "initial_target_xy": [
+          0.25,
+          0.0
+        ]
+      },
+      "trigger": {
+        "type": "measured_descent",
+        "clearance_range_m": [
+          3.4,
+          3.85
+        ],
+        "phase": "TRACKING",
+        "vertical_speed_less_than_m_s": -0.02,
+        "native_contact_priority": true,
+        "second_requires": [
+          "reacquisitions_increased",
+          "PLANAR_FOLLOW_or_operator_ALIGNING_observed_after_first",
+          "TRACKING",
+          "activated_plan_count_strictly_increased"
+        ]
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 2,
+        "require_precontact_actual_motion_response": true,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": false,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110315,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M16",
+      "scenario": "multi_m16",
+      "kind": "height_reversal",
+      "parameters": {
+        "formula": "(.25,0) then(-.25,0) on measured early descent",
+        "initial_target_xy": [
+          0.25,
+          0.0
+        ]
+      },
+      "trigger": {
+        "type": "measured_descent",
+        "clearance_range_m": [
+          3.5,
+          3.7
+        ],
+        "phase": "TRACKING",
+        "vertical_speed_less_than_m_s": -0.02,
+        "native_contact_priority": true
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 1,
+        "require_precontact_actual_motion_response": true,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": false,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110316,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M17",
+      "scenario": "multi_m17",
+      "kind": "height_reversal",
+      "parameters": {
+        "formula": "(.216506350946,.125) then its negation at measured mid descent",
+        "initial_target_xy": [
+          0.21650635094610965,
+          0.125
+        ]
+      },
+      "trigger": {
+        "type": "measured_descent",
+        "clearance_range_m": [
+          1.9,
+          2.1
+        ],
+        "phase": "TRACKING",
+        "vertical_speed_less_than_m_s": -0.02,
+        "native_contact_priority": true
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 1,
+        "require_precontact_actual_motion_response": true,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": false,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110317,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M18",
+      "scenario": "multi_m18",
+      "kind": "height_reversal",
+      "parameters": {
+        "formula": "(.176776695297,.176776695297) then(-.176776695297,.176776695297) at measured .20m, native LAND/contact priority",
+        "initial_target_xy": [
+          0.1767766952966369,
+          0.1767766952966369
+        ],
+        "changed_target_xy": [
+          -0.1767766952966369,
+          0.1767766952966369
+        ]
+      },
+      "trigger": {
+        "type": "measured_descent",
+        "clearance_range_m": [
+          0.15,
+          0.25
+        ],
+        "phase": "TRACKING",
+        "vertical_speed_less_than_m_s": -0.02,
+        "native_contact_priority": true
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 1,
+        "require_precontact_actual_motion_response": true,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": false,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110318,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M19",
+      "scenario": "multi_m19",
+      "kind": "irregular_tail",
+      "parameters": {
+        "formula": "fixedseed oblique .18..32m/s targets, changes 0,3,6,9,12; final target held12..40",
+        "switch_times_s": [
+          0.0,
+          3.0,
+          6.0,
+          9.0,
+          12.0
+        ],
+        "targets_xy": [
+          [
+            0.14750678282722401,
+            -0.14443247229680756
+          ],
+          [
+            -0.17510151867216972,
+            -0.10358435355047553
+          ],
+          [
+            0.17450656637589576,
+            0.14813430464369592
+          ],
+          [
+            -0.16514711620115458,
+            0.23410406522114136
+          ],
+          [
+            -0.19005787175377534,
+            -0.0638529865320472
+          ]
+        ]
+      },
+      "trigger": {
+        "type": "elapsed",
+        "times_s": [
+          3.0,
+          6.0,
+          9.0,
+          12.0
+        ]
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": false,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110319,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    },
+    {
+      "case_id": "M20",
+      "scenario": "multi_m20",
+      "kind": "irregular_continuous",
+      "parameters": {
+        "formula": "fixedseed oblique .18..32m/s targets, nonuniform intervals [2.1,2.7,1.9,3.1] cyclic until40, no stable tail",
+        "intervals_s": [
+          2.1,
+          2.7,
+          1.9,
+          3.1
+        ],
+        "switch_times_s": [
+          0.0,
+          2.1,
+          4.8,
+          6.7,
+          9.8,
+          11.9,
+          14.6,
+          16.5,
+          19.6,
+          21.7,
+          24.4,
+          26.3,
+          29.4,
+          31.5,
+          34.2,
+          36.1,
+          39.2,
+          41.3
+        ],
+        "targets_xy": [
+          [
+            0.2095319200016779,
+            -0.23345734449330002
+          ],
+          [
+            -0.23867802164433535,
+            -0.053459743479751166
+          ],
+          [
+            -0.09300919120690325,
+            -0.2333528042827257
+          ],
+          [
+            -0.039747789842470904,
+            -0.2622814838341136
+          ],
+          [
+            0.008129645579155695,
+            -0.25544718843542663
+          ],
+          [
+            -0.2757515386972016,
+            -0.1352934107591118
+          ],
+          [
+            -0.23553632240912212,
+            0.0948428174398311
+          ],
+          [
+            -0.19468921401482686,
+            -0.04127967878025613
+          ],
+          [
+            0.2642389420375827,
+            0.06461027408909098
+          ],
+          [
+            -0.1281375605678033,
+            -0.23555412265607292
+          ],
+          [
+            0.08813321500511312,
+            -0.1791304581134632
+          ],
+          [
+            0.09017824810813108,
+            0.1781869915286428
+          ],
+          [
+            0.30780424453545835,
+            -0.004934747088049873
+          ],
+          [
+            -0.05680872100751919,
+            -0.20796012043267098
+          ],
+          [
+            0.05298863771558273,
+            0.2501720590018385
+          ],
+          [
+            -0.15917386117226243,
+            -0.08872309420887964
+          ],
+          [
+            0.26756253336971436,
+            0.061856497668103964
+          ],
+          [
+            0.19319287738755347,
+            0.13407652594608815
+          ]
+        ]
+      },
+      "trigger": {
+        "type": "elapsed",
+        "times_s": [
+          2.1,
+          4.8,
+          6.7,
+          9.8,
+          11.9,
+          14.6,
+          16.5,
+          19.6,
+          21.7,
+          24.4,
+          26.3,
+          29.4,
+          31.5,
+          34.2,
+          36.1,
+          39.2,
+          41.3
+        ]
+      },
+      "coverage": {
+        "min_direction_change_rad": 0.1,
+        "required_events": 0,
+        "require_precontact_actual_motion_response": false,
+        "continuous_curve_through_contact": false,
+        "requires_actual_crossing": false,
+        "requires_curvature_sign_change": false,
+        "requires_variable_curvature": false,
+        "native_contact_priority": true
+      },
+      "expected": {
+        "landing_objective": false,
+        "allowed_outcomes": [
+          "landing",
+          "audited_safe_exit"
+        ],
+        "safe_exit_satisfies_landing_objective": false
+      },
+      "seed": 2026110320,
+      "initial": {
+        "clearance_m": 4.0,
+        "platform_xy_m": [
+          3.0,
+          0.0
+        ],
+        "geometry": "original_planar_profile",
+        "deck_yaw_rad": 0.0,
+        "deck_height": "unchanged_original_model",
+        "aircraft_xyz_m": [
+          0.0,
+          0.0,
+          0.195
+        ],
+        "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+      },
+      "budget": {
+        "total_task_s": 40.0,
+        "cumulative_wait_s": 25.0,
+        "max_reacquisitions": 3
+      },
+      "auditor_version": "multicondition_audit_v1"
+    }
+  ],
+  "reference_coordinates": "Displacement from physical initial platform (3,0)m; formulas do not overwrite pose",
+  "original_guide_joint_bounds_m": [
+    -100.0,
+    100.0
+  ],
+  "planned_cases": 20,
+  "control_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+  "baseline_profile_sha256": "06023543525a5831c07863a6a0037623045329dac008eb42df71b0d4a3b800a8"
+}

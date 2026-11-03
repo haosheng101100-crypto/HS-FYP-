@@ -1,0 +1,171 @@
+{
+  "case_id": "M20",
+  "scenario": "multi_m20",
+  "kind": "irregular_continuous",
+  "parameters": {
+    "formula": "fixedseed oblique .18..32m/s targets, nonuniform intervals [2.1,2.7,1.9,3.1] cyclic until40, no stable tail",
+    "intervals_s": [
+      2.1,
+      2.7,
+      1.9,
+      3.1
+    ],
+    "switch_times_s": [
+      0.0,
+      2.1,
+      4.8,
+      6.7,
+      9.8,
+      11.9,
+      14.6,
+      16.5,
+      19.6,
+      21.7,
+      24.4,
+      26.3,
+      29.4,
+      31.5,
+      34.2,
+      36.1,
+      39.2,
+      41.3
+    ],
+    "targets_xy": [
+      [
+        0.2095319200016779,
+        -0.23345734449330002
+      ],
+      [
+        -0.23867802164433535,
+        -0.053459743479751166
+      ],
+      [
+        -0.09300919120690325,
+        -0.2333528042827257
+      ],
+      [
+        -0.039747789842470904,
+        -0.2622814838341136
+      ],
+      [
+        0.008129645579155695,
+        -0.25544718843542663
+      ],
+      [
+        -0.2757515386972016,
+        -0.1352934107591118
+      ],
+      [
+        -0.23553632240912212,
+        0.0948428174398311
+      ],
+      [
+        -0.19468921401482686,
+        -0.04127967878025613
+      ],
+      [
+        0.2642389420375827,
+        0.06461027408909098
+      ],
+      [
+        -0.1281375605678033,
+        -0.23555412265607292
+      ],
+      [
+        0.08813321500511312,
+        -0.1791304581134632
+      ],
+      [
+        0.09017824810813108,
+        0.1781869915286428
+      ],
+      [
+        0.30780424453545835,
+        -0.004934747088049873
+      ],
+      [
+        -0.05680872100751919,
+        -0.20796012043267098
+      ],
+      [
+        0.05298863771558273,
+        0.2501720590018385
+      ],
+      [
+        -0.15917386117226243,
+        -0.08872309420887964
+      ],
+      [
+        0.26756253336971436,
+        0.061856497668103964
+      ],
+      [
+        0.19319287738755347,
+        0.13407652594608815
+      ]
+    ]
+  },
+  "trigger": {
+    "type": "elapsed",
+    "times_s": [
+      2.1,
+      4.8,
+      6.7,
+      9.8,
+      11.9,
+      14.6,
+      16.5,
+      19.6,
+      21.7,
+      24.4,
+      26.3,
+      29.4,
+      31.5,
+      34.2,
+      36.1,
+      39.2,
+      41.3
+    ]
+  },
+  "coverage": {
+    "min_direction_change_rad": 0.1,
+    "required_events": 0,
+    "require_precontact_actual_motion_response": false,
+    "continuous_curve_through_contact": false,
+    "requires_actual_crossing": false,
+    "requires_curvature_sign_change": false,
+    "requires_variable_curvature": false,
+    "native_contact_priority": true
+  },
+  "expected": {
+    "landing_objective": false,
+    "allowed_outcomes": [
+      "landing",
+      "audited_safe_exit"
+    ],
+    "safe_exit_satisfies_landing_objective": false
+  },
+  "seed": 2026110320,
+  "initial": {
+    "clearance_m": 4.0,
+    "platform_xy_m": [
+      3.0,
+      0.0
+    ],
+    "geometry": "original_planar_profile",
+    "deck_yaw_rad": 0.0,
+    "deck_height": "unchanged_original_model",
+    "aircraft_xyz_m": [
+      0.0,
+      0.0,
+      0.195
+    ],
+    "clearance_definition": "leg-foot clearance target after alignment; aircraft spawn is ground start"
+  },
+  "budget": {
+    "total_task_s": 40.0,
+    "cumulative_wait_s": 25.0,
+    "max_reacquisitions": 3
+  },
+  "auditor_version": "multicondition_audit_v1"
+}

@@ -1,0 +1,25 @@
+test_constant_velocities_are_composite_speeds_in_named_quadrants (test_multicondition_scene.MulticonditionSceneTests.test_constant_velocities_are_composite_speeds_in_named_quadrants) ... ok
+test_curves_keep_turning_and_eight_has_two_crossings (test_multicondition_scene.MulticonditionSceneTests.test_curves_keep_turning_and_eight_has_two_crossings) ... ok
+test_fixed_random_sequence_and_original_shaper_stay_bounded (test_multicondition_scene.MulticonditionSceneTests.test_fixed_random_sequence_and_original_shaper_stay_bounded) ... ok
+test_height_events_need_measured_tracking_and_descent (test_multicondition_scene.MulticonditionSceneTests.test_height_events_need_measured_tracking_and_descent) ... ok
+test_native_contact_and_land_take_priority_over_late_event (test_multicondition_scene.MulticonditionSceneTests.test_native_contact_and_land_take_priority_over_late_event) ... ok
+test_nonfinite_or_regressing_world_time_is_rejected (test_multicondition_scene.MulticonditionSceneTests.test_nonfinite_or_regressing_world_time_is_rejected) ... ok
+test_offline_reference_and_original_shaper_feasibility_report (test_multicondition_scene.MulticonditionSceneTests.test_offline_reference_and_original_shaper_feasibility_report) ... ok
+test_original_shaper_eight_revisits_crossing_with_distinct_tangents_within_budget (test_multicondition_scene.MulticonditionSceneTests.test_original_shaper_eight_revisits_crossing_with_distinct_tangents_within_budget) ... ok
+test_restart_has_an_actual_shaped_stop_then_oblique_restart (test_multicondition_scene.MulticonditionSceneTests.test_restart_has_an_actual_shaped_stop_then_oblique_restart) ... ok
+test_second_reversal_recognizes_native_planar_follow_phase (test_multicondition_scene.MulticonditionSceneTests.test_second_reversal_recognizes_native_planar_follow_phase) ... FAIL
+test_second_reversal_requires_realign_and_strictly_new_activated_plan (test_multicondition_scene.MulticonditionSceneTests.test_second_reversal_requires_realign_and_strictly_new_activated_plan) ... ok
+test_twenty_unique_cases_do_not_expand_original_budget (test_multicondition_scene.MulticonditionSceneTests.test_twenty_unique_cases_do_not_expand_original_budget) ... ok
+
+======================================================================
+FAIL: test_second_reversal_recognizes_native_planar_follow_phase (test_multicondition_scene.MulticonditionSceneTests.test_second_reversal_recognizes_native_planar_follow_phase)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/multicondition_20261103/毕设仿真/tests/test_multicondition_scene.py", line 83, in test_second_reversal_recognizes_native_planar_follow_phase
+    self.assertEqual(len(events),1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.026s
+
+FAILED (failures=1)

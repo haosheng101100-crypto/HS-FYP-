@@ -1,0 +1,14 @@
+..F
+======================================================================
+FAIL: test_continuous_case_creates_empty_event_record_before_any_trigger (test_multicondition_bridge.SceneInitializationTests.test_continuous_case_creates_empty_event_record_before_any_trigger)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/work/multicondition_20261103/毕设仿真/tests/test_multicondition_bridge.py", line 18, in test_continuous_case_creates_empty_event_record_before_any_trigger
+    fn=getattr(m,'initialize_world_scene',None);self.assertTrue(callable(fn),'Persistent empty event evidence initialization missing')
+                                                ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : Persistent empty event evidence initialization missing
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+FAILED (failures=1)
