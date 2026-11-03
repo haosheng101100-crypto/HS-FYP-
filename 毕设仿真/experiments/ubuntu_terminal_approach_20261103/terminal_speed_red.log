@@ -1,0 +1,107 @@
+EEEEEEEE
+======================================================================
+ERROR: test_auditor_rejects_prior_fast_terminal_curve_even_with_valid_contact_endpoint (test_terminal_descent_speed.TerminalDescentSpeedTests.test_auditor_rejects_prior_fast_terminal_curve_even_with_valid_contact_endpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 23, in test_auditor_rejects_prior_fast_terminal_curve_even_with_valid_contact_endpoint
+    plain,s,d=self.inputs(None);plan,report=plain.solve(s,d,0.,10.);self.assertIsNotNone(plan,report);tight,_,_=self.inputs(.08)
+              ^^^^^^^^^^^^^^^^^
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 15, in inputs
+    cfg=json.loads((ROOT/'config/experiments/planar_reacquisition_v1.json').read_text());limits=PlannerLimits(**cfg['planner_limits']);limits=replace(limits,terminal_downward_speed_m_s=cap)
+                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+======================================================================
+ERROR: test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint (test_terminal_descent_speed.TerminalDescentSpeedTests.test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint) (cap=0.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 28, in test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint
+    with self.assertRaises(ValueError):replace(PlannerLimits(downward_speed=.7,contact_speed=.08),terminal_downward_speed_m_s=cap)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+======================================================================
+ERROR: test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint (test_terminal_descent_speed.TerminalDescentSpeedTests.test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint) (cap=-0.1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 28, in test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint
+    with self.assertRaises(ValueError):replace(PlannerLimits(downward_speed=.7,contact_speed=.08),terminal_downward_speed_m_s=cap)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+======================================================================
+ERROR: test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint (test_terminal_descent_speed.TerminalDescentSpeedTests.test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint) (cap=nan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 28, in test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint
+    with self.assertRaises(ValueError):replace(PlannerLimits(downward_speed=.7,contact_speed=.08),terminal_downward_speed_m_s=cap)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+======================================================================
+ERROR: test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint (test_terminal_descent_speed.TerminalDescentSpeedTests.test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint) (cap=inf)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 28, in test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint
+    with self.assertRaises(ValueError):replace(PlannerLimits(downward_speed=.7,contact_speed=.08),terminal_downward_speed_m_s=cap)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+======================================================================
+ERROR: test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint (test_terminal_descent_speed.TerminalDescentSpeedTests.test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint) (cap=0.75)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 28, in test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint
+    with self.assertRaises(ValueError):replace(PlannerLimits(downward_speed=.7,contact_speed=.08),terminal_downward_speed_m_s=cap)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+======================================================================
+ERROR: test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint (test_terminal_descent_speed.TerminalDescentSpeedTests.test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint) (cap=0.04)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 28, in test_new_cap_is_finite_and_cannot_exceed_global_speed_or_conflict_with_endpoint
+    with self.assertRaises(ValueError):replace(PlannerLimits(downward_speed=.7,contact_speed=.08),terminal_downward_speed_m_s=cap)
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+======================================================================
+ERROR: test_tightened_terminal_hull_still_has_a_ten_second_high_clearance_plan (test_terminal_descent_speed.TerminalDescentSpeedTests.test_tightened_terminal_hull_still_has_a_ten_second_high_clearance_plan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 18, in test_tightened_terminal_hull_still_has_a_ten_second_high_clearance_plan
+    p,s,d=self.inputs(.08);plan,report=p.solve(s,d,0.,10.);self.assertIsNotNone(plan,report)
+          ^^^^^^^^^^^^^^^^
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 15, in inputs
+    cfg=json.loads((ROOT/'config/experiments/planar_reacquisition_v1.json').read_text());limits=PlannerLimits(**cfg['planner_limits']);limits=replace(limits,terminal_downward_speed_m_s=cap)
+                                                                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/dataclasses.py", line 1581, in replace
+    return obj.__class__(**changes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: PlannerLimits.__init__() got an unexpected keyword argument 'terminal_downward_speed_m_s'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.005s
+
+FAILED (errors=8)

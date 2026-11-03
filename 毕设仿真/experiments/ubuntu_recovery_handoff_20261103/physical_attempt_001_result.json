@@ -1,0 +1,845 @@
+{
+  "case_id": "M18",
+  "attempt": 1,
+  "attempt_dir": "/workspace/outputs/近地退出连续性修复_20261103/batch_001/cases/M18/attempt_001",
+  "category": "algorithm_control_or_physical_failure",
+  "started_utc": "2026-11-03T10:59:15.859096+00:00",
+  "run_commit": "97204a1f147d0b1f6d44fe4cb462c53ed24e1743",
+  "control_commit": "97204a1f147d0b1f6d44fe4cb462c53ed24e1743",
+  "command": [
+    "xvfb-run",
+    "-a",
+    "-s",
+    "-screen 0 1280x800x24 -nolisten tcp",
+    "/opt/hs-venv/bin/python",
+    "/workspace/work/recovery_handoff_20261103/毕设仿真/simulation/operator_package/operator_multicondition_supervisor.py"
+  ],
+  "environment_verified": {
+    "firmware_sha256": "011627d41dd95640c3aca02d45283474be48721c8b1bb7a4b234d38b69063482",
+    "original_assets_verified": 222,
+    "plugin_files_verified": 4,
+    "loaded_plugin_sha256": "1bb777f5ed44566c793e67f6c9624b5237d93fdeaae04632255b1ee4cf06c378"
+  },
+  "presentation_environment": {
+    "HS_NO_GUI": "1"
+  },
+  "supervisor_exit_code": 0,
+  "run": "/workspace/outputs/近地退出连续性修复_20261103/batch_001/cases/M18/attempt_001/session_001/cycle_001",
+  "source_configuration_integrity": true,
+  "request_history_ok": true,
+  "native_cycle_closed": {
+    "all_owned_cycle_processes_stopped": true,
+    "reset_requested": false
+  },
+  "execution_status": {
+    "simulation_only": true,
+    "completed": false,
+    "controller": "asynchronous three-dimensional Bezier SOCP; causal platform acceleration; native LAND contact",
+    "observations": "Gazebo body truth with causal quadratic pose fits; no sensor noise/delay simulation",
+    "reference_approach_duration_s": 5.0,
+    "reference_preparation_duration_s": 1.5,
+    "hardware_deployment_allowed": false,
+    "pose_teleportation_used": false,
+    "force_disarm_used": false,
+    "verified_contact_publisher_topic": "/world/uav_vehicle_stage1/model/landing_vehicle/link/chassis/sensor/deck_contact/contact",
+    "operator_controlled": true,
+    "watchdog_wall_clock": "Active monotonic time excluding confirmed deliberate Gazebo pauses. Simulation-age gates remain unchanged.",
+    "scenario": "multi_m18",
+    "horizontal_feedback_design": {
+      "position_gain": 6.25,
+      "velocity_gain": 5.0,
+      "acceleration_lead_s": 0.12,
+      "maximum_acceleration_m_s2": 2.5
+    },
+    "flight_validation_status": "NOT_YET_FLIGHT_VALIDATED",
+    "contact_limits": {
+      "observation_age_s": 0.06,
+      "contact_age_s": 0.06,
+      "update_gap_s": 0.08,
+      "contact_time_error_s": 0.25,
+      "contact_xy_error_m": 0.2,
+      "contact_clearance_error_m": 0.025,
+      "contact_tangential_speed_m_s": 0.05,
+      "contact_normal_speed_m_s": 0.12,
+      "contact_minimum_closing_speed_m_s": 0.02,
+      "contact_attitude_error_rad": 0.017453292519943295,
+      "contact_tilt_rad": 0.08726646259971647,
+      "contact_angular_speed_rad_s": 0.13962634015954636,
+      "footprint_margin_m": 0.02,
+      "support_minimum_legs": 3,
+      "support_maximum_gap_m": 0.02,
+      "support_penetration_m": 0.01,
+      "support_tilt_rad": 0.05235987755982989,
+      "support_speed_m_s": 0.05,
+      "support_angular_speed_rad_s": 0.08726646259971647,
+      "support_dwell_s": 0.4,
+      "post_disarm_dwell_s": 3.0,
+      "land_request_interval_s": 0.25,
+      "land_ack_timeout_s": 2.0,
+      "settle_timeout_s": 10.0,
+      "disarm_timeout_s": 30.0
+    },
+    "planner_request_sequence_max": 17,
+    "execution_mode": "user_authorized_autonomous_simulation_trial",
+    "external_failures": [],
+    "events": [
+      {
+        "wall_unix_s": 1793703569.8455205,
+        "stage": "CONNECT",
+        "message": "FCU: GPS 1: probing for u-blox at 230400 baud"
+      },
+      {
+        "wall_unix_s": 1793703569.8669164,
+        "stage": "CONNECT",
+        "message": "FCU: GPS 1: detected u-blox"
+      },
+      {
+        "wall_unix_s": 1793703581.0788407,
+        "stage": "CONNECT",
+        "message": "FCU: EKF3 IMU1 origin set"
+      },
+      {
+        "wall_unix_s": 1793703581.2932823,
+        "stage": "CONNECT",
+        "message": "FCU: EKF3 IMU0 origin set"
+      },
+      {
+        "wall_unix_s": 1793703581.5400867,
+        "stage": "WAIT_USER_TAKEOFF",
+        "message": "FCU: Arm: Gyros inconsistent"
+      },
+      {
+        "wall_unix_s": 1793703593.5444324,
+        "stage": "WAIT_USER_TAKEOFF",
+        "message": "FCU: Arming motors"
+      },
+      {
+        "wall_unix_s": 1793703599.543571,
+        "stage": "WAIT_USER_TAKEOFF",
+        "message": "FCU: EKF3 IMU1 MAG0 in-flight yaw alignment complete"
+      },
+      {
+        "wall_unix_s": 1793703599.548975,
+        "stage": "WAIT_USER_TAKEOFF",
+        "message": "FCU: EKF3 IMU0 MAG0 in-flight yaw alignment complete"
+      },
+      {
+        "wall_unix_s": 1793703604.4604964,
+        "stage": "RECEDING_EXECUTION",
+        "message": "New async planner activated by explicit user landing request; scenario=multi_m18"
+      },
+      {
+        "wall_unix_s": 1793703617.223082,
+        "stage": "RECEDING_EXECUTION",
+        "message": "FCU: EKF3 IMU0 is using GPS"
+      },
+      {
+        "wall_unix_s": 1793703617.4486444,
+        "stage": "RECEDING_EXECUTION",
+        "message": "FCU: EKF3 IMU1 is using GPS"
+      },
+      {
+        "wall_unix_s": 1793703619.8174148,
+        "stage": "RECEDING_EXECUTION",
+        "message": "Failed landing attempt; brake/climb/return: PLANAR_CHANGE_WITHOUT_REACQUISITION_CLEARANCE"
+      },
+      {
+        "wall_unix_s": 1793703620.1376677,
+        "stage": "RECEDING_EXECUTION",
+        "message": "Requested normal LAND; no force-disarm"
+      },
+      {
+        "wall_unix_s": 1793703623.6251488,
+        "stage": "RECEDING_EXECUTION",
+        "message": "FCU: Disarming motors"
+      }
+    ],
+    "final_mode": "LAND",
+    "armed_at_save": false,
+    "first_contact": {
+      "contact_sim_t_s": 55.869,
+      "decision_sim_t_s": 55.88,
+      "observation_sim_t_s": 55.84,
+      "legs": [
+        "rear_right_leg_collision"
+      ],
+      "unexpected_uav_collisions": [],
+      "checks": {
+        "precontact_observation_available": true,
+        "known_legs_only": true,
+        "observation_fresh": true,
+        "target_xy": true,
+        "tilt": true,
+        "attitude_target": false,
+        "angular_speed": true,
+        "leg_clearance": true,
+        "leg_speed": true,
+        "footprint": true,
+        "contact_time": true
+      },
+      "scope": "Latest causal observation strictly before reported contact, not exact instantaneous impact velocity."
+    },
+    "failures": [
+      "contact_during_failed_attempt_recovery",
+      "first_contact_attitude_target",
+      "whole_aircraft_outside_deck_margin"
+    ],
+    "main_approach_start_sim_t_s": 47.56,
+    "main_entry_report": {
+      "ready": true,
+      "checks": {
+        "position_error_m": true,
+        "velocity_error_m_s": true,
+        "attitude_error_rad": true,
+        "angular_velocity_error_rad_s": true,
+        "observation_fresh": true,
+        "armed": true,
+        "guided_mode": true,
+        "com_acceleration_matches": true,
+        "no_recent_deck_contact": true
+      },
+      "residuals": {
+        "position_error_m": 0.013050806436002408,
+        "velocity_error_m_s": 0.006396903103853431,
+        "attitude_error_rad": 0.0023147296091032754,
+        "angular_velocity_error_rad_s": 0.00653580981910231,
+        "com_acceleration_error_m_s2": 0.010438608685084427
+      },
+      "observation_age_s": 0.0,
+      "actual_com_position_world_m": [
+        3.8876212863039057,
+        0.9044206329922354,
+        4.9571641151412305
+      ],
+      "scope": "Bounded initial residual gate; does not prepare the aircraft or guarantee derivative continuity."
+    }
+  },
+  "multicondition_audit": {
+    "auditor_version": "multicondition_audit_v1",
+    "case_id": "M18",
+    "scenario": "multi_m18",
+    "passed": false,
+    "classification": "control_physical_audit_failure",
+    "physics": {
+      "passed": false
+    },
+    "safety": {
+      "passed": false,
+      "budgets": {
+        "passed": true,
+        "checks": {
+          "original_budgets_preserved": true,
+          "single_initial_follow": true,
+          "reacquisition_count": true,
+          "cumulative_wait": true,
+          "task_expiry": true
+        },
+        "task_stop_s": 55.56
+      },
+      "original_audit_exit_codes": {
+        "policy": 0,
+        "native": 0,
+        "motion": 0,
+        "platform": 1
+      },
+      "original_reports": {
+        "policy": {
+          "passed": true,
+          "policy_rows": 529,
+          "failures": [],
+          "physics_validated": false,
+          "scope": "Causal policy and empirical-reserve replay only",
+          "nominal_plans": {
+            "passed": true,
+            "accepted_candidate_plans": 16,
+            "failures": []
+          }
+        },
+        "native": {
+          "passed": true,
+          "checks": {
+            "native_arming_recorded": true,
+            "native_disarming_recorded": true,
+            "all_arm_and_disarm_nonforced": true,
+            "disarm_after_arming": true,
+            "all_disarming_in_native_land": true,
+            "no_native_flight_error": true,
+            "no_crash_message": true
+          },
+          "native_events": [
+            {
+              "mavpackettype": "MODE",
+              "TimeUS": 1933952,
+              "Mode": 0,
+              "ModeNum": 0,
+              "Rsn": 26
+            },
+            {
+              "mavpackettype": "MODE",
+              "TimeUS": 19889841,
+              "Mode": 4,
+              "ModeNum": 4,
+              "Rsn": 2
+            },
+            {
+              "mavpackettype": "ARM",
+              "TimeUS": 31056998,
+              "ArmState": 1,
+              "ArmChecks": 2097150,
+              "Forced": 0,
+              "Method": 1,
+              "mode_at_event": 4
+            },
+            {
+              "mavpackettype": "MODE",
+              "TimeUS": 31056998,
+              "Mode": 4,
+              "ModeNum": 4,
+              "Rsn": 2
+            },
+            {
+              "mavpackettype": "MODE",
+              "TimeUS": 55879626,
+              "Mode": 9,
+              "ModeNum": 9,
+              "Rsn": 2
+            },
+            {
+              "mavpackettype": "ARM",
+              "TimeUS": 58701626,
+              "ArmState": 0,
+              "ArmChecks": 0,
+              "Forced": 0,
+              "Method": 13,
+              "mode_at_event": 9
+            }
+          ],
+          "flight_errors": [],
+          "crash_messages": [],
+          "source_sha256": {
+            "00000001.BIN": "f593dacb72cab4d4a43216390f0245e791772375b17344202f46dd84ce19f1b4"
+          },
+          "interpretation": "Native mode at each nonforced disarm is checked using installed pymavlink mode mapping. Numeric arming Method values are preserved without guessing their enum labels."
+        },
+        "motion": {
+          "passed": false,
+          "checks": {
+            "actual_speed": true,
+            "actual_acceleration": false
+          },
+          "samples": 2145,
+          "start_s": 41.12,
+          "end_s": 62.56,
+          "max_raw_gap_s": 0.010000000000005116,
+          "peak_speed_m_s": 1.64525675982012,
+          "peak_acceleration_m_s2": 20.547808360849476,
+          "acceleration_peak_t_s": 56.71,
+          "speed_limit_m_s": 3.0,
+          "acceleration_limit_m_s2": 1.5,
+          "scenario": "multi_m18",
+          "guided_recovery_included": true,
+          "declared_interval_s": [
+            41.12,
+            62.57
+          ],
+          "scope": "Sampled raw COM velocity/acceleration, from first PLANAR_FOLLOW/ALIGNING/TRACKING through contact or guided return end. Native takeoff, impact and native ground LAND excluded; no continuous bound guarantee.",
+          "raw_uncompressed_sha256": "e3f708476dd1b7bcd7b5ad1c5f9f071532f3268f10fcdfdd719b0ae5152f1892",
+          "source_sha256": {
+            "results/receding_control.jsonl": "057e048cbbb08c9f2675b750a64875e73c6329bfc36369d5b686b063b44bf658",
+            "config/experiments/receding_live_v1.json": "f7889862a2c123964e6ac96280281df4cf61ec8e5133532997d97dd6cc02a8aa",
+            "config/airframes/iris_fixed_gimbal_sim.json": "2ef0da30205fc286956985b1fa3699f02c644867acf4beaa10f6b4084286cb86"
+          },
+          "auditor_sha256": "d38881cbce8270d6815e701c06968cd5b2f170050d6f35ac07162f837e96ed81"
+        }
+      },
+      "request_history": {
+        "passed": true,
+        "requests": 17,
+        "responses": 17,
+        "request_sequences": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "response_sequences": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17
+        ],
+        "missing_request_sequences": [],
+        "contiguous_original_requests": true,
+        "archive_filenames_match": true,
+        "latest_mailbox_archived": true,
+        "files_sha256": {
+          "request_000001.json": "c3ea2d6e1af446c5fca0b72acf67f740a2d991bea462ca7c419bcfa3d70eb8c7",
+          "request_000002.json": "4305cc8700cff6fb1b0a76ebe1462c078cd517b5548d63fd43514014841151b7",
+          "request_000003.json": "985df85046a07ae88f0b0e59680d4f1f473465725723080cd6283a97394e2a82",
+          "request_000004.json": "3dae5b7fc3412ac19b4e71e725d51a6feae6a8c21fc5a20d4a63c6c743141b59",
+          "request_000005.json": "70e700acc2d5f74dc4131034597a40af33dea166df0d6fe2793d4536a7a0c5cd",
+          "request_000006.json": "5abf44fe712569992a804d2aecdb82d9bd475644a00e7aa1b2ea21744788adb9",
+          "request_000007.json": "b92a3a820c380ce7f3b88d6e0af0d806f5bee6216c02c122bfd718d00d100062",
+          "request_000008.json": "871a49810f0b9a081ffda5458ca29de1fdfeb64b3ee5b52b5126c44ac3bf61dc",
+          "request_000009.json": "8777a6078b0c128ce913bf796a5e383e55b9637beaa38b07cace23ebe9fc0b5e",
+          "request_000010.json": "17b240203ae572f6cd6173688ffe46ff3b1b8db4a318887917e43677772c02f1",
+          "request_000011.json": "772aa0f57e1233242976c7939c77fc97a5572ecbfd93977cd076426a8c1c7a40",
+          "request_000012.json": "820dd17c14e06f15306b3b56b703497c9933a554eaab448c3409007d946b18de",
+          "request_000013.json": "42baaf5bdcc9a1c5c7794d08473798367948cb437ae3c12a7a88a3e968f6aa63",
+          "request_000014.json": "60410c3840db768e88c27353f9ccbb5a8aca99c04bd8216a1152bb4bfc1e3b1e",
+          "request_000015.json": "eb4ea21eaed2e8fa8da3551bcc05f9471ac75bb36a780da20310b55309e455a4",
+          "request_000016.json": "92fb30f2c95f8eec99d67f61fbafc8d9cfaad1052b4a626b675aa7aa519d29f9",
+          "request_000017.json": "a4756316d2d956c98fae7d14b5c31c8f5c7b157ab7db2a67757b3fd7ce46f926",
+          "response_000001.json": "a7d4ef1c5bbd5654d3be791d9c3486adf5d65974707efe008b38f8d83d62f4d2",
+          "response_000002.json": "ff428327672ab1979d71ba788a4e63e98a5c03a7c84dee6b06f01ae1fe2c5658",
+          "response_000003.json": "cff4ad74d1e22408d8a6461fbc099d2ba8b2e4f6b4477717c6991e8f6d0d3ba3",
+          "response_000004.json": "f4df4e5212b80c349d938b0abcf2f0869d02b52cd3bcd015a4ec7b48598067f6",
+          "response_000005.json": "760b0f1a81a4fe93bb9701af2516eb3e6fdd3d566b39e1d8d82cf2a97af0958c",
+          "response_000006.json": "1a2075b1026cfa010eef42564356f41ed4a2e76d4287b2e98e9a51940211c4c0",
+          "response_000007.json": "ddfecc3ca7614054f26dfaa88f0e7a0b862d38cbfdf930ee6eb4b4643b366e06",
+          "response_000008.json": "2832e2cab03a9a3548f85bb52561894be9971ea33e6208b09f7b7ebc097188e0",
+          "response_000009.json": "289a805fbf1f6a4c37c4ea830f6baa0e31aff41fbf7a27b972e0afeeb99bbf0c",
+          "response_000010.json": "57675901e10db9c6c497e8d046e90debef3947094c4eeb39ee86d12ebec42c99",
+          "response_000011.json": "77fe04dcb27aea6fea28b673621f0b4f5db98286aab377945cc2ac83ffccd4df",
+          "response_000012.json": "71b97c00c4f2ea6744ab6f42e4a6d2ab2eeffa345c5352a3bc909504cf9eb7c7",
+          "response_000013.json": "d2d9f5f368b917c9b4d260df7dc55ebe79ab2cc333692ab58a5ea1ff22bc60a4",
+          "response_000014.json": "54f6391bb9ad88ed1e4b21e52ec4bb127d277189c85d9baa0354e189fdecf5b9",
+          "response_000015.json": "5cf1dba1537cb89bb5898251322d0114c23e7cda4f5bfda4fda222dd6cde9e27",
+          "response_000016.json": "e01614961ec6a6ae4616a94658510739289904a9dff49683cd09f12d0a7d93f9",
+          "response_000017.json": "72da5a40e3743318796463d008cd7a512d6114e3ff051c0b1c7ec66b6c996be4"
+        },
+        "embedded_response_requests_match_originals": true,
+        "planner_exercised": true
+      }
+    },
+    "coverage": {
+      "passed": true,
+      "trajectory": {
+        "passed": true,
+        "checks": {
+          "declared_axes_motion": true,
+          "fixed_height": true,
+          "fixed_deck_orientation": true
+        },
+        "samples": 425,
+        "heading_span_rad": 0.06257780981570205,
+        "peak_speed_m_s": 0.24999999999936637,
+        "height_range_m": 0.0,
+        "curvature_range_m_inv": [
+          -12.006738592889368,
+          1.0437666690211356
+        ],
+        "evidence_thresholds": {
+          "motion_m": 0.01,
+          "fixed_height_range_m": 0.005,
+          "fixed_orientation_rad": 0.005,
+          "curvature_m_inv": 0.015,
+          "crossing_distance_m": 0.12
+        }
+      },
+      "scene_events": {
+        "passed": true,
+        "checks": {
+          "known_events_only": true,
+          "required_event_count": true,
+          "sequence_and_identity": true,
+          "strict_event_order": true,
+          "all_triggers_match_physical_control": true,
+          "actual_physical_responses": true
+        },
+        "events": [
+          {
+            "index": 1,
+            "time": 54.8,
+            "measured_trigger_matches_control": true,
+            "actual_precontact_response": true,
+            "response_time_s": 55.165000000000006,
+            "precontact": true
+          }
+        ],
+        "post_objective_events_retained": [],
+        "response_velocity_delta_threshold_m_s": 0.01,
+        "response_sustained_raw_intervals": 3
+      },
+      "recovery": {
+        "passed": true,
+        "reacquisitions": 0,
+        "chains": []
+      }
+    },
+    "landing_objective": {
+      "required": false,
+      "landed": false,
+      "achieved": false,
+      "safe_exit_is_landing": false
+    },
+    "actual_initial_evidence": {
+      "first_platform_raw_time_s": 41.14,
+      "first_platform_raw_position_m": [
+        3.0,
+        0.0,
+        0.0020000000000000018
+      ],
+      "first_control_body_pose": {
+        "position_world_m": [
+          -0.004186878794071449,
+          0.000822745953891627,
+          3.708538961305676
+        ],
+        "orientation_xyzw": [
+          0.0006164639183876771,
+          0.000618732563373333,
+          0.7071457873998772,
+          0.7070672333695432
+        ]
+      },
+      "first_allowed_descent": {
+        "time_s": 48.0,
+        "clearance_m": 3.9810575246378703
+      }
+    },
+    "raw_uncompressed_sha256": "e3f708476dd1b7bcd7b5ad1c5f9f071532f3268f10fcdfdd719b0ae5152f1892",
+    "scope": "M01-M13 landing objectives; M14-M20 safety exploration. No controller/contact/speed/acceleration/return threshold is relaxed."
+  },
+  "audit_exit_code": 1,
+  "raw_compression": {
+    "verified_lossless": true,
+    "sha256_uncompressed": "e3f708476dd1b7bcd7b5ad1c5f9f071532f3268f10fcdfdd719b0ae5152f1892",
+    "bytes_uncompressed": 111967590,
+    "bytes_compressed": 15279000,
+    "sha256_compressed": "2a4c657e96c327c4dcb086fc4f4e6efa1fc7b651207b633859baf763c381fac9"
+  },
+  "raw_archive": {
+    "path": "/workspace/outputs/近地退出连续性修复_20261103/batch_001/cases/M18/attempt_001/raw_evidence.tar.gz",
+    "files": {
+      "results/arducopter.log": {
+        "sha256": "0c4d7e000f1aa55aba27ca95e6124d4d524a53f4d9c86cd5d575ef79f7477ccf",
+        "bytes": 1892
+      },
+      "results/cycle_closed.json": {
+        "sha256": "e4baccfa3d93a1111e20f5b29208e970a410a3f92319df01f5d7d270d5e1671c",
+        "bytes": 75
+      },
+      "results/execution_feedback.jsonl": {
+        "sha256": "057e048cbbb08c9f2675b750a64875e73c6329bfc36369d5b686b063b44bf658",
+        "bytes": 9056275
+      },
+      "results/execution_status.json": {
+        "sha256": "6b051d3ae93534b07ccffd09a4eaf5272d578d322d55ad51bb1d2347f747581f",
+        "bytes": 6000
+      },
+      "results/fcu_diagnostic_capture.json": {
+        "sha256": "d01da7d45e88cf2edd43480d09fe99a811458457d405b3a43d3aafd2e348a78b",
+        "bytes": 616
+      },
+      "results/fcu_diagnostic_messages.jsonl": {
+        "sha256": "9543ea0b1b1c5dc98b4033f41a2798e21fa8c61f664dbc6a4b08486fba48991f",
+        "bytes": 1814002
+      },
+      "results/gazebo.log": {
+        "sha256": "dee87b18577034cff26e55d994ed8a7f8f5938865e943d489b871ae5d601ea24",
+        "bytes": 4917
+      },
+      "results/gazebo_gui.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "results/independent_guided_motion_audit.json": {
+        "sha256": "48a9a037b359e67c40df65de471c4b55515ed54cd64a285451adbc4b9f10daee",
+        "bytes": 1265
+      },
+      "results/independent_planar_policy_audit.json": {
+        "sha256": "10b9ba416e52ba4c45becd63bf802b5dda56d9ba30f2f023602c4a4d6be79e75",
+        "bytes": 253
+      },
+      "results/managed_processes.json": {
+        "sha256": "6be1d06d5b899a6e4ff60ca356736fc89035ed0f6c781a0cb1a752191ce2cbde",
+        "bytes": 361
+      },
+      "results/model_state_capture.json": {
+        "sha256": "23cd4a7fe78b53693e37710e5756bff0098dc2bce40bf24880bb4c593a7a3751",
+        "bytes": 179
+      },
+      "results/model_states.jsonl.gz": {
+        "sha256": "2a4c657e96c327c4dcb086fc4f4e6efa1fc7b651207b633859baf763c381fac9",
+        "bytes": 15279000
+      },
+      "results/model_states.log": {
+        "sha256": "63254934919f1242287f78af5491fd0fdd7f17127f0d437c4726d334236d3704",
+        "bytes": 838
+      },
+      "results/multicondition_audit.json": {
+        "sha256": "8ba55ec1a0ed00721d1b7964e2ccfa73bbfac48c32fc57c1a8aa9ebc3e3f4415",
+        "bytes": 11086
+      },
+      "results/native_landing_audit.json": {
+        "sha256": "a2276ef3fee88c53cf8a051b5bc866096d8688a7c245de0a6adff9937995f111",
+        "bytes": 1516
+      },
+      "results/operator_backend.log": {
+        "sha256": "25dc789d42c5f6d6fa4409f79f82825b36ef259edc8b3b518266ce35730c865f",
+        "bytes": 1651
+      },
+      "results/planner_execution.json": {
+        "sha256": "727353f1ec7db36f84eacbbabf53be25004f9d4771e52127e45b63f23e415421",
+        "bytes": 5318
+      },
+      "results/preflight.log": {
+        "sha256": "d25aaf6a533c25c7aeac13b67984aed04224ed09d99a8b5e3d939eeb7f114d11",
+        "bytes": 37
+      },
+      "results/progress.json": {
+        "sha256": "ce3e568913085c40482d6eac26265ade125639018372871fc2b24995ef5b6406",
+        "bytes": 13512
+      },
+      "results/raw_compression.json": {
+        "sha256": "078906cafd7c4d46312b222e3b9f5e6f44921400ff6e571c6e541079c584b0e9",
+        "bytes": 282
+      },
+      "results/reacquisition_audit_replays/audit_native_landing_11bbbe2b1886402299761b0dd37c7ad9.log": {
+        "sha256": "5d6f77aadb9a23391e7531e6fbe161f21d1c058ebb2efe2f28e946c392ce5c3c",
+        "bytes": 297
+      },
+      "results/reacquisition_audit_replays/audit_planar_guided_motion_977413ecc98a47368f1a1b715647a5b3.log": {
+        "sha256": "c5231e770a58996b3aeadd96f345016bb5d658d1d57d4e1e701b5becd316d95a",
+        "bytes": 1266
+      },
+      "results/reacquisition_audit_replays/audit_planar_physics_d86d53f5bba94201b8be81bc49cc7bd2.log": {
+        "sha256": "79897390076cec5ca1973d40f57813e2d711de620fb3a3c082d4d897264e822e",
+        "bytes": 1272
+      },
+      "results/reacquisition_audit_replays/audit_planar_policy_4914378a179942dc9ecfb7fc42db18ad.log": {
+        "sha256": "bd27b42a26b3727fe62eff69d448404b23e39bf3eea2a8eb776cb919fb8764a1",
+        "bytes": 254
+      },
+      "results/receding_control.jsonl": {
+        "sha256": "057e048cbbb08c9f2675b750a64875e73c6329bfc36369d5b686b063b44bf658",
+        "bytes": 9056275
+      },
+      "results/receding_planner.log": {
+        "sha256": "f322b193a7bae2f991a36f6689e94fdcca0127d7a42b0c9cbad7268791be74c9",
+        "bytes": 342
+      },
+      "results/receding_session.json": {
+        "sha256": "fb8aef8d9d7cd1b06af465849b22cf299f8e2b977e90bc50cf7b45ee6a97122d",
+        "bytes": 14542
+      },
+      "results/request_history_audit.json": {
+        "sha256": "39b2cb9e7cd8541232eafb920d9b03f363ab3f112055f5e700f147597960e359",
+        "bytes": 3869
+      },
+      "results/scene_maneuvers.json": {
+        "sha256": "dc2f45bef7c8ba4b71b2ec45b804d6ca2b842a916f91f93fc749ddcb1607f5db",
+        "bytes": 441
+      },
+      "results/wait_scene.log": {
+        "sha256": "7737ab881b1bf78dfb3869e728464f3732845934bb3cc7b197f44a41a3ce9ddd",
+        "bytes": 54
+      },
+      "results/world_case.json": {
+        "sha256": "c16d3d43eb0c3bf0b17e960fc02b6b0e0d829358e75e13ab0531c35c015c5f09",
+        "bytes": 1695
+      },
+      "runtime/eeprom.bin": {
+        "sha256": "3b19cff435b28930b741ae99fec662355b8282ef2500891b0bb1c18d2af1a479",
+        "bytes": 16384
+      },
+      "runtime/logs/00000001.BIN": {
+        "sha256": "f593dacb72cab4d4a43216390f0245e791772375b17344202f46dd84ce19f1b4",
+        "bytes": 3055616
+      },
+      "runtime/logs/LASTLOG.TXT": {
+        "sha256": "f1b2f662800122bed0ff255693df89c4487fbdcf453d3524a42d4ec20c3d9c04",
+        "bytes": 3
+      },
+      "runtime/receding_planner/health.json": {
+        "sha256": "966b73fce3a71af193379d6ddd059cabdd59480bba43e23dc0eb4aec16dc0c9c",
+        "bytes": 1588
+      },
+      "runtime/receding_planner/request.json": {
+        "sha256": "a4756316d2d956c98fae7d14b5c31c8f5c7b157ab7db2a67757b3fd7ce46f926",
+        "bytes": 1659
+      },
+      "runtime/receding_planner/request_000001.json": {
+        "sha256": "c3ea2d6e1af446c5fca0b72acf67f740a2d991bea462ca7c419bcfa3d70eb8c7",
+        "bytes": 1324
+      },
+      "runtime/receding_planner/request_000002.json": {
+        "sha256": "4305cc8700cff6fb1b0a76ebe1462c078cd517b5548d63fd43514014841151b7",
+        "bytes": 1374
+      },
+      "runtime/receding_planner/request_000003.json": {
+        "sha256": "985df85046a07ae88f0b0e59680d4f1f473465725723080cd6283a97394e2a82",
+        "bytes": 1417
+      },
+      "runtime/receding_planner/request_000004.json": {
+        "sha256": "3dae5b7fc3412ac19b4e71e725d51a6feae6a8c21fc5a20d4a63c6c743141b59",
+        "bytes": 1360
+      },
+      "runtime/receding_planner/request_000005.json": {
+        "sha256": "70e700acc2d5f74dc4131034597a40af33dea166df0d6fe2793d4536a7a0c5cd",
+        "bytes": 1359
+      },
+      "runtime/receding_planner/request_000006.json": {
+        "sha256": "5abf44fe712569992a804d2aecdb82d9bd475644a00e7aa1b2ea21744788adb9",
+        "bytes": 1396
+      },
+      "runtime/receding_planner/request_000007.json": {
+        "sha256": "b92a3a820c380ce7f3b88d6e0af0d806f5bee6216c02c122bfd718d00d100062",
+        "bytes": 1302
+      },
+      "runtime/receding_planner/request_000008.json": {
+        "sha256": "871a49810f0b9a081ffda5458ca29de1fdfeb64b3ee5b52b5126c44ac3bf61dc",
+        "bytes": 1357
+      },
+      "runtime/receding_planner/request_000009.json": {
+        "sha256": "8777a6078b0c128ce913bf796a5e383e55b9637beaa38b07cace23ebe9fc0b5e",
+        "bytes": 1404
+      },
+      "runtime/receding_planner/request_000010.json": {
+        "sha256": "17b240203ae572f6cd6173688ffe46ff3b1b8db4a318887917e43677772c02f1",
+        "bytes": 1600
+      },
+      "runtime/receding_planner/request_000011.json": {
+        "sha256": "772aa0f57e1233242976c7939c77fc97a5572ecbfd93977cd076426a8c1c7a40",
+        "bytes": 1659
+      },
+      "runtime/receding_planner/request_000012.json": {
+        "sha256": "820dd17c14e06f15306b3b56b703497c9933a554eaab448c3409007d946b18de",
+        "bytes": 1655
+      },
+      "runtime/receding_planner/request_000013.json": {
+        "sha256": "42baaf5bdcc9a1c5c7794d08473798367948cb437ae3c12a7a88a3e968f6aa63",
+        "bytes": 1659
+      },
+      "runtime/receding_planner/request_000014.json": {
+        "sha256": "60410c3840db768e88c27353f9ccbb5a8aca99c04bd8216a1152bb4bfc1e3b1e",
+        "bytes": 1658
+      },
+      "runtime/receding_planner/request_000015.json": {
+        "sha256": "eb4ea21eaed2e8fa8da3551bcc05f9471ac75bb36a780da20310b55309e455a4",
+        "bytes": 1652
+      },
+      "runtime/receding_planner/request_000016.json": {
+        "sha256": "92fb30f2c95f8eec99d67f61fbafc8d9cfaad1052b4a626b675aa7aa519d29f9",
+        "bytes": 1699
+      },
+      "runtime/receding_planner/request_000017.json": {
+        "sha256": "a4756316d2d956c98fae7d14b5c31c8f5c7b157ab7db2a67757b3fd7ce46f926",
+        "bytes": 1659
+      },
+      "runtime/receding_planner/response.json": {
+        "sha256": "a2427d3b18e61b8c0c9b6c64c0d32f7d1d072e17849f9b74b9ce188b7958fcdf",
+        "bytes": 15683
+      },
+      "runtime/receding_planner/response_000001.json": {
+        "sha256": "a7d4ef1c5bbd5654d3be791d9c3486adf5d65974707efe008b38f8d83d62f4d2",
+        "bytes": 10612
+      },
+      "runtime/receding_planner/response_000002.json": {
+        "sha256": "ff428327672ab1979d71ba788a4e63e98a5c03a7c84dee6b06f01ae1fe2c5658",
+        "bytes": 15785
+      },
+      "runtime/receding_planner/response_000003.json": {
+        "sha256": "cff4ad74d1e22408d8a6461fbc099d2ba8b2e4f6b4477717c6991e8f6d0d3ba3",
+        "bytes": 15901
+      },
+      "runtime/receding_planner/response_000004.json": {
+        "sha256": "f4df4e5212b80c349d938b0abcf2f0869d02b52cd3bcd015a4ec7b48598067f6",
+        "bytes": 15757
+      },
+      "runtime/receding_planner/response_000005.json": {
+        "sha256": "760b0f1a81a4fe93bb9701af2516eb3e6fdd3d566b39e1d8d82cf2a97af0958c",
+        "bytes": 15768
+      },
+      "runtime/receding_planner/response_000006.json": {
+        "sha256": "1a2075b1026cfa010eef42564356f41ed4a2e76d4287b2e98e9a51940211c4c0",
+        "bytes": 15844
+      },
+      "runtime/receding_planner/response_000007.json": {
+        "sha256": "ddfecc3ca7614054f26dfaa88f0e7a0b862d38cbfdf930ee6eb4b4643b366e06",
+        "bytes": 15449
+      },
+      "runtime/receding_planner/response_000008.json": {
+        "sha256": "2832e2cab03a9a3548f85bb52561894be9971ea33e6208b09f7b7ebc097188e0",
+        "bytes": 2356
+      },
+      "runtime/receding_planner/response_000009.json": {
+        "sha256": "289a805fbf1f6a4c37c4ea830f6baa0e31aff41fbf7a27b972e0afeeb99bbf0c",
+        "bytes": 16202
+      },
+      "runtime/receding_planner/response_000010.json": {
+        "sha256": "57675901e10db9c6c497e8d046e90debef3947094c4eeb39ee86d12ebec42c99",
+        "bytes": 17145
+      },
+      "runtime/receding_planner/response_000011.json": {
+        "sha256": "77fe04dcb27aea6fea28b673621f0b4f5db98286aab377945cc2ac83ffccd4df",
+        "bytes": 17372
+      },
+      "runtime/receding_planner/response_000012.json": {
+        "sha256": "71b97c00c4f2ea6744ab6f42e4a6d2ab2eeffa345c5352a3bc909504cf9eb7c7",
+        "bytes": 17385
+      },
+      "runtime/receding_planner/response_000013.json": {
+        "sha256": "d2d9f5f368b917c9b4d260df7dc55ebe79ab2cc333692ab58a5ea1ff22bc60a4",
+        "bytes": 17373
+      },
+      "runtime/receding_planner/response_000014.json": {
+        "sha256": "54f6391bb9ad88ed1e4b21e52ec4bb127d277189c85d9baa0354e189fdecf5b9",
+        "bytes": 17343
+      },
+      "runtime/receding_planner/response_000015.json": {
+        "sha256": "5cf1dba1537cb89bb5898251322d0114c23e7cda4f5bfda4fda222dd6cde9e27",
+        "bytes": 17318
+      },
+      "runtime/receding_planner/response_000016.json": {
+        "sha256": "e01614961ec6a6ae4616a94658510739289904a9dff49683cd09f12d0a7d93f9",
+        "bytes": 17463
+      },
+      "runtime/receding_planner/response_000017.json": {
+        "sha256": "72da5a40e3743318796463d008cd7a512d6114e3ff051c0b1c7ec66b6c996be4",
+        "bytes": 17355
+      },
+      "runtime/receding_planner/warm_plan.json": {
+        "sha256": "78718fa39d1c1b55172193c3ad8529c35fae4b22d5c4673e27ebcede2de6acf6",
+        "bytes": 5778
+      },
+      "runtime/terrain/S36E149.DAT": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      }
+    },
+    "sha256": "1e81273e9cde3a24dcdcf55783c71e89542b912b8b4915a5d645a16f31221f22",
+    "bytes": 18071420,
+    "verified_lossless": true,
+    "offsite_backup": false,
+    "raw_removed": false
+  },
+  "finished_utc": "2026-11-03T11:00:41.640715+00:00"
+}

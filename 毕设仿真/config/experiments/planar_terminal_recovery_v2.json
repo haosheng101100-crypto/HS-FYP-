@@ -1,0 +1,144 @@
+{
+  "simulation_only": true,
+  "hardware_deployment_allowed": false,
+  "planner_limits": {
+    "speed": 3.0,
+    "acceleration": 1.5,
+    "jerk": 4.0,
+    "tilt_rad": 0.2617993877991494,
+    "upward_speed": 0.6,
+    "downward_speed": 0.7,
+    "vertical_acceleration": 1.0,
+    "contact_speed": 0.08,
+    "corridor_slope": 2.0,
+    "audit_samples": 101,
+    "segments": 8,
+    "prediction_horizon_s": 2.0,
+    "terminal_coverage_s": 3.0,
+    "directional_corridor": true,
+    "tracking_error_tightening": true,
+    "terminal_downward_speed_m_s": 0.08
+  },
+  "future_activation_lead_s": 0.4,
+  "task_timeout_s": 40.0,
+  "control_interval_s": 0.04,
+  "default_scenario": "planar_reacquire_x",
+  "scenarios": {
+    "planar_reacquire_x": "X reversal during high descent",
+    "planar_reacquire_y": "Y reversal during high descent",
+    "planar_reacquire_xy": "XY reversal during high descent"
+  },
+  "scope": "Independent high-clearance branch coverage trial, not a same-initial-condition performance comparison. Contact/flight/exit limits unchanged; physical validation pending.",
+  "envelope_profile": "config/airframes/iris_swept_envelope_v1.json",
+  "deck_half_extents": [
+    0.34,
+    0.4081766061261277
+  ],
+  "deck_to_aircraft_rectangle_area_ratio": 1.5,
+  "horizontal_feedback": {
+    "position_gain": 6.25,
+    "velocity_gain": 5.0,
+    "acceleration_lead_s": 0.12,
+    "maximum_acceleration_m_s2": 2.5
+  },
+  "short_horizon_cubic_prediction": true,
+  "platform_fit_span_s": 0.65,
+  "arrival_extension_budget_s": 3.0,
+  "measured_frame_terminal_control": true,
+  "validation_scenarios": [
+    "planar_reacquire_x",
+    "planar_reacquire_y",
+    "planar_reacquire_xy"
+  ],
+  "validation_expectations": {
+    "planar_reacquire_x": "landing_after_reacquisition",
+    "planar_reacquire_y": "landing_after_reacquisition",
+    "planar_reacquire_xy": "landing_after_reacquisition"
+  },
+  "final_command_limits": true,
+  "prediction_uncertainty": {
+    "issue_interval_s": 0.16,
+    "window_s": 4.0,
+    "quantile": 0.9,
+    "minimum_samples": 12,
+    "reaction_horizon_s": 0.8
+  },
+  "synthetic_platform_observation_stress": {
+    "delay_s": 0.04,
+    "position_sigma_m": 0.0008,
+    "yaw_sigma_rad": 0.0008,
+    "seed": 20261024
+  },
+  "terminal_horizontal_feedback": {
+    "transition_s": 4.0,
+    "position_gain": 1.5,
+    "velocity_gain": 2.4,
+    "acceleration_lead_s": 0.0,
+    "speed_scheduling": {
+      "low_speed_m_s": 0.45,
+      "high_speed_m_s": 0.65,
+      "fast_transition_s": 5.0
+    }
+  },
+  "nominal_acceleration_reserve_m_s2": 0.3,
+  "platform_filter": {
+    "position_noise_m": 0.0008,
+    "yaw_noise_rad": 0.0008,
+    "linear_jerk_spectral_density": 0.01,
+    "angular_jerk_spectral_density": 0.0004,
+    "maximum_measurement_age_s": 0.12,
+    "innovation_adaptation": {
+      "sigma_threshold": 4.0,
+      "process_noise_multiplier": 25.0,
+      "hold_s": 0.6
+    }
+  },
+  "maximum_contact_yaw_acceleration_rad_s2": 0.04,
+  "arrival_extension_window_s": 5.0,
+  "initial_candidate_durations_s": [
+    8.0,
+    10.0,
+    12.0
+  ],
+  "early_arrival_extension_budget_s": 1.0,
+  "final_command_acceleration_reserve_m_s2": 0.1,
+  "moving_alignment": {
+    "minimum_leg_gap_m": 4.0,
+    "dwell_s": 0.6,
+    "maximum_time_s": 25.0,
+    "only_for_degraded_observations": false,
+    "initial_candidate_durations_s": [
+      8.0,
+      10.0,
+      12.0
+    ]
+  },
+  "stable_non_descent_feedback": true,
+  "maximum_early_native_freeflight_s": 0.05,
+  "tracking_error_feedback": {
+    "window_s": 5.0,
+    "error_horizon_s": 0.35
+  },
+  "planar_landing": {
+    "stable_dwell_s": 0.8,
+    "maximum_wait_s": 25.0,
+    "maximum_task_s": 40.0,
+    "maximum_reacquisitions": 3,
+    "trusted_prediction_s": 1.2,
+    "capture_half_window_s": 0.2,
+    "maximum_platform_speed_m_s": 0.8,
+    "maximum_capture_acceleration_m_s2": 0.11,
+    "maximum_capture_velocity_change_m_s": 0.03,
+    "maximum_yaw_acceleration_rad_s2": 0.04,
+    "maximum_yaw_rate_rad_s": 0.15,
+    "minimum_reacquisition_gap_m": 1.25,
+    "braking_clearance_reserve_m": 0.25
+  },
+  "platform_motion_model": "force_driven_planar_guide",
+  "validation_status": "CODE_AND_OFFLINE_TESTS_ONLY_PHYSICS_PENDING",
+  "reacquisition_trial": {
+    "trigger_gap_m": 3.85,
+    "minimum_trigger_gap_m": 3.4,
+    "minimum_descent_speed_m_s": 0.02
+  }
+}

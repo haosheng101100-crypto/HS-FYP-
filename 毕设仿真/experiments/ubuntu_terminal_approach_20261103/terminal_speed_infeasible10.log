@@ -1,0 +1,16 @@
+/workspace/work/terminal_approach_20261103/毕设仿真/landing/receding_landing.py:450: UserWarning: The problem includes expressions that don't support CPP backend. Defaulting to the SCIPY backend for canonicalization.
+  problem.solve(solver='CLARABEL', warm_start=False, max_iter=100,
+..F
+======================================================================
+FAIL: test_tightened_terminal_hull_still_has_a_ten_second_high_clearance_plan (test_terminal_descent_speed.TerminalDescentSpeedTests.test_tightened_terminal_hull_still_has_a_ten_second_high_clearance_plan)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_descent_speed.py", line 18, in test_tightened_terminal_hull_still_has_a_ten_second_high_clearance_plan
+    p,s,d=self.inputs(.08);plan,report=p.solve(s,d,0.,10.);self.assertIsNotNone(plan,report)
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: unexpectedly None : {'status': 'infeasible', 'duration_s': 10.0, 'solver_cache_policy': 'fresh_numeric_solver_reused_dpp_template', 'elapsed_s': 2.0539894570001707}
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.024s
+
+FAILED (failures=1)

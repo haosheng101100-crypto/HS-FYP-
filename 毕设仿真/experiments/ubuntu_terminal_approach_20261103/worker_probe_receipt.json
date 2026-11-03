@@ -1,0 +1,23 @@
+{
+  "ready": true,
+  "actual_worker_process": true,
+  "no_simulator_or_fcu_started": true,
+  "original_measured_request_sha256": "c3ea2d6e1af446c5fca0b72acf67f740a2d991bea462ca7c419bcfa3d70eb8c7",
+  "only_modified_request_fields": [
+    "sequence",
+    "durations"
+  ],
+  "new_candidate_durations_s": [
+    8.0,
+    10.0,
+    12.0
+  ],
+  "accepted_plan_duration_s": 12.0,
+  "terminal_descent_speed": {
+    "cap_m_s": 0.08,
+    "hull_peak_m_s": 0.08000000000000251,
+    "whole_segments": 2,
+    "actual_covered_duration_s": 3.0,
+    "declared_coverage_s": 3.0
+  }
+}

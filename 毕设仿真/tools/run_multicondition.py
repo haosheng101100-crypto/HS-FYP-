@@ -66,8 +66,19 @@ def validate_matrix(matrix):
             raise ValueError('Case/scenario mismatch: ' + case['case_id'])
 
 
-def prepare(root, output, matrix):
-    root, output = Path(root), Path(output)
+def verify_terminal_profile(baseline, chosen):
+    cap = chosen.get('planner_limits', {}).get('terminal_downward_speed_m_s')
+    if (isinstance(cap, bool) or not isinstance(cap, (int, float))
+            or not 0 < cap <= baseline['planner_limits']['contact_speed']):
+        raise ValueError('Only a tighter terminal descent cap may be added')
+    expected = dict(baseline, planner_limits=dict(baseline['planner_limits'], terminal_downward_speed_m_s=cap),
+                    moving_alignment=dict(baseline['moving_alignment'], initial_candidate_durations_s=baseline['initial_candidate_durations_s']))
+    if chosen != expected:raise ValueError('Original profile gates, model and budgets must remain unchanged')
+    return True
+
+
+def prepare(root, output, matrix, *, profile=None):
+    root, output = Path(root).resolve(), Path(output)
     if output.exists():
         raise FileExistsError('Preserve existing evidence; choose a new output')
     validate_matrix(matrix)
@@ -76,10 +87,18 @@ def prepare(root, output, matrix):
     package_sources = read_json(root/'simulation/operator_package/source_manifest.json')['source_sha256']
     if package_sources.get('config/experiments/planar_reacquisition_v1.json') != sha(profile_path):
         raise ValueError('Accepted original control profile changed')
+    baseline_sha = sha(profile_path)
+    active = profile_path
+    if profile is not None:
+        active = Path(profile).resolve()
+        if not active.is_relative_to(root.resolve()/'config/experiments'):raise ValueError('Select a committed experiment profile')
+        chosen = read_json(active)
+        verify_terminal_profile(baseline, chosen)
+        baseline = chosen
     output.mkdir(parents=True, exist_ok=False)
     (output/'profiles').mkdir()
-    frozen = dict(matrix, planned_cases=20, control_commit=CONTROL_COMMIT,
-                  baseline_profile_sha256=sha(profile_path))
+    frozen = dict(matrix, planned_cases=20, control_baseline_commit=CONTROL_COMMIT,
+                  baseline_profile_sha256=baseline_sha,active_profile_relative_path=str(active.relative_to(root.resolve())),active_profile_sha256=sha(active))
     save(output/'matrix.json', frozen)
     hashes = {'matrix.json': sha(output/'matrix.json')}
     for case in frozen['cases']:
@@ -325,6 +344,10 @@ def verify_receipt(root, output, base, package):
         raise ValueError('Frozen cases differ from committed matrix')
     if sha(root/'config/experiments/planar_reacquisition_v1.json') != matrix['baseline_profile_sha256']:
         raise ValueError('Original control profile changed after freeze')
+    if matrix.get('active_profile_relative_path'):
+        active = (root/matrix['active_profile_relative_path']).resolve()
+        if not active.is_relative_to(root/'config/experiments') or sha(active)!=matrix['active_profile_sha256']:raise ValueError('Active profile changed')
+        if active!=root/'config/experiments/planar_reacquisition_v1.json':verify_terminal_profile(read_json(root/'config/experiments/planar_reacquisition_v1.json'),read_json(active))
     demo = _load_tool(root, 'run_functional_demo')
     environment = demo.verify_environment(root, base)
     # Include the actually loaded binary and original geometry in every attempt.
@@ -521,6 +544,7 @@ def main():
     parser.add_argument('action', choices=('prepare','run','audit'))
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--matrix', type=Path)
+    parser.add_argument('--profile', type=Path,help='Committed original profile plus tighter terminal descent only')
     for name in ('base','package','source','frozen'): parser.add_argument('--'+name,type=Path)
     parser.add_argument('--resume',action='store_true')
     parser.add_argument('--case-id',action='append',help='Select declared targeted cases, in requested order')
@@ -529,7 +553,7 @@ def main():
     output = args.output.resolve()
     if args.action == 'prepare':
         matrix = args.matrix or root/'config/experiments/multicondition_matrix_v1.json'
-        prepare(root,output,read_json(matrix)); return 0
+        prepare(root,output,read_json(matrix),profile=args.profile); return 0
     if args.action == 'audit':
         return 0 if audit_batch(output)['complete'] else 2
     if not all(getattr(args,n) for n in ('base','package','source','frozen')):

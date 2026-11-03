@@ -1,0 +1,23 @@
+EE
+======================================================================
+ERROR: test_only_the_new_tighter_terminal_planning_cap_can_differ_from_baseline (test_terminal_profile.TerminalProfileTests.test_only_the_new_tighter_terminal_planning_cap_can_differ_from_baseline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_profile.py", line 8, in test_only_the_new_tighter_terminal_planning_cap_can_differ_from_baseline
+    self.assertTrue(m.verify_terminal_profile(base,new))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'tools.run_multicondition' has no attribute 'verify_terminal_profile'
+
+======================================================================
+ERROR: test_prepare_freezes_selected_profile_without_mutating_matrix_case_or_baseline (test_terminal_profile.TerminalProfileTests.test_prepare_freezes_selected_profile_without_mutating_matrix_case_or_baseline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/work/terminal_approach_20261103/毕设仿真/tests/test_terminal_profile.py", line 17, in test_prepare_freezes_selected_profile_without_mutating_matrix_case_or_baseline
+    out=Path(d)/'batch';frozen=m.prepare(ROOT,out,matrix,profile=p);cfg=json.loads((out/'profiles/M18.json').read_text());self.assertEqual(cfg['planner_limits']['terminal_downward_speed_m_s'],.08);self.assertEqual(frozen['cases'],matrix['cases']);self.assertEqual(baseline.read_bytes(),before);self.assertEqual(frozen['active_profile_sha256'],m.sha(p));m.verify_freeze(out)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: prepare() got an unexpected keyword argument 'profile'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (errors=2)

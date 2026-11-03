@@ -115,6 +115,7 @@ class PlannerLimits:
     audit_samples: int = 301
     prediction_horizon_s: float = 15.
     terminal_coverage_s: float = .01
+    terminal_downward_speed_m_s: float | None = None
     tolerance: float = 2e-5
     landing_point_trust_radius_m: float = .015
     landing_point_weight: float = 100.
@@ -129,10 +130,12 @@ class PlannerLimits:
             if k in ('directional_corridor','tracking_error_tightening'):
                 if type(v) is not bool:raise ValueError('Boolean directional corridor required')
                 continue
-            if k=='entry_acceleration_capture_m_s2' and v is None:continue
+            if k in ('entry_acceleration_capture_m_s2','terminal_downward_speed_m_s') and v is None:continue
             if not math.isfinite(v) or v <= 0: raise ValueError('Positive finite limit required: '+k)
         if self.entry_acceleration_capture_m_s2 is not None and self.entry_acceleration_capture_m_s2<self.acceleration:
             raise ValueError('Entry capture must preserve the nominal acceleration range')
+        if self.terminal_downward_speed_m_s is not None and not self.contact_speed<=self.terminal_downward_speed_m_s<=self.downward_speed:
+            raise ValueError('Terminal descent cap must include contact target and tighten global descent')
         if type(self.segments) is not int or not 1 <= self.segments <= 8:
             raise ValueError('One to eight segments required')
         if type(self.audit_samples) is not int or self.audit_samples < 101:
@@ -322,6 +325,7 @@ class BezierLandingPlanner:
         P['centers'] = cp.Parameter((L.segments*8, 3))
         P['height'] = cp.Parameter()
         P['slopes']=cp.Parameter(L.segments,nonneg=True)
+        if L.terminal_downward_speed_m_s is not None:P['terminal_vertical_caps']=cp.Parameter(L.segments,nonneg=True)
         P['corridor_shift']=cp.Parameter(L.segments*8)
         P['offset_velocity_scaled'] = cp.Parameter((3, 2))
         directional=bool(L.directional_corridor and self.envelope)
@@ -355,7 +359,8 @@ class BezierLandingPlanner:
                 cons += [cp.norm(a[0])<=L.entry_acceleration_capture_m_s2,
                     cp.norm(a[1:],axis=1)<=L.acceleration]
             else:cons.append(cp.norm(a,axis=1)<=L.acceleration)
-            cons += [v[:, 2] <= L.upward_speed, v[:, 2] >= -L.downward_speed,
+            downward_cap=P['terminal_vertical_caps'][k] if L.terminal_downward_speed_m_s is not None else L.downward_speed
+            cons += [v[:, 2] <= L.upward_speed, v[:, 2] >= -downward_cap,
                 cp.abs(a[:, 2]) <= L.vertical_acceleration,
                 9.80665+a[:, 2] >= L.minimum_vertical_specific_force,
                 cp.norm(a[:, :2], axis=1) <= math.tan(L.tilt_rad)*(9.80665+a[:, 2]),
@@ -413,6 +418,10 @@ class BezierLandingPlanner:
         count=min(L.segments,max(1,math.ceil(L.terminal_coverage_s/dt)))
         slopes=np.array([0. if self.envelope and k>=L.segments-count else L.corridor_slope for k in range(L.segments)])
         P['slopes'].value=slopes
+        if L.terminal_downward_speed_m_s is not None:
+            # Velocity Bernstein control points certify the whole terminal
+            # segment, including between samples. No future scene data used.
+            P['terminal_vertical_caps'].value=np.array([L.downward_speed if k<L.segments-count else L.terminal_downward_speed_m_s for k in range(L.segments)])
         P['corridor_shift'].value=-np.repeat(slopes,8)*(np.array(centers)[:,2]+contact_height)
         if L.directional_corridor and self.envelope:
             axes=[];chords=[];rhs=[]
@@ -472,6 +481,8 @@ class BezierLandingPlanner:
         L = self.limits; dt = plan.duration/len(plan.points); tol = L.tolerance
         peaks = dict(speed=0., acceleration=0., jerk=0., tilt_ratio=0., specific_force=0.)
         failed = []
+        terminal_downward_peak=0.
+        terminal_count=min(len(plan.points),max(1,math.ceil(L.terminal_coverage_s/dt)))
         corridor_residual = -math.inf
         tracking_residual=-math.inf
         tracking=plan.audit.get('tracking_contact_envelope')
@@ -505,6 +516,9 @@ class BezierLandingPlanner:
                     corridor_residual = max(corridor_residual, -gap,
                         np.linalg.norm(c[i,:2]-center[:2]-landing_offset[:2])+np.linalg.norm(landing_offset)+self.footprint_tilt_coefficient*np.linalg.norm(elevated_a[i,:2])-radius-slope*gap)
             v, a, j = [derivatives(c, dt, n) for n in (1, 2, 3)]
+            if L.terminal_downward_speed_m_s is not None and k>=len(plan.points)-terminal_count:
+                terminal_downward_peak=max(terminal_downward_peak,float(-np.min(v[:,2])))
+                if terminal_downward_peak>L.terminal_downward_speed_m_s+tol:failed.append('terminal_downward_speed')
             reserved=a[1:] if k==0 and L.entry_acceleration_capture_m_s2 is not None else a
             if np.linalg.norm(reserved,axis=1).max()>L.acceleration+tol:failed.append('post_entry_acceleration_reserve')
             for key, d in [('speed', v), ('acceleration', a), ('jerk', j)]:
@@ -550,6 +564,7 @@ class BezierLandingPlanner:
             'sampled_low_altitude_foot_margin_m': float(min_margin), 'sampled_maximum_angular_speed_rad_s': float(max_rate),
             'geometry_samples': L.audit_samples, 'collision_continuously_certified': False,
             'physics_validated': False, 'usable_radius_m': radius}
+        if L.terminal_downward_speed_m_s is not None:result['terminal_descent_speed']=dict(cap_m_s=L.terminal_downward_speed_m_s,hull_peak_m_s=terminal_downward_peak,whole_segments=terminal_count,actual_covered_duration_s=terminal_count*dt,declared_coverage_s=L.terminal_coverage_s)
         if L.tracking_error_tightening:result.update(tracking_contact_envelope=tracking,tracking_terminal_corridor_residual_m=float(tracking_residual))
         return result
 
