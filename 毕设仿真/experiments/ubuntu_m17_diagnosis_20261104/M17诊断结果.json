@@ -1,0 +1,130 @@
+{
+  "analysis": "M17 full reversal occurs after safety exit in both recorded physical attempts. No audit is relaxed; post-exit motion does not satisfy descent coverage.",
+  "attempts": {
+    "original_20_case": {
+      "original_attempt": "outputs/二维多工况_20261103/batch_002/cases/M17/attempt_001",
+      "control_commit": "748b27e28be42ad294769105c5c899d3e9ecfb25",
+      "original_category": "coverage_failure",
+      "original_safety_passed": true,
+      "original_physics_passed": true,
+      "original_coverage_passed": false,
+      "trigger_sim_s": 52.02,
+      "exit_sim_s": 52.78,
+      "response_window_before_exit_s": 0.759999999999998,
+      "trigger_clearance_m": 2.0908661464754217,
+      "exit_clearance_m": 1.5572903926223107,
+      "exit_reason": "PLANAR_CHANGE_WITHOUT_REACQUISITION_CLEARANCE",
+      "baseline_raw_velocity_m_s": [
+        0.21650635061906268,
+        0.1249999998133062
+      ],
+      "baseline_speed_m_s": 0.2499999996234221,
+      "raw_velocity_near_exit_m_s": [
+        0.16723164339604082,
+        0.09631612997753658
+      ],
+      "first_reverse_three_raw_intervals": [
+        {
+          "start_s": 54.74,
+          "end_s": 54.774,
+          "velocity_xy_m_s": [
+            -0.03785162968201739,
+            -0.022091593474282085
+          ]
+        },
+        {
+          "start_s": 54.774,
+          "end_s": 54.808,
+          "velocity_xy_m_s": [
+            -0.0413835389589305,
+            -0.024131299569307166
+          ]
+        },
+        {
+          "start_s": 54.808,
+          "end_s": 54.842,
+          "velocity_xy_m_s": [
+            -0.044983072688234385,
+            -0.026211234999750727
+          ]
+        }
+      ],
+      "first_reverse_delay_after_trigger_s": 2.737000000000002,
+      "first_reverse_delay_after_exit_s": 1.9770000000000039,
+      "command_acceleration_cap_m_s2": 0.12,
+      "ideal_command_time_to_zero_lower_bound_s": 2.083333330195184,
+      "ideal_collinear_command_time_to_minus_004_lower_bound_s": 2.4166666635285177,
+      "lower_bound_scope": "Ideal scalar command bound neglecting jerk and servo lag; explanatory, not a bound on all possible physical disturbances.",
+      "raw_uncompressed_sha256": "9a4826badd93fcca35a539796310302f2bfb0bd76c00ac1f5aaa9bb2b4910a80",
+      "original_reports_unchanged": true,
+      "no_new_physical_flight": true
+    },
+    "terminal_v2": {
+      "original_attempt": "outputs/近地退出连续性修复_20261103/batch_003/cases/M17/attempt_001",
+      "control_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+      "original_category": "coverage_failure",
+      "original_safety_passed": true,
+      "original_physics_passed": true,
+      "original_coverage_passed": false,
+      "trigger_sim_s": 45.89,
+      "exit_sim_s": 46.65,
+      "response_window_before_exit_s": 0.759999999999998,
+      "trigger_clearance_m": 2.083038997537093,
+      "exit_clearance_m": 1.5614025710638644,
+      "exit_reason": "PLANAR_CHANGE_WITHOUT_REACQUISITION_CLEARANCE",
+      "baseline_raw_velocity_m_s": [
+        0.21650635084807507,
+        0.1249999999440219
+      ],
+      "baseline_speed_m_s": 0.2499999998871105,
+      "raw_velocity_near_exit_m_s": [
+        0.1665941821001608,
+        0.09595034200572242
+      ],
+      "first_reverse_three_raw_intervals": [
+        {
+          "start_s": 48.586,
+          "end_s": 48.62,
+          "velocity_xy_m_s": [
+            -0.03512955714332255,
+            -0.020522537247191774
+          ]
+        },
+        {
+          "start_s": 48.62,
+          "end_s": 48.654,
+          "velocity_xy_m_s": [
+            -0.03863047837899651,
+            -0.022543138365964065
+          ]
+        },
+        {
+          "start_s": 48.654,
+          "end_s": 48.688,
+          "velocity_xy_m_s": [
+            -0.04201221672710142,
+            -0.024492663485809696
+          ]
+        }
+      ],
+      "first_reverse_delay_after_trigger_s": 2.712999999999994,
+      "first_reverse_delay_after_exit_s": 1.9529999999999959,
+      "command_acceleration_cap_m_s2": 0.12,
+      "ideal_command_time_to_zero_lower_bound_s": 2.0833333323925873,
+      "ideal_collinear_command_time_to_minus_004_lower_bound_s": 2.416666665725921,
+      "lower_bound_scope": "Ideal scalar command bound neglecting jerk and servo lag; explanatory, not a bound on all possible physical disturbances.",
+      "raw_uncompressed_sha256": "eda56a273c2aa9c9d08310d98b65a2ec952c7b72d979d1058a9ed14c1e3fb0f0",
+      "original_reports_unchanged": true,
+      "no_new_physical_flight": true
+    }
+  },
+  "deterministic_command_replay": {
+    "first_opposite_speed_over_004_s": 2.62,
+    "acceleration_cap_m_s2": 0.12,
+    "jerk_cap_m_s3": 0.3,
+    "physical_flight": false
+  },
+  "original_M17_coverage_still_incomplete": true,
+  "new_physical_attempts": 0,
+  "next_step": "Keep original M17 coverage_failure. Any experiment seeking full reversal before exit needs a separately declared condition or a justified controller redesign, rather than waiting past a safety exit or renaming the old outcome."
+}
