@@ -1,0 +1,10 @@
+{
+  "source_files": 447,
+  "package_files": 27,
+  "environment": {
+    "firmware_sha256": "011627d41dd95640c3aca02d45283474be48721c8b1bb7a4b234d38b69063482",
+    "original_assets_verified": 222,
+    "plugin_files_verified": 4,
+    "loaded_plugin_sha256": "1bb777f5ed44566c793e67f6c9624b5237d93fdeaae04632255b1ee4cf06c378"
+  }
+}

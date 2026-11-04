@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "scope": "Actual raw platform XY polyline before physical contact/policy exit. Segment witnesses use linear interpolation between raw samples, not a continuous-time guarantee or a future reference. No .12m near-pass tolerance used.",
+  "world_start_sim_t_s": 40.76,
+  "contact_or_exit_sim_t_s": 59.668,
+  "elapsed_to_contact_or_exit_s": 18.908,
+  "raw_platform_samples": 556,
+  "raw_max_gap_s": 0.034000000000006025,
+  "raw_uncompressed_sha256": "5543471d83b8d6059a397ebdde90e09b662a70f861adbf1470ad76fbe64375bc",
+  "witnesses": [
+    {
+      "first_segment_sim_s": [
+        47.328,
+        47.362
+      ],
+      "second_segment_sim_s": [
+        59.33,
+        59.364
+      ],
+      "first_pass_interpolated_sim_s": 47.34708998917345,
+      "second_pass_interpolated_sim_s": 59.35320040358846,
+      "intersection_world_xy_m": [
+        3.5943196793763548,
+        0.06450432370501202
+      ],
+      "distinct_tangent_cosine": -0.02185148510931427,
+      "raw_segment_indices": [
+        193,
+        546
+      ]
+    }
+  ]
+}

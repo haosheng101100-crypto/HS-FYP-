@@ -1,0 +1,96 @@
+[
+  {
+    "case_id": "M07",
+    "classification": "complete_function_success",
+    "source_wall_trim_s": 37.29961180686951,
+    "wall_playback_speed": 1,
+    "caption_source": "Native UI observed every 0.25 wall seconds; exact control/contact timing belongs to raw audits",
+    "raw_and_delivered": [
+      {
+        "file": "/workspace/outputs/新版功能实录_20261104/batch_002/videos/M07_raw.mp4",
+        "bytes": 5688309,
+        "sha256": "ef88e3402fcfbc9660402b08450a889e2f2ac8f337fcc7cc4921021a1cb41e1f",
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 1280,
+              "height": 720
+            }
+          ],
+          "format": {
+            "duration": "81.200000"
+          }
+        },
+        "full_decode_passed": true
+      },
+      {
+        "file": "/workspace/outputs/新版功能实录_20261104/batch_002/watchable/M07_八字平台落台.mp4",
+        "bytes": 340083,
+        "sha256": "9adea29c12834c0873f35efed417aacb3ccd543c464268e6f2220e655b044fea",
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 1280,
+              "height": 792
+            }
+          ],
+          "format": {
+            "duration": "43.900000"
+          }
+        },
+        "full_decode_passed": true
+      }
+    ]
+  },
+  {
+    "case_id": "M18",
+    "classification": "correct_safe_exit",
+    "source_wall_trim_s": 36.54934811592102,
+    "wall_playback_speed": 1,
+    "caption_source": "Native UI observed every 0.25 wall seconds; exact control/contact timing belongs to raw audits",
+    "raw_and_delivered": [
+      {
+        "file": "/workspace/outputs/新版功能实录_20261104/batch_002/videos/M18_raw.mp4",
+        "bytes": 6406943,
+        "sha256": "003f23b633800bebb7039141cd7507d2a477661b26c8999505df96a5b199bb60",
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 1280,
+              "height": 720
+            }
+          ],
+          "format": {
+            "duration": "90.100000"
+          }
+        },
+        "full_decode_passed": true
+      },
+      {
+        "file": "/workspace/outputs/新版功能实录_20261104/batch_002/watchable/M18_近地安全退出.mp4",
+        "bytes": 508458,
+        "sha256": "63c0d9762b705fb78e92c5b7c2125aa65e2147c75d16d8f9db5e3dd39dd953ff",
+        "probe": {
+          "programs": [],
+          "streams": [
+            {
+              "codec_name": "h264",
+              "width": 1280,
+              "height": 792
+            }
+          ],
+          "format": {
+            "duration": "53.500000"
+          }
+        },
+        "full_decode_passed": true
+      }
+    ]
+  }
+]
