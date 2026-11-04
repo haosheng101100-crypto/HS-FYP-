@@ -1,0 +1,63 @@
+{
+  "first_actual_raw_model_poses": {
+    "uav": {
+      "sim_t_s": 0.01,
+      "model_origin_position_world_m": [
+        -1.0408340855860843e-23,
+        2.503708755301218e-38,
+        0.1949902
+      ]
+    },
+    "landing_vehicle": {
+      "sim_t_s": 0.034,
+      "model_origin_position_world_m": [
+        3.0,
+        0.0,
+        0.0020000000000000018
+      ]
+    }
+  },
+  "first_control_sample": {
+    "sim_t_s": 30.9,
+    "body_origin_world_m": [
+      0.0038496090111563583,
+      0.0006047741806432084,
+      3.7096287217710184
+    ],
+    "deck_surface_world_m": [
+      3.0,
+      0.0,
+      0.802
+    ],
+    "minimum_foot_clearance_m": 2.712626427831506
+  },
+  "first_policy_descent_permission": {
+    "sim_t_s": 41.26,
+    "body_origin_world_m": [
+      3.5708578568912888,
+      0.06352857946847427,
+      4.9714624440159705
+    ],
+    "deck_surface_world_m": [
+      3.5773844559996286,
+      0.04786416702107642,
+      0.802
+    ],
+    "minimum_foot_clearance_m": 3.9743761995181823
+  },
+  "first_tracking_sample": {
+    "sim_t_s": 41.66,
+    "body_origin_world_m": [
+      3.6370223325547992,
+      0.12524956519617775,
+      4.978155036557423
+    ],
+    "deck_surface_world_m": [
+      3.6396989201738754,
+      0.10867783438029308,
+      0.802
+    ],
+    "minimum_foot_clearance_m": 3.980983247286533
+  },
+  "scope": "Actual initial model origins are distinct from measured deck surface and the4m follow target. Descent permission and first tracking are separately measured; no initial-height performance comparison."
+}

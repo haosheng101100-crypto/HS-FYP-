@@ -1,0 +1,47 @@
+{
+  "scope": "Original full car_pose JSONL lines at the four actual segment endpoint timestamps; SHA256 includes original newline",
+  "raw_uncompressed_sha256": "07b187b7f3debe0be3a6dabca0ea104db8659c97695179c23a70e523ad691b03",
+  "witness": {
+    "first_segment_sim_s": [
+      41.344,
+      41.378
+    ],
+    "second_segment_sim_s": [
+      53.346,
+      53.38
+    ],
+    "first_pass_interpolated_sim_s": 41.367957275694216,
+    "second_pass_interpolated_sim_s": 53.37621431976812,
+    "intersection_world_xy_m": [
+      3.5942127062061,
+      0.06432320396036433
+    ],
+    "distinct_tangent_cosine": -0.021826882182681383,
+    "raw_segment_indices": [
+      193,
+      546
+    ]
+  },
+  "lines": [
+    {
+      "raw_line_sha256": "1054d9507c0177123b96b47f6c3355396264c84c3f8f9c17934e6c9300489cdd",
+      "raw_line_utf8": "{\"kind\":\"car_pose\",\"received_monotonic_s\":6056.670868676,\"message\":{\"pose\":[{\"header\":{\"stamp\":{\"sec\":\"41\",\"nsec\":344000000},\"data\":[{\"key\":\"frame_id\",\"value\":[\"uav_vehicle_stage1\"]},{\"key\":\"child_frame_id\",\"value\":[\"landing_vehicle\"]}]},\"name\":\"landing_vehicle\",\"position\":{\"x\":3.5904777359991527,\"y\":0.06066906972405992,\"z\":0.0020000000000000018},\"orientation\":{\"w\":1.0}}]}}\n",
+      "sim_t_s": 41.344
+    },
+    {
+      "raw_line_sha256": "40ad5443b2c0294670e04629bcb81e1cc4beda6f8652570960a2c84e312cccdf",
+      "raw_line_utf8": "{\"kind\":\"car_pose\",\"received_monotonic_s\":6056.704958333,\"message\":{\"pose\":[{\"header\":{\"stamp\":{\"sec\":\"41\",\"nsec\":378000000},\"data\":[{\"key\":\"frame_id\",\"value\":[\"uav_vehicle_stage1\"]},{\"key\":\"child_frame_id\",\"value\":[\"landing_vehicle\"]}]},\"name\":\"landing_vehicle\",\"position\":{\"x\":3.5957783798894285,\"y\":0.0658549917637825,\"z\":0.0020000000000000018},\"orientation\":{\"w\":1.0}}]}}\n",
+      "sim_t_s": 41.378
+    },
+    {
+      "raw_line_sha256": "0ba2450c221ad9ae37a10711cd2e8d7552afcde15289218ed9485bfe0d365e92",
+      "raw_line_utf8": "{\"kind\":\"car_pose\",\"received_monotonic_s\":6075.596319122,\"message\":{\"pose\":[{\"header\":{\"stamp\":{\"sec\":\"53\",\"nsec\":346000000},\"data\":[{\"key\":\"frame_id\",\"value\":[\"uav_vehicle_stage1\"]},{\"key\":\"child_frame_id\",\"value\":[\"landing_vehicle\"]}]},\"name\":\"landing_vehicle\",\"position\":{\"x\":3.598923252010518,\"y\":0.0597141448792782,\"z\":0.0020000000000000018},\"orientation\":{\"w\":1.0}}]}}\n",
+      "sim_t_s": 53.346
+    },
+    {
+      "raw_line_sha256": "6df47f083aa3649e83f9a4c91ef53435dd2f162bf23ce78850b536d450c58d2c",
+      "raw_line_utf8": "{\"kind\":\"car_pose\",\"received_monotonic_s\":6075.632157316,\"message\":{\"pose\":[{\"header\":{\"stamp\":{\"sec\":\"53\",\"nsec\":380000000},\"data\":[{\"key\":\"frame_id\",\"value\":[\"uav_vehicle_stage1\"]},{\"key\":\"child_frame_id\",\"value\":[\"landing_vehicle\"]}]},\"name\":\"landing_vehicle\",\"position\":{\"x\":3.59362250194964,\"y\":0.06490069251495623,\"z\":0.0020000000000000018},\"orientation\":{\"w\":1.0}}]}}\n",
+      "sim_t_s": 53.38
+    }
+  ]
+}

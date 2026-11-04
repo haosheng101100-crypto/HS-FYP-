@@ -8,7 +8,7 @@
     ".gitattributes": "8b209f6984cc577c2a116f6739d75b2104a97ef5358287eec6eed3150eea2150",
     "二维多工况仿真要求.md": "ba5cd2126163f4999f491476b47fd135bbda54bccebdab982206591957abae1f",
     ".gitignore": "5c8b05c01f962cfd07819c72f7c995010ea62e76ecc026527112d83f349c2dfe",
-    "LINUX接续工作说明.md": "e87b94a1f19ab838116b8dc8ca7279e5d67599c8e492be20c1e2888e266cf6d5",
+    "LINUX接续工作说明.md": "d5eca47ab869dbebc3b4d9e3043e4a67ce8911f0b274d834e21b25ff33beb26c",
     "新算法与仿真验收.md": "acf2e4d25a43f33c9a1bc9f94f72365a17770c2c1026f579db4653199f3f8bb0",
     "requirements.txt": "7575d3a9b9e37cbc067d220b53f419583d6696b6b059a60d02e69aea438abffc",
     "README.md": "3400384130987bb894c2fe9943c8742a7e069ec46355797484b84f027ea6b0dc",
@@ -23,7 +23,7 @@
     "handoff/ubuntu_functional_acceptance_20261102.json": "215a8d708393b16e22f09046f34ceab1d4ceb8287cb2af2312195974c24628b5",
     "handoff/package_tests_windows.txt": "3ab4e8e7c00734791b58ed69bcd14bdccfb080356b64d38d1112969925be227a",
     "handoff/ubuntu_planar_run_20261101.json": "042f7e4c7a1cc49297ee55d26b9d23f68c54a97ac0fea00fb70cc8be1d729dad",
-    "handoff/CURRENT_STATUS.md": "ccb695566903f8b7da4a785f4c7c46c706bb48db1a0c07034069797228829747",
+    "handoff/CURRENT_STATUS.md": "f3315f5fc34716e5ecca2c2ff613324078a210175f8f4b4b7a77eb9a28626426",
     "handoff/ubuntu_solver_run_20261030.json": "050b1f402f7ce57aed6d2af078dd62d337346ff6b332eb5bde6854ee42346bc6",
     "handoff/UBUNTU_DEMO_DELIVERY_20261102.md": "8c070955dc822d641ff0620d82f5d97b0514e9eef69c8936c58fd27b6b013e40",
     "handoff/fixture_excerpts.json": "e5a6d4bfc3193212d825244de8e211d2d38389f5dff26c3fdd77c78a0c2279f0",
@@ -529,6 +529,17 @@
     "experiments/ubuntu_planar_20261101_session004/supervisor_adapter_final.diff": "8facbb3dcc45e5b85223abefcef043485ff1bab4f13b9412a30150684ced203b",
     "experiments/ubuntu_planar_20261101_session004/结果归纳.md": "fb3d081974a3471b4936d4c912b1a9dc3133d1f8f1c61f6819588bddbaed310f",
     "experiments/ubuntu_planar_20261101_session004/declared_protocol.json": "d0440fbf82f5d49605bf9f969e9bdb55b5945308ba0ca99f1b565afb86a11a86",
+    "experiments/ubuntu_figure_eight_20261103/接触前实际八字交叉.png": "c9088afe3347f66694c679102bca50364ddbc2d42a21e29c1d3ddb29448b0e76",
+    "experiments/ubuntu_figure_eight_20261103/交叉段原始位姿证据.json": "8c68306bfdc4a082600a6a71fc5ddd06dc7b040d554d9aedcf90687b0952dc0b",
+    "experiments/ubuntu_figure_eight_20261103/初始化与首次下降实测.json": "622cdcef391b93be9d8dc784a18dccdbc83cc4308a0f177b843fe86d00234306",
+    "experiments/ubuntu_figure_eight_20261103/evidence_archive_receipt.json": "c7c6683b66c43d05cf2341c0e9ea066ffff0ecde8ae768264f1de3fa9428b095",
+    "experiments/ubuntu_figure_eight_20261103/README.md": "f856dbc21a5df773ee851dd1087114bd69a328a6193ca8aa35e194e719335f1d",
+    "experiments/ubuntu_figure_eight_20261103/接触前实际交叉独立核验.json": "e8aa838e52a00c41df1bd33046121416219ec79466a1240fcf6ea1ba67ada73f",
+    "experiments/ubuntu_figure_eight_20261103/case_evidence.tar.gz": "2e6779f8410385e27f77890482f308d2f02d3f0fa95fee07b6d366d3018b7181",
+    "experiments/ubuntu_figure_eight_20261103/archive_receipt_summary.json": "fc2c6d1dca0a56769d4c61f80c5ab47b4d9f5598f37c536bead6a33609604d75",
+    "experiments/ubuntu_figure_eight_20261103/M07_plot_samples.json": "17327d66b09c7c03b1616c706d8f52b0feaed4bf056942cb82a363b85af4f54d",
+    "experiments/ubuntu_figure_eight_20261103/M07全程曲线.png": "355822fd50d59d650755ae7ff40d8cf373e408b83841625170c2991149cf67d5",
+    "experiments/ubuntu_figure_eight_20261103/八字覆盖复测结果.json": "0968931e7f746eeb8b18262aca66fedbaa7431164ad9114682fed4d85fa5a8ba",
     "experiments/ubuntu_terminal_approach_20261103/README.md": "cfa272c3e9d00d52a5898cf3b854eaf6b60fc37fa6fce76ed108d7d25d0bbcfb",
     "experiments/ubuntu_terminal_approach_20261103/terminal_profile_green12.log": "05bdf30ab795dae6effe834d642e9ba599fdca26aa4c5d4386defa417748e793",
     "experiments/ubuntu_terminal_approach_20261103/unit_tests.log": "f910822507775398ae173466dfcbd1833fef5088889dc10ed37ea60899c91a5e",
@@ -1700,18 +1711,15 @@
   "current_code_physical_validation": {
     "actual_control_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
     "active_profile": "planar_terminal_recovery_v2",
-    "authorised_cases": [
-      "M18",
-      "M17",
-      "M01"
-    ],
-    "strict_passes": 2,
-    "M18": "no_platform_contact_safe_exit",
-    "M17": "safety_pass_coverage_incomplete",
-    "M01": "actual_platform_landing",
-    "tests_passed": 274,
+    "validated_different_cases_across_batches": {
+      "M18": "safe_exit_no_platform_contact",
+      "M01": "actual_platform_landing",
+      "M07": "actual_precontact_crossing_and_platform_landing",
+      "M17": "safety_physics_pass_but_reversal_coverage_incomplete"
+    },
     "all20_current_revision_validated": false,
-    "first_failure_and_environment_interruption_retained": true
+    "same447_sources_as_prior274_tested_revision": true,
+    "latest_one_case_M07_strict_pass": true
   },
   "directory_migration": {
     "date": "2026-10-30",
@@ -2195,5 +2203,60 @@
       "symlinks_recorded_without_dereference": 20
     }
   },
-  "historical_current_code_physical_validation_before_terminal_20261103": "Historical session004 retains four planar landings and one safe exit on its pinned revision. New high-clearance reacquisition trials require fresh physical validation."
+  "historical_current_code_physical_validation_before_terminal_20261103": "Historical session004 retains four planar landings and one safe exit on its pinned revision. New high-clearance reacquisition trials require fresh physical validation.",
+  "figure_eight_20261103_result": {
+    "case_id": "M07",
+    "category": "complete_function_success",
+    "strict_case_passed": true,
+    "all_original_safety_physics_contact_audits_passed": true,
+    "trajectory_coverage_passed": true,
+    "actual_precontact_polyline_self_intersection": true,
+    "contact_after_second_crossing_s": 0.4007856802318841,
+    "first_pass_world_elapsed_s": 6.587957275694215,
+    "second_pass_world_elapsed_s": 18.596214319768116,
+    "contact_world_elapsed_s": 18.997,
+    "actual_attempts_this_task": 1,
+    "controller_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+    "run_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+    "active_profile": "planar_terminal_recovery_v2",
+    "original_world_case_unchanged": true,
+    "no_new_control_code_changes": true,
+    "all447_sources_identical_to_previously_274_tested_revision": true,
+    "request_history_complete": true,
+    "native_closed_and_disarmed": true,
+    "self_intersection_auditor_sha256": "63875d812187df9422d7d23a13a65ff66697a8dac73e30f3f63b2e111d760d95",
+    "self_intersection_scope": "Actual raw platform XY polyline before physical contact/policy exit. Segment witnesses use linear interpolation between raw samples, not a continuous-time guarantee or a future reference. No .12m near-pass tolerance used.",
+    "original_M07_failure_retained": true,
+    "full_raw_uploaded": false,
+    "scope": "One M07 case only; no claim all20 cases revalidated under current controller.",
+    "archive": {
+      "path": "/workspace/outputs/八字覆盖复测归档_20261103/ubuntu_figure_eight_full_20261103.tar.gz",
+      "host_path": "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/outputs/八字覆盖复测归档_20261103/ubuntu_figure_eight_full_20261103.tar.gz",
+      "bytes": 38496773,
+      "sha256": "5de16fe77ee459356484e94092d52b8b335745c97ac0dc363aba8573a041e913",
+      "ordinary_files": 772,
+      "readback_verified": true,
+      "actual_new_physical_attempts": 1,
+      "offsite_backup": false,
+      "full_raw_uploaded": false,
+      "prior_original_M07_full_archive": "outputs/二维多工况归档_20261103/ubuntu_multicondition_full_20261103.tar.gz; SHA256 a04aac2501925fa93e90d97723f5f46bfb868b78ed110c2f9b69a008a2e9e5b2",
+      "symlinks_not_dereferenced_count": 4
+    }
+  },
+  "historical_current_validation_before_figure_eight_20261103": {
+    "actual_control_commit": "6e9b2c7fab50c045d58d0f1f8d0b078ea81ccd12",
+    "active_profile": "planar_terminal_recovery_v2",
+    "authorised_cases": [
+      "M18",
+      "M17",
+      "M01"
+    ],
+    "strict_passes": 2,
+    "M18": "no_platform_contact_safe_exit",
+    "M17": "safety_pass_coverage_incomplete",
+    "M01": "actual_platform_landing",
+    "tests_passed": 274,
+    "all20_current_revision_validated": false,
+    "first_failure_and_environment_interruption_retained": true
+  }
 }

@@ -1,0 +1,46 @@
+{
+  "original": {
+    "passed": false,
+    "scope": "Actual raw platform XY polyline before physical contact/policy exit. Segment witnesses use linear interpolation between raw samples, not a continuous-time guarantee or a future reference. No .12m near-pass tolerance used.",
+    "world_start_sim_t_s": 33.47,
+    "contact_or_exit_sim_t_s": 48.173,
+    "elapsed_to_contact_or_exit_s": 14.703000000000003,
+    "raw_platform_samples": 432,
+    "raw_max_gap_s": 0.034000000000006025,
+    "raw_uncompressed_sha256": "dd9c2ece6026cf426684b8b6864c8f097ce808ad7f5ba9fafb64a0b0c7024fe7",
+    "witnesses": []
+  },
+  "slow_terminal": {
+    "passed": true,
+    "scope": "Actual raw platform XY polyline before physical contact/policy exit. Segment witnesses use linear interpolation between raw samples, not a continuous-time guarantee or a future reference. No .12m near-pass tolerance used.",
+    "world_start_sim_t_s": 34.78,
+    "contact_or_exit_sim_t_s": 53.777,
+    "elapsed_to_contact_or_exit_s": 18.997,
+    "raw_platform_samples": 559,
+    "raw_max_gap_s": 0.034000000000006025,
+    "raw_uncompressed_sha256": "07b187b7f3debe0be3a6dabca0ea104db8659c97695179c23a70e523ad691b03",
+    "witnesses": [
+      {
+        "first_segment_sim_s": [
+          41.344,
+          41.378
+        ],
+        "second_segment_sim_s": [
+          53.346,
+          53.38
+        ],
+        "first_pass_interpolated_sim_s": 41.367957275694216,
+        "second_pass_interpolated_sim_s": 53.37621431976812,
+        "intersection_world_xy_m": [
+          3.5942127062061,
+          0.06432320396036433
+        ],
+        "distinct_tangent_cosine": -0.021826882182681383,
+        "raw_segment_indices": [
+          193,
+          546
+        ]
+      }
+    ]
+  }
+}

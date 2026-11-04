@@ -1,0 +1,13 @@
+{
+  "path": "/workspace/outputs/八字覆盖复测归档_20261103/ubuntu_figure_eight_full_20261103.tar.gz",
+  "host_path": "/home/sheng-hao/Documents/Codex/2026-10-28/new-chat/outputs/八字覆盖复测归档_20261103/ubuntu_figure_eight_full_20261103.tar.gz",
+  "bytes": 38496773,
+  "sha256": "5de16fe77ee459356484e94092d52b8b335745c97ac0dc363aba8573a041e913",
+  "ordinary_files": 772,
+  "readback_verified": true,
+  "actual_new_physical_attempts": 1,
+  "offsite_backup": false,
+  "full_raw_uploaded": false,
+  "prior_original_M07_full_archive": "outputs/二维多工况归档_20261103/ubuntu_multicondition_full_20261103.tar.gz; SHA256 a04aac2501925fa93e90d97723f5f46bfb868b78ed110c2f9b69a008a2e9e5b2",
+  "symlinks_not_dereferenced_count": 4
+}
