@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hs-stage6-vehicle-prediction"
+version = "0.1.0"
+description = "Independent pose-only vehicle UKF/IMM prediction core"
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0,<3", "scipy>=1.14,<2"]
+
+[project.scripts]
+stage6-predict = "stage6.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["stage6*"]

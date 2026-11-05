@@ -1,0 +1,74 @@
+{
+  "state_order": [
+    "x",
+    "y",
+    "psi",
+    "v",
+    "a",
+    "kappa",
+    "j",
+    "eta"
+  ],
+  "modes": [
+    {
+      "name": "CV",
+      "lambda_a": 3.0,
+      "lambda_k": 3.0,
+      "tau_j": 0.4,
+      "tau_eta": 0.4,
+      "q_j": 0.03,
+      "q_eta": 0.03
+    },
+    {
+      "name": "CA",
+      "lambda_a": 0.0,
+      "lambda_k": 3.0,
+      "tau_j": 0.7,
+      "tau_eta": 0.4,
+      "q_j": 0.25,
+      "q_eta": 0.03
+    },
+    {
+      "name": "CT",
+      "lambda_a": 3.0,
+      "lambda_k": 0.0,
+      "tau_j": 0.4,
+      "tau_eta": 0.5,
+      "q_j": 0.03,
+      "q_eta": 0.1
+    },
+    {
+      "name": "CTVAR",
+      "lambda_a": 0.0,
+      "lambda_k": 0.0,
+      "tau_j": 1.0,
+      "tau_eta": 1.0,
+      "q_j": 0.25,
+      "q_eta": 0.25
+    }
+  ],
+  "limits": {
+    "speed": 3.0,
+    "acceleration": 1.0,
+    "curvature": 1.0,
+    "jerk": 2.0,
+    "curvature_rate": 1.0,
+    "lateral_acceleration": 2.5
+  },
+  "observation_offset_xy": [
+    0.0,
+    0.0
+  ],
+  "max_substep_s": 0.05,
+  "minimum_samples": 5,
+  "minimum_span_s": 0.4,
+  "max_observation_age_s": 0.2,
+  "reset_gap_s": 1.0,
+  "mode_transition_offdiagonal_rate_per_s": 0.15,
+  "ut_alpha": 1.0,
+  "ut_beta": 2.0,
+  "ut_kappa": 0.0,
+  "particles_per_mode": 12,
+  "seed": 0,
+  "angular_sigma_bound_rad": 1.5707963267948966
+}

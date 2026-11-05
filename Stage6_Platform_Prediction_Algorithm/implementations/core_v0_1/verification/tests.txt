@@ -1,0 +1,41 @@
+test_invalid_geometry (test_deck.DeckTests.test_invalid_geometry) ... ok
+test_mount_yaw_and_batch_preserve_samples (test_deck.DeckTests.test_mount_yaw_and_batch_preserve_samples) ... ok
+test_rotating_offset_velocity (test_deck.DeckTests.test_rotating_offset_velocity) ... ok
+test_broad_heading_covariance_cannot_alias_to_precise (test_filter.FilterTests.test_broad_heading_covariance_cannot_alias_to_precise) ... ok
+test_clone_does_not_alias (test_filter.FilterTests.test_clone_does_not_alias) ... ok
+test_invalid_observations_and_covariance (test_filter.FilterTests.test_invalid_observations_and_covariance) ... ok
+test_linear_measurement_update (test_filter.FilterTests.test_linear_measurement_update) ... ok
+test_pose_offset_and_initial_covariance (test_filter.FilterTests.test_pose_offset_and_initial_covariance) ... ok
+test_process_noise_matches_substep_and_no_state_clipping (test_filter.FilterTests.test_process_noise_matches_substep_and_no_state_clipping) ... ok
+test_sigma_reconstructs_covariance (test_filter.FilterTests.test_sigma_reconstructs_covariance) ... ok
+test_stationary_curvature_not_divided_by_speed (test_filter.FilterTests.test_stationary_curvature_not_divided_by_speed) ... ok
+test_unsupported_prediction_does_not_partially_change_filter (test_filter.FilterTests.test_unsupported_prediction_does_not_partially_change_filter) ... ok
+test_yaw_wrap_short_innovation (test_filter.FilterTests.test_yaw_wrap_short_innovation) ... ok
+test_all_rejections_reported (test_forecast.ForecastTests.test_all_rejections_reported) ... ok
+test_particle_circle_analytic_and_velocity_heading_link (test_forecast.ForecastTests.test_particle_circle_analytic_and_velocity_heading_link) ... ok
+test_causal_file_replay_and_configuration_saved (test_io.IOTests.test_causal_file_replay_and_configuration_saved) ... ok
+test_command_line_runs_and_invalid_arguments_fail (test_io.IOTests.test_command_line_runs_and_invalid_arguments_fail) ... ok
+test_future_suffix_cannot_change_saved_prefix (test_io.IOTests.test_future_suffix_cannot_change_saved_prefix) ... ok
+test_invalid_input_cleans_output_and_existing_output_untouched (test_io.IOTests.test_invalid_input_cleans_output_and_existing_output_untouched) ... ok
+test_unknown_fields_and_empty_file_rejected (test_io.IOTests.test_unknown_fields_and_empty_file_rejected) ... ok
+test_acceleration_and_jerk_analytic (test_model.ModelTests.test_acceleration_and_jerk_analytic) ... ok
+test_batch_matches_scalar_and_substeps (test_model.ModelTests.test_batch_matches_scalar_and_substeps) ... ok
+test_circle (test_model.ModelTests.test_circle) ... ok
+test_constant_velocity_and_reverse (test_model.ModelTests.test_constant_velocity_and_reverse) ... ok
+test_invalid_inputs (test_model.ModelTests.test_invalid_inputs) ... ok
+test_limits_use_actual_jerk (test_model.ModelTests.test_limits_use_actual_jerk) ... ok
+test_transitions_are_stochastic_and_time_consistent (test_model.ModelTests.test_transitions_are_stochastic_and_time_consistent) ... ok
+test_extreme_likelihoods_stay_normalized (test_predictor.PredictorTests.test_extreme_likelihoods_stay_normalized) ... ok
+test_forecast_is_repeatable_and_does_not_mutate_filter_or_global_rng (test_predictor.PredictorTests.test_forecast_is_repeatable_and_does_not_mutate_filter_or_global_rng) ... ok
+test_invalid_age_propagation_retains_modes_and_degrades (test_predictor.PredictorTests.test_invalid_age_propagation_retains_modes_and_degrades) ... ok
+test_invalid_forecast_grid (test_predictor.PredictorTests.test_invalid_forecast_grid) ... ok
+test_lifecycle_and_delayed_receipt (test_predictor.PredictorTests.test_lifecycle_and_delayed_receipt) ... ok
+test_mixing_includes_between_model_covariance_and_wrap (test_predictor.PredictorTests.test_mixing_includes_between_model_covariance_and_wrap) ... ok
+test_no_samples_does_not_erase_mode (test_predictor.PredictorTests.test_no_samples_does_not_erase_mode) ... ok
+test_pose_only_estimation_and_positive_covariances (test_predictor.PredictorTests.test_pose_only_estimation_and_positive_covariances) ... ok
+test_rejected_order_does_not_modify_state (test_predictor.PredictorTests.test_rejected_order_does_not_modify_state) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 1.693s
+
+OK

@@ -1,0 +1,11 @@
+{"stamp": 0.0, "received_at": 0.0, "position_xy": [0.0, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.1, "received_at": 0.1, "position_xy": [0.1, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.2, "received_at": 0.2, "position_xy": [0.2, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.3, "received_at": 0.3, "position_xy": [0.3, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.4, "received_at": 0.4, "position_xy": [0.4, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.5, "received_at": 0.5, "position_xy": [0.5, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.6, "received_at": 0.6, "position_xy": [0.6, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.7, "received_at": 0.7, "position_xy": [0.7, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.8, "received_at": 0.8, "position_xy": [0.8, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 0.9, "received_at": 0.9, "position_xy": [0.9, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
+{"stamp": 1.0, "received_at": 1.0, "position_xy": [1.0, 0.0], "yaw": 0.0, "covariance": [[0.0025, 0, 0], [0, 0.0025, 0], [0, 0, 0.0004]]}
