@@ -8,5 +8,3 @@ cd HS-FYP-/毕设仿真
 python scripts/verify_source_package.py
 python -m unittest discover -s tests -v
 ```
-
-`论文仿真/` 保持原样，本次未修改或执行其中内容。
