@@ -1,3 +1,9 @@
+# 第五阶段：规划算法
+
+2026-11-05：本阶段作为已有着陆算法基线保留，原“毕设仿真”目录改名为 `Stage5_Trajectory_Planning_Algorithm`。新工作转入[第六阶段：车辆平台运动预测](../Stage6_Platform_Prediction_Algorithm/README.md)，先完成预测模块，再研究无人机择机下降。下方记录保留各自日期和版本的结论，不作为恢复旧待办的指令。
+
+---
+
 # 当前演示交付状态
 
 2026-11-02功能演示已完成：X/Y/XY三场真实物理录制均严格通过，18份审计与3份请求历史通过；三份1倍墙钟单轴视频和1份2倍墙钟汇总已完整解码检查。控制仍固定748b27e，最终入口经独立审查补齐保护，211项Linux测试通过。首次录制主机重启中断保留，3个有效场景来自4次物理尝试。
@@ -43,7 +49,7 @@
 
 ```bash
 git clone https://github.com/haosheng101100-crypto/HS-FYP-.git
-cd HS-FYP-/毕设仿真
+cd HS-FYP-/Stage5_Trajectory_Planning_Algorithm
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
