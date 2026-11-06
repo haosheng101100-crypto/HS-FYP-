@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-11-07T00:29:11.370953+08:00",
+  "checksummed_files": 306,
+  "all_checksums_match": true,
+  "all_json_jsonl_parse": true,
+  "zip_integrity_and_file_bytes_match": true,
+  "requirements_lines": 6,
+  "packaged_test_results": [
+    {
+      "suite": "tests_core",
+      "passed": 36,
+      "exit_code": 0
+    },
+    {
+      "suite": "tests",
+      "passed": 17,
+      "exit_code": 0
+    },
+    {
+      "suite": "tests_legacy",
+      "passed": 15,
+      "exit_code": 0
+    }
+  ],
+  "zip_bytes": 1313880,
+  "zip_sha256": "923ca7122d5907c8218b4b5e58de0942dbdfd364cae2e688ca7e77763f9070fc",
+  "git_blob_sha": "35690aa6f972288bd9d570d3ec2c065bd5329be9"
+}

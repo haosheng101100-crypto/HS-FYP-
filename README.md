@@ -5,9 +5,9 @@
 | 目录 | 内容 |
 | --- | --- |
 | [Stage5_Trajectory_Planning_Algorithm](Stage5_Trajectory_Planning_Algorithm/README.md) | 第五阶段：规划算法、仿真环境、配置、测试和历史实验资料 |
-| [Stage6_Platform_Prediction_Algorithm](Stage6_Platform_Prediction_Algorithm/README.md) | 第六阶段：车辆平台预测算法的研究说明、文献和后续实现 |
+| [Stage6_Platform_Prediction_Algorithm](Stage6_Platform_Prediction_Algorithm/README.md) | 第六阶段：车辆预测算法、独立评价与四轮平台原生降落联调 |
 
-当前新工作从 [第六阶段说明](Stage6_Platform_Prediction_Algorithm/README.md) 开始。先实现并验证预测模块，再研究无人机择机下降；具体测试情景在算法实现后安排。
+第六阶段已实现 UKF/IMM 车辆预测与甲板映射，并完成选定匀速、变速的前台原生甲板降落，以及声明预测中断后的安全退出核验。结果范围、复现限制及完整下载见[原生闭环交付说明](Stage6_Platform_Prediction_Algorithm/releases/native_closed_loop_20261107.md)。两次降落与一次退出分别统计，不能据此推断总体成功率。
 
 ## 目录调整
 
@@ -24,4 +24,5 @@ python scripts/verify_source_package.py
 python -m unittest discover -s tests -v
 ```
 
-依赖与仿真部署见第五阶段原有说明。第六阶段目前只有研究说明和引用，尚无可运行的新预测程序。
+依赖与仿真部署见第五阶段原有说明。第六阶段源码、测试和所选原生实跑证据见[最新交付](Stage6_Platform_Prediction_Algorithm/releases/native_closed_loop_20261107.md)。原生运行还需说明中列出的 Gazebo、飞控及模型环境。
+
