@@ -1,0 +1,93 @@
+{
+  "repository": "haosheng101100-crypto/HS-FYP-",
+  "verified_existing_commit": "247fb6ff57a4e2462a7ff885b1bf7c4f461388dd",
+  "scope": "Index of existing Stage5 compact evidence packages. Original result classifications remain unchanged; this cleanup does not mean every attempt succeeded. Full raw histories are not represented as uploaded.",
+  "existing_evidence_packages": [
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_20261029_session002",
+      "files": 116,
+      "bytes": 3044751
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_demo_delivery_20261102",
+      "files": 79,
+      "bytes": 4079556
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_figure_eight_20261103",
+      "files": 11,
+      "bytes": 1017069
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_functional_acceptance_20261102",
+      "files": 317,
+      "bytes": 5440452
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_latest_demo_20261104",
+      "files": 28,
+      "bytes": 3112277
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_m17_diagnosis_20261104",
+      "files": 6,
+      "bytes": 298473
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_multicondition_20261103_batch001",
+      "files": 60,
+      "bytes": 275110
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_multicondition_20261103_batch002",
+      "files": 7,
+      "bytes": 49127
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_multicondition_20261103_results",
+      "files": 44,
+      "bytes": 12314128
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_planar_20261101_session004",
+      "files": 77,
+      "bytes": 1384249
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_pruned_20261030_session001",
+      "files": 125,
+      "bytes": 3064197
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_reacquisition_20261102_session001",
+      "files": 180,
+      "bytes": 3755571
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_recovery_handoff_20261103",
+      "files": 10,
+      "bytes": 85629
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_repeatability_A_20261102",
+      "files": 14,
+      "bytes": 111592
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_solver_20261030_session003",
+      "files": 124,
+      "bytes": 3068323
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_terminal_approach_20261103",
+      "files": 11,
+      "bytes": 19051
+    },
+    {
+      "path": "Stage5_Trajectory_Planning_Algorithm/experiments/ubuntu_terminal_recovery_20261103_results",
+      "files": 15,
+      "bytes": 3633028
+    }
+  ],
+  "retention": "Keep source/config/results/key evidence; replace redundant full historical archives locally with essential archives and clearly labelled sampled streams. Some full-frequency raw data is intentionally discarded and cannot be reconstructed from samples."
+}

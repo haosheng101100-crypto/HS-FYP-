@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "name": "Stage8_前台降落闭环_20261106_162505_15640__constant.json",
+      "bytes": 59577,
+      "sha256": "1b159371e6f8f9610576812b9181fd370714aea01ee8c7ea68dffd183a4b4e82",
+      "git_blob_sha": "d13088b64a65421035cfa3c02dffdec5549d1a8d"
+    },
+    {
+      "name": "latest_varying_native_evidence.json",
+      "bytes": 26104,
+      "sha256": "d38797bc1609100f6c82b8ca8ee54274dff7e3e41b9fe5ec8b7cde26148ba130",
+      "git_blob_sha": "3b9ffd1caa5af2b75cee46d82550960e1321e306"
+    },
+    {
+      "name": "README.md",
+      "bytes": 1358,
+      "sha256": "e27957dd31cbdc0b05695b2421916ab60cd752184fe4a298c5308a0a5cad5283",
+      "git_blob_sha": "1dbd05b9fe1c523a68651acf2d0aae097b514850"
+    },
+    {
+      "name": "stage5_existing_evidence_index.json",
+      "bytes": 3291,
+      "sha256": "d9c55c7e279a0129ebe886e1c757154a0090fb01976e10f9b961fe4f9ff9d74a",
+      "git_blob_sha": "14b6d5855b6495a5325b574a48bdc1a609b0e1df"
+    },
+    {
+      "name": "Stage8_前台降落闭环_20261106_155201_12466__constant.json",
+      "bytes": 59107,
+      "sha256": "33a290541bd1f376cd96d6d8bed9d7726088f9d39afb2f4286ef0ac6dfb3cfdc",
+      "git_blob_sha": "2a47413641c19efbad50d3d01286d92bfad37583"
+    }
+  ]
+}
