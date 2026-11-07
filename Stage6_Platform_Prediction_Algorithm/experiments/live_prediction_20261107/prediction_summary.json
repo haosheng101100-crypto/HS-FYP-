@@ -1,0 +1,39 @@
+{
+  "runs": [
+    {
+      "scenario": "turning",
+      "scope": "Native Gazebo physical vehicle prediction only; no UAV landing trial",
+      "pose_source": "/model/landing_vehicle/pose",
+      "started_sim_s": 0.034,
+      "finished_sim_s": 23.057,
+      "issued": 40,
+      "statuses": {
+        "warming_up": 1,
+        "ready": 39
+      },
+      "matured": 40,
+      "valid_point_predictions": 39,
+      "steady_scored": 36,
+      "ade_m": 0.030555452783150885,
+      "fde_m": 0.07657786391743573,
+      "derived_lateral_velocity_rms_mps": 0.001643737321683865,
+      "forecast_ms_median": 87.95208899999807,
+      "forecast_ms_p95": 108.6341185499748,
+      "label_scope": "Actual received poses, linear interpolation only across <=0.1s gaps; velocity derived from pose differences.",
+      "usable_publications": 39,
+      "usable_fraction": 0.975,
+      "target_scope": "Only targets still future at actual publication; last target was2s after source snapshot, so remaining horizon can be shorter.",
+      "numerical_acceptance": true,
+      "actual_motion_audit": {
+        "passed": true,
+        "travel_m": 4.991909617753192,
+        "displacement_m": 4.681816678482725,
+        "yaw_span_rad": 1.1500822512862099,
+        "stabilized_speed_90_10_mps": 0.003523315645746261,
+        "scope": "Measured mechanism coverage, not ideal command tracking."
+      }
+    }
+  ],
+  "passed": true,
+  "scope": "One foreground native turning car with concurrently recorded live prediction pane; no UAV landing"
+}

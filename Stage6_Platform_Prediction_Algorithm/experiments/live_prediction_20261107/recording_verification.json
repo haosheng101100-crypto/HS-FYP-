@@ -1,0 +1,35 @@
+{
+  "verified_at": "2026-11-07T10:12:55.892040+08:00",
+  "recording": "Two concurrently captured live native X11 windows; real Gazebo physics and live UKF/IMM prediction pane. No historical replay or synthetic car render.",
+  "native_real_time_factor": 0.25,
+  "prediction_summary_passed": true,
+  "decode_passed": true,
+  "owned_processes_closed": true,
+  "video_path": "/home/sheng-hao/Documents/Codex/2026-11-05/new-chat/outputs/Stage6_实时双窗实录_20261107_101102_11297/turning/foreground_raw.mp4",
+  "video_bytes": 2741450,
+  "video_sha256": "4e672d94791b83bebb0e1eb804a07539aa801b3440c2a3242ef28f38a89e6503",
+  "dual_window_evidence": {
+    "gazebo": {
+      "window_id": 27262994,
+      "window_pid": 14,
+      "owned_process_group": 14,
+      "title": "Gazebo GUI"
+    },
+    "prediction_panel": {
+      "window_id": 29360131,
+      "window_pid": 51,
+      "owned_process_group": 51,
+      "title": "LIVE Prediction - Stage6"
+    },
+    "gazebo_size": [
+      1240,
+      720
+    ],
+    "panel_size": [
+      760,
+      720
+    ],
+    "capture": "Two live native X11 windows captured concurrently and stacked during recording; no saved prediction replay",
+    "wall_unix_s": 1794017464.1697667
+  }
+}

@@ -11,6 +11,13 @@
 
 第五阶段已经形成移动小平台着陆的规划与执行基线，保存在 [Stage5_Trajectory_Planning_Algorithm](../Stage5_Trajectory_Planning_Algorithm/README.md)。新预测模块在本目录独立开发。
 
+## 实际车辆与实时预测录像（2026-11-07）
+
+- [实跑视频、实际画面及运行核验](experiments/live_prediction_20261107/README.md)
+- [阶段成果汇报要点](experiments/live_prediction_20261107/阶段成果汇报.md)
+
+本次将前台 Gazebo 四轮车与在线预测面板同时录制，原生物理时钟为 0.25 倍；它是独立车辆预测展示，不是新增无人机落台试验。具体指标、版本范围和限制见说明。
+
 ## 预测算法与原生闭环交付（2026-11-07）
 
 - [源码、核验结果、适用范围与复现说明](releases/native_closed_loop_20261107.md)

@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "travel_m": 4.991909617753192,
+  "displacement_m": 4.681816678482725,
+  "yaw_span_rad": 1.1500822512862099,
+  "stabilized_speed_90_10_mps": 0.003523315645746261,
+  "scope": "Measured mechanism coverage, not ideal command tracking."
+}

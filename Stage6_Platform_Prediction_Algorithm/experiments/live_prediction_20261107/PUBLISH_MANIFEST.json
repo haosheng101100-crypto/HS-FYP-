@@ -1,0 +1,80 @@
+{
+  "verified_at": "2026-11-07T10:28:23.960623+08:00",
+  "selected_native_run": "/home/sheng-hao/Documents/Codex/2026-11-05/new-chat/outputs/Stage6_实时双窗实录_20261107_101102_11297",
+  "native_real_time_factor": 0.25,
+  "video_is_concurrent_live_native_window_capture": true,
+  "video_decode_and_numerical_acceptance_passed": true,
+  "files": [
+    {
+      "name": "live_prediction.mp4",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/turning/foreground_raw.mp4",
+      "bytes": 2741450,
+      "sha256": "4e672d94791b83bebb0e1eb804a07539aa801b3440c2a3242ef28f38a89e6503",
+      "git_blob_sha": "4c9db003504c580d5bd9823cb47ae16b844d4808"
+    },
+    {
+      "name": "preview.png",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/实跑双窗预览.png",
+      "bytes": 249874,
+      "sha256": "b96554527d528af279c89e4eca8c2ad4d6b7b56cac20b90c77fe2b47959c1c73",
+      "git_blob_sha": "a57f051c2afb9211b4cbb7c2404ec7c80fde3cb4"
+    },
+    {
+      "name": "recording_verification.json",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/实跑录制核验.json",
+      "bytes": 1214,
+      "sha256": "82db755b8000ed99eb72f56d0ef603d15ebb434784241087c66fdce9e43155f8",
+      "git_blob_sha": "4ed2638a240cd7e320a0f82d72fa2e915d659b0a"
+    },
+    {
+      "name": "prediction_summary.json",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/physical_prediction_summary.json",
+      "bytes": 1512,
+      "sha256": "a33360c695b07d1f988fa0cc6e1f1c3b557a1b620d6ccf0238bf5bea83bbcf0a",
+      "git_blob_sha": "9ee58a815a20b53075c3be8bcd64f3455ecd5b80"
+    },
+    {
+      "name": "actual_motion_audit.json",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/turning/actual_motion_audit.json",
+      "bytes": 256,
+      "sha256": "1dd226fc787e21ac7ec4a7b78b8d35022bf7f21d2ff87b1a0f4427b2d412b40d",
+      "git_blob_sha": "a7f99a4370e76b00410fabcc6620c5b7d7be5d6f"
+    },
+    {
+      "name": "declared_protocol.json",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/declared_protocol.json",
+      "bytes": 8017,
+      "sha256": "01f90c3348c068c39601b57c745c4a70a746ed8a49bb479f48beca11473c88b7",
+      "git_blob_sha": "1c137e7170b011d127b4549f95583aa36dffb0db"
+    },
+    {
+      "name": "timing_events.jsonl",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/时间记录/events.jsonl",
+      "bytes": 876,
+      "sha256": "bc6bcdad7e370a6111bc6e2935a8d8892ea41d25792ac7ee5f85a5a2c9dc570a",
+      "git_blob_sha": "e9a9edf8c7cedaa20a05cf4c5d24d20e41513c1e"
+    },
+    {
+      "name": "仿真时间记录.md",
+      "local": "outputs/Stage6_实时双窗实录_20261107_101102_11297/时间记录/仿真时间记录.md",
+      "bytes": 876,
+      "sha256": "b817fe2aa9964038f69c6bdca7d2f575cd90c76f20709be8a4e23dd0730a059f",
+      "git_blob_sha": "f259090fc77954bd25b78cf3ae8f732799040f20"
+    },
+    {
+      "name": "README.md",
+      "local": "work/stage6_live_visual/publication/README.md",
+      "bytes": 3197,
+      "sha256": "3289aab83eb0cca91ab3219934f6691f313db2bf868c2a3b42a9762d86a75acd",
+      "git_blob_sha": "3afe330c582f0b81f7f44922964c57602ba0d1c3"
+    },
+    {
+      "name": "阶段成果汇报.md",
+      "local": "work/stage6_live_visual/publication/阶段成果汇报.md",
+      "bytes": 5820,
+      "sha256": "3e7147a135b1f46742de9f257b43150dc84dede64c98c58b1c7fff049f1fdeff",
+      "git_blob_sha": "820416e308b798791aa2d945d3ed4af0609352c4"
+    }
+  ],
+  "scope": "Only this verified live run. No failure logs, historical data replay video, or high-frequency raw trajectories uploaded."
+}
